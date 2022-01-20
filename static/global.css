@@ -34,11 +34,12 @@
 		url('./fonts/calibri/Calibri-Light.tff') format('ttf');
 }
 
-
 :root {
 	--logo-font: 'Ovo', serif;
 	--text-font: 'Calibri', sans-serif;
+    
 	--primary-color: #e2504c;
 	--secondary-color: #fbc05d;
-	--tertiary-color: #7fbcab;
+	--highlight-color: #7fbcab;
+    --base-color: #383932;
 }
