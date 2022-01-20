@@ -35,3 +35,10 @@
 }
 
 
+:root {
+	--logo-font: 'Ovo', serif;
+	--text-font: 'Calibri', sans-serif;
+	--primary-color: #e2504c;
+	--secondary-color: #fbc05d;
+	--tertiary-color: #7fbcab;
+}
