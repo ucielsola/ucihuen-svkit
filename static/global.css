@@ -1,0 +1,37 @@
+/* ovo-regular - latin */
+@font-face {
+	font-family: 'Ovo';
+	font-style: normal;
+	font-weight: 400;
+	src: local(''), url('./fonts/ovo/ovo-v15-latin-regular.woff2') format('woff2'),
+		url('./fonts/ovo-v15-latin-regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Calibri';
+	font-style: normal;
+	font-weight: 400;
+	src: local(''), url('./fonts/calibri/Calibri.woff2') format('woff2'),
+		url('./fonts/calibri/Calibri.woff') format('woff'),
+		url('./fonts/calibri/Calibri.tff') format('ttf');
+}
+
+@font-face {
+	font-family: 'Calibri';
+	font-style: normal;
+	font-weight: 600;
+	src: local(''), url('./fonts/calibri/Calibri-Bold.woff2') format('woff2'),
+		url('./fonts/calibri/Calibri-Bold.woff') format('woff'),
+		url('./fonts/calibri/Calibri-Bold.tff') format('ttf');
+}
+
+@font-face {
+	font-family: 'Calibri';
+	font-style: normal;
+	font-weight: 300;
+	src: local(''), url('./fonts/calibri/Calibri-Light.woff2') format('woff2'),
+		url('./fonts/calibri/Calibri-Light.woff') format('woff'),
+		url('./fonts/calibri/Calibri-Light.tff') format('ttf');
+}
+
+
