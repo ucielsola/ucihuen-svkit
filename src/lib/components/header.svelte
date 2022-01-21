@@ -34,7 +34,7 @@
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		background-image: var(--bg-image);
+		background-image: var(--cover-image);
 		background-position: center;
 		background-size: cover;
 		border-bottom-left-radius: 1rem;
@@ -105,7 +105,7 @@
 
 		.background .blur {
 			position: absolute;
-			background-image: url('images/cover.webp');
+			background-image: var(--cover-image);
 			filter: blur(2px);
 			width: 100%;
 			height: 100%;

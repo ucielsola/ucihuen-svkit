@@ -54,12 +54,11 @@
 	--base-color: #383932;
 
 	--padding-inline: 1rem;
-	--bg-image: url('/images/cover.webp')
+	--cover-image: url('/images/cover.webp')
 }
 
 body {
 	background-color: rgb(230, 230, 230);
-	background-image: var(--bg-image);
 }
 
 #svelte {
