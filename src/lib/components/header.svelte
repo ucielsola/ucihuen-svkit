@@ -26,7 +26,7 @@
 		display: grid;
 		place-content: end;
 		min-height: 35vh;
-		margin-block-end: 4rem;
+		margin-block-end: 6rem;
 		padding-block-end: 0.5rem;
 	}
 
