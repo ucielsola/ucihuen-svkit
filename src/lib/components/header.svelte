@@ -91,8 +91,6 @@
 	.nav-container {
 		position: absolute;
 		bottom: -4rem;
-		display: grid;
-		place-content: center;
 		width: 100%;
 		margin-inline: auto;
 		font-size: 2rem;

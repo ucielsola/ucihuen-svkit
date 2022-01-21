@@ -15,6 +15,7 @@
 
 <style>
 	.fab-container {
+		display: none;
 		position: absolute;
 		height: 100%;
 	}
