@@ -1,5 +1,6 @@
 <script>
 	import IconGrid from '$lib/components/iconGrid.svelte';
+	import Cards from '$lib/components/cards.svelte';
 	import Map from '$lib/components/map.svelte';
 </script>
 
@@ -27,7 +28,10 @@
 	<IconGrid />
 </section>
 
-
+<section>
+	<h2>¿Cómo son las cabañas?</h2>
+	<Cards />
+</section>
 
 <!-- <section>
 	<Map />
@@ -35,14 +39,16 @@
 <style>
 	section {
 		padding-inline: var(--padding-inline);
+		padding-block: 1rem;
 	}
 
 	h2 {
-		font-size: 1.1rem;
+		padding-block-end:0.5rem;
+		font-size: 1.5rem;
 		text-align: center;
 		font-feature-settings: 'pnum' on, 'lnum' on;
 		color: var(--base-color);
-		text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+		text-shadow: var(--text-shadow);
 	}
 	p {
 		margin-block: 0.5rem;

@@ -54,25 +54,30 @@
 	--base-color: #383932;
 
 	--padding-inline: 1rem;
-	--cover-image: url('/images/cover.webp')
+	--cover-image: url('/images/cover.webp');
+	--shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	--text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 }
 
 body {
 	background-color: rgb(230, 230, 230);
+	font-family: var(--text-font);
 }
 
 #svelte {
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 	max-width: 1920px;
 	margin-inline: auto;
 	background-color: #fff;
 	box-shadow: 0px 3rem 20px 6px rgb(0 0 0 / 40%);
 }
-
-
+.sticky {
+	position: sticky;
+	bottom: 1rem;
+}
 
 @media screen and (min-width: 1024px) {
 	#svelte {
-		overflow-x: revert;
+		/* overflow-x: revert; */
 	}
 }
