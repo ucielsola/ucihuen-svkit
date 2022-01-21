@@ -34,15 +34,26 @@
 		url('./fonts/calibri/Calibri-Light.tff') format('ttf');
 }
 
+@font-face {
+	font-family: 'Ruluko';
+	font-style: normal;
+	font-weight: 400;
+	src: local(''), url('./fonts/ruluko/ruluko-v19-latin-regular.woff2') format('woff2'),
+		/* Chrome 26+, Opera 23+, Firefox 39+ */ url('./fonts/ruluko/ruluko-v19-latin-regular.woff')
+			format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
 :root {
 	--logo-font: 'Ovo', serif;
 	--text-font: 'Calibri', sans-serif;
+	--sections-font: 'Ruluko', sans-serif;
 
 	--primary-color: #e2504c;
 	--secondary-color: #fbc05d;
 	--highlight-color: #7fbcab;
 	--base-color: #383932;
-	--radius: 1rem;
+
+	--padding-inline: 1rem;
 }
 
 body {
@@ -50,8 +61,15 @@ body {
 }
 
 #svelte {
-	max-width: 1366px;
+	overflow-x: hidden;
+	max-width: 1920px;
 	margin-inline: auto;
 	background-color: #fff;
 	box-shadow: 0px 3rem 20px 6px rgb(0 0 0 / 40%);
+}
+
+@media screen and (min-widht: 1024px) {
+	#svelte {
+		overflow-x: revert;
+	}
 }

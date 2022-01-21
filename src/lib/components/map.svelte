@@ -9,7 +9,7 @@
 <style>
 	iframe {
 		width: 100%;
-		min-height: 50vh ;
+		min-height: 30vh ;
 		border: none;
 	}
 </style>
