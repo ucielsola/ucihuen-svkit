@@ -96,7 +96,7 @@
 		font-size: 2rem;
 	}
 
-	@media screen and (min-widht: 1024px) {
+	@media screen and (min-width: 1024px) {
 		header {
 			box-shadow: 0px 1rem 30px 6px rgb(0 0 0 / 40%);
 		}

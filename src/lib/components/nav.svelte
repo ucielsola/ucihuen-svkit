@@ -1,5 +1,5 @@
 <script>
-	import { page} from '$app/stores';
+	import { page } from '$app/stores';
 </script>
 
 <nav>
@@ -35,20 +35,52 @@
 	.underline {
 		position: relative;
 		display: flex;
-        align-items: center;
+		align-items: center;
 		background-color: #000;
 		width: 150%;
 		height: 2px;
 		margin-left: -25%;
 	}
-	.underline.active::after {
+	.underline::after {
 		position: absolute;
 		display: block;
 		content: '';
 		width: 50%;
 		height: 0.5rem;
-		background: linear-gradient(90deg, rgba(251,192,93,1) 0%, rgba(226,80,76,1) 100%);
+		background: linear-gradient(90deg, rgba(251, 192, 93, 1) 0%, rgba(226, 80, 76, 1) 100%);
 		margin-left: 25%;
-        border-radius: 5px;
+		border-radius: 5px;
+		animation: disappear 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	}
+
+	.underline.active::after {
+		animation: appear 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	}
+
+	@keyframes appear {
+		0% {
+			transform: translateZ(-1400px);
+			opacity: 0;
+		}
+		100% {
+			transform: translateZ(0);
+			opacity: 1;
+		}
+	}
+	@keyframes disappear {
+		0% {
+			transform: translateZ(0);
+			opacity: 1;
+		}
+		100% {
+			transform: translateZ(-1400px);
+			opacity: 0;
+		}
+	}
+
+	@media screen and (min-width: 1024px) {
+		a:last-of-type {
+			display: inline-block;
+		}
 	}
 </style>
