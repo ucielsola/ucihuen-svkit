@@ -45,10 +45,10 @@
 		position: absolute;
 		display: block;
 		content: '';
-		width: 50%;
+		width: 70%;
 		height: 0.5rem;
 		background: linear-gradient(90deg, rgba(251, 192, 93, 1) 0%, rgba(226, 80, 76, 1) 100%);
-		margin-left: 25%;
+		margin-left: 15%;
 		border-radius: 5px;
 		animation: disappear 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
