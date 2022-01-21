@@ -34,7 +34,7 @@
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		background-image: url('./images/cover.webp');
+		background-image: var(--bg-image);
 		background-position: center;
 		background-size: cover;
 		border-bottom-left-radius: 1rem;
