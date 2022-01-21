@@ -46,7 +46,6 @@
 		background-color: #fff3;
 		width: 100%;
 		height: 100%;
-		transform: scale(1.01);
 		background-size: cover;
 		background-position: center;
 	}
@@ -106,7 +105,7 @@
 
 		.background .blur {
 			position: absolute;
-			background-image: url(./src/lib/imgs/cover.webp);
+			background-image: url('images/cover.webp');
 			filter: blur(2px);
 			width: 100%;
 			height: 100%;
