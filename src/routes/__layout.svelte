@@ -1,4 +1,15 @@
+<script context="module">
+	export const load = async ({ url }) => ({
+		props: {
+			key: url
+		}
+	});
+</script>
+
 <script>
+	import PageTransition from '$lib/components/PageTransitions.svelte';
+	export let key;
+
 	import Header from '$lib/components/header.svelte';
 	import Footer from '$lib/components/footer.svelte';
 	import Fab from '$lib/components/fab.svelte';
@@ -40,10 +51,12 @@
 <svelte:window bind:scrollY={scrolled} />
 
 <Header />
-<main>
-	<Fab --footer-height={footerHeight} {scrolledPercentage} {scrollingUp} />
-	<slot />
-</main>
+<PageTransition refresh={key}>
+	<main>
+		<Fab --footer-height={footerHeight} {scrolledPercentage} {scrollingUp} />
+		<slot />
+	</main>
+</PageTransition>
 <Footer />
 
 <style>

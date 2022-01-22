@@ -38,20 +38,24 @@
 		margin-block-end: 1rem;
 		background: var(--gradient);
 	}
-	.content,
-	.title {
-		padding-inline: var(--padding-inline);
-	}
 
 	.content {
+		padding-inline: var(--padding-inline);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
 
+	.title {
+		font-size: 1.1rem;
+		padding-inline: var(--padding-inline);
+		padding-block: 0.5rem;
+	}
+
 	a {
 		text-decoration: none;
 		color: #000;
+		font-weight: 300;
 	}
 
 	.airbnb,
@@ -62,6 +66,8 @@
 	.whatsapp {
 		display: flex;
 		align-items: center;
+		font-size: 1rem;
+		font-weight: 300;
 	}
 	.whatsapp img {
 		padding-right: 0.3rem;
