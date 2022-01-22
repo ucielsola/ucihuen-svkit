@@ -8,7 +8,7 @@
 	};
 </script>
 
-<a href="/reservas" class={percentage > 85 ? 'pushed-up' : ''}
+<a href="/reservas" class={percentage > 95 ? 'pushed-up' : ''}
 	><div class="wrapper {active ? 'active' : ''}">
 		{#if width > 1024}
 			<button on:mousedown={toggleActive} on:mouseup={toggleActive}>CONSULTAR RESERVA</button>
