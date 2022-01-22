@@ -1,7 +1,3 @@
-<script>
-	import Nav from '$lib/components/nav.svelte';
-</script>
-
 <header>
 	<div class="background">
 		<div class="blur" />
@@ -15,9 +11,6 @@
 			rios, arroyos y cascadas.
 		</p>
 	</div>
-	<div class="nav-container">
-		<Nav />
-	</div>
 </header>
 
 <style>
@@ -26,7 +19,6 @@
 		display: grid;
 		place-content: end;
 		min-height: 35vh;
-		margin-block-end: 6rem;
 		padding-block-end: 0.5rem;
 	}
 
@@ -88,12 +80,7 @@
 		text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.6);
 	}
 
-	.nav-container {
-		position: absolute;
-		bottom: -4rem;
-		width: 100%;
-		margin-inline: auto;
-	}
+
 
 	@media screen and (min-width: 1024px) {
 		header {

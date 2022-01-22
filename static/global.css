@@ -103,6 +103,7 @@ section {
 	background: var(--backdrop);
 }
 
-.swiper-slide {
-	padding-block: 2rem;
+.swiper-wrapper {
+	align-items: center;
+	padding-block: 1rem;
 }

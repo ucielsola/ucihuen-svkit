@@ -17,6 +17,8 @@
 	import Header from '$lib/components/header.svelte';
 	import Footer from '$lib/components/footer.svelte';
 	import Fab from '$lib/components/fab.svelte';
+	import Nav from '$lib/components/nav.svelte';
+
 	import { onMount } from 'svelte';
 	import { getWindowHeight, getFooterHeight } from '$lib/store.js';
 
@@ -54,7 +56,7 @@
 			{ passive: true }
 		);
 	};
-	
+
 	// fires if url change and only on client side
 	$: if (key && ready) {
 		setTimeout(() => {
@@ -66,6 +68,9 @@
 <svelte:window bind:scrollY={scrolled} />
 
 <Header />
+<div class="nav-container">
+	<Nav />
+</div>
 <PageTransition refresh={key}>
 	<main>
 		<Modals>
@@ -87,5 +92,11 @@
 			rgba(255, 255, 255, 0.5) 90%,
 			rgba(127, 188, 171, 0.5) 100%
 		);
+	}
+
+	.nav-container {
+		width: 100%;
+		margin-inline: auto;
+		margin-block-start: 1rem;
 	}
 </style>

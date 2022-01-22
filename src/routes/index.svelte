@@ -2,6 +2,7 @@
 	import IconGrid from '$lib/components/iconGrid.svelte';
 	import Cards from '$lib/components/cards.svelte';
 	import Map from '$lib/components/map.svelte';
+	import SliderReviews from '$lib/components/sliderReviews.svelte';
 </script>
 
 <svelte:head>
@@ -43,10 +44,19 @@
 	<Map />
 </section>
 
+<section class="no-padding">
+	<h2>Reviews</h2>
+	<SliderReviews />
+</section>
+
 <style>
 	section {
 		padding-inline: var(--padding-inline);
 		padding-block: 1.5rem;
+	}
+
+	section.no-padding {
+		padding: 0;
 	}
 
 	h2 {
