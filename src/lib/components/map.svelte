@@ -1,17 +1,22 @@
 <script>
-	import { winWidth } from '$lib/store.js';
-	let winWidthValue;
-	winWidth.subscribe((w) => {
-		winWidthValue = w;
+	import { getWindowWidth } from '$lib/store.js';
+	import { onMount } from 'svelte';
+	let winWidth;
+
+	onMount(() => {
+		getWindowWidth.subscribe((value) => {
+			winWidth = value;
+		});
 	});
+
 </script>
 
 <div class="wrapper">
 	<!-- vw - padding - border  -->
 	<iframe
 		title="Cabañas Ucihuen | Lago Puelo, Chubut, Arg."
-		allowfullscreen	
-		width={winWidthValue - 32 - 6} 
+		allowfullscreen
+		width={winWidth - 32 - 6}
 		src="https://www.google.com/maps/embed/v1/place?key={import.meta.env.VITE_API_KEY}
     &q=Cabanas+Ucihuen"
 	/>

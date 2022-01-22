@@ -1,7 +1,17 @@
 <script>
+	import { getWindowWidth } from '$lib/store.js';
+	import { onMount } from 'svelte';
+
 	export let scrolledPercentage = 0;
-	export let winWidthValue;
 	export let scrollingUp;
+
+	let windowWidth;
+
+	onMount(() => {
+		getWindowWidth.subscribe((value) => {
+			windowWidth = value;
+		});
+	});
 
 	let active = false;
 	const toggleActive = () => {
@@ -11,7 +21,7 @@
 
 <a href="/reservas" class={scrolledPercentage > 95 && !scrollingUp ? 'pushed-up' : ''}
 	><div class="wrapper {active ? 'active' : ''}">
-		{#if winWidthValue > 1024}
+		{#if windowWidth > 1024}
 			<button on:mousedown={toggleActive} on:mouseup={toggleActive}>CONSULTAR RESERVA</button>
 		{:else}
 			<button on:touchstart={toggleActive} on:touchend={toggleActive}>CONSULTAR RESERVA</button>

@@ -3,7 +3,7 @@
 	import Footer from '$lib/components/footer.svelte';
 	import Fab from '$lib/components/fab.svelte';
 	import { onMount } from 'svelte';
-	import { winWidth } from '$lib/store.js';
+	import { getWindowHeight, getContainerHeight, getFooterHeight } from '$lib/store.js';
 
 	let docHeight;
 	let winHeight;
@@ -11,19 +11,21 @@
 	let scrolled;
 	let scrolledPercentage;
 	let scrollingUp;
-	let oldScroll;
-	let winWidthValue;
-
-	winWidth.subscribe((w) => {
-		winWidthValue = w;
-	});
 
 	onMount(() => {
-		winWidth.set(window.innerWidth);
-		winHeight = window.innerHeight;
-		docHeight = document.querySelector('#svelte').scrollHeight;
-		footerHeight = document.querySelector('footer').scrollHeight - 80 + 'px';
+		getWindowHeight.subscribe((value) => {
+			winHeight = value;
+		});
+
+		getContainerHeight.subscribe((value) => {
+			docHeight = value;
+		});
+		getFooterHeight.subscribe((value) => {
+			footerHeight = value + 'px';
+		});
+
 		window.addEventListener('scroll', () => {
+			let oldScroll = 0;
 			scrollingUp = oldScroll > scrolled;
 			oldScroll = scrolled;
 			scrolledPercentage = parseInt((scrolled / (docHeight - winHeight)) * 100);
@@ -35,7 +37,7 @@
 
 <Header />
 <main>
-	<Fab --footer-height={footerHeight} {scrolledPercentage} {winWidthValue} {scrollingUp} />
+	<Fab --footer-height={footerHeight} {scrolledPercentage} {scrollingUp} />
 	<slot />
 </main>
 <Footer />
