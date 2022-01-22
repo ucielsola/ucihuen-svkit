@@ -19,7 +19,7 @@
 	const updateScrollPos = () => {
 		docHeight = document.querySelector('#svelte').scrollHeight;
 		winHeight = window.innerHeight;
-		footerHeight = document.querySelector('footer').scrollHeight - 32 + 'px';
+		footerHeight = document.querySelector('footer').scrollHeight - 64 + 'px';
 		window.addEventListener('scroll', () => {
 			scrolledPercentage = parseInt((scrolled / (docHeight - winHeight)) * 100);
 		});

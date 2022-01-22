@@ -28,7 +28,7 @@
 <style>
 	footer {
 		background-color: rgba(127, 188, 171, 0.5);
-		padding-block: 1rem;
+		padding-block: 5rem;
 	}
 	.divider {
 		height: 5px;

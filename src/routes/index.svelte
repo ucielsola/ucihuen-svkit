@@ -47,7 +47,7 @@
 
 	h2 {
 		padding-block-end: 0.5rem;
-		font-size: 1.5rem;
+		font-size: 1.4rem;
 		text-align: center;
 		font-feature-settings: 'pnum' on, 'lnum' on;
 		color: var(--base-color);
