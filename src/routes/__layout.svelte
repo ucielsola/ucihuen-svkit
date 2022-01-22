@@ -4,26 +4,32 @@
 	import Fab from '$lib/components/fab.svelte';
 	import { onMount } from 'svelte';
 
-	let scrollPercent;
-	let scrollPercentRounded;
-	let scrollTop;
 	let docHeight;
 	let winHeight;
+	let footerHeight;
+	let scrolled;
+	let scrolledPercentage;
+
 	onMount(() => {
-		scrollTop = window.scrollY;
-		docHeight = document.body.offsetHeight;
-		winHeight = window.innerHeight;
-		scrollPercent = scrollTop / (docHeight - winHeight);
-		scrollPercentRounded = Math.round(scrollPercent * 100);
-		console.log(scrollPercent);
+		updateScrollPos();
 	});
-	
+
+	const updateScrollPos = () => {
+		docHeight = document.querySelector('#svelte').scrollHeight;
+		winHeight = window.innerHeight;
+		footerHeight = document.querySelector('footer').scrollHeight - 32 + 'px';
+		window.addEventListener('scroll', () => {
+			scrolledPercentage = parseInt((scrolled / (docHeight - winHeight)) * 100);
+		});
+	};
 </script>
+
+<svelte:window bind:scrollY={scrolled} />
 
 <Header />
 <main>
 	<div class="fab-container">
-		<Fab />
+		<Fab --footer-height={footerHeight} percentage={scrolledPercentage} />
 	</div>
 	<slot />
 </main>
@@ -32,6 +38,12 @@
 <style>
 	main {
 		position: relative;
+		background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0.5) 0%,
+			rgba(255, 255, 255, 0.5) 40%,
+			rgba(127, 188, 171, 0.5) 80%
+		);
 	}
 	.fab-container {
 		z-index: 1;
