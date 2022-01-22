@@ -15,6 +15,7 @@
 		winHeight = window.innerHeight;
 		scrollPercent = scrollTop / (docHeight - winHeight);
 		scrollPercentRounded = Math.round(scrollPercent * 100);
+		console.log(scrollPercent);
 	});
 	
 </script>

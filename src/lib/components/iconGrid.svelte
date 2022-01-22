@@ -1,7 +1,6 @@
 <script>
 	let open = false;
 	const toggleGrid = (e) => {
-		console.log(e);
 		open = !open;
 	};
 </script>
