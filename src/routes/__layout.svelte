@@ -60,8 +60,9 @@
 	// fires if url change and only on client side
 	$: if (key && ready) {
 		setTimeout(() => {
-			alert("test doc height mobile", document.querySelector('#svelte').clientHeight)
-			setFabOffset(document.querySelector('#svelte').clientHeight);
+			let height = document.querySelector('#svelte').clientHeight;
+			alert('test doc height mobile', height);
+			setFabOffset(height);
 		}, 300);
 	}
 </script>
