@@ -24,12 +24,16 @@
 			footerHeight = value + 'px';
 		});
 
-		window.addEventListener('scroll', () => {
-			let oldScroll = 0;
-			scrollingUp = oldScroll > scrolled;
-			oldScroll = scrolled;
-			scrolledPercentage = parseInt((scrolled / (docHeight - winHeight)) * 100);
-		});
+		window.addEventListener(
+			'scroll',
+			() => {
+				let oldScroll = 0;
+				scrollingUp = oldScroll > scrolled;
+				oldScroll = scrolled;
+				scrolledPercentage = parseInt((scrolled / (docHeight - winHeight)) * 100);
+			},
+			{ passive: true }
+		);
 	});
 </script>
 
