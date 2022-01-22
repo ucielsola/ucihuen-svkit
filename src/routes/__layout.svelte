@@ -6,11 +6,13 @@
 
 	let docHeight;
 	let winHeight;
+	let winWidth;
 	let footerHeight;
 	let scrolled;
 	let scrolledPercentage;
 
 	onMount(() => {
+		winWidth = window.innerWidth;
 		updateScrollPos();
 	});
 
@@ -29,7 +31,7 @@
 <Header />
 <main>
 	<div class="fab-container">
-		<Fab --footer-height={footerHeight} percentage={scrolledPercentage} />
+		<Fab --footer-height={footerHeight} percentage={scrolledPercentage} width={winWidth} />
 	</div>
 	<slot />
 </main>
