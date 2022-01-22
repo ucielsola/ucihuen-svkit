@@ -7,7 +7,7 @@
 	export let formPage;
 	export let path;
 
-	let limit = path === '/' ? 95 : 65;
+	let limit = path === '/' ? 95 : 75;
 
 	let windowWidth;
 
