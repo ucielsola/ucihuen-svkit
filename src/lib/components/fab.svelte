@@ -22,9 +22,9 @@
 <a href="/reservas" class={scrolledPercentage > 95 && !scrollingUp ? 'pushed-up' : ''}
 	><div class="wrapper {active ? 'active' : ''}">
 		{#if windowWidth > 1024}
-			<button on:mousedown={toggleActive} on:mouseup={toggleActive}>CONSULTAR RESERVA</button>
+			<button on:mousedown={toggleActive} on:mouseup={toggleActive}>ENVIAR CONSULTA</button>
 		{:else}
-			<button on:touchstart={toggleActive} on:touchend={toggleActive}>CONSULTAR RESERVA</button>
+			<button on:touchstart={toggleActive} on:touchend={toggleActive}>ENVIAR CONSULTA</button>
 		{/if}
 	</div>
 </a>

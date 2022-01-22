@@ -50,12 +50,12 @@
 				scrollingUp = oldScroll > scrolled;
 				oldScroll = scrolled;
 				scrolledPercentage = parseInt((scrolled / (docHeight - winHeight)) * 100);
-				console.log(scrolledPercentage);
 			},
 			{ passive: true }
 		);
 	};
-
+	
+	// fires if url change and only on client side
 	$: if (key && ready) {
 		setTimeout(() => {
 			setFabOffset(document.querySelector('#svelte').clientHeight);
