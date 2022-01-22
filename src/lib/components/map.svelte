@@ -1,7 +1,17 @@
+<script>
+	import { winWidth } from '$lib/store.js';
+	let winWidthValue;
+	winWidth.subscribe((w) => {
+		winWidthValue = w;
+	});
+</script>
+
 <div class="wrapper">
+	<!-- vw - padding - border  -->
 	<iframe
 		title="Cabañas Ucihuen | Lago Puelo, Chubut, Arg."
-		allowfullscreen
+		allowfullscreen	
+		width={winWidthValue - 32 - 2} 
 		src="https://www.google.com/maps/embed/v1/place?key={import.meta.env.VITE_API_KEY}
     &q=Cabanas+Ucihuen"
 	/>
@@ -18,7 +28,6 @@
 	}
 	iframe {
 		border-radius: 15px;
-		width: 100%;
 		min-height: 30vh;
 		border: none;
 	}
