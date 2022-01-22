@@ -31,7 +31,7 @@
 		background: #00000000;
 		border-radius: 10px;
 		padding: 3px;
-		transition: all 0.35s var(--easing);
+		transition: all 0.35s var(--easing) 1s;
 		background: linear-gradient(180deg, #e2504c 0%, #fbc05d 100%);
 	}
 	.wrapper.active {
@@ -48,7 +48,7 @@
 		border-radius: 10px;
 		font-size: 1.2rem;
 		color: #fff;
-		transition: all 0.35s var(--easing);
+		transition: all 0.35s var(--easing) 1s;
 	}
 
 	button:active {
@@ -59,7 +59,7 @@
 	}
 
 	@media (hover: hover) {
-		button:hover {
+		.wrapper:hover {
 			opacity: 1;
 			transition: all 0.35s var(--easing);
 		}
