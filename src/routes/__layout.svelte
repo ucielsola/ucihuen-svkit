@@ -78,11 +78,11 @@
 	<Nav {formPage} />
 </div>
 <PageTransition refresh={key}>
-	<main>
+	<main class={formPage ? 'form-page' : ''}>
 		<Modals>
 			<div slot="backdrop" class="backdrop" transition:fade on:click={closeModal} />
 		</Modals>
-		<Fab --footer-height={footerHeight} {scrolledPercentage} {scrollingUp} />
+		<Fab --footer-height={footerHeight} {scrolledPercentage} {scrollingUp} {formPage} path={key.pathname}/>
 		<slot />
 	</main>
 </PageTransition>
@@ -98,6 +98,11 @@
 			rgba(255, 255, 255, 0.5) 90%,
 			rgba(127, 188, 171, 0.5) 100%
 		);
+	}
+
+	main.form-page {
+		border-top-left-radius: 15px;
+		border-top-right-radius: 15px;
 	}
 
 	.nav-container {

@@ -89,10 +89,19 @@
 		<textarea type="text" name="message" bind:value={message} />
 	</div>
 
-	<input type="submit" value="Submit" />
+	<input class="submit-btn "type="submit" value="Submit" />
 </form>
 
+<a href="/">VOLVER</a>
+
 <style>
+	form {
+		margin-top: -4rem;
+		padding-top: 4rem;
+		background-color: #fff;
+		border-top-left-radius: 15px;
+		border-top-right-radius: 15px;
+	}
 	.form-group {
 		padding-inline: var(--padding-inline);
 	}
@@ -102,6 +111,4 @@
 		display: grid;
 		place-content: center;
 	}
-
-
 </style>

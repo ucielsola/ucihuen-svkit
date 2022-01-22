@@ -4,6 +4,10 @@
 
 	export let scrolledPercentage = 0;
 	export let scrollingUp;
+	export let formPage;
+	export let path;
+
+	let limit = path === '/' ? 95 : 65;
 
 	let windowWidth;
 
@@ -19,15 +23,17 @@
 	};
 </script>
 
-<a href="/reservas" class={scrolledPercentage > 95 && !scrollingUp ? 'pushed-up' : ''}
-	><div class="wrapper {active ? 'active' : ''}">
-		{#if windowWidth > 1024}
-			<button on:mousedown={toggleActive} on:mouseup={toggleActive}>ENVIAR CONSULTA</button>
-		{:else}
-			<button on:touchstart={toggleActive} on:touchend={toggleActive}>ENVIAR CONSULTA</button>
-		{/if}
-	</div>
-</a>
+{#if !formPage}
+	<a href="/reservas" class={scrolledPercentage > limit && !scrollingUp ? 'pushed-up' : ''}
+		><div class="wrapper {active ? 'active' : ''}">
+			{#if windowWidth > 1024}
+				<button on:mousedown={toggleActive} on:mouseup={toggleActive}>ENVIAR CONSULTA</button>
+			{:else}
+				<button on:touchstart={toggleActive} on:touchend={toggleActive}>ENVIAR CONSULTA</button>
+			{/if}
+		</div>
+	</a>
+{/if}
 
 <style>
 	a {
