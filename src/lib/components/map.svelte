@@ -11,7 +11,7 @@
 	<iframe
 		title="Cabañas Ucihuen | Lago Puelo, Chubut, Arg."
 		allowfullscreen	
-		width={winWidthValue - 32 - 2} 
+		width={winWidthValue - 32 - 6} 
 		src="https://www.google.com/maps/embed/v1/place?key={import.meta.env.VITE_API_KEY}
     &q=Cabanas+Ucihuen"
 	/>
