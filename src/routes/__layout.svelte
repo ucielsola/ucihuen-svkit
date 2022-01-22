@@ -17,7 +17,7 @@
 		winWidth = window.innerWidth;
 		winHeight = window.innerHeight;
 		docHeight = document.querySelector('#svelte').scrollHeight;
-		footerHeight = document.querySelector('footer').scrollHeight - 64 + 'px';
+		footerHeight = document.querySelector('footer').scrollHeight - 80 + 'px';
 		window.addEventListener('scroll', () => {
 			scrollingUp = oldScroll > scrolled;
 			oldScroll = scrolled;

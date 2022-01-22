@@ -34,12 +34,14 @@
 		bottom: var(--footer-height);
 		transition: bottom 0.5s var(--easing);
 	}
+
+
+
 	.wrapper {
 		opacity: 0.8;
 		background: #00000000;
 		border-radius: 10px;
 		padding: 3px;
-		transition: all 0.35s var(--easing) 1s;
 		background: linear-gradient(180deg, #e2504c 0%, #fbc05d 100%);
 	}
 	.wrapper.active {
@@ -56,14 +58,12 @@
 		border-radius: 10px;
 		font-size: 1.2rem;
 		color: #fff;
-		transition: all 0.35s var(--easing) 1s;
 	}
 
 	button:active {
-		opacity: 1;
 		background-color: #fff;
 		color: var(--primary-color);
-		transition: all 0.35s var(--easing);
+		transition: background-color 0.35s var(--easing);
 	}
 
 	@media (hover: hover) {
