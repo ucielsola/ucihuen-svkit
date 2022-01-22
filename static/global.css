@@ -8,44 +8,40 @@
 }
 
 @font-face {
-	font-family: 'Calibri';
-	font-style: normal;
-	font-weight: 400;
-	src: local(''), url('./fonts/calibri/Calibri.woff2') format('woff2'),
-		url('./fonts/calibri/Calibri.woff') format('woff'),
-		url('./fonts/calibri/Calibri.tff') format('ttf');
-}
-
-@font-face {
-	font-family: 'Calibri';
-	font-style: normal;
-	font-weight: 600;
-	src: local(''), url('./fonts/calibri/Calibri-Bold.woff2') format('woff2'),
-		url('./fonts/calibri/Calibri-Bold.woff') format('woff'),
-		url('./fonts/calibri/Calibri-Bold.tff') format('ttf');
-}
-
-@font-face {
-	font-family: 'Calibri';
-	font-style: normal;
-	font-weight: 300;
-	src: local(''), url('./fonts/calibri/Calibri-Light.woff2') format('woff2'),
-		url('./fonts/calibri/Calibri-Light.woff') format('woff'),
-		url('./fonts/calibri/Calibri-Light.tff') format('ttf');
-}
-
-@font-face {
 	font-family: 'Ruluko';
 	font-style: normal;
 	font-weight: 400;
 	src: local(''), url('./fonts/ruluko/ruluko-v19-latin-regular.woff2') format('woff2'),
-		/* Chrome 26+, Opera 23+, Firefox 39+ */ url('./fonts/ruluko/ruluko-v19-latin-regular.woff')
-			format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+		url('./fonts/ruluko/ruluko-v19-latin-regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 300;
+	src: local(''), url('./fonts/open-sans/open-sans-v27-latin-300.woff2') format('woff2'),
+		url('./fonts/open-sans/open-sans-v27-latin-300.woff') format('woff');
+}
+/* open-sans-regular - latin */
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local(''), url('./fonts/open-sans/open-sans-v27-latin-regular.woff2') format('woff2'),
+		url('./fonts/open-sans/open-sans-v27-latin-regular.woff') format('woff');
+}
+/* open-sans-600 - latin */
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 600;
+	src: local(''), url('./fonts/open-sans/open-sans-v27-latin-600.woff2') format('woff2'),
+		url('./fonts/open-sans/open-sans-v27-latin-600.woff') format('woff');
 }
 
 :root {
 	--logo-font: 'Ovo', serif;
-	--text-font: 'Calibri', sans-serif;
+	--text-font: 'Open Sans', sans-serif;
 	--sections-font: 'Ruluko', sans-serif;
 
 	--primary-color: #e2504c;
@@ -61,9 +57,9 @@
 	--text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 
 	--cover-image: url('/images/cover.webp');
-	--toggle-chevron: url('/icons/toggle.png');
-	--airbnb: url('/icons/airbnb.png');
-	--booking: url('/icons/booking.png');
+	--toggle-chevron: url('/icons/toggle.webp');
+	--airbnb: url('/icons/airbnb.webp');
+	--booking: url('/icons/booking.webp');
 }
 
 * {
