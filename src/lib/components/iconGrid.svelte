@@ -114,7 +114,7 @@
 		transition: height 0.3s var(--easing);
 	}
 	.grid.open {
-		height: calc(48rem + 2vh);
+		height: calc(44rem + 2vh);
 		transition: height 0.3s var(--easing);
 	}
 	.toggle-btn {
@@ -146,12 +146,12 @@
 	}
 
 	img {
-		width: 3.5rem;
-		height: 3.5rem;
+		width: 3rem;
+		height: 3rem;
 	}
 	span {
 		font-size: 0.8rem;
-		width: 70%;
+		width: 90%;
 		text-align: center;
 		text-transform: uppercase;
 	}
