@@ -12,6 +12,7 @@
 	<input type="text" name="email" bind:value={email} />
 	<label for="phone">Tel</label>
 	<input type="number" name="phone" />
+	<input type="date" />
 	<label for="message">Mensaje</label>
 	<textarea name="message" />
 	<input type="hidden" name="replyTo" bind:value={email} />
