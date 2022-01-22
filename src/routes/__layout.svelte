@@ -30,6 +30,8 @@
 	let scrollingUp;
 	let ready = false;
 
+	let formPage = false;
+
 	onMount(() => {
 		ready = true;
 	});
@@ -59,19 +61,21 @@
 
 	// fires if url change and only on client side
 	$: if (key && ready) {
+		console.log(formPage);
 		setTimeout(() => {
 			let height = document.querySelector('#svelte').clientHeight;
 			// alert(`'test doc height mobile', '${height}'`);
 			setFabOffset(height);
 		}, 300);
 	}
+	$: key.pathname === '/reservas' ? (formPage = true) : (formPage = false);
 </script>
 
 <svelte:window bind:scrollY={scrolled} />
 
-<Header />
+<Header {formPage} />
 <div class="nav-container">
-	<Nav />
+	<Nav {formPage} />
 </div>
 <PageTransition refresh={key}>
 	<main>

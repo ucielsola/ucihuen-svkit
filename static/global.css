@@ -103,7 +103,33 @@ section {
 	background: var(--backdrop);
 }
 
+/* Swiper */
 .swiper-wrapper {
 	align-items: center;
 	padding-block: 1rem;
+}
+
+/* FlatPicker */
+/* comes with component */
+input.datepicker {
+	display: none;
+}
+
+.flatpickr-calendar {
+	border: 1px solid #57575717 !important;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.endRange,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange.nextMonthDay {
+	background-color: var(--secondary-color) !important;
+	background: var(--secondary-color) !important;
+	border-color: var(--secondary-color) !important;
+}
+
+.flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n + 1)),
+.flatpickr-day.startRange.startRange + .endRange:not(:nth-child(7n + 1)),
+.flatpickr-day.endRange.startRange + .endRange:not(:nth-child(7n + 1)) {
+	box-shadow: -10px 0 0 var(--secondary-color) !important;
 }

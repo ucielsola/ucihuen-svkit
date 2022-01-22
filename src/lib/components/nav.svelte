@@ -1,8 +1,9 @@
 <script>
 	import { page } from '$app/stores';
+	export let formPage;
 </script>
 
-<nav>
+<nav class={formPage ? 'hidden' : ''}>
 	<a href="/" title="Inicio"
 		>Inicio<span class="underline" class:active={$page.url.pathname === '/'} /></a
 	>
@@ -22,6 +23,9 @@
 		align-items: center;
 		justify-content: space-evenly;
 		font-size: 1.7rem;
+	}
+	nav.hidden {
+		display: none;
 	}
 	a:last-of-type {
 		display: none;

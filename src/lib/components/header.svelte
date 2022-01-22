@@ -1,4 +1,8 @@
-<header>
+<script>
+	export let formPage;
+</script>
+
+<header class={formPage ? 'blurred' : ''}>
 	<div class="background">
 		<div class="blur" />
 	</div>
@@ -20,8 +24,15 @@
 		place-content: end;
 		min-height: 35vh;
 		padding-block-end: 0.5rem;
-	}
+		transition: filter 0.5s var(--easing);
 
+	}
+	header.blurred {
+		filter: blur(3px);
+		transition: filter 0.5s var(--easing);
+
+
+	}
 	.background {
 		position: absolute;
 		width: 100%;
@@ -79,8 +90,6 @@
 		text-transform: uppercase;
 		text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.6);
 	}
-
-
 
 	@media screen and (min-width: 1024px) {
 		header {

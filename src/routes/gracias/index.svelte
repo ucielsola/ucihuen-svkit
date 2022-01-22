@@ -1,1 +1,0 @@
-<h1>Gracias por enviar form</h1>
