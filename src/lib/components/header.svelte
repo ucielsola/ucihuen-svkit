@@ -93,7 +93,6 @@
 		bottom: -4rem;
 		width: 100%;
 		margin-inline: auto;
-		font-size: 2rem;
 	}
 
 	@media screen and (min-width: 1024px) {

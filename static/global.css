@@ -54,6 +54,7 @@
 	--highlight-color: #7fbcab;
 	--base-color: #383932;
 	--gradient: linear-gradient(90deg, rgba(251, 192, 93, 1) 0%, rgba(226, 80, 76, 1) 100%);
+	--backdrop: #494949d0;
 
 	--padding-inline: 1rem;
 	--footer-height: 0; /* updates when scrolled to bottom */
@@ -89,4 +90,19 @@ section {
 
 @media screen and (min-width: 1024px) {
 	/* overflow-x: revert; */
+}
+
+/* MODAL BACKDROP */
+.backdrop {
+	z-index: 400;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: var(--backdrop);
+}
+
+.swiper-slide {
+	padding-block: 2rem;
 }

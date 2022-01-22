@@ -8,7 +8,11 @@
 
 <script>
 	import PageTransition from '$lib/components/PageTransitions.svelte';
+	import { fade } from 'svelte/transition';
+
 	export let key;
+
+	import { Modals, closeModal, openModal } from 'svelte-modals';
 
 	import Header from '$lib/components/header.svelte';
 	import Footer from '$lib/components/footer.svelte';
@@ -53,6 +57,9 @@
 <Header />
 <PageTransition refresh={key}>
 	<main>
+		<Modals>
+			<div slot="backdrop" class="backdrop" transition:fade on:click={closeModal} />
+		</Modals>
 		<Fab --footer-height={footerHeight} {scrolledPercentage} {scrollingUp} />
 		<slot />
 	</main>

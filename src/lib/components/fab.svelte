@@ -31,7 +31,7 @@
 
 <style>
 	a {
-		z-index: 1;
+		z-index: 200;
 		position: fixed;
 		bottom: 1rem;
 		display: grid;

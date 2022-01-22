@@ -21,6 +21,7 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-evenly;
+		font-size: 1.7rem;
 	}
 	a:last-of-type {
 		display: none;
