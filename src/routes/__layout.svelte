@@ -61,7 +61,7 @@
 	$: if (key && ready) {
 		setTimeout(() => {
 			let height = document.querySelector('#svelte').clientHeight;
-			alert(`'test doc height mobile', '${height}'`);
+			// alert(`'test doc height mobile', '${height}'`);
 			setFabOffset(height);
 		}, 300);
 	}
