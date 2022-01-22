@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>Cabañas Ucihuen - Galería</title>
+</svelte:head>
+
 <section id="interiores-1">
 	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias eveniet dignissimos adipisci
 	voluptas corrupti doloribus eius nobis quae rem, cumque ipsam quas, consequuntur hic. Rerum at

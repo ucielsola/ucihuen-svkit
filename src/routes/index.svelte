@@ -4,6 +4,10 @@
 	import Map from '$lib/components/map.svelte';
 </script>
 
+<svelte:head>
+	<title>Cabañas Ucihuen - Lago Puelo</title>
+</svelte:head>
+
 <section>
 	<p>
 		Ubicadas a sólo dos cuadras del centro de la <a
