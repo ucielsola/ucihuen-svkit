@@ -18,7 +18,7 @@
 	import Footer from '$lib/components/footer.svelte';
 	import Fab from '$lib/components/fab.svelte';
 	import { onMount } from 'svelte';
-	import { getWindowHeight, getContainerHeight, getFooterHeight } from '$lib/store.js';
+	import { getWindowHeight, getFooterHeight } from '$lib/store.js';
 
 	let docHeight;
 	let winHeight;
@@ -26,15 +26,19 @@
 	let scrolled;
 	let scrolledPercentage;
 	let scrollingUp;
+	let ready = false;
 
 	onMount(() => {
+		ready = true;
+	});
+
+	const setFabOffset = (height) => {
+		docHeight = height;
+
 		getWindowHeight.subscribe((value) => {
 			winHeight = value;
 		});
 
-		getContainerHeight.subscribe((value) => {
-			docHeight = value;
-		});
 		getFooterHeight.subscribe((value) => {
 			footerHeight = value + 'px';
 		});
@@ -46,10 +50,17 @@
 				scrollingUp = oldScroll > scrolled;
 				oldScroll = scrolled;
 				scrolledPercentage = parseInt((scrolled / (docHeight - winHeight)) * 100);
+				console.log(scrolledPercentage);
 			},
 			{ passive: true }
 		);
-	});
+	};
+
+	$: if (key && ready) {
+		setTimeout(() => {
+			setFabOffset(document.querySelector('#svelte').clientHeight);
+		}, 300);
+	}
 </script>
 
 <svelte:window bind:scrollY={scrolled} />

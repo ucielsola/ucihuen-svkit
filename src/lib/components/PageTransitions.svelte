@@ -15,7 +15,7 @@
 
 {#key refresh}
 	{#if !!animations}
-		<div in:fade={{ delay: 100, duration: 200 }} out:fade={{ duration: 100 }}>
+		<div in:fade={{ delay: 150, duration: 200 }} out:fade={{ duration: 100 }}>
 			<slot />
 		</div>
 	{:else}

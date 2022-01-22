@@ -1,5 +1,5 @@
 <script>
-	import GallerySlider from '$lib/components/gallerySlider.svelte';
+	import Slider from '$lib/components/sliderGaleria.svelte';
 	import { fade } from 'svelte/transition';
 
 	import { Modals, closeModal, openModal } from 'svelte-modals';
@@ -11,7 +11,6 @@
 	}
 
 	const getPhotos = (type, cab) => {
-		console.log(type, cab);
 		let quant;
 		const arr = [];
 		if (type === 'ext') {
@@ -44,32 +43,26 @@
 </script>
 
 <svelte:head>
-	<title>Galería - Cabañas Ucihuen - Lago Puelo</title>
+	<title>Galería - Cabañas Ucihuen</title>
 </svelte:head>
 
 <section>
 	<article id="cab-1">
 		<h3 in:fade={{ duration: 400, delay: 300 }}>Cabaña 1</h3>
 		<div class="container" in:fade={{ duration: 800, delay: 800 }}>
-			<GallerySlider items={cab_1} type="slide" delay={2350} sendClick={() => testImg()} bind:url />
+			<Slider items={cab_1} type="slide" delay={2350} sendClick={() => testImg()} bind:url />
 		</div>
 	</article>
 	<article id="cab-2">
 		<h3 in:fade={{ duration: 400, delay: 500 }}>Cabaña 2</h3>
 		<div class="container last" in:fade={{ duration: 800, delay: 1000 }}>
-			<GallerySlider items={cab_2} type="slide" delay={2400} sendClick={() => testImg()} bind:url />
+			<Slider items={cab_2} type="slide" delay={2400} sendClick={() => testImg()} bind:url />
 		</div>
 	</article>
 	<article>
 		<h3 in:fade={{ duration: 400, delay: 500 }}>Exteriores</h3>
 		<div class="container last" in:fade={{ duration: 800, delay: 1000 }}>
-			<GallerySlider
-				items={exterior}
-				type="slide"
-				delay={2400}
-				sendClick={() => testImg()}
-				bind:url
-			/>
+			<Slider items={exterior} type="slide" delay={2400} sendClick={() => testImg()} bind:url />
 		</div>
 	</article>
 </section>
