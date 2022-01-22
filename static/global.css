@@ -5,6 +5,7 @@
 	font-weight: 400;
 	src: local(''), url('./fonts/ovo/ovo-v15-latin-regular.woff2') format('woff2'),
 		url('./fonts/ovo-v15-latin-regular.woff') format('woff');
+	font-display: swap;
 }
 
 @font-face {
@@ -13,6 +14,7 @@
 	font-weight: 400;
 	src: local(''), url('./fonts/ruluko/ruluko-v19-latin-regular.woff2') format('woff2'),
 		url('./fonts/ruluko/ruluko-v19-latin-regular.woff') format('woff');
+	font-display: swap;
 }
 
 @font-face {
@@ -21,6 +23,7 @@
 	font-weight: 300;
 	src: local(''), url('./fonts/open-sans/open-sans-v27-latin-300.woff2') format('woff2'),
 		url('./fonts/open-sans/open-sans-v27-latin-300.woff') format('woff');
+	font-display: swap;
 }
 /* open-sans-regular - latin */
 @font-face {
@@ -29,6 +32,7 @@
 	font-weight: 400;
 	src: local(''), url('./fonts/open-sans/open-sans-v27-latin-regular.woff2') format('woff2'),
 		url('./fonts/open-sans/open-sans-v27-latin-regular.woff') format('woff');
+	font-display: swap;
 }
 /* open-sans-600 - latin */
 @font-face {
@@ -37,6 +41,7 @@
 	font-weight: 600;
 	src: local(''), url('./fonts/open-sans/open-sans-v27-latin-600.woff2') format('woff2'),
 		url('./fonts/open-sans/open-sans-v27-latin-600.woff') format('woff');
+	font-display: swap;
 }
 
 :root {
