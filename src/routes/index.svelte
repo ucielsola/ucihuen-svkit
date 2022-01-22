@@ -33,9 +33,12 @@
 	<Cards />
 </section>
 
-<!-- <section>
+<section>
+	<h2>¿Dónde nos ubicamos?</h2>
+	<h3>Lago Puelo, Chubut</h3>
 	<Map />
-</section> -->
+</section>
+
 <style>
 	section {
 		padding-inline: var(--padding-inline);
@@ -43,7 +46,7 @@
 	}
 
 	h2 {
-		padding-block-end:0.5rem;
+		padding-block-end: 0.5rem;
 		font-size: 1.5rem;
 		text-align: center;
 		font-feature-settings: 'pnum' on, 'lnum' on;
