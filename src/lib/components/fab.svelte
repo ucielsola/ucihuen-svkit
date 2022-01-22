@@ -1,6 +1,8 @@
 <script>
-	export let percentage = 0;
-	export let width;
+	export let scrolledPercentage = 0;
+	export let winWidth;
+	export let scrollingUp;
+
 	let active = false;
 	const toggleActive = () => {
 		console.log(width);
@@ -8,9 +10,9 @@
 	};
 </script>
 
-<a href="/reservas" class={percentage > 95 ? 'pushed-up' : ''}
+<a href="/reservas" class={scrolledPercentage > 95 && !scrollingUp ? 'pushed-up' : ''}
 	><div class="wrapper {active ? 'active' : ''}">
-		{#if width > 1024}
+		{#if winWidth > 1024}
 			<button on:mousedown={toggleActive} on:mouseup={toggleActive}>CONSULTAR RESERVA</button>
 		{:else}
 			<button on:touchstart={toggleActive} on:touchend={toggleActive}>CONSULTAR RESERVA</button>

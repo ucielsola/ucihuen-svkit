@@ -10,14 +10,17 @@
 	let footerHeight;
 	let scrolled;
 	let scrolledPercentage;
+	let scrollingUp;
+	let oldScroll;
 
 	onMount(() => {
 		winWidth = window.innerWidth;
 		winHeight = window.innerHeight;
 		docHeight = document.querySelector('#svelte').scrollHeight;
 		footerHeight = document.querySelector('footer').scrollHeight - 64 + 'px';
-
 		window.addEventListener('scroll', () => {
+			scrollingUp = oldScroll > scrolled;
+			oldScroll = scrolled;
 			scrolledPercentage = parseInt((scrolled / (docHeight - winHeight)) * 100);
 		});
 	});
@@ -27,7 +30,7 @@
 
 <Header />
 <main>
-	<Fab --footer-height={footerHeight} percentage={scrolledPercentage} width={winWidth} />
+	<Fab --footer-height={footerHeight} {scrolledPercentage} {winWidth} {scrollingUp} />
 	<slot />
 </main>
 <Footer />
