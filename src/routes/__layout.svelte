@@ -43,8 +43,8 @@
 		background: linear-gradient(
 			180deg,
 			rgba(255, 255, 255, 0.5) 0%,
-			rgba(255, 255, 255, 0.5) 40%,
-			rgba(127, 188, 171, 0.5) 80%
+			rgba(255, 255, 255, 0.5) 90%,
+			rgba(127, 188, 171, 0.5) 100%
 		);
 	}
 	.fab-container {

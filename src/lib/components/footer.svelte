@@ -4,7 +4,7 @@
 	<div class="content">
 		<div class="col">
 			<a href="airbnb.com" class="airbnb" title="Cabañas Ucihuen en AirBnB.com"
-				><img src="icons/airbnb.png" alt="Cabañas Ucihuen en AirBnB.com" /></a
+				><img src="icons/airbnb.webp" alt="Cabañas Ucihuen en AirBnB.com" /></a
 			>
 			<h4 class="whatsapp">o escribirnos al</h4>
 			<h3 class="credits">Desarrollo</h3>
@@ -12,11 +12,11 @@
 		</div>
 		<div class="col">
 			<a href="booking.com" class="booking" title="Cabañas Ucihuen en Booking.com"
-				><img src="icons/booking.png" alt="Cabañas Ucihuen en Booking.com" /></a
+				><img src="icons/booking.webp" alt="Cabañas Ucihuen en Booking.com" /></a
 			>
 			<h4>
 				<a href="https://wa.link/hfh2e3" class="whatsapp"
-					><img src="icons/whatsapp.png" alt="Whatsapp logo" />+54 9 11 3158-6242</a
+					><img src="icons/whatsapp.webp" alt="Whatsapp logo" />+54 9 11 3158-6242</a
 				>
 			</h4>
 			<h3 class="credits">Diseño</h3>

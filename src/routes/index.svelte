@@ -35,14 +35,14 @@
 
 <section>
 	<h2>¿Dónde nos ubicamos?</h2>
-	<h3>Lago Puelo, Chubut</h3>
+	<h3><img src="icons/pin.webp" alt="Location Icon" class="pin-icon" /> Lago Puelo, Chubut</h3>
 	<Map />
 </section>
 
 <style>
 	section {
 		padding-inline: var(--padding-inline);
-		padding-block: 1rem;
+		padding-block: 1.5rem;
 	}
 
 	h2 {
@@ -60,5 +60,14 @@
 	a {
 		color: var(--primary-color);
 		text-decoration: none;
+	}
+	h3 {
+		display: flex;
+	}
+	.pin-icon {
+		display: inline-block;
+		width: 1.5rem;
+		height: 1.5rem;
+		margin-right: 0.5rem;
 	}
 </style>
