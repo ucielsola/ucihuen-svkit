@@ -45,6 +45,7 @@
 <style>
 	main {
 		position: relative;
+		padding-block-end: 4rem;
 		background: linear-gradient(
 			180deg,
 			rgba(255, 255, 255, 0.5) 0%,

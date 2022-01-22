@@ -27,15 +27,14 @@
 
 <style>
 	footer {
+		padding-block: 1rem;
 		background-color: rgba(127, 188, 171, 0.5);
-		padding-block: 5rem;
 	}
 	.divider {
 		height: 5px;
 		border-radius: 5px;
 		width: 99%;
 		margin-inline: auto;
-		margin-block-start: 0.5rem;
 		margin-block-end: 1rem;
 		background: var(--gradient);
 	}
