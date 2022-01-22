@@ -55,7 +55,11 @@
 					</div>
 
 					<div class="row description">
-						<p>{rev.review_text.substring(0, 100) + '...'}</p>
+						<p>
+							{rev.review_text.length > 120
+								? rev.review_text.substring(0, 120) + '...'
+								: rev.review_text}
+						</p>
 					</div>
 				</a>
 			</SwiperSlide>
