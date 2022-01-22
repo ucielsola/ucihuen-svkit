@@ -13,26 +13,21 @@
 
 	onMount(() => {
 		winWidth = window.innerWidth;
-		updateScrollPos();
-	});
-
-	const updateScrollPos = () => {
-		docHeight = document.querySelector('#svelte').scrollHeight;
 		winHeight = window.innerHeight;
+		docHeight = document.querySelector('#svelte').scrollHeight;
 		footerHeight = document.querySelector('footer').scrollHeight - 64 + 'px';
+
 		window.addEventListener('scroll', () => {
 			scrolledPercentage = parseInt((scrolled / (docHeight - winHeight)) * 100);
 		});
-	};
+	});
 </script>
 
 <svelte:window bind:scrollY={scrolled} />
 
 <Header />
 <main>
-	<div class="fab-container">
-		<Fab --footer-height={footerHeight} percentage={scrolledPercentage} width={winWidth} />
-	</div>
+	<Fab --footer-height={footerHeight} percentage={scrolledPercentage} width={winWidth} />
 	<slot />
 </main>
 <Footer />
@@ -46,13 +41,5 @@
 			rgba(255, 255, 255, 0.5) 90%,
 			rgba(127, 188, 171, 0.5) 100%
 		);
-	}
-	.fab-container {
-		z-index: 1;
-		position: fixed;
-		bottom: 1rem;
-		display: grid;
-		place-content: center;
-		width: 100%;
 	}
 </style>

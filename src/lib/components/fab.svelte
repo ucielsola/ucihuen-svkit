@@ -20,11 +20,17 @@
 
 <style>
 	a {
-		transition: margin-bottom 0.5s var(--easing);
+		z-index: 1;
+		position: fixed;
+		bottom: 1rem;
+		display: grid;
+		place-content: center;
+		width: 100%;
+		transition: bottom 0.5s var(--easing);
 	}
 	a.pushed-up {
-		margin-bottom: var(--footer-height);
-		transition: margin-bottom 0.5s var(--easing);
+		bottom: var(--footer-height);
+		transition: bottom 0.5s var(--easing);
 	}
 	.wrapper {
 		opacity: 0.8;
