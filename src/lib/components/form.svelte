@@ -38,7 +38,6 @@
 	};
 
 	function dateChange(event) {
-		estadiaState = true;
 		estadia = event.detail[1];
 		console.log('cambio fechas', estadia);
 	}
