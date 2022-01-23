@@ -55,7 +55,7 @@
 	</article>
 	<article id="cab-2">
 		<h3 in:fade={{ duration: 400, delay: 500 }}>Cabaña 2</h3>
-		<div class="container last" in:fade={{ duration: 800, delay: 1000 }}>
+		<div class="container" in:fade={{ duration: 800, delay: 1000 }}>
 			<Slider items={cab_2} type="slide" delay={2400} sendClick={() => testImg()} bind:url />
 		</div>
 	</article>
@@ -77,5 +77,10 @@
 
 	section {
 		padding: 0;
+		margin-block-start: 2rem;
+	}
+
+	h3 {
+		padding-inline: var(--padding-inline);
 	}
 </style>
