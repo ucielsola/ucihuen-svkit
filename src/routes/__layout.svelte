@@ -126,8 +126,6 @@
 	}
 
 	@media screen and (min-width: 1024px) {
-
-
 		.nav-container {
 			opacity: 0.5;
 			position: absolute;

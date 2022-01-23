@@ -261,7 +261,7 @@
 		place-content: center;
 		margin-block-end: 2rem;
 	}
-	
+
 	.back-btn-container.hidden {
 		display: none;
 	}

@@ -5,10 +5,10 @@
 
 	onMount(() => {
 		getWindowWidth.subscribe((value) => {
-			winWidth = value;
+			// if on desktop value - 15px to rest scrollbar witdh
+			value < 1024 ? (winWidth = value) : (winWidth = value - 15);
 		});
 	});
-
 </script>
 
 <div class="wrapper">
