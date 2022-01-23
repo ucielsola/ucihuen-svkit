@@ -122,7 +122,7 @@
 	</div>
 	<div class="submit-container">
 		<div class="submit-border">
-			<input class="submit-btn " type="submit" value="Submit" />
+			<input class="submit-btn " type="submit" value="ENVIAR CONSULTA" />
 		</div>
 	</div>
 </form>
@@ -226,13 +226,15 @@
 
 	input,
 	textarea {
-		padding-block: 0.4rem;
+		padding: 0.5rem;
 		border-radius: 15px;
 		border: none;
 		box-shadow: inset 0px 0px 14px -3px rgb(0 0 0 / 40%), var(--shadow);
 	}
 	textarea {
-		padding-block: 2rem;
+		height: 4rem;
+		height: 10rem;
+		padding: 0.5rem;
 	}
 	label {
 		font-weight: 600;
