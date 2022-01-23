@@ -52,6 +52,8 @@
 	--primary-color: #e2504c;
 	--secondary-color: #fbc05d;
 	--highlight-color: #7fbcab;
+	--highlight-color-dim: #738a83;
+
 	--base-color: #383932;
 	--gradient: linear-gradient(90deg, rgba(251, 192, 93, 1) 0%, rgba(226, 80, 76, 1) 100%);
 	--backdrop: #494949d0;
@@ -117,6 +119,7 @@ input.datepicker {
 
 .flatpickr-calendar {
 	border: 1px solid #57575717 !important;
+	box-shadow: inset 0px 0px 14px -3px rgb(0 0 0 / 40%)!important;
 }
 
 .flatpickr-day.selected,
