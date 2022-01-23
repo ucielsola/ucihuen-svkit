@@ -1,8 +1,24 @@
 <script>
+	import { getWindowWidth } from '$lib/store.js';
+	import { onMount } from 'svelte';
+	let winWidth;
+
+	onMount(() => {
+		getWindowWidth.subscribe((value) => {
+			winWidth = value;
+		});
+	});
 	export let formPage;
+
+	const navigateBack = () => {
+		// only on form page and on mobile
+		if (!formPage) return;
+		if (winWidth > 1024) return;
+		window.history.back();
+	};
 </script>
 
-<header class={formPage ? 'blurred' : ''}>
+<header class={formPage && winWidth < 1024 ? 'blurred' : ''} on:click={navigateBack}>
 	<div class="background">
 		<div class="blur" />
 	</div>
@@ -25,13 +41,10 @@
 		min-height: 35vh;
 		padding-block-end: 0.5rem;
 		transition: filter 0.5s var(--easing);
-
 	}
 	header.blurred {
 		filter: blur(3px);
 		transition: filter 0.5s var(--easing);
-
-
 	}
 	.background {
 		position: absolute;
@@ -93,18 +106,53 @@
 
 	@media screen and (min-width: 1024px) {
 		header {
+			display: fle;
+			min-height: 60vh;
 			box-shadow: 0px 1rem 30px 6px rgb(0 0 0 / 40%);
 		}
 
 		.background .blur {
 			position: absolute;
 			background-image: var(--cover-image);
-			filter: blur(2px);
+			/* filter: blur(2px); */
+			background-color: #fff3;
 			width: 100%;
 			height: 100%;
 			transform: scale(1.01);
 			background-size: cover;
 			background-position: center;
+		}
+		.row {
+			position: absolute;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+			padding-inline: var(--padding-inline);
+		}
+
+		.logo h1 {
+			font-size: 4.2rem;
+			line-height: 0.5;
+			padding-right: 2rem;
+		}
+		.logo h1 span {
+			width: min-content;
+			font-size: 7rem;
+			line-height: 1.1;
+		}
+		.logo h1 span::after {
+			top: -4.5rem;
+			right: 1rem;
+		}
+
+		.copy {
+			font-size: 1.5rem;
+			font-weight: 600;
+			letter-spacing: -0.9px;
+			width: 50vw;
+			text-shadow: 0px 6px 6px rgba(0, 0, 0, 0.8);
 		}
 	}
 </style>

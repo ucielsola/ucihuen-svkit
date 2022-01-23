@@ -48,21 +48,26 @@
 
 <section>
 	<article id="cab-1">
-		<h3 in:fade={{ duration: 400, delay: 300 }}>Cabaña 1</h3>
-		<div class="container" in:fade={{ duration: 800, delay: 800 }}>
-			<Slider items={cab_1} type="slide" delay={2350} sendClick={() => testImg()} bind:url />
+		<h3>Cabaña 1</h3>
+		<h4>2 HABITACIONES | LIVING-COMEDOR | COCINA | BAÑO</h4>
+		<div class="container" in:fade={{ duration: 300, delay: 100 }}>
+			<Slider items={cab_1} type="slide" delay={2300} sendClick={() => testImg()} bind:url />
 		</div>
 	</article>
 	<article id="cab-2">
-		<h3 in:fade={{ duration: 400, delay: 500 }}>Cabaña 2</h3>
-		<div class="container" in:fade={{ duration: 800, delay: 1000 }}>
+		<h3>Cabaña 2</h3>
+		<h4>
+			1 HABITACIÓN | COCINA-COMEDOR | LIVING CON FUTONES | BAÑO
+		</h4>
+		<div class="container" in:fade={{ duration: 400, delay: 150 }}>
 			<Slider items={cab_2} type="slide" delay={2400} sendClick={() => testImg()} bind:url />
 		</div>
 	</article>
 	<article>
-		<h3 in:fade={{ duration: 400, delay: 500 }}>Exteriores</h3>
-		<div class="container last" in:fade={{ duration: 800, delay: 1000 }}>
-			<Slider items={exterior} type="slide" delay={2400} sendClick={() => testImg()} bind:url />
+		<h3>Exteriores</h3>
+		<h4>PATIO EN EL PREDIO | ESTACIONAMIENTO | PARRILLA</h4>
+		<div class="container last" in:fade={{ duration: 500, delay: 200 }}>
+			<Slider items={exterior} type="slide" delay={2500} sendClick={() => testImg()} bind:url />
 		</div>
 	</article>
 </section>
@@ -80,7 +85,14 @@
 		margin-block-start: 2rem;
 	}
 
-	h3 {
+	h3,
+	h4 {
 		padding-inline: var(--padding-inline);
+	}
+
+	h4 {
+		font-size: 0.8rem;
+		letter-spacing: -0.8px;
+		color: var(--primary-color);
 	}
 </style>

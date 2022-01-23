@@ -101,7 +101,7 @@
 		grid-template-columns: repeat(3, 1fr);
 		place-content: start;
 		width: 100%;
-		height: 22rem;
+		height: 20rem;
 		padding-block: 1rem;
 		background: linear-gradient(
 			168.18deg,
@@ -114,12 +114,12 @@
 		transition: height 0.3s var(--easing);
 	}
 	.grid.open {
-		height: calc(44rem + 2vh);
+		height: calc(40rem + 2vh);
 		transition: height 0.3s var(--easing);
 	}
 	.toggle-btn {
 		position: absolute;
-		bottom: -5%;
+		bottom: -2rem;
 		width: 100%;
 		display: grid;
 		place-content: center;
@@ -157,7 +157,7 @@
 	}
 
 	@media screen and (min-width: 1024px) {
-		.pusher {
+		.pusher, .toggle-btn  {
 			display: none;
 		}
 	}

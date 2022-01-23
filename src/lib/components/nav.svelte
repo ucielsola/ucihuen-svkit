@@ -1,32 +1,46 @@
 <script>
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+	import { getWindowWidth } from '$lib/store.js';
+
+	let winWidth;
+
+	onMount(() => {
+		getWindowWidth.subscribe((value) => {
+			winWidth = value;
+		});
+	});
 	export let formPage;
 </script>
 
-<nav class={formPage ? 'hidden' : ''}>
-	<a href="/" title="Inicio"
-		>Inicio<span class="underline" class:active={$page.url.pathname === '/'} /></a
-	>
+<nav class={formPage && winWidth < 1024 ? 'hidden' : ''}>
+	<div class="background">
+		<a href="/" title="Inicio"
+			>Inicio<span class="underline" class:active={$page.url.pathname === '/'} /></a
+		>
 
-	<a href="/galeria" title="Galería"
-		>Galería<span class="underline" class:active={$page.url.pathname === '/galeria'} /></a
-	>
-	<a href="/reservas" title="Reservas"
-		>Reservas<span class="underline" class:active={$page.url.pathname === '/reservas'} /></a
-	>
+		<a href="/galeria" title="Galería"
+			>Galería<span class="underline" class:active={$page.url.pathname === '/galeria'} /></a
+		>
+		<a href="/contacto" title="Contacto"
+			>Contacto<span class="underline" class:active={$page.url.pathname === '/contacto'} /></a
+		>
+	</div>
 </nav>
 
 <style>
-	nav {
+	nav.hidden {
+		display: none;
+	}
+
+	.background {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-evenly;
 		font-size: 1.7rem;
 	}
-	nav.hidden {
-		display: none;
-	}
+
 	a:last-of-type {
 		display: none;
 	}
@@ -86,6 +100,21 @@
 	@media screen and (min-width: 1024px) {
 		a:last-of-type {
 			display: inline-block;
+		}
+
+		nav {
+			width: 40rem;
+			margin-inline: auto;
+			padding: 2px;
+			border-radius: 10px;
+			background: linear-gradient(#7fbcab 0%, #fbc05d 100%);
+		}
+		.background {
+			display: flex;
+			align-items: center;
+			background: #fff;
+			border-radius: 10px;
+			padding-block: 0.5rem;
 		}
 	}
 </style>

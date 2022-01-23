@@ -101,4 +101,7 @@
 		flex-direction: column;
 		width: 100%;
 	}
+	.name {
+		font-weight: 600;
+	}
 </style>

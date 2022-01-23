@@ -24,7 +24,7 @@
 </script>
 
 {#if !formPage}
-	<a href="/reservas" class={scrolledPercentage > limit && !scrollingUp ? 'pushed-up' : ''}
+	<a href="/contacto" class={scrolledPercentage > limit && !scrollingUp ? 'pushed-up' : ''}
 		><div class="wrapper {active ? 'active' : ''}">
 			{#if windowWidth > 1024}
 				<button on:mousedown={toggleActive} on:mouseup={toggleActive}>ENVIAR CONSULTA</button>
@@ -56,6 +56,7 @@
 		border-radius: 10px;
 		padding: 3px;
 		background: linear-gradient(180deg, #e2504c 0%, #fbc05d 100%);
+		box-shadow: var(--shadow);
 	}
 	.wrapper.active {
 		opacity: 1;

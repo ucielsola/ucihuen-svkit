@@ -68,7 +68,7 @@
 			setFabOffset(height);
 		}, 300);
 	}
-	$: key.pathname === '/reservas' ? (formPage = true) : (formPage = false);
+	$: key.pathname === '/contacto' ? (formPage = true) : (formPage = false);
 </script>
 
 <svelte:window bind:scrollY={scrolled} />
@@ -114,7 +114,19 @@
 
 	.nav-container {
 		width: 100%;
-		margin-inline: auto;
 		margin-block-start: 1rem;
+	}
+
+	@media screen and (min-width: 1024px) {
+		.nav-container {
+			opacity: 0.5;
+			position: absolute;
+			margin-top: -15vh;
+			transition: opacity 0.2s linear 0.3s;
+		}
+		.nav-container:hover {
+			transition: opacity 0.2s linear 0s;
+			opacity: 1;
+		}
 	}
 </style>

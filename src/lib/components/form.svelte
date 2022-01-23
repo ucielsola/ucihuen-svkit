@@ -1,4 +1,15 @@
 <script>
+	import { getWindowWidth } from '$lib/store.js';
+	import { onMount } from 'svelte';
+
+	let winWidth;
+
+	onMount(() => {
+		getWindowWidth.subscribe((value) => {
+			winWidth = value;
+		});
+	});
+
 	import Flatpickr from 'svelte-flatpickr';
 	import 'flatpickr/dist/flatpickr.css';
 
@@ -64,7 +75,7 @@
 	}
 </script>
 
-<form on:submit|preventDefault={formSubmit}>
+<form class={winWidth < 1024 ? 'mobile' : ''} on:submit|preventDefault={formSubmit}>
 	<input type="text" name="_honey" style="display:none" />
 	<input type="hidden" name="_captcha" value="false" />
 	<input type="hidden" name="_template" value="box" />
@@ -127,7 +138,7 @@
 	</div>
 </form>
 
-<div class="back-btn-container">
+<div class="back-btn-container {winWidth > 1024 ? 'hidden' : ''}">
 	<div class="back-border">
 		<a href="/" class="back-btn">VOLVER</a>
 	</div>
@@ -135,11 +146,13 @@
 
 <style>
 	form {
-		margin-top: -4rem;
 		padding-top: 0.7rem;
 		background-color: #fff;
+	}
+	form.mobile {
 		border-top-left-radius: 15px;
 		border-top-right-radius: 15px;
+		margin-top: -4rem;
 	}
 	.form-group {
 		padding-inline: var(--padding-inline);
@@ -247,6 +260,10 @@
 		display: grid;
 		place-content: center;
 		margin-block-end: 2rem;
+	}
+	
+	.back-btn-container.hidden {
+		display: none;
 	}
 	.submit-border,
 	.back-border {

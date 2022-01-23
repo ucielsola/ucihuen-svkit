@@ -85,7 +85,5 @@
 		font-size: 1.1rem;
 		text-shadow: var(--text-shadow);
 	}
-	h5 {
-		font-weight: 300;
-	}
+
 </style>
