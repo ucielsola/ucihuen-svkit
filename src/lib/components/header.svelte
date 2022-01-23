@@ -106,7 +106,6 @@
 
 	@media screen and (min-width: 1024px) {
 		header {
-			display: fle;
 			min-height: 60vh;
 			box-shadow: 0px 1rem 30px 6px rgb(0 0 0 / 40%);
 		}

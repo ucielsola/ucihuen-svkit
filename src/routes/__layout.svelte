@@ -9,8 +9,17 @@
 <script>
 	import PageTransition from '$lib/components/PageTransitions.svelte';
 	import { fade } from 'svelte/transition';
-
 	export let key;
+
+	import { getWindowWidth } from '$lib/store.js';
+
+	let winWidth;
+
+	onMount(() => {
+		getWindowWidth.subscribe((value) => {
+			winWidth = value;
+		});
+	});
 
 	import { Modals, closeModal, openModal } from 'svelte-modals';
 
@@ -61,7 +70,6 @@
 
 	// fires if url change and only on client side
 	$: if (key && ready) {
-		console.log(formPage);
 		setTimeout(() => {
 			let height = document.querySelector('#svelte').clientHeight;
 			// alert(`'test doc height mobile', '${height}'`);
@@ -78,7 +86,7 @@
 	<Nav {formPage} />
 </div>
 <PageTransition refresh={key}>
-	<main class={formPage ? 'form-page' : ''}>
+	<main class={formPage && winWidth < 1024 ? 'form-page' : ''}>
 		<Modals>
 			<div slot="backdrop" class="backdrop" transition:fade on:click={closeModal} />
 		</Modals>
@@ -118,6 +126,8 @@
 	}
 
 	@media screen and (min-width: 1024px) {
+
+
 		.nav-container {
 			opacity: 0.5;
 			position: absolute;

@@ -48,17 +48,15 @@
 
 <section>
 	<article id="cab-1">
-		<h3>Cabaña 1</h3>
+		<h3>Cabaña 7 Pasajeros</h3>
 		<h4>2 HABITACIONES | LIVING-COMEDOR | COCINA | BAÑO</h4>
 		<div class="container" in:fade={{ duration: 300, delay: 100 }}>
 			<Slider items={cab_1} type="slide" delay={2300} sendClick={() => testImg()} bind:url />
 		</div>
 	</article>
 	<article id="cab-2">
-		<h3>Cabaña 2</h3>
-		<h4>
-			1 HABITACIÓN | COCINA-COMEDOR | LIVING CON FUTONES | BAÑO
-		</h4>
+		<h3>Cabaña 4 Pasajeros</h3>
+		<h4>1 HABITACIÓN | COCINA-COMEDOR | LIVING CON FUTONES | BAÑO</h4>
 		<div class="container" in:fade={{ duration: 400, delay: 150 }}>
 			<Slider items={cab_2} type="slide" delay={2400} sendClick={() => testImg()} bind:url />
 		</div>
@@ -94,5 +92,11 @@
 		font-size: 0.8rem;
 		letter-spacing: -0.8px;
 		color: var(--primary-color);
+	}
+
+	@media screen and (min-width: 1024px) {
+		section {
+			margin-block-start: 3rem;
+		}
 	}
 </style>
