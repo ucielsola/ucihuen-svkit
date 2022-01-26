@@ -24,7 +24,7 @@
 	</div>
 	<div class="row">
 		<div class="logo">
-			<h1>Cabañas <span>Ucihuen</span></h1>
+			<a href="/" title="Inicio"><h1>Cabañas <span>Ucihuen</span></h1></a>
 		</div>
 		<p class="copy">
 			Enmarcadas en un verde paisaje cordillerano, dentro de un valle rodeado de montañas boscosas,
@@ -34,6 +34,9 @@
 </header>
 
 <style>
+	a{
+		text-decoration: none;
+	}
 	header {
 		position: relative;
 		display: grid;
