@@ -36,7 +36,7 @@
 
 	<section class="vertical-banner">
 		<img src="/images/vertical_banner.webp" alt="Cabañas Ucihuen" />
-		<button>Consultar Reserva</button>
+		<a href="/contacto" title="Contacto">ENVIAR CONSULTA</a>
 	</section>
 </div>
 
@@ -106,22 +106,60 @@
 		}
 		.desktop-grid {
 			display: grid;
-			grid-template-columns: 1.5fr 0.5fr;
+			grid-template-columns: 1.4fr 0.6fr;
 			grid-template-rows: 0.5fr 1.5fr;
-			gap: 0px 0px;
+			gap: 0px 24px;
 			grid-template-areas:
 				'description vertical-banner'
 				'icon-grid vertical-banner';
 		}
+
 		.vertical-banner {
-			display: block;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
 			grid-area: vertical-banner;
+			width: 100%;
+		}
+
+		.vertical-banner img {
+			border-radius: 10px;
+			box-shadow: var(--shadow);
+		}
+
+		.vertical-banner a {
+			cursor: pointer;
+			text-align: center;
+			background-color: var(--primary-color);
+			border: none;
+			box-shadow: var(--shadow);
+			color: white;
+			padding-block: 1rem;
+			padding-inline: 1.5rem;
+			border-radius: 10px;
+			transition: background-color 0.35s var(--easing);
+		}
+		.vertical-banner a:active {
+			background-color: var(--primary-color-dim);
+			border: none;
+			box-shadow: var(--shadow);
+			color: white;
+			padding-block: 1rem;
+			padding-inline: 1.5rem;
+			border-radius: 10px;
+			transform: scale(0.99);
+			transition: background-color 0.35s var(--easing);
+
 		}
 		.icon-grid {
 			grid-area: icon-grid;
 		}
 		.description {
 			grid-area: description;
+			box-shadow: var(--shadow);
+			padding: 2rem;
+			border-radius: 10px;
+			margin-top: 4rem;
 		}
 	}
 </style>

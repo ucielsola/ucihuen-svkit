@@ -166,5 +166,13 @@
 			height: min-content;
 			grid-template-columns: repeat(4, 1fr);
 		}
+
+		img {
+			width: 4.5rem;
+			height: 4.5rem;
+		}
+		span {
+			font-size: 1rem;
+		}
 	}
 </style>
