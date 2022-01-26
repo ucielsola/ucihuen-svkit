@@ -157,8 +157,14 @@
 	}
 
 	@media screen and (min-width: 1024px) {
-		.pusher, .toggle-btn  {
+		.pusher,
+		.toggle-btn {
 			display: none;
+		}
+
+		.grid {
+			height: min-content;
+			grid-template-columns: repeat(4, 1fr);
 		}
 	}
 </style>
