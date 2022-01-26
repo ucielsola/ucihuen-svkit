@@ -104,4 +104,10 @@
 	.name {
 		font-weight: 600;
 	}
+
+	@media screen and (min-width: 1024px) {
+		.review-container {
+			height: 17.5rem !important;
+		}
+	}
 </style>
