@@ -3,24 +3,24 @@
 	<h3 class="title">También podés encontrarnos en</h3>
 	<div class="content">
 		<div class="col">
-			<a href="airbnb.com" class="airbnb" title="Cabañas Ucihuen en AirBnB.com"
+			<a href="https://airbnb.com" target="_blank" rel="noopener nofollower" class="airbnb" title="Cabañas Ucihuen en AirBnB.com"
 				><img src="icons/airbnb.webp" alt="Cabañas Ucihuen en AirBnB.com" /></a
 			>
 			<h4 class="whatsapp">o escribirnos al</h4>
 			<h3 class="credits">Desarrollo</h3>
-			<a href="https://ucielsola.com">Uciel Sola</a>
+			<a href="https://ucielsola.com" target="_blank" rel="noopener nofollower"> Uciel Sola</a>
 		</div>
 		<div class="col">
-			<a href="booking.com" class="booking" title="Cabañas Ucihuen en Booking.com"
+			<a href="https://booking.com" target="_blank" rel="noopener nofollower" class="booking" title="Cabañas Ucihuen en Booking.com"
 				><img src="icons/booking.webp" alt="Cabañas Ucihuen en Booking.com" /></a
 			>
 			<h4>
-				<a href="https://wa.link/hfh2e3" class="whatsapp"
+				<a href="https://wa.link/hfh2e3" target="_blank" rel="noopener nofollower" class="whatsapp"
 					><img src="icons/whatsapp.webp" alt="Whatsapp logo" />+54 9 11 3158-6242</a
 				>
 			</h4>
 			<h3 class="credits">Diseño</h3>
-			<a href="google.com">Julieta Rodriguez</a>
+			<a href="#TBD" target="_blank" rel="noopener nofollower">Julieta Rodriguez</a>
 		</div>
 	</div>
 </footer>
