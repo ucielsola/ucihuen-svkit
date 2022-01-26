@@ -7,6 +7,7 @@
 
 <svelte:head>
 	<title>Cabañas Ucihuen - Lago Puelo</title>
+	<meta property="og:title" content="Cabañas Ucihuen - Lago Puelo">
 </svelte:head>
 
 <section>

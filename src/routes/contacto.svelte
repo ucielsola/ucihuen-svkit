@@ -3,7 +3,8 @@
 </script>
 
 <svelte:head>
-	<title>Cabañas Ucihuen - Contacto</title>
+	<title>Contacto - Cabañas Ucihuen</title>
+	<meta property="og:title" content="Contacto - Cabañas Ucihuen">
 </svelte:head>
 
 <section>

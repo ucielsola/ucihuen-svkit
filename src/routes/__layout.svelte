@@ -16,9 +16,12 @@
 	let winWidth;
 
 	onMount(() => {
+		ready = true;
+
 		getWindowWidth.subscribe((value) => {
 			winWidth = value;
 		});
+
 	});
 
 	import { Modals, closeModal, openModal } from 'svelte-modals';
@@ -41,9 +44,7 @@
 
 	let formPage = false;
 
-	onMount(() => {
-		ready = true;
-	});
+	
 
 	const setFabOffset = (height) => {
 		docHeight = height;

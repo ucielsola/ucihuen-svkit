@@ -44,6 +44,7 @@
 
 <svelte:head>
 	<title>Galería - Cabañas Ucihuen</title>
+	<meta property="og:title" content="Galería - Cabañas Ucihuen">
 </svelte:head>
 
 <section>
