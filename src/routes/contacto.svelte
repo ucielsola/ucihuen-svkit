@@ -4,7 +4,7 @@
 
 <svelte:head>
 	<title>Contacto - Cabañas Ucihuen</title>
-	<meta property="og:title" content="Contacto - Cabañas Ucihuen">
+	<meta property="og:title" content="Contacto - Cabañas Ucihuen" />
 </svelte:head>
 
 <section>
@@ -12,9 +12,13 @@
 </section>
 
 <style>
+	section {
+		padding-inline: 0;
+	}
 	@media screen and (min-width: 1024px) {
 		section {
 			margin-block-start: 3rem;
+			padding-inline: var(--padding-inline);
 		}
 	}
 </style>
