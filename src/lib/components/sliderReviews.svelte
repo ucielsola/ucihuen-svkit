@@ -109,5 +109,15 @@
 		.review-container {
 			height: 17.5rem !important;
 		}
+
+		.review-container{
+			display: flex;
+			transition: all 0.2s var(--easing);
+		}
+
+		.review-container:hover {
+			transform: scale(1.01);
+			transition: transform 0.2s var(--easing);
+		}
 	}
 </style>
