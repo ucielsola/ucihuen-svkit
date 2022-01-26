@@ -10,7 +10,7 @@
 	<meta property="og:title" content="Cabañas Ucihuen - Lago Puelo" />
 </svelte:head>
 <div class="desktop-grid limited-width">
-	<section class="description">
+	<section class="description marginated">
 		<p>
 			Ubicadas a sólo dos cuadras del centro de la <a
 				href="http://www.lagopuelo.gob.ar/turismo/"
@@ -40,7 +40,7 @@
 	</section>
 </div>
 
-<section class="limited-width">
+<section class="limited-width description ">
 	<h2 class="title">¿Cómo son las cabañas?</h2>
 	<Cards />
 </section>
@@ -52,9 +52,15 @@
 </section>
 
 <section class="no-padding full-width">
-	<h2 class="title">Reviews</h2>
+	<div class="limited-width reviews">
+		<h2 class="title">Reviews</h2>
+	</div>
 	<SliderReviews />
 </section>
+
+<div class="cta-container">
+	<a href="/contacto" title="Contacto">ENVIAR CONSULTA</a>
+</div>
 
 <style>
 	section {
@@ -91,11 +97,15 @@
 		margin-right: 0.5rem;
 	}
 
-	.vertical-banner {
+	.vertical-banner,
+	.cta-container {
 		display: none;
 	}
 
 	@media screen and (min-width: 1024px) {
+		.limited-width.reviews {
+			padding-top: 3rem;
+		}
 		h2 {
 			text-align: start !important;
 			padding-inline-start: 2rem;
@@ -149,17 +159,49 @@
 			border-radius: 10px;
 			transform: scale(0.99);
 			transition: background-color 0.35s var(--easing);
-
 		}
 		.icon-grid {
 			grid-area: icon-grid;
 		}
 		.description {
+			display: block;
 			grid-area: description;
-			box-shadow: var(--shadow);
+			box-shadow: var(--full-shadow);
 			padding: 2rem;
 			border-radius: 10px;
-			margin-top: 4rem;
+			margin-top: 2rem;
+		}
+		.description.marginated {
+			margin-inline: var(--padding-inline);
+		}
+
+		.cta-container {
+			margin-top: 3rem;
+			display: grid;
+			place-content: center;
+		}
+		.cta-container a {
+			cursor: pointer;
+			text-align: center;
+			background-color: var(--primary-color);
+			border: none;
+			box-shadow: var(--shadow);
+			color: white;
+			padding-block: 1rem;
+			padding-inline: 1.5rem;
+			border-radius: 10px;
+			transition: background-color 0.35s var(--easing);
+		}
+		.cta-container a:active {
+			background-color: var(--primary-color-dim);
+			border: none;
+			box-shadow: var(--shadow);
+			color: white;
+			padding-block: 1rem;
+			padding-inline: 1.5rem;
+			border-radius: 10px;
+			transform: scale(0.99);
+			transition: background-color 0.35s var(--easing);
 		}
 	}
 </style>
