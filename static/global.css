@@ -107,9 +107,6 @@ h5 {
 	font-weight: 300;
 }
 
-@media screen and (min-width: 1024px) {
-	/* overflow-x: revert; */
-}
 
 /* MODAL BACKDROP */
 .backdrop {
@@ -152,4 +149,10 @@ input.datepicker {
 .flatpickr-day.startRange.startRange + .endRange:not(:nth-child(7n + 1)),
 .flatpickr-day.endRange.startRange + .endRange:not(:nth-child(7n + 1)) {
 	box-shadow: -10px 0 0 var(--secondary-color) !important;
+}
+
+@media screen and (min-width: 1024px) {
+	body {
+		font-size: 22px;
+	}
 }
