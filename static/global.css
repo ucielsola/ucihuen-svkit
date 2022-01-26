@@ -107,7 +107,6 @@ h5 {
 	font-weight: 300;
 }
 
-
 /* MODAL BACKDROP */
 .backdrop {
 	z-index: 400;
@@ -154,5 +153,14 @@ input.datepicker {
 @media screen and (min-width: 1024px) {
 	body {
 		font-size: 22px;
+	}
+
+	.limited-width {
+		margin-inline: auto;
+		max-width: 1366px;
+	}
+	.full-width {
+		max-width: unset;
+		width: 100%;
 	}
 }
