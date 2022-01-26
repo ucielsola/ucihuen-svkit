@@ -23,14 +23,10 @@
 	};
 </script>
 
-{#if !formPage}
+{#if !formPage && windowWidth < 1024}
 	<a href="/contacto" class={scrolledPercentage > limit && !scrollingUp ? 'pushed-up' : ''}
 		><div class="wrapper {active ? 'active' : ''}">
-			{#if windowWidth > 1024}
-				<button on:mousedown={toggleActive} on:mouseup={toggleActive}>ENVIAR CONSULTA</button>
-			{:else}
 				<button on:touchstart={toggleActive} on:touchend={toggleActive}>ENVIAR CONSULTA</button>
-			{/if}
 		</div>
 	</a>
 {/if}
@@ -78,12 +74,5 @@
 		background-color: #fff;
 		color: var(--primary-color);
 		transition: background-color 0.35s var(--easing);
-	}
-
-	@media (hover: hover) {
-		.wrapper:hover {
-			opacity: 1;
-			transition: all 0.35s var(--easing);
-		}
 	}
 </style>
