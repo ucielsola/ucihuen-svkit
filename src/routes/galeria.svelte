@@ -44,7 +44,7 @@
 
 <svelte:head>
 	<title>Galería - Cabañas Ucihuen</title>
-	<meta property="og:title" content="Galería - Cabañas Ucihuen">
+	<meta property="og:title" content="Galería - Cabañas Ucihuen" />
 </svelte:head>
 
 <section>
@@ -69,6 +69,10 @@
 			<Slider items={exterior} type="slide" delay={2500} sendClick={() => testImg()} bind:url />
 		</div>
 	</article>
+
+	<div class="cta-container">
+		<a href="/contacto" title="Contacto">ENVIAR CONSULTA</a>
+	</div>
 </section>
 
 <style>
@@ -95,9 +99,49 @@
 		color: var(--primary-color);
 	}
 
+	.cta-container {
+		display: none;
+	}
+
 	@media screen and (min-width: 1024px) {
 		section {
 			margin-block-start: 3rem;
+		}
+		h3,
+		h4 {
+			padding-left: 3rem;
+		}
+		h4 {
+			font-size: 1.3rem;
+			padding-bottom: 1rem;
+		}
+		.cta-container {
+			margin-top: 3rem;
+			display: grid;
+			place-content: center;
+		}
+		.cta-container a {
+			cursor: pointer;
+			text-align: center;
+			background-color: var(--primary-color);
+			border: none;
+			box-shadow: var(--shadow);
+			color: white;
+			padding-block: 1rem;
+			padding-inline: 1.5rem;
+			border-radius: 10px;
+			transition: background-color 0.35s var(--easing);
+		}
+		.cta-container a:active {
+			background-color: var(--primary-color-dim);
+			border: none;
+			box-shadow: var(--shadow);
+			color: white;
+			padding-block: 1rem;
+			padding-inline: 1.5rem;
+			border-radius: 10px;
+			transform: scale(0.99);
+			transition: background-color 0.35s var(--easing);
 		}
 	}
 </style>
