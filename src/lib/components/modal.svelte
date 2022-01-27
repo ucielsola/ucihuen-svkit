@@ -57,9 +57,7 @@
 		text-align: center;
 		margin-top: 16px;
 	}
-    span.bold {
-        font-weight: 600;
-    }
+   
 
 	.button-border {
 		border-radius: 10px;

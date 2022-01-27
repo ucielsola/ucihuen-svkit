@@ -113,6 +113,7 @@
 
 <style>
 	.backdrop {
+		z-index: 400;
 		position: fixed;
 		top: 0;
 		bottom: 0;
