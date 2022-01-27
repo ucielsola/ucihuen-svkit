@@ -1,9 +1,14 @@
-<footer>
+<footer id="mobile">
 	<div class="divider" />
 	<h3 class="title">También podés encontrarnos en</h3>
 	<div class="content">
 		<div class="col">
-			<a href="https://airbnb.com" target="_blank" rel="noopener nofollower" class="airbnb" title="Cabañas Ucihuen en AirBnB.com"
+			<a
+				href="https://airbnb.com"
+				target="_blank"
+				rel="noopener nofollower"
+				class="airbnb"
+				title="Cabañas Ucihuen en AirBnB.com"
 				><img src="icons/airbnb.webp" alt="Cabañas Ucihuen en AirBnB.com" /></a
 			>
 			<h4 class="whatsapp">o escribirnos al</h4>
@@ -11,7 +16,12 @@
 			<a href="https://ucielsola.com" target="_blank" rel="noopener nofollower"> Uciel Sola</a>
 		</div>
 		<div class="col">
-			<a href="https://booking.com" target="_blank" rel="noopener nofollower" class="booking" title="Cabañas Ucihuen en Booking.com"
+			<a
+				href="https://booking.com"
+				target="_blank"
+				rel="noopener nofollower"
+				class="booking"
+				title="Cabañas Ucihuen en Booking.com"
 				><img src="icons/booking.webp" alt="Cabañas Ucihuen en Booking.com" /></a
 			>
 			<h4>
@@ -20,12 +30,62 @@
 				>
 			</h4>
 			<h3 class="credits">Diseño</h3>
-			<a href="https://www.behance.net/julietarodrigu14" target="_blank" rel="noopener nofollower">Julieta Rodriguez</a>
+			<a href="https://www.behance.net/julietarodrigu14" target="_blank" rel="noopener nofollower"
+				>Julieta Rodriguez</a
+			>
+		</div>
+	</div>
+</footer>
+
+<footer id="desktop">
+	<div class="divider" />
+	<h3 class="title">También podés encontrarnos en</h3>
+	<div class="content">
+		<div class="row">
+			<a
+				href="https://airbnb.com"
+				target="_blank"
+				rel="noopener nofollower"
+				class="airbnb"
+				title="Cabañas Ucihuen en AirBnB.com"
+				><img src="icons/airbnb.webp" alt="Cabañas Ucihuen en AirBnB.com" /></a
+			>
+			<a
+				href="https://booking.com"
+				target="_blank"
+				rel="noopener nofollower"
+				class="booking"
+				title="Cabañas Ucihuen en Booking.com"
+				><img src="icons/booking.webp" alt="Cabañas Ucihuen en Booking.com" /></a
+			>
+			<div class="whatsapp">
+				<span>o escribirnos al</span>
+				<span>
+					<a href="https://wa.link/hfh2e3" target="_blank" rel="noopener nofollower"
+						><img src="icons/whatsapp.webp" alt="Whatsapp logo" class="wa-logo" />+54 9 11 3158-6242</a
+					>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="credit-container">
+				<h3 class="credits">Desarrollo</h3>
+				<a href="https://ucielsola.com" target="_blank" rel="noopener nofollower"> Uciel Sola</a>
+			</div>
+			<div class="credit-container">
+				<h3 class="credits">Diseño</h3>
+				<a href="https://www.behance.net/julietarodrigu14" target="_blank" rel="noopener nofollower"
+					>Julieta Rodriguez</a
+				>
+			</div>
 		</div>
 	</div>
 </footer>
 
 <style>
+	footer#desktop {
+		display: none;
+	}
 	footer {
 		padding-block: 1rem;
 		background-color: rgba(127, 188, 171, 0.5);
@@ -75,5 +135,51 @@
 	.credits {
 		display: block;
 		padding-top: 0.5rem;
+	}
+
+	@media (min-width: 1024px) {
+		footer#mobile {
+			display: none;
+		}
+
+		footer#desktop {
+			display: block;
+		}
+
+		.divider {
+			width: 99.8%;
+		}
+
+		.content {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+		.airbnb,
+		.booking,
+		.whatsapp {
+			padding-inline: 1rem;
+		}
+
+		.wa-logo {
+			display: inline-block;
+			padding-inline: 1.5rem;
+		}
+
+		.whatsapp a {
+			display: flex;
+			align-items: center;
+		}
+		.row {
+			display: flex;
+			flex-direction: row;
+			min-width: 10rem;
+		}
+		.col {
+			display: flex;
+			flex-direction: column;
+		}
+		.credit-container {
+			padding-inline: 1rem;
+		}
 	}
 </style>
