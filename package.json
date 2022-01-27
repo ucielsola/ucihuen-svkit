@@ -22,9 +22,9 @@
 	},
 	"dependencies": {
 		"@sendgrid/mail": "^7.6.0",
+		"svelte-flatpickr": "^3.2.4",
 		"svelte-modals": "^1.0.4",
-		"swiper": "^7.3.0",
-		"svelte-flatpickr": "^3.2.4"
+		"swiper": "^7.3.0"
 	},
 	"type": "module"
 }
