@@ -14,7 +14,7 @@
 	import { goto } from '$app/navigation';
 
 	function backToStart() {
-		closeModal()
+		closeModal();
 		goto(`/`, true);
 	}
 
@@ -39,6 +39,7 @@
 
 	import { onMount } from 'svelte';
 	import { getWindowHeight, getFooterHeight } from '$lib/store.js';
+	import FabWhatsapp from '$lib/components/fabWhatsapp.svelte';
 
 	let docHeight;
 	let winHeight;
@@ -96,17 +97,20 @@
 </div>
 <PageTransition refresh={key}>
 	<main class={formPage && winWidth < 1024 ? 'form-page' : ''}>
-		<Modals>
-			<div slot="backdrop" class="backdrop" transition:fade on:click={backToStart} />
-		</Modals>
-		<Fab
+		<!-- <Fab
 			--footer-height={footerHeight}
 			{scrolledPercentage}
 			{scrollingUp}
 			{formPage}
 			path={key.pathname}
-		/>
+		/> -->
 		<slot />
+		<FabWhatsapp
+			--footer-height={footerHeight}
+			{scrolledPercentage}
+			{scrollingUp}
+			path={key.pathname}
+		/>
 	</main>
 </PageTransition>
 <Footer />

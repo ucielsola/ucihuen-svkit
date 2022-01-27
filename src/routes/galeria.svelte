@@ -100,7 +100,32 @@
 	}
 
 	.cta-container {
-		display: none;
+		margin-top: 3rem;
+		display: grid;
+		place-content: center;
+	}
+	.cta-container a {
+		cursor: pointer;
+		text-align: center;
+		background-color: var(--primary-color);
+		border: none;
+		box-shadow: var(--shadow);
+		color: white;
+		padding-block: 1rem;
+		padding-inline: 1.5rem;
+		border-radius: 10px;
+		transition: background-color 0.35s var(--easing);
+	}
+	.cta-container a:active {
+		background-color: var(--primary-color-dim);
+		border: none;
+		box-shadow: var(--shadow);
+		color: white;
+		padding-block: 1rem;
+		padding-inline: 1.5rem;
+		border-radius: 10px;
+		transform: scale(0.99);
+		transition: background-color 0.35s var(--easing);
 	}
 
 	@media screen and (min-width: 1024px) {
