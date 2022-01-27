@@ -34,7 +34,7 @@
 </header>
 
 <style>
-	a{
+	a {
 		text-decoration: none;
 	}
 	header {
@@ -113,16 +113,22 @@
 			box-shadow: 0px 1rem 30px 6px rgb(0 0 0 / 40%);
 		}
 
-		.background .blur {
+		.background {
 			position: absolute;
 			background-image: var(--cover-image);
 			/* filter: blur(2px); */
 			background-color: #fff3;
 			width: 100%;
 			height: 100%;
-			transform: scale(1.01);
+			transform: scale(1);
 			background-size: cover;
 			background-position: center;
+			border-bottom-left-radius: 0rem;
+			border-bottom-right-radius: 0rem;
+		}
+
+		.blur {
+			display: none;
 		}
 		.row {
 			position: absolute;
