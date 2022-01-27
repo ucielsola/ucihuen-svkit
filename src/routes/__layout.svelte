@@ -11,6 +11,13 @@
 	import { fade } from 'svelte/transition';
 	export let key;
 
+	import { goto } from '$app/navigation';
+
+	function backToStart() {
+		closeModal()
+		goto(`/`, true);
+	}
+
 	import { getWindowWidth } from '$lib/store.js';
 
 	let winWidth;
@@ -21,7 +28,6 @@
 		getWindowWidth.subscribe((value) => {
 			winWidth = value;
 		});
-
 	});
 
 	import { Modals, closeModal, openModal } from 'svelte-modals';
@@ -43,8 +49,6 @@
 	let ready = false;
 
 	let formPage = false;
-
-	
 
 	const setFabOffset = (height) => {
 		docHeight = height;
@@ -82,6 +86,10 @@
 
 <svelte:window bind:scrollY={scrolled} />
 
+<Modals>
+	<div slot="backdrop" class="backdrop" on:click={closeModal} />
+</Modals>
+
 <Header {formPage} />
 <div class="nav-container">
 	<Nav {formPage} />
@@ -89,7 +97,7 @@
 <PageTransition refresh={key}>
 	<main class={formPage && winWidth < 1024 ? 'form-page' : ''}>
 		<Modals>
-			<div slot="backdrop" class="backdrop" transition:fade on:click={closeModal} />
+			<div slot="backdrop" class="backdrop" transition:fade on:click={backToStart} />
 		</Modals>
 		<Fab
 			--footer-height={footerHeight}
@@ -104,6 +112,15 @@
 <Footer />
 
 <style>
+	.backdrop {
+		z-index: 400;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		background: rgba(0, 0, 0, 0.5);
+	}
 	main {
 		position: relative;
 		padding-block-end: 4rem;
@@ -127,7 +144,6 @@
 	}
 
 	@media screen and (min-width: 1024px) {
-
 		main {
 			padding-top: 2rem;
 		}

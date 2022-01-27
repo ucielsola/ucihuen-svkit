@@ -113,16 +113,11 @@ h5 {
 	font-weight: 300;
 }
 
-/* MODAL BACKDROP */
-.backdrop {
-	z-index: 400;
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	background: var(--backdrop);
+span.bold {
+	font-weight: 600;
+	text-shadow: var(--text-shadow);
 }
+
 
 /* Swiper */
 .swiper-wrapper {

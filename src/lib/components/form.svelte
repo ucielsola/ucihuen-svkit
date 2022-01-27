@@ -2,6 +2,9 @@
 	import { getWindowWidth } from '$lib/store.js';
 	import { onMount } from 'svelte';
 
+	import { openModal } from 'svelte-modals';
+	import Modal from '$lib/components/modal.svelte';
+
 	let winWidth;
 
 	onMount(() => {
@@ -70,7 +73,9 @@
 			})
 		})
 			.then((response) => response.json())
-			.then((data) => console.log(data))
+			.then((data) => {
+				openModal(Modal, { name });
+			})
 			.catch((error) => console.log(error));
 	}
 </script>
@@ -82,55 +87,84 @@
 	<input type="hidden" name="_subject" value="Nueva consulta! Ucihuen.com.ar" />
 
 	<!-- form elements -->
+	<div class="desk-row">
+		<div class="desk-col">
+			<div class="form-group datepicker">
+				<h3>Estadía</h3>
+				<h4>Seleccione el rango de fechas</h4>
+				<Flatpickr
+					name="estadia"
+					options={flatpickrOptionsRange}
+					class="form-control datepicker bg-white"
+					placeholder="Seleccionar estadía"
+					on:change={(event) => dateChange(event)}
+				/>
+			</div>
 
-	<div class="form-group datepicker">
-		<h3>Estadía</h3>
-		<h4>Seleccione el rango de fechas</h4>
-		<Flatpickr
-			name="estadia"
-			options={flatpickrOptionsRange}
-			class="form-control datepicker bg-white"
-			placeholder="Seleccionar estadía"
-			on:change={(event) => dateChange(event)}
-		/>
-	</div>
-
-	<div class="form-group col">
-		<div>
-			<h3>Pasajeros</h3>
-			<h4>Seleccione cantidad</h4>
+			<div class="form-group col">
+				<div>
+					<h3>Pasajeros</h3>
+					<h4>Seleccione cantidad</h4>
+				</div>
+				<div class="pax-wrapper">
+					<button
+						class="decrease"
+						on:click={(event) => updatePax(event, 'down')}
+						disabled={downDisabled ? 'disabled' : ''}><span class="arrow">&lsaquo;</span></button
+					>
+					<span class="number">{pax}</span>
+					<button
+						class="increase"
+						on:click={(event) => updatePax(event, 'up')}
+						disabled={upDisabled ? 'disabled' : ''}><span class="arrow">&rsaquo;</span></button
+					>
+				</div>
+			</div>
 		</div>
-		<div class="pax-wrapper">
-			<button
-				class="decrease"
-				on:click={(event) => updatePax(event, 'down')}
-				disabled={downDisabled ? 'disabled' : ''}><span class="arrow">&lsaquo;</span></button
-			>
-			<span class="number">{pax}</span>
-			<button
-				class="increase"
-				on:click={(event) => updatePax(event, 'up')}
-				disabled={upDisabled ? 'disabled' : ''}><span class="arrow">&rsaquo;</span></button
-			>
+
+		<div class="desk-col">
+			<div class="form-group">
+				<label for="name">Nombre</label>
+				<input type="text" name="name" bind:value={name} required />
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" name="email" bind:value={email} required />
+			</div>
+			<div class="form-group">
+				<label for="phone">Teléfono</label>
+				<input type="phone" name="phone" bind:value={phone} />
+			</div>
+			<div class="form-group">
+				<label for="message">Mensaje <span class="opcional">(opcional)</span></label>
+				<textarea type="text" name="message" bind:value={message} />
+			</div>
 		</div>
 	</div>
 
-	<div class="form-group">
-		<label for="name">Nombre</label>
-		<input type="text" name="name" bind:value={name} required />
+	<div class="form-links">
+		<span class="bold">ADEMÁS PODÉS RESERVAR EN </span>
+		<a
+			href="https://airbnb.com"
+			target="_blank"
+			rel="noopener nofollower"
+			class="airbnb"
+			title="Cabañas Ucihuen en AirBnB.com"
+			><img src="icons/airbnb.webp" alt="Cabañas Ucihuen en AirBnB.com" /></a
+		>
+		<a
+			href="https://booking.com"
+			target="_blank"
+			rel="noopener nofollower"
+			class="booking"
+			title="Cabañas Ucihuen en Booking.com"
+			><img src="icons/booking.webp" alt="Cabañas Ucihuen en Booking.com" /></a
+		> <span class="bold">O CONTACTARNOS AL </span>
+		<a href="https://wa.link/hfh2e3" target="_blank" rel="noopener nofollower" class="whatsapp"
+			><img src="icons/whatsapp.webp" alt="Whatsapp logo" />+54 9 11 3158-6242</a
+		>
 	</div>
-	<div class="form-group">
-		<label for="email">Email</label>
-		<input type="email" name="email" bind:value={email} required />
-	</div>
-	<div class="form-group">
-		<label for="phone">Teléfono</label>
-		<input type="phone" name="phone" bind:value={phone} />
-	</div>
-	<div class="form-group">
-		<label for="message">Mensaje <span class="opcional">(opcional)</span></label>
-		<textarea type="text" name="message" bind:value={message} />
-	</div>
+
 	<div class="submit-container">
 		<div class="submit-border">
 			<input class="submit-btn " type="submit" value="ENVIAR CONSULTA" />
@@ -182,6 +216,10 @@
 	.form-group.col h4 {
 		font-size: 1rem;
 		font-weight: 300;
+	}
+
+	.form-links {
+		display: none;
 	}
 
 	.pax-wrapper {
@@ -306,5 +344,75 @@
 		border-radius: 8px;
 		padding-inline: 3px;
 		padding-block: 3px;
+	}
+
+	@media screen and (min-width: 1024px) {
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+			width: clamp(1024px, 80%, 75rem);
+			margin: 0 auto;
+			background-color: transparent;
+		}
+
+		.desk-row {
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: center;
+			width: 100%;
+		}
+
+		.desk-col {
+			width: 100%;
+		}
+
+		.form-group.col {
+			width: 60%;
+			margin: 0 auto;
+		}
+
+		.form-links {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 1020px;
+			margin-block: 2rem;
+		}
+
+		a.whatsapp {
+			display: flex;
+			align-items: center;
+			justify-content: space-evenly;
+		}
+
+		.submit-border,
+		.back-border {
+			background: none;
+		}
+		.submit-btn {
+			cursor: pointer;
+			text-align: center;
+			background-color: var(--primary-color);
+			border: none;
+			box-shadow: var(--shadow);
+			color: white;
+			padding-block: 1rem;
+			padding-inline: 1.5rem;
+			border-radius: 10px;
+			transition: background-color 0.35s var(--easing);
+		}
+		.submit-btn:active {
+			background-color: var(--primary-color-dim);
+			border: none;
+			box-shadow: var(--shadow);
+			color: white;
+			padding-block: 1rem;
+			padding-inline: 1.5rem;
+			border-radius: 10px;
+			transform: scale(0.99);
+			transition: background-color 0.35s var(--easing);
+		}
 	}
 </style>
