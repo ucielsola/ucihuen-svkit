@@ -20,7 +20,7 @@
 				>
 			</h4>
 			<h3 class="credits">Diseño</h3>
-			<a href="#TBD" target="_blank" rel="noopener nofollower">Julieta Rodriguez</a>
+			<a href="https://www.behance.net/julietarodrigu14" target="_blank" rel="noopener nofollower">Julieta Rodriguez</a>
 		</div>
 	</div>
 </footer>
