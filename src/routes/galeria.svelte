@@ -115,6 +115,8 @@
 		padding-block: 1rem;
 		padding-inline: 1.5rem;
 		border-radius: 10px;
+		font-weight: 900;
+		font-size: 1.2rem;
 		transition: background-color 0.35s var(--easing);
 	}
 	.cta-container a:active {
@@ -156,6 +158,8 @@
 			padding-block: 1rem;
 			padding-inline: 1.5rem;
 			border-radius: 10px;
+			font-weight: 900;
+			font-size: 1.2rem;
 			transition: background-color 0.35s var(--easing);
 		}
 		.cta-container a:active {
