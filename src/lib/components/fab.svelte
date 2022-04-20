@@ -67,6 +67,7 @@
 		border: none;
 		border-radius: 10px;
 		font-size: 1.2rem;
+		font-weight: 900;
 		color: #fff;
 	}
 

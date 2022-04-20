@@ -113,6 +113,7 @@
 		border: none;
 		box-shadow: var(--shadow);
 		color: white;
+		font-weight: 900;
 		padding-block: 1rem;
 		padding-inline: 1.5rem;
 		border-radius: 10px;
