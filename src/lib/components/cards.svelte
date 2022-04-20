@@ -1,7 +1,7 @@
 <div class="container">
 	<a class="card" href="/galeria#cab-1">
 		<div class="title-container">
-			<img src="images/cab-1.webp" alt="Cabañas Ucihuen" />
+			<img loading="lazy" src="images/cab-1.webp" alt="Cabañas Ucihuen" />
 			<div class="gradient" />
 			<h3 class="mobile-title">Cabaña para <br />7 personas</h3>
 		</div>
@@ -18,7 +18,7 @@
 	</a>
 	<a class="card" href="/galeria#cab-2">
 		<div class="title-container">
-			<img src="images/cab-2.webp" alt="Cabañas Ucihuen" />
+			<img loading="lazy" src="images/cab-2.webp" alt="Cabañas Ucihuen" />
 			<div class="gradient" />
 			<h3 class="mobile-title">Cabaña para <br />4 personas</h3>
 		</div>
@@ -97,7 +97,7 @@
 	}
 	@media screen and (min-width: 1024px) {
 		.card {
-			display: flex;	
+			display: flex;
 			transition: all 0.2s var(--easing);
 		}
 
@@ -111,7 +111,7 @@
 		}
 
 		.description {
-			width:100%;
+			width: 100%;
 		}
 
 		.mobile-title {
@@ -120,15 +120,12 @@
 		.desktop-title {
 			position: relative;
 			display: inline;
-			
 		}
-
-
 
 		.desktop-title::after {
 			position: absolute;
 			width: 100%;
-			content: "";
+			content: '';
 			height: 1px;
 			background-color: #000;
 			bottom: -0.7rem;
@@ -139,7 +136,7 @@
 			position: relative;
 			margin-bottom: 2rem;
 		}
-		
+
 		h4 {
 			position: absolute;
 			display: block;
@@ -157,6 +154,5 @@
 			font-weight: 400;
 			font-size: 1.2rem;
 		}
-		
 	}
 </style>
