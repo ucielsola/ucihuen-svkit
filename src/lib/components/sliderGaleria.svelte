@@ -37,7 +37,14 @@
 		{#each items as item, i}
 			<SwiperSlide data-swiper-autoplay={delay}>
 				<div class={type}>
-					<img id={item.id} src={item.src} alt={item.alt} on:click={handleClick} />
+					<img
+						data-i={i}
+						loading={i > 3 ? 'lazy' : ''}
+						id={item.id}
+						src={item.src}
+						alt={item.alt}
+						on:click={handleClick}
+					/>
 				</div>
 			</SwiperSlide>
 		{/each}
