@@ -1,14 +1,25 @@
 <script>
+	import { browser } from '$app/env';
 	import IconGrid from '$lib/components/iconGrid.svelte';
 	import Cards from '$lib/components/cards.svelte';
 	import Map from '$lib/components/map.svelte';
 	import SliderReviews from '$lib/components/sliderReviews.svelte';
+	import Loader from '$lib/components/loader.svelte';
+	let loaded = false;
+	$: {
+		if (browser) {
+			setTimeout(() => {
+				loaded = true;
+			}, 1500);
+		}
+	}
 </script>
 
 <svelte:head>
 	<title>Cabañas Ucihuen - Lago Puelo</title>
 	<meta property="og:title" content="Cabañas Ucihuen - Lago Puelo" />
 </svelte:head>
+
 <div class="desktop-grid limited-width">
 	<section class="description marginated">
 		<p>
@@ -55,7 +66,12 @@
 	<div class="limited-width reviews">
 		<h2 class="title">Reviews</h2>
 	</div>
-	<SliderReviews />
+
+	{#if !loaded}
+		<Loader />
+	{:else}
+		<SliderReviews />
+	{/if}
 </section>
 
 <div class="cta-container">
