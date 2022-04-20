@@ -47,7 +47,12 @@
 			<SwiperSlide>
 				<a href={rev.review_link} class="review-container" target="_blank">
 					<div class="row">
-						<img src={rev.autor_image} alt="Google Reviews Cabañas Ucihuen" class="avatar" />
+						<img
+							loading="lazy"
+							src={rev.autor_image}
+							alt="Google Reviews Cabañas Ucihuen"
+							class="avatar"
+						/>
 						<div class="col-wrapper">
 							<span class="name">{rev.autor_name}</span>
 							<span class="date">{rev.review_date}</span>
@@ -93,6 +98,7 @@
 	}
 	.avatar {
 		width: 3.5rem;
+		height: 3.5rem;
 		margin-inline-end: 1.5rem;
 	}
 
@@ -110,7 +116,7 @@
 			height: 17.5rem !important;
 		}
 
-		.review-container{
+		.review-container {
 			display: flex;
 			transition: all 0.2s var(--easing);
 		}
