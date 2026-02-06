@@ -44,6 +44,10 @@
 	</section>
 
 	<section class="vertical-banner">
+		<div class="banner-weather">
+			<h2 class="title">{m.weather_title()}</h2>
+			<Weather />
+		</div>
 		<img src="/images/vertical_banner.webp" alt="Cabañas Ucihuen" />
 	</section>
 </div>
@@ -144,6 +148,10 @@
 			justify-content: space-evenly;
 			grid-area: vertical-banner;
 			width: 100%;
+		}
+
+		.banner-weather {
+			padding-inline: 0.5rem;
 		}
 
 		.vertical-banner img {

@@ -117,6 +117,10 @@
 		gap: 1rem;
 	}
 
+	.weather-main :global(svg) {
+		min-width: 2rem;
+	}
+
 	.weather-main {
 		display: flex;
 		align-items: center;
