@@ -3,17 +3,36 @@
 	import { getLocale, localizeHref } from '$lib/paraglide/runtime.js';
 
 	const locales = [
-		{ code: 'es', flag: '/icons/ar.svg', label: 'Español' },
-		{ code: 'en', flag: '/icons/uk.svg', label: 'English' },
-		{ code: 'pt', flag: '/icons/br.svg', label: 'Português' }
+		{ code: 'es', flag: '/icons/ar.svg', label: 'Español', cta: 'Leer en Español' },
+		{ code: 'en', flag: '/icons/uk.svg', label: 'English', cta: 'Read in English' },
+		{ code: 'pt', flag: '/icons/br.svg', label: 'Português', cta: 'Ler em Português' }
 	];
 
 	let open = $state(false);
+	let hintLocale = $state(null);
 	let currentCode = $derived(getLocale());
 	let others = $derived(locales.filter((l) => l.code !== currentCode));
 
+	let cancelHints = () => {};
+
 	function hrefFor(code) {
 		return localizeHref(page.url.pathname + page.url.search + page.url.hash, { locale: code });
+	}
+
+	function markSwitched() {
+		try { sessionStorage.setItem('lang-switched', '1'); } catch {}
+	}
+
+	function handleTriggerClick() {
+		if (hintLocale) {
+			markSwitched();
+			const href = hrefFor(hintLocale.code);
+			cancelHints();
+			window.location.href = href;
+		} else {
+			cancelHints();
+			open = !open;
+		}
 	}
 
 	/** @param {MouseEvent} e */
@@ -38,18 +57,75 @@
 			document.removeEventListener('keydown', handleKeydown);
 		};
 	});
+
+	$effect(() => {
+		try { if (sessionStorage.getItem('lang-switched')) return; } catch {}
+
+		const otherLocales = locales.filter((l) => l.code !== getLocale());
+		const browserLang = navigator.language?.slice(0, 2);
+		const detected = otherLocales.find((l) => l.code === browserLang);
+
+		// Detected browser language first, then the rest
+		const queue = detected
+			? [detected, ...otherLocales.filter((l) => l !== detected)]
+			: [...otherLocales];
+
+		const SHOW_DURATION = 3000;
+		const INITIAL_DELAY = 800;
+		const PAUSE = 10000;
+		const CYCLE = queue.length * SHOW_DURATION + PAUSE;
+
+		/** @type {ReturnType<typeof setTimeout>[]} */
+		const timeouts = [];
+		/** @type {ReturnType<typeof setInterval> | undefined} */
+		let interval;
+
+		function scheduleCycle() {
+			queue.forEach((loc, i) => {
+				timeouts.push(setTimeout(() => { hintLocale = loc; }, i * SHOW_DURATION));
+			});
+			timeouts.push(setTimeout(() => { hintLocale = null; }, queue.length * SHOW_DURATION));
+		}
+
+		timeouts.push(
+			setTimeout(() => {
+				scheduleCycle();
+				interval = setInterval(scheduleCycle, CYCLE);
+			}, INITIAL_DELAY)
+		);
+
+		cancelHints = () => {
+			timeouts.forEach(clearTimeout);
+			if (interval) clearInterval(interval);
+			hintLocale = null;
+		};
+
+		return cancelHints;
+	});
 </script>
 
 <div class="lang-toggle">
 	<button
 		class="trigger"
-		onclick={() => (open = !open)}
+		class:hint-active={hintLocale}
+		onclick={handleTriggerClick}
 		aria-expanded={open}
 		aria-haspopup="true"
-		aria-label="Language"
+		aria-label={hintLocale ? hintLocale.cta : 'Language'}
 	>
-		<img src="/icons/lang.svg" alt="Language" />
+		{#key hintLocale?.code}
+			<img
+				src={hintLocale ? hintLocale.flag : '/icons/lang.svg'}
+				alt={hintLocale ? hintLocale.label : 'Language'}
+			/>
+		{/key}
 	</button>
+
+	{#if hintLocale && !open}
+		{#key hintLocale.code}
+			<span class="hint" role="status">{hintLocale.cta}</span>
+		{/key}
+	{/if}
 
 	{#if open}
 		<div class="dropdown" role="menu">
@@ -59,7 +135,7 @@
 					class="dropdown-item"
 					role="menuitem"
 					data-sveltekit-reload
-					onclick={() => (open = false)}
+					onclick={() => { markSwitched(); open = false; }}
 				>
 					<img src={loc.flag} alt={loc.label} />
 					<span>{loc.label}</span>
@@ -86,7 +162,13 @@
 		border-radius: 50%;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 		cursor: pointer;
-		transition: transform 0.2s ease;
+		transition:
+			transform 0.2s ease,
+			padding 0.3s ease;
+	}
+
+	.trigger.hint-active {
+		padding: 0;
 	}
 
 	.trigger:hover {
@@ -102,6 +184,37 @@
 		width: 100%;
 		height: 100%;
 		display: block;
+	}
+
+	.trigger.hint-active img {
+		border-radius: 50%;
+	}
+
+	.hint {
+		position: absolute;
+		top: 50%;
+		right: calc(100% + 0.5rem);
+		transform: translateY(-50%);
+		background: #000;
+		color: #fff;
+		font-family: var(--text-font);
+		font-size: 0.75rem;
+		padding: 0.375rem 0.625rem;
+		border-radius: 6px;
+		white-space: nowrap;
+		pointer-events: none;
+		animation: hint-in 0.3s ease;
+	}
+
+	@keyframes hint-in {
+		from {
+			opacity: 0;
+			transform: translateY(-50%) translateX(0.5rem);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(-50%) translateX(0);
+		}
 	}
 
 	.dropdown {
