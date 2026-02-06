@@ -25,7 +25,7 @@
 		</p>
 		<p>
 			{m.home_desc_2_before()} <a
-				href="https://www.instagram.com/parquenacionallagopuelo/?hl=es"
+				href="https://www.instagram.com/parquenacionallagopuelo/"
 				target="_blank"
 				title={m.home_link_parque_nacional()}>{m.home_desc_2_link()}</a
 			> {m.home_desc_2_after()}
