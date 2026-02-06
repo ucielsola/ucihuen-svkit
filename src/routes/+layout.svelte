@@ -10,6 +10,8 @@
 	import FabWhatsapp from '$lib/components/FabWhatsapp.svelte';
 	import LangToggle from '$lib/components/LangToggle.svelte';
 	import * as m from '$lib/paraglide/messages.js';
+	import { locales, localizeHref, deLocalizeHref } from '$lib/paraglide/runtime.js';
+	import { page } from '$app/state';
 	let { data, children } = $props();
 	let key = $derived(data.key);
 
@@ -45,6 +47,21 @@
 		};
 	});
 </script>
+
+<svelte:head>
+	{#each locales as loc}
+		<link
+			rel="alternate"
+			hreflang={loc}
+			href="https://ucihuen.com.ar{localizeHref(deLocalizeHref(page.url.pathname), { locale: loc })}"
+		/>
+	{/each}
+	<link
+		rel="alternate"
+		hreflang="x-default"
+		href="https://ucihuen.com.ar{deLocalizeHref(page.url.pathname)}"
+	/>
+</svelte:head>
 
 <svelte:window bind:scrollY={scrolled} bind:innerHeight={winHeight} />
 

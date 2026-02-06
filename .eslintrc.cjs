@@ -1,8 +1,7 @@
 module.exports = {
 	root: true,
-	extends: ['eslint:recommended', 'prettier'],
-	plugins: ['svelte3'],
-	overrides: [{ files: ['*.svelte'], processor: 'svelte3/svelte3' }],
+	extends: ['eslint:recommended', 'plugin:svelte/recommended', 'prettier'],
+	overrides: [{ files: ['*.svelte'], parser: 'svelte-eslint-parser' }],
 	parserOptions: {
 		sourceType: 'module',
 		ecmaVersion: 2020
@@ -11,5 +10,9 @@ module.exports = {
 		browser: true,
 		es2017: true,
 		node: true
+	},
+	rules: {
+		'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+		'svelte/valid-compile': 'warn'
 	}
 };
