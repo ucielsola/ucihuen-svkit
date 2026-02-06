@@ -19,20 +19,16 @@
 		position: fixed;
 		top: 1rem;
 		right: 1rem;
-		display: grid;
-		place-content: center;
 		width: 2.5rem;
 		height: 2.5rem;
-		border-radius: 50%;
-		overflow: hidden;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		border-radius: 50%;
 		transition: transform 0.2s ease;
 	}
 
 	img {
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
 	}
 
 	.lang-toggle:hover {
