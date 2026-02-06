@@ -1,5 +1,4 @@
 <script>
-	import { onMount } from 'svelte';
 	import * as m from '$lib/paraglide/messages.js';
 
 	/**
@@ -12,9 +11,7 @@
 	/** @type {Props} */
 	let { scrolledPercentage = 0, scrollingUp, path } = $props();
 
-	let limit = path === '/' ? 95 : 75;
-
-	let windowWidth;
+	let limit = $derived(path === '/' ? 95 : 75);
 </script>
 
 <a

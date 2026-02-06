@@ -9,8 +9,9 @@
 		imgAlt = $bindable('Cabañas Ucihuen'),
 		sendClick = () => {},
 		handleClick = (event) => {
-		url = event.target.src;
-		imgAlt = event.target.alt;
+		const img = event.currentTarget.querySelector('img');
+		url = img.src;
+		imgAlt = img.alt;
 		sendClick();
 	},
 		items,
@@ -41,14 +42,15 @@
 		{#each items as item, i}
 			<SwiperSlide data-swiper-autoplay={delay}>
 				<div class={type}>
-					<img
-						data-i={i}
-						loading={i > 3 ? 'lazy' : ''}
-						id={item.id}
-						src={item.src}
-						alt={item.alt}
-						onclick={handleClick}
-					/>
+					<button type="button" class="slide-btn" onclick={handleClick}>
+						<img
+							data-i={i}
+							loading={i > 3 ? 'lazy' : ''}
+							id={item.id}
+							src={item.src}
+							alt={item.alt}
+						/>
+					</button>
 				</div>
 			</SwiperSlide>
 		{/each}
@@ -71,12 +73,14 @@
 		display: flex;
 		align-items: center;
 	}
-	.slide {
-		text-align: center;
+	.slide-btn {
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: zoom-in;
 	}
 	.slide img {
 		border-radius: 15px;
 		box-shadow: var(--shadow);
-		cursor: zoom-in;
 	}
 </style>

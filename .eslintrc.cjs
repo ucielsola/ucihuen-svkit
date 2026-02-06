@@ -12,7 +12,6 @@ module.exports = {
 		node: true
 	},
 	rules: {
-		'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-		'svelte/valid-compile': 'warn'
+		'no-unused-vars': ['error', { argsIgnorePattern: '^_' }]
 	}
 };

@@ -1,7 +1,7 @@
 <script>
 	import * as m from '$lib/paraglide/messages.js';
 	let open = $state(false);
-	const toggleGrid = (e) => {
+	const toggleGrid = () => {
 		open = !open;
 	};
 </script>
@@ -101,7 +101,7 @@
 	<div class="toggle-btn">
 		<button
 			class={open ? 'turnedUp' : ''}
-			onclick={(e) => toggleGrid(e)}
+			onclick={toggleGrid}
 			aria-expanded={open}
 			aria-label={open ? m.aria_show_less() : m.aria_show_more()}
 		></button>

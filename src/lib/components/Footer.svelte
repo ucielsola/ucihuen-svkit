@@ -91,17 +91,6 @@
 		padding-right: 0.3rem;
 	}
 
-	.credits-row {
-		display: flex;
-		justify-content: space-between;
-		padding-inline: var(--padding-inline);
-	}
-
-	.credits {
-		display: block;
-		padding-top: 0.5rem;
-	}
-
 	@media (min-width: 1024px) {
 		.divider {
 			width: 99.8%;
@@ -133,8 +122,5 @@
 			align-items: center;
 		}
 
-		.credit-container {
-			padding-inline: 1rem;
-		}
 	}
 </style>
