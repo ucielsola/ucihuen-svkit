@@ -7,51 +7,28 @@
 	import * as m from '$lib/paraglide/messages.js';
 	import { sliderUrl, sliderSrcset, modalUrl, lqipUrl } from '$lib/imagekit.js';
 
+	let { data } = $props();
+
 	let modalSrc = $state();
 	let imgAlt = $state('Cabañas Ucihuen');
 	function testImg() {
 		modals.open(Modal, { src: modalSrc, alt: imgAlt });
 	}
 
-	const getPhotos = (type, cab) => {
-		let quant;
-		const arr = [];
-		if (type === 'ext') {
-			quant = 6;
-			for (let i = 1; i <= quant; i++) {
-				const path = `${type}/ucihuen_${type}_${i}.webp`;
-				arr.push({
-					src: sliderUrl(path, 400),
-					srcset: sliderSrcset(path),
-					modalSrc: modalUrl(path),
-					lqip: lqipUrl(path),
-					alt: m.alt_exterior_photo({ n: i }),
-					id: i - 1
-				});
-			}
-			return arr;
-		}
+	function buildSlides(paths, altFn) {
+		return paths.map((path, i) => ({
+			src: sliderUrl(path, 400),
+			srcset: sliderSrcset(path),
+			modalSrc: modalUrl(path),
+			lqip: lqipUrl(path),
+			alt: altFn({ n: i + 1 }),
+			id: i
+		}));
+	}
 
-		quant = cab === 'cab_2' ? 6 : 8;
-		for (let i = 1; i <= quant; i++) {
-			const altFn = cab === 'cab_1' ? m.alt_interior_cab1_photo : m.alt_interior_cab2_photo;
-			const path = `${type}/${cab}/ucihuen_${cab}_${type}_${i}.webp`;
-			arr.push({
-				src: sliderUrl(path, 400),
-				srcset: sliderSrcset(path),
-				modalSrc: modalUrl(path),
-				lqip: lqipUrl(path),
-				alt: altFn({ n: i }),
-				id: i - 1
-			});
-		}
-
-		return arr;
-	};
-
-	let exterior = getPhotos('ext', null);
-	let cab_1 = getPhotos('int', 'cab_1');
-	let cab_2 = getPhotos('int', 'cab_2');
+	let exterior = $derived(buildSlides(data.images.ext, m.alt_exterior_photo));
+	let cab_1 = $derived(buildSlides(data.images.cab_1, m.alt_interior_cab1_photo));
+	let cab_2 = $derived(buildSlides(data.images.cab_2, m.alt_interior_cab2_photo));
 </script>
 
 <svelte:head>
