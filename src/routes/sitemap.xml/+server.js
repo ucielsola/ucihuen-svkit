@@ -1,8 +1,8 @@
 const SITE = 'https://ucihuen.com.ar';
 
 const pages = [
-	{ path: '/', es: '/', en: '/en/' },
-	{ path: '/galeria', es: '/galeria', en: '/en/galeria' }
+	{ path: '/', es: '/', en: '/en/', pt: '/pt/' },
+	{ path: '/galeria', es: '/galeria', en: '/en/galeria', pt: '/pt/galeria' }
 ];
 
 /** @type {import('./$types').RequestHandler} */
@@ -14,6 +14,7 @@ export function GET() {
 		<loc>${SITE}${p.path}</loc>
 		<xhtml:link rel="alternate" hreflang="es" href="${SITE}${p.es}" />
 		<xhtml:link rel="alternate" hreflang="en" href="${SITE}${p.en}" />
+		<xhtml:link rel="alternate" hreflang="pt" href="${SITE}${p.pt}" />
 		<xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${p.path}" />
 	</url>`
 		)
