@@ -26,7 +26,7 @@
 
 <footer>
 	<div class="divider"></div>
-	<h3 class="title">{m.footer_find_us()}</h3>
+	<p class="title">{m.footer_find_us()}</p>
 	<div class="content">
 		<div class="links">
 			<a

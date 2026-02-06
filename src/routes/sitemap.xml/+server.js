@@ -7,11 +7,13 @@ const pages = [
 
 /** @type {import('./$types').RequestHandler} */
 export function GET() {
+	const lastmod = new Date().toISOString().split('T')[0];
 	const urls = pages
 		.map(
 			(p) => `
 	<url>
 		<loc>${SITE}${p.path}</loc>
+		<lastmod>${lastmod}</lastmod>
 		<xhtml:link rel="alternate" hreflang="es" href="${SITE}${p.es}" />
 		<xhtml:link rel="alternate" hreflang="en" href="${SITE}${p.en}" />
 		<xhtml:link rel="alternate" hreflang="pt" href="${SITE}${p.pt}" />

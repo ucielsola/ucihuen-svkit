@@ -10,9 +10,6 @@
 	import FabWhatsapp from '$lib/components/FabWhatsapp.svelte';
 	import LangToggle from '$lib/components/LangToggle.svelte';
 	import * as m from '$lib/paraglide/messages.js';
-	import { locales, localizeHref, deLocalizeHref } from '$lib/paraglide/runtime.js';
-	import { page } from '$app/state';
-	import { SITE_URL } from '$lib/config.js';
 	let { data, children } = $props();
 	let key = $derived(data.key);
 
@@ -52,18 +49,6 @@
 <svelte:head>
 	<link rel="preconnect" href="https://www.youtube-nocookie.com" />
 	<link rel="preconnect" href="https://i.ytimg.com" />
-	{#each locales as loc}
-		<link
-			rel="alternate"
-			hreflang={loc}
-			href="{SITE_URL}{localizeHref(deLocalizeHref(page.url.pathname), { locale: loc })}"
-		/>
-	{/each}
-	<link
-		rel="alternate"
-		hreflang="x-default"
-		href="{SITE_URL}{deLocalizeHref(page.url.pathname)}"
-	/>
 </svelte:head>
 
 <svelte:window bind:scrollY={scrolled} bind:innerHeight={winHeight} />

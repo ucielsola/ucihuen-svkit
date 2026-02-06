@@ -5,6 +5,7 @@
 	import Map from '$lib/components/Map.svelte';
 	import Weather from '$lib/components/Weather.svelte';
 	import SliderReviews from '$lib/components/SliderReviews.svelte';
+	import SEO from '$lib/components/SEO.svelte';
 	import * as m from '$lib/paraglide/messages.js';
 	let { data } = $props();
 
@@ -16,19 +17,14 @@
 	}
 </script>
 
-<svelte:head>
-	<title>{m.home_title()}</title>
-	<meta property="og:title" content={m.home_title()} />
-</svelte:head>
+<SEO title={m.home_title()} description={m.home_meta_description()} />
 
 <div class="desktop-grid limited-width">
 	<section id="inicio" class="description marginated">
 		<p>
 			{m.home_desc_1_before()}
-			<a
-				href={igProfile('lagopueloturismo')}
-				target="_blank"
-				title={m.home_link_lago_puelo()}>{m.home_desc_1_link()}</a
+			<a href={igProfile('lagopueloturismo')} target="_blank" title={m.home_link_lago_puelo()}
+				>{m.home_desc_1_link()}</a
 			>{m.home_desc_1_after()}
 		</p>
 		<p>

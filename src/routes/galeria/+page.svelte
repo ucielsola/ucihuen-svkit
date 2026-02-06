@@ -4,6 +4,7 @@
 
 	import { modals } from 'svelte-modals';
 	import Modal from '$lib/components/ModalImg.svelte';
+	import SEO from '$lib/components/SEO.svelte';
 	import * as m from '$lib/paraglide/messages.js';
 	import { sliderUrl, sliderSrcset, modalUrl, lqipUrl } from '$lib/imagekit.js';
 
@@ -48,21 +49,25 @@
 	]);
 </script>
 
-<svelte:head>
-	<title>{m.gallery_title()}</title>
-	<meta property="og:title" content={m.gallery_title()} />
-</svelte:head>
+<SEO title={m.gallery_title()} description={m.gallery_meta_description()} />
 
 <section id="galeria">
 	{#each sections as sec, i}
 		<article id={sec.id}>
-			<h3>{sec.heading()}</h3>
-			<h4>{sec.subtitle()}</h4>
+			<h2>{sec.heading()}</h2>
+			<h3>{sec.subtitle()}</h3>
 			<div
 				class="container {i === sections.length - 1 ? 'last' : ''}"
 				in:fade|global={{ duration: 300 + i * 100, delay: 100 + i * 50 }}
 			>
-				<Slider items={sec.slides} type="slide" delay={2300 + i * 100} sendClick={() => testImg()} bind:modalSrc bind:imgAlt />
+				<Slider
+					items={sec.slides}
+					type="slide"
+					delay={2300 + i * 100}
+					sendClick={() => testImg()}
+					bind:modalSrc
+					bind:imgAlt
+				/>
 			</div>
 		</article>
 	{/each}
@@ -81,12 +86,12 @@
 		margin-block-start: 2rem;
 	}
 
-	h3,
-	h4 {
+	h2,
+	h3 {
 		padding-inline: var(--padding-inline);
 	}
 
-	h4 {
+	h3 {
 		font-size: 0.875rem;
 		letter-spacing: -0.8px;
 		color: var(--primary-color);
@@ -97,11 +102,11 @@
 		section {
 			margin-block-start: 3rem;
 		}
-		h3,
-		h4 {
+		h2,
+		h3 {
 			padding-inline-start: 3rem;
 		}
-		h4 {
+		h3 {
 			font-size: 1.3rem;
 			padding-block-end: 1rem;
 		}
