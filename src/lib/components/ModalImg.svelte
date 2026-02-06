@@ -75,7 +75,17 @@
 	}
 
 	img {
+		max-width: 75vw;
+		max-height: 75vh;
+		object-fit: contain;
 		border-radius: var(--radius);
 		box-shadow: var(--shadow);
+	}
+
+	@media (min-width: 1024px) {
+		img {
+			max-width: 85vw;
+			max-height: 85vh;
+		}
 	}
 </style>
