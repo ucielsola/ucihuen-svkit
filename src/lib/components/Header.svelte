@@ -1,10 +1,26 @@
 <script>
 	import * as m from '$lib/paraglide/messages.js';
 	import { localizeHref } from '$lib/paraglide/runtime.js';
+
+	let videoReady = $state(false);
+
+	$effect(() => {
+		const id = setTimeout(() => {
+			videoReady = true;
+		}, 1000);
+		return () => clearTimeout(id);
+	});
 </script>
 
 <header>
+	<img
+		class="cover"
+		class:hidden={videoReady}
+		src="/images/cover.webp"
+		alt="Cabañas Ucihuen - Lago Puelo"
+	/>
 	<iframe
+		class:visible={videoReady}
 		src="https://www.youtube-nocookie.com/embed/ZwqyXout2Xo?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=ZwqyXout2Xo&playsinline=1&disablekb=1&modestbranding=1"
 		title="Video de fondo - Cabañas Ucihuen"
 		frameborder="0"
@@ -27,21 +43,43 @@
 	}
 	header {
 		position: relative;
-		background: url('https://i.ytimg.com/vi/ZwqyXout2Xo/maxresdefault.jpg') center / cover
-			no-repeat;
+		overflow: hidden;
 	}
 
+	.cover,
 	iframe {
 		display: block;
 		width: 100%;
 		aspect-ratio: 16 / 9;
 		border: none;
 		pointer-events: none;
+		object-fit: cover;
+	}
+
+	.cover {
+		position: relative;
+		z-index: 1;
+		transition: opacity 1s ease;
+	}
+	.cover.hidden {
+		opacity: 0;
+	}
+
+	iframe {
+		position: absolute;
+		inset: 0;
+		height: 100%;
+		opacity: 0;
+		transition: opacity 1s ease;
+	}
+	iframe.visible {
+		opacity: 1;
 	}
 
 	.row {
 		position: absolute;
 		inset: 0;
+		z-index: 2;
 		display: grid;
 		place-content: end;
 		padding-inline: var(--padding-inline);
