@@ -59,14 +59,10 @@
 
 <style>
 	#swiper-container {
-		z-index: 100;
+		z-index: var(--z-slider);
 		position: relative;
 		width: 100%;
 		height: auto;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-o-user-select: none;
 		user-select: none;
 	}
 	.swiper-wrapper {
@@ -80,7 +76,7 @@
 		cursor: zoom-in;
 	}
 	.slide img {
-		border-radius: 15px;
+		border-radius: var(--radius);
 		box-shadow: var(--shadow);
 	}
 </style>

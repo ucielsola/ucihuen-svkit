@@ -50,7 +50,7 @@
 	}
 	.card {
 		display: block;
-		border-radius: 15px;
+		border-radius: var(--radius);
 		box-shadow: var(--shadow);
 		background: linear-gradient(
 			180deg,
@@ -65,7 +65,7 @@
 		top: 0;
 		height: 100%;
 		width: 100%;
-		border-radius: 15px;
+		border-radius: var(--radius);
 		background: linear-gradient(0deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 70%);
 	}
 	.title-container {
@@ -73,7 +73,7 @@
 	}
 
 	img {
-		border-radius: 15px;
+		border-radius: var(--radius);
 		box-shadow: var(--shadow);
 	}
 
@@ -94,7 +94,7 @@
 	.description {
 		text-align: center;
 		padding-block: 0.7rem;
-		color: #000;
+		color: var(--text-color);
 	}
 	h4 {
 		font-size: 1.1rem;
@@ -103,12 +103,11 @@
 	@media screen and (min-width: 1024px) {
 		.card {
 			display: flex;
-			transition: all 0.2s var(--easing);
+			transition: transform 0.2s var(--easing);
 		}
 
 		.card:hover {
 			transform: scale(1.0085);
-			transition: transform 0.2s var(--easing);
 		}
 
 		img {
@@ -132,21 +131,21 @@
 			width: 100%;
 			content: '';
 			height: 1px;
-			background-color: #000;
+			background-color: var(--text-color);
 			bottom: -0.7rem;
 			left: 0;
 		}
 
 		.title-wrapper {
 			position: relative;
-			margin-bottom: 2rem;
+			margin-block-end: 2rem;
 		}
 
 		h4 {
 			position: absolute;
 			display: block;
-			z-index: 200;
-			margin-top: -0.3rem;
+			z-index: var(--z-card-badge);
+			margin-block-start: -0.3rem;
 			background-color: #fdefd6;
 			padding-inline: 1rem;
 			left: 33%;

@@ -30,18 +30,17 @@
 
 <style>
 	.button-wrapper {
-		z-index: 300;
+		z-index: var(--z-fab);
 		position: fixed;
 		bottom: 2rem;
 		right: 2rem;
 		width: 4rem;
 		filter: drop-shadow(var(--shadow));
-		transition: all 0.2s var(--easing);
+		transition: transform 0.2s var(--easing);
 	}
 
 	.button-wrapper:active {
 		transform: scale(1.1);
-		transition: all 0.2s var(--easing);
 	}
 
 	.button-wrapper:focus-visible {
@@ -52,7 +51,7 @@
 
 	a.pushed-up {
 		bottom: var(--footer-height);
-		transition: all 0.5s var(--easing);
+		transition: bottom 0.5s var(--easing);
 	}
 
 	.wa-logo {

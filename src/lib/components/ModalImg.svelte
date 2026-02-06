@@ -33,7 +33,7 @@
 
 <style>
 	.modal {
-		z-index: 400;
+		z-index: var(--z-modal);
 		position: fixed;
 		top: 0;
 		bottom: 0;
@@ -74,7 +74,7 @@
 	}
 
 	img {
-		border-radius: var(--border-radius);
-		box-shadow: var(--box-shadow);
+		border-radius: var(--radius);
+		box-shadow: var(--shadow);
 	}
 </style>

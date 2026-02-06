@@ -98,7 +98,7 @@
 
 <style>
 	.backdrop {
-		z-index: 400;
+		z-index: var(--z-modal);
 		position: fixed;
 		top: 0;
 		bottom: 0;
@@ -124,11 +124,11 @@
 
 	@media screen and (min-width: 1024px) {
 		main {
-			padding-top: 2rem;
+			padding-block-start: 2rem;
 		}
 		.nav-container {
 			position: absolute;
-			margin-top: -15vh;
+			margin-block-start: -15vh;
 		}
 	}
 </style>

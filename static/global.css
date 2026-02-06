@@ -76,26 +76,46 @@
 	--easing: cubic-bezier(0.22, 1.48, 0.71, 0.87);
 	--text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 
+	--bg-color: rgb(230, 230, 230);
+	--surface-color: #fff;
+	--text-color: #000;
+
+	--space-xs: 0.25rem;
+	--space-sm: 0.5rem;
+	--space-md: 1rem;
+	--space-lg: 2rem;
+	--space-xl: 3rem;
+
+	--radius: 15px;
+
+	--z-slider: 10;
+	--z-card-badge: 20;
+	--z-fab: 50;
+	--z-lang-toggle: 50;
+	--z-modal: 100;
+
 	--cover-image: url('/images/cover.webp');
 	--toggle-chevron: url('/icons/toggle.webp');
 	--airbnb: url('/icons/airbnb.webp');
 	--booking: url('/icons/booking.webp');
 }
 
-* {
-	background-attachment: scroll;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
 body {
-	background-color: rgb(230, 230, 230);
+	background-color: var(--bg-color);
 	font-family: var(--text-font);
+	line-height: 1.5;
 }
 
 #svelte {
-	/* overflow-x: hidden; */
 	max-width: 1920px;
 	margin-inline: auto;
-	background-color: #fff;
+	background-color: var(--surface-color);
 	box-shadow: 0px 3rem 20px 6px rgb(0 0 0 / 40%);
 }
 
@@ -155,7 +175,6 @@ input.datepicker {
 .flatpickr-day.endRange,
 .flatpickr-day.startRange,
 .flatpickr-day.endRange.nextMonthDay {
-	background-color: var(--secondary-color) !important;
 	background: var(--secondary-color) !important;
 	border-color: var(--secondary-color) !important;
 }

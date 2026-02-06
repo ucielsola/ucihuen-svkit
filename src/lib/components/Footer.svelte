@@ -78,17 +78,20 @@
 	.airbnb,
 	.booking {
 		display: inline-block;
-		margin-bottom: 0.3rem;
+		margin-block-end: 0.3rem;
 	}
 
 	.whatsapp {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
+		justify-content: center;
+		gap: 0.25rem;
 		font-size: 1rem;
 		font-weight: 300;
 	}
 	.whatsapp img {
-		padding-right: 0.3rem;
+		padding-inline-end: 0.3rem;
 	}
 
 	@media (min-width: 1024px) {

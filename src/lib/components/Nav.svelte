@@ -30,7 +30,7 @@
 
 	a {
 		display: inline-block;
-		color: #000;
+		color: var(--text-color);
 		text-decoration: none;
 		font-family: var(--sections-font);
 	}
@@ -39,10 +39,10 @@
 		position: relative;
 		display: flex;
 		align-items: center;
-		background-color: #000;
+		background-color: var(--text-color);
 		width: 150%;
 		height: 2px;
-		margin-left: -25%;
+		margin-inline-start: -25%;
 	}
 	.underline::after {
 		position: absolute;
@@ -51,7 +51,7 @@
 		width: 70%;
 		height: 0.5rem;
 		background: var(--gradient);
-		margin-left: 15%;
+		margin-inline-start: 15%;
 		border-radius: 5px;
 		animation: disappear 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
@@ -92,7 +92,7 @@
 		.background {
 			display: flex;
 			align-items: center;
-			background: #fff;
+			background: var(--surface-color);
 			border-radius: 10px;
 			padding-block: 0.5rem;
 		}

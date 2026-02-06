@@ -93,16 +93,7 @@
 		}
 
 		.background {
-			position: absolute;
-			background-image: var(--cover-image);
-			background-color: #fff3;
-			width: 100%;
-			height: 100%;
-			transform: scale(1);
-			background-size: cover;
-			background-position: center;
-			border-bottom-left-radius: 0rem;
-			border-bottom-right-radius: 0rem;
+			border-radius: 0;
 		}
 
 		.blur {
@@ -121,7 +112,7 @@
 		.logo h1 {
 			font-size: 4.2rem;
 			line-height: 0.5;
-			padding-right: 2rem;
+			padding-inline-end: 2rem;
 		}
 		.logo h1 span {
 			width: min-content;

@@ -4,9 +4,11 @@
 
 	let locale = $derived(getLocale());
 	let targetLocale = $derived(locale === 'es' ? 'en' : 'es');
-	let flag = $derived(targetLocale === 'en' ? '/uk.svg' : '/ar.svg');
+	let flag = $derived(targetLocale === 'en' ? '/icons/uk.svg' : '/icons/ar.svg');
 	let label = $derived(targetLocale === 'en' ? 'English' : 'Español');
-	let href = $derived(localizeHref(page.url.pathname + page.url.search + page.url.hash, { locale: targetLocale }));
+	let href = $derived(
+		localizeHref(page.url.pathname + page.url.search + page.url.hash, { locale: targetLocale })
+	);
 </script>
 
 <a {href} class="lang-toggle" data-sveltekit-reload aria-label={label}>
@@ -15,7 +17,7 @@
 
 <style>
 	.lang-toggle {
-		z-index: 300;
+		z-index: var(--z-lang-toggle);
 		position: fixed;
 		top: 1rem;
 		right: 1rem;

@@ -86,7 +86,7 @@
 		height: 14rem;
 		padding: 1rem;
 		border: 1px solid #57575717;
-		border-radius: 15px;
+		border-radius: var(--radius);
 		box-shadow: var(--shadow);
 		background-color: rgba(255, 255, 255, 0.842);
 		text-decoration: none;
@@ -101,7 +101,7 @@
 	.row.description {
 		height: 100%;
 		align-items: start;
-		padding-top: 1rem;
+		padding-block-start: 1rem;
 	}
 	.avatar {
 		width: 3.5rem;
@@ -125,12 +125,11 @@
 
 		.review-container {
 			display: flex;
-			transition: all 0.2s var(--easing);
+			transition: transform 0.2s var(--easing);
 		}
 
 		.review-container:hover {
 			transform: scale(1.01);
-			transition: transform 0.2s var(--easing);
 		}
 	}
 </style>

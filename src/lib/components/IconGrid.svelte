@@ -127,7 +127,7 @@
 			rgba(251, 192, 93, 0.25) 63.68%,
 			rgba(251, 192, 93, 0.25)
 		);
-		border-radius: 15px;
+		border-radius: var(--radius);
 		box-shadow: var(--shadow);
 		transition: height 0.3s var(--easing);
 	}

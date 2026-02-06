@@ -79,7 +79,7 @@
 		margin-block-end: 1.5rem;
 	}
 	.last {
-		margin-bottom: 6rem;
+		margin-block-end: 6rem;
 	}
 
 	section {
@@ -105,11 +105,11 @@
 		}
 		h3,
 		h4 {
-			padding-left: 3rem;
+			padding-inline-start: 3rem;
 		}
 		h4 {
 			font-size: 1.3rem;
-			padding-bottom: 1rem;
+			padding-block-end: 1rem;
 		}
 	}
 </style>

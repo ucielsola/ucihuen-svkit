@@ -94,7 +94,7 @@
 		display: inline-block;
 		width: 1.5rem;
 		height: 1.5rem;
-		margin-right: 0.5rem;
+		margin-inline-end: 0.5rem;
 	}
 
 	.vertical-banner {
@@ -103,7 +103,7 @@
 
 	@media screen and (min-width: 1024px) {
 		.limited-width.reviews {
-			padding-top: 3rem;
+			padding-block-start: 3rem;
 		}
 		h2 {
 			text-align: start !important;
@@ -145,7 +145,7 @@
 			box-shadow: var(--full-shadow);
 			padding: 2rem;
 			border-radius: 10px;
-			margin-top: 2rem;
+			margin-block-start: 2rem;
 		}
 		.description.marginated {
 			margin-inline: var(--padding-inline);
