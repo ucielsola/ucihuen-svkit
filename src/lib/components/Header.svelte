@@ -4,9 +4,13 @@
 </script>
 
 <header>
-	<div class="background">
-		<div class="blur"></div>
-	</div>
+	<iframe
+		src="https://www.youtube-nocookie.com/embed/ZwqyXout2Xo?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=ZwqyXout2Xo&playsinline=1&disablekb=1&modestbranding=1"
+		title="Video de fondo - Cabañas Ucihuen"
+		frameborder="0"
+		allow="autoplay; encrypted-media"
+		loading="eager"
+	></iframe>
 	<div class="row">
 		<div class="logo">
 			<a href={localizeHref('/')} title={m.header_home_title()}><h1>Cabañas <span>Ucihuen</span></h1></a>
@@ -23,39 +27,27 @@
 	}
 	header {
 		position: relative;
-		display: grid;
-		place-content: end;
-		min-height: 35vh;
-		padding-block-end: 0.5rem;
-	}
-	.background {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		background-image: var(--cover-image);
-		background-position: center;
-		background-size: cover;
-		border-bottom-left-radius: 1rem;
-		border-bottom-right-radius: 1rem;
+		background: url('https://i.ytimg.com/vi/ZwqyXout2Xo/maxresdefault.jpg') center / cover
+			no-repeat;
 	}
 
-	.background .blur {
-		position: absolute;
-		background-color: #fff3;
+	iframe {
+		display: block;
 		width: 100%;
-		height: 100%;
-		background-size: cover;
-		background-position: center;
+		aspect-ratio: 16 / 9;
+		border: none;
+		pointer-events: none;
 	}
 
 	.row {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-content: end;
 		padding-inline: var(--padding-inline);
+		padding-block-end: 0.5rem;
 	}
 
-	.logo,
-	.copy {
-		position: relative;
-	}
 	.logo h1 {
 		font-size: 2.5rem;
 		line-height: 0.5;
@@ -88,25 +80,13 @@
 
 	@media screen and (min-width: 1024px) {
 		header {
-			min-height: 60vh;
 			box-shadow: 0px 1rem 30px 6px rgb(0 0 0 / 40%);
 		}
 
-		.background {
-			border-radius: 0;
-		}
-
-		.blur {
-			display: none;
-		}
 		.row {
-			position: absolute;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			width: 100%;
-			height: 100%;
-			padding-inline: var(--padding-inline);
 		}
 
 		.logo h1 {

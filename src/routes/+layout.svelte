@@ -49,6 +49,8 @@
 </script>
 
 <svelte:head>
+	<link rel="preconnect" href="https://www.youtube-nocookie.com" />
+	<link rel="preconnect" href="https://i.ytimg.com" />
 	{#each locales as loc}
 		<link
 			rel="alternate"
