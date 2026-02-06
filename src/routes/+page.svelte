@@ -66,7 +66,7 @@
 	<Map />
 </section>
 
-<section class="limited-width">
+<section class="limited-width mobile-weather">
 	<h2 class="title">{m.weather_title()}</h2>
 	<Weather />
 </section>
@@ -121,6 +121,10 @@
 	}
 
 	@media screen and (min-width: 1024px) {
+		.mobile-weather {
+			display: none;
+		}
+
 		.limited-width.reviews {
 			padding-block-start: 3rem;
 		}
