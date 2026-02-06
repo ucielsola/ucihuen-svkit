@@ -3,17 +3,16 @@
 	import { Autoplay } from 'swiper/core';
 	import 'swiper/css';
 
-
 	let {
-		url = $bindable(),
+		modalSrc = $bindable(),
 		imgAlt = $bindable('Cabañas Ucihuen'),
 		sendClick = () => {},
 		handleClick = (event) => {
-		const img = event.currentTarget.querySelector('img');
-		url = img.src;
-		imgAlt = img.alt;
-		sendClick();
-	},
+			const idx = event.currentTarget.querySelector('img').dataset.i;
+			modalSrc = items[idx].modalSrc;
+			imgAlt = items[idx].alt;
+			sendClick();
+		},
 		items,
 		type,
 		delay
@@ -43,13 +42,17 @@
 			<SwiperSlide data-swiper-autoplay={delay}>
 				<div class={type}>
 					<button type="button" class="slide-btn" onclick={handleClick}>
-						<img
-							data-i={i}
-							loading={i > 3 ? 'lazy' : ''}
-							id={item.id}
-							src={item.src}
-							alt={item.alt}
-						/>
+						<div class="img-wrapper" style:background-image="url({item.lqip})">
+							<img
+								data-i={i}
+								loading={i > 3 ? 'lazy' : ''}
+								id={item.id}
+								src={item.src}
+								srcset={item.srcset}
+								sizes="(min-width: 1024px) 800px, 400px"
+								alt={item.alt}
+							/>
+						</div>
 					</button>
 				</div>
 			</SwiperSlide>
@@ -74,6 +77,12 @@
 		border: none;
 		padding: 0;
 		cursor: zoom-in;
+	}
+	.img-wrapper {
+		background-size: cover;
+		background-position: center;
+		overflow: hidden;
+		border-radius: var(--radius);
 	}
 	.slide img {
 		border-radius: var(--radius);

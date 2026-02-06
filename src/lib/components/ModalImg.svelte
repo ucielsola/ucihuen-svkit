@@ -24,6 +24,7 @@
 			<img
 				{src}
 				{alt}
+				sizes="95vw"
 				in:scale|global={{ delay: 250, duration: 300, easing: expoInOut }}
 				out:scale|global={{ delay: 50, duration: 300, easing: expoInOut }}
 			/>

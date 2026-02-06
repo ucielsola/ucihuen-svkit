@@ -5,11 +5,12 @@
 	import { modals } from 'svelte-modals';
 	import Modal from '$lib/components/ModalImg.svelte';
 	import * as m from '$lib/paraglide/messages.js';
+	import { sliderUrl, sliderSrcset, modalUrl, lqipUrl } from '$lib/imagekit.js';
 
-	let url = $state();
+	let modalSrc = $state();
 	let imgAlt = $state('Cabañas Ucihuen');
 	function testImg() {
-		modals.open(Modal, { src: url, alt: imgAlt });
+		modals.open(Modal, { src: modalSrc, alt: imgAlt });
 	}
 
 	const getPhotos = (type, cab) => {
@@ -18,8 +19,12 @@
 		if (type === 'ext') {
 			quant = 6;
 			for (let i = 1; i <= quant; i++) {
+				const path = `${type}/ucihuen_${type}_${i}.webp`;
 				arr.push({
-					src: `https://ik.imagekit.io/ucihuen/${type}/ucihuen_${type}_${i}.webp`,
+					src: sliderUrl(path, 400),
+					srcset: sliderSrcset(path),
+					modalSrc: modalUrl(path),
+					lqip: lqipUrl(path),
 					alt: m.alt_exterior_photo({ n: i }),
 					id: i - 1
 				});
@@ -30,8 +35,12 @@
 		quant = cab === 'cab_2' ? 6 : 8;
 		for (let i = 1; i <= quant; i++) {
 			const altFn = cab === 'cab_1' ? m.alt_interior_cab1_photo : m.alt_interior_cab2_photo;
+			const path = `${type}/${cab}/ucihuen_${cab}_${type}_${i}.webp`;
 			arr.push({
-				src: `https://ik.imagekit.io/ucihuen/${type}/${cab}/ucihuen_${cab}_${type}_${i}.webp`,
+				src: sliderUrl(path, 400),
+				srcset: sliderSrcset(path),
+				modalSrc: modalUrl(path),
+				lqip: lqipUrl(path),
 				alt: altFn({ n: i }),
 				id: i - 1
 			});
@@ -55,21 +64,21 @@
 		<h3>{m.gallery_cab1_heading()}</h3>
 		<h4>{m.gallery_cab1_subtitle()}</h4>
 		<div class="container" in:fade|global={{ duration: 300, delay: 100 }}>
-			<Slider items={cab_1} type="slide" delay={2300} sendClick={() => testImg()} bind:url bind:imgAlt />
+			<Slider items={cab_1} type="slide" delay={2300} sendClick={() => testImg()} bind:modalSrc bind:imgAlt />
 		</div>
 	</article>
 	<article id="cab-2">
 		<h3>{m.gallery_cab2_heading()}</h3>
 		<h4>{m.gallery_cab2_subtitle()}</h4>
 		<div class="container" in:fade|global={{ duration: 400, delay: 150 }}>
-			<Slider items={cab_2} type="slide" delay={2400} sendClick={() => testImg()} bind:url bind:imgAlt />
+			<Slider items={cab_2} type="slide" delay={2400} sendClick={() => testImg()} bind:modalSrc bind:imgAlt />
 		</div>
 	</article>
 	<article>
 		<h3>{m.gallery_ext_heading()}</h3>
 		<h4>{m.gallery_ext_subtitle()}</h4>
 		<div class="container last" in:fade|global={{ duration: 500, delay: 200 }}>
-			<Slider items={exterior} type="slide" delay={2500} sendClick={() => testImg()} bind:url bind:imgAlt />
+			<Slider items={exterior} type="slide" delay={2500} sendClick={() => testImg()} bind:modalSrc bind:imgAlt />
 		</div>
 	</article>
 </section>

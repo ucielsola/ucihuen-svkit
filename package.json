@@ -22,6 +22,7 @@
 		"vite": "^6"
 	},
 	"dependencies": {
+		"@imagekit/javascript": "^5.2.1",
 		"svelte-modals": "^2.0.0",
 		"swiper": "^7.3.0"
 	},
