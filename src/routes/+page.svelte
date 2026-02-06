@@ -17,18 +17,21 @@
 <div class="desktop-grid limited-width">
 	<section class="description marginated">
 		<p>
-			{m.home_desc_1_before()} <a
-				href="http://www.lagopuelo.gob.ar/turismo/"
+			{m.home_desc_1_before()}
+			<a
+				href="https://www.instagram.com/lagopueloturismo"
 				target="_blank"
 				title={m.home_link_lago_puelo()}>{m.home_desc_1_link()}</a
 			>{m.home_desc_1_after()}
 		</p>
 		<p>
-			{m.home_desc_2_before()} <a
+			{m.home_desc_2_before()}
+			<a
 				href="https://www.instagram.com/parquenacionallagopuelo/"
 				target="_blank"
 				title={m.home_link_parque_nacional()}>{m.home_desc_2_link()}</a
-			> {m.home_desc_2_after()}
+			>
+			{m.home_desc_2_after()}
 		</p>
 	</section>
 
@@ -42,14 +45,17 @@
 	</section>
 </div>
 
-<section class="limited-width description ">
+<section class="limited-width description">
 	<h2 class="title">{m.home_cabins_title()}</h2>
 	<Cards />
 </section>
 
 <section class="limited-width">
 	<h2 class="title">{m.home_location_title()}</h2>
-	<h3><img src="icons/pin.webp" alt="Location Icon" class="pin-icon" /> {m.home_location_subtitle()}</h3>
+	<h3>
+		<img src="icons/pin.webp" alt="Location Icon" class="pin-icon" />
+		{m.home_location_subtitle()}
+	</h3>
 	<Map />
 </section>
 
