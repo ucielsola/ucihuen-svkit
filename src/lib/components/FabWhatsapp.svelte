@@ -19,7 +19,7 @@
 <a
 	href="https://wa.link/hfh2e3"
 	target="_blank"
-	rel="noopener nofollower"
+	rel="noopener nofollow"
 	class="button-wrapper {scrolledPercentage > limit && !scrollingUp ? 'pushed-up' : ''}"
 >
 	<img
@@ -44,6 +44,12 @@
 	.button-wrapper:active {
 		transform: scale(1.1);
 		transition: all 0.2s var(--easing);
+	}
+
+	.button-wrapper:focus-visible {
+		outline: 3px solid var(--secondary-color);
+		outline-offset: 4px;
+		border-radius: 50%;
 	}
 
 	a.pushed-up {

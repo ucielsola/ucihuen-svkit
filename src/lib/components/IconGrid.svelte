@@ -86,7 +86,12 @@
 		</div>
 	</div>
 	<div class="toggle-btn">
-		<button class={open ? 'turnedUp' : ''} onclick={(e) => toggleGrid(e)}></button>
+		<button
+			class={open ? 'turnedUp' : ''}
+			onclick={(e) => toggleGrid(e)}
+			aria-expanded={open}
+			aria-label={open ? 'Mostrar menos comodidades' : 'Mostrar más comodidades'}
+		></button>
 	</div>
 </div>
 

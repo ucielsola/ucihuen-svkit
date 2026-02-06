@@ -6,9 +6,11 @@
 
 	let {
 		url = $bindable(),
+		imgAlt = $bindable('Cabañas Ucihuen'),
 		sendClick = () => {},
 		handleClick = (event) => {
 		url = event.target.src;
+		imgAlt = event.target.alt;
 		sendClick();
 	},
 		items,

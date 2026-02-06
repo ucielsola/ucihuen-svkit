@@ -1,53 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-	<meta charset="utf-8">
-	<meta name="description" content="">
-	<link rel="icon" href="%sveltekit.assets%/favicon.png">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Open Graph / Facebook -->
+		<meta property="og:site_name" content="Cabañas Ucihuen" />
+		<meta property="og:url" content="https://ucihuen.com.ar" />
+		<meta
+			property="og:description"
+			content="Lago Puelo, Chubut, Argentina - Enmarcadas en un verde paisaje cordillerano, dentro de un valle rodeado de montañas boscosas, rios, arroyos y cascadas."
+		/>
+		<meta property="og:type" content="business.business" />
+		<meta property="og:image" content="https://ucihuen.com.ar/images/ucihuen_open_graph.png" />
 
+		<!-- Primary Meta Tags -->
+		<meta
+			name="description"
+			content="Lago Puelo, Chubut, Argentina - Enmarcadas en un verde paisaje cordillerano, dentro de un valle rodeado de montañas boscosas, rios, arroyos y cascadas."
+		/>
+		%sveltekit.head%
 
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://ucihuen.com.ar" />
+		<meta property="twitter:title" content="Cabañas Ucihuen" />
+		<meta
+			property="twitter:description"
+			content="Lago Puelo, Chubut, Argentina - Enmarcadas en un verde paisaje cordillerano, dentro de un valle rodeado de montañas boscosas, rios, arroyos y cascadas."
+		/>
+		<meta property="twitter:image" content="https://ucihuen.com.ar/images/ucihuen_open_graph.png" />
 
-	<!-- Open Graph / Facebook -->
-	<meta property="og:site_name" content="Cabañas Ucihuen">
-	<meta property="og:url" content="https://ucihuen.com.ar">
-	<meta property="og:description"
-		content="Lago Puelo, Chubut, Argentina - Enmarcadas en un verde paisaje cordillerano, dentro de un valle rodeado de montañas boscosas, rios, arroyos y cascadas.">
-	<meta property="og:type" content="business.business">
-	<meta property="og:image" content="https://ucihuen.com.ar/images/ucihuen_open_graph.png">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-RRDPW3W5X2"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
 
+			gtag('config', 'G-RRDPW3W5X2');
+		</script>
 
-	<!-- Primary Meta Tags -->
-	<meta name="description"
-		content="Lago Puelo, Chubut, Argentina - Enmarcadas en un verde paisaje cordillerano, dentro de un valle rodeado de montañas boscosas, rios, arroyos y cascadas.">
-	%sveltekit.head%
+		<link rel="stylesheet" href="reset.css" />
+		<link rel="stylesheet" href="global.css" />
+	</head>
 
-	<!-- Twitter -->
-	<meta property="twitter:card" content="summary_large_image">
-	<meta property="twitter:url" content="https://ucihuen.com.ar">
-	<meta property="twitter:title" content="Cabañas Ucihuen">
-	<meta property="twitter:description"
-		content="Lago Puelo, Chubut, Argentina - Enmarcadas en un verde paisaje cordillerano, dentro de un valle rodeado de montañas boscosas, rios, arroyos y cascadas.">
-	<meta property="twitter:image" content="https://ucihuen.com.ar/images/ucihuen_open_graph.png">
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-RRDPW3W5X2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-
-		gtag('config', 'G-RRDPW3W5X2');
-	</script>
-
-
-	<link rel="stylesheet" href="reset.css">
-	<link rel="stylesheet" href="global.css">
-</head>
-
-<body>
-	<div id="svelte">%sveltekit.body%</div>
-</body>
-
+	<body>
+		<div id="svelte">%sveltekit.body%</div>
+	</body>
 </html>

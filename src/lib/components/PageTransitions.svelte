@@ -5,16 +5,13 @@
 
 	let animations = $state(false);
 
-	onMount(
-		() =>
-			(animations =
-				window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
-				window.matchMedia(`(prefers-reduced-motion: reduce)`).matches !== true)
-	);
+	onMount(() => {
+		animations = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	});
 </script>
 
 {#key refresh}
-	{#if !!animations}
+	{#if animations}
 		<div in:fade|global={{ delay: 150, duration: 200 }} out:fade|global={{ duration: 100 }}>
 			{@render children?.()}
 		</div>

@@ -7,48 +7,40 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Nav from '$lib/components/Nav.svelte';
 
-	import { onMount } from 'svelte';
 	import FabWhatsapp from '$lib/components/FabWhatsapp.svelte';
 	let { data, children } = $props();
 	let key = $derived(data.key);
 
-	let docHeight;
+	let docHeight = $state(0);
 	let winHeight = $state(0);
 	let footerHeight = $state();
-	let scrolled = $state();
-	let scrolledPercentage = $state();
-	let scrollingUp = $state();
-	let ready = $state(false);
+	let scrolled = $state(0);
+	let scrolledPercentage = $state(0);
+	let scrollingUp = $state(false);
+	let oldScroll = 0;
 
-	onMount(() => {
-		ready = true;
-	});
-
-	const setFabOffset = (height) => {
-		docHeight = height;
-
-		footerHeight = document.querySelector('footer').clientHeight + 'px';
-
-		window.addEventListener(
-			'scroll',
-			() => {
-				let oldScroll = 0;
-				scrollingUp = oldScroll > scrolled;
-				oldScroll = scrolled;
-				scrolledPercentage = parseInt((scrolled / (docHeight - winHeight)) * 100);
-			},
-			{ passive: true }
-		);
-	};
-
-	// fires if url change and only on client side
 	$effect(() => {
-		if (key && ready) {
-			setTimeout(() => {
-				let height = document.querySelector('#svelte').clientHeight;
-				setFabOffset(height);
-			}, 300);
+		if (!key) return;
+
+		let timeoutId = setTimeout(() => {
+			docHeight = document.querySelector('#svelte').clientHeight;
+			footerHeight = document.querySelector('footer').clientHeight + 'px';
+		}, 300);
+
+		function onScroll() {
+			scrollingUp = oldScroll > scrolled;
+			oldScroll = scrolled;
+			if (docHeight - winHeight > 0) {
+				scrolledPercentage = parseInt((scrolled / (docHeight - winHeight)) * 100);
+			}
 		}
+
+		window.addEventListener('scroll', onScroll, { passive: true });
+
+		return () => {
+			clearTimeout(timeoutId);
+			window.removeEventListener('scroll', onScroll);
+		};
 	});
 </script>
 
@@ -56,8 +48,14 @@
 
 <Modals>
 	{#snippet backdrop()}
-		<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
-		<div class="backdrop" onclick={() => modals.close()}></div>
+		<div
+			class="backdrop"
+			role="button"
+			tabindex="0"
+			aria-label="Cerrar"
+			onclick={() => modals.close()}
+			onkeydown={(e) => e.key === 'Escape' && modals.close()}
+		></div>
 	{/snippet}
 </Modals>
 
@@ -109,14 +107,8 @@
 			padding-top: 2rem;
 		}
 		.nav-container {
-			opacity: 0.5;
 			position: absolute;
 			margin-top: -15vh;
-			transition: opacity 0.2s linear 0.3s;
-		}
-		.nav-container:hover {
-			transition: opacity 0.2s linear 0s;
-			opacity: 1;
 		}
 	}
 </style>

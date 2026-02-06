@@ -1,7 +1,7 @@
 <div class="container">
 	<a class="card" href="/galeria#cab-1">
 		<div class="title-container">
-			<img loading="lazy" src="images/cab-1.webp" alt="Cabañas Ucihuen" />
+			<img loading="lazy" src="images/cab-1.webp" alt="Cabaña para 7 pasajeros - Cabañas Ucihuen" />
 			<div class="gradient"></div>
 			<h3 class="mobile-title">Cabaña para <br />7 personas</h3>
 		</div>
@@ -18,7 +18,7 @@
 	</a>
 	<a class="card" href="/galeria#cab-2">
 		<div class="title-container">
-			<img loading="lazy" src="images/cab-2.webp" alt="Cabañas Ucihuen" />
+			<img loading="lazy" src="images/cab-2.webp" alt="Cabaña para 4 pasajeros - Cabañas Ucihuen" />
 			<div class="gradient"></div>
 			<h3 class="mobile-title">Cabaña para <br />4 personas</h3>
 		</div>

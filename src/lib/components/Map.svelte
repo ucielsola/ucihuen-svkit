@@ -1,4 +1,6 @@
 <script>
+	import { PUBLIC_API_KEY } from '$env/static/public';
+
 	let innerWidth = $state(0);
 	let winWidth = $derived(innerWidth < 1024 ? innerWidth : 1366);
 </script>
@@ -11,7 +13,7 @@
 		title="Cabañas Ucihuen | Lago Puelo, Chubut, Arg."
 		allowfullscreen
 		width={winWidth - 32 - 6}
-		src="https://www.google.com/maps/embed/v1/place?key={import.meta.env.PUBLIC_API_KEY}&q=Cabanas+Ucihuen"
+		src="https://www.google.com/maps/embed/v1/place?key={PUBLIC_API_KEY}&q=Cabanas+Ucihuen"
 	></iframe>
 </div>
 

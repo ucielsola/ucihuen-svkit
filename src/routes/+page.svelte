@@ -55,7 +55,7 @@
 
 <section class="no-padding full-width">
 	<div class="limited-width reviews">
-		<h2 class="title">Reviews</h2>
+		<h2 class="title">Reseñas</h2>
 	</div>
 
 	{#if browser}
