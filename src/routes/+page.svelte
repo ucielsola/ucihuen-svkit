@@ -40,6 +40,7 @@
 
 	<section class="icon-grid">
 		<h2 class="title">{m.home_amenities_title()}</h2>
+		<p class="amenities-desc">{m.home_amenities_desc()}</p>
 		<IconGrid />
 	</section>
 
@@ -100,6 +101,10 @@
 	}
 	p {
 		margin-block: 0.5rem;
+	}
+	.amenities-desc {
+		padding-inline: var(--padding-inline);
+		color: var(--base-color);
 	}
 
 	a {
