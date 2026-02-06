@@ -12,6 +12,7 @@
 	import * as m from '$lib/paraglide/messages.js';
 	import { locales, localizeHref, deLocalizeHref } from '$lib/paraglide/runtime.js';
 	import { page } from '$app/state';
+	import { SITE_URL } from '$lib/config.js';
 	let { data, children } = $props();
 	let key = $derived(data.key);
 
@@ -55,13 +56,13 @@
 		<link
 			rel="alternate"
 			hreflang={loc}
-			href="https://ucihuen.com.ar{localizeHref(deLocalizeHref(page.url.pathname), { locale: loc })}"
+			href="{SITE_URL}{localizeHref(deLocalizeHref(page.url.pathname), { locale: loc })}"
 		/>
 	{/each}
 	<link
 		rel="alternate"
 		hreflang="x-default"
-		href="https://ucihuen.com.ar{deLocalizeHref(page.url.pathname)}"
+		href="{SITE_URL}{deLocalizeHref(page.url.pathname)}"
 	/>
 </svelte:head>
 

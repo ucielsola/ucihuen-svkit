@@ -1,5 +1,6 @@
 <script>
 	import * as m from '$lib/paraglide/messages.js';
+	import { WHATSAPP_URL } from '$lib/config.js';
 
 	/**
 	 * @typedef {Object} Props
@@ -15,7 +16,7 @@
 </script>
 
 <a
-	href="https://wa.link/hfh2e3"
+	href={WHATSAPP_URL}
 	target="_blank"
 	rel="noopener nofollow"
 	class="button-wrapper {scrolledPercentage > limit && !scrollingUp ? 'pushed-up' : ''}"

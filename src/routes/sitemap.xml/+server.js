@@ -1,4 +1,4 @@
-const SITE = 'https://ucihuen.com.ar';
+import { SITE_URL as SITE } from '$lib/config.js';
 
 const pages = [
 	{ path: '/', es: '/', en: '/en/', pt: '/pt/' },

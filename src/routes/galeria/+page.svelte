@@ -26,9 +26,26 @@
 		}));
 	}
 
-	let exterior = $derived(buildSlides(data.images.ext, m.alt_exterior_photo));
-	let cab_1 = $derived(buildSlides(data.images.cab_1, m.alt_interior_cab1_photo));
-	let cab_2 = $derived(buildSlides(data.images.cab_2, m.alt_interior_cab2_photo));
+	let sections = $derived([
+		{
+			id: 'cab-1',
+			heading: m.gallery_cab1_heading,
+			subtitle: m.gallery_cab1_subtitle,
+			slides: buildSlides(data.images.cab_1, m.alt_interior_cab1_photo)
+		},
+		{
+			id: 'cab-2',
+			heading: m.gallery_cab2_heading,
+			subtitle: m.gallery_cab2_subtitle,
+			slides: buildSlides(data.images.cab_2, m.alt_interior_cab2_photo)
+		},
+		{
+			id: undefined,
+			heading: m.gallery_ext_heading,
+			subtitle: m.gallery_ext_subtitle,
+			slides: buildSlides(data.images.ext, m.alt_exterior_photo)
+		}
+	]);
 </script>
 
 <svelte:head>
@@ -37,27 +54,18 @@
 </svelte:head>
 
 <section>
-	<article id="cab-1">
-		<h3>{m.gallery_cab1_heading()}</h3>
-		<h4>{m.gallery_cab1_subtitle()}</h4>
-		<div class="container" in:fade|global={{ duration: 300, delay: 100 }}>
-			<Slider items={cab_1} type="slide" delay={2300} sendClick={() => testImg()} bind:modalSrc bind:imgAlt />
-		</div>
-	</article>
-	<article id="cab-2">
-		<h3>{m.gallery_cab2_heading()}</h3>
-		<h4>{m.gallery_cab2_subtitle()}</h4>
-		<div class="container" in:fade|global={{ duration: 400, delay: 150 }}>
-			<Slider items={cab_2} type="slide" delay={2400} sendClick={() => testImg()} bind:modalSrc bind:imgAlt />
-		</div>
-	</article>
-	<article>
-		<h3>{m.gallery_ext_heading()}</h3>
-		<h4>{m.gallery_ext_subtitle()}</h4>
-		<div class="container last" in:fade|global={{ duration: 500, delay: 200 }}>
-			<Slider items={exterior} type="slide" delay={2500} sendClick={() => testImg()} bind:modalSrc bind:imgAlt />
-		</div>
-	</article>
+	{#each sections as sec, i}
+		<article id={sec.id}>
+			<h3>{sec.heading()}</h3>
+			<h4>{sec.subtitle()}</h4>
+			<div
+				class="container {i === sections.length - 1 ? 'last' : ''}"
+				in:fade|global={{ duration: 300 + i * 100, delay: 100 + i * 50 }}
+			>
+				<Slider items={sec.slides} type="slide" delay={2300 + i * 100} sendClick={() => testImg()} bind:modalSrc bind:imgAlt />
+			</div>
+		</article>
+	{/each}
 </section>
 
 <style>

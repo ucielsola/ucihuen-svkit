@@ -1,5 +1,6 @@
 <script>
 	import * as m from '$lib/paraglide/messages.js';
+	import { WHATSAPP_URL, AIRBNB_URL, BOOKING_URL, PHONE } from '$lib/config.js';
 </script>
 
 <footer>
@@ -8,7 +9,7 @@
 	<div class="content">
 		<div class="links">
 			<a
-				href="https://www.airbnb.com.ar/rooms/1320462855669343724"
+				href={AIRBNB_URL}
 				target="_blank"
 				rel="noopener nofollow"
 				class="airbnb"
@@ -16,7 +17,7 @@
 				><img src="icons/airbnb.webp" alt="Cabañas Ucihuen en AirBnB.com" /></a
 			>
 			<a
-				href="https://www.booking.com/hotel/ar/cabana-ucihuen.es-ar.html"
+				href={BOOKING_URL}
 				target="_blank"
 				rel="noopener nofollow"
 				class="booking"
@@ -27,8 +28,8 @@
 		<div class="whatsapp">
 			<span>{m.footer_write_us()}</span>
 			<span>
-				<a href="https://wa.link/hfh2e3" target="_blank" rel="noopener nofollow"
-					><img src="icons/whatsapp.webp" alt="Whatsapp logo" class="wa-logo" />+54 9 11 3158-6242</a
+				<a href={WHATSAPP_URL} target="_blank" rel="noopener nofollow"
+					><img src="icons/whatsapp.webp" alt="Whatsapp logo" class="wa-logo" />{PHONE}</a
 				>
 			</span>
 		</div>

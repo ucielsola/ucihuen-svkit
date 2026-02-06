@@ -1,43 +1,48 @@
 <script>
 	import * as m from '$lib/paraglide/messages.js';
 	import { localizeHref } from '$lib/paraglide/runtime.js';
+
+	const cards = [
+		{
+			id: 'cab-1',
+			image: 'images/cab-1.webp',
+			alt: m.cabin_7_alt,
+			mobileGuests: m.cabin_7_mobile_guests,
+			title: m.cabin_7_title,
+			floors: m.cabin_7_floors,
+			rooms: [m.room_bedrooms_2, m.room_living_dining, m.room_kitchen, m.room_bathroom]
+		},
+		{
+			id: 'cab-2',
+			image: 'images/cab-2.webp',
+			alt: m.cabin_4_alt,
+			mobileGuests: m.cabin_4_mobile_guests,
+			title: m.cabin_4_title,
+			floors: m.cabin_4_floors,
+			rooms: [m.room_bedrooms_2, m.room_kitchen_dining, m.room_living_futons, m.room_bathroom]
+		}
+	];
 </script>
 
 <div class="container">
-	<a class="card" href={localizeHref('/galeria#cab-1')}>
-		<div class="title-container">
-			<img loading="lazy" src="images/cab-1.webp" alt={m.cabin_7_alt()} />
-			<div class="gradient"></div>
-			<h3 class="mobile-title">{m.cabin_mobile_title_prefix()} <br />{m.cabin_7_mobile_guests()}</h3>
-		</div>
-		<div class="description">
-			<div class="title-wrapper">
-				<h3 class="desktop-title">{m.cabin_7_title()}</h3>
-				<h4>{m.cabin_7_floors()}</h4>
+	{#each cards as card}
+		<a class="card" href={localizeHref('/galeria#' + card.id)}>
+			<div class="title-container">
+				<img loading="lazy" src={card.image} alt={card.alt()} />
+				<div class="gradient"></div>
+				<h3 class="mobile-title">{m.cabin_mobile_title_prefix()} <br />{card.mobileGuests()}</h3>
 			</div>
-			<h5>{m.room_bedrooms_2()}</h5>
-			<h5>{m.room_living_dining()}</h5>
-			<h5>{m.room_kitchen()}</h5>
-			<h5>{m.room_bathroom()}</h5>
-		</div>
-	</a>
-	<a class="card" href={localizeHref('/galeria#cab-2')}>
-		<div class="title-container">
-			<img loading="lazy" src="images/cab-2.webp" alt={m.cabin_4_alt()} />
-			<div class="gradient"></div>
-			<h3 class="mobile-title">{m.cabin_mobile_title_prefix()} <br />{m.cabin_4_mobile_guests()}</h3>
-		</div>
-		<div class="description">
-			<div class="title-wrapper">
-				<h3 class="desktop-title">{m.cabin_4_title()}</h3>
-				<h4>{m.cabin_4_floors()}</h4>
+			<div class="description">
+				<div class="title-wrapper">
+					<h3 class="desktop-title">{card.title()}</h3>
+					<h4>{card.floors()}</h4>
+				</div>
+				{#each card.rooms as room}
+					<h5>{room()}</h5>
+				{/each}
 			</div>
-			<h5>{m.room_bedrooms_2()}</h5>
-			<h5>{m.room_kitchen_dining()}</h5>
-			<h5>{m.room_living_futons()}</h5>
-			<h5>{m.room_bathroom()}</h5>
-		</div>
-	</a>
+		</a>
+	{/each}
 </div>
 
 <style>
