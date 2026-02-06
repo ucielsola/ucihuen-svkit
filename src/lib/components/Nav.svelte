@@ -8,11 +8,11 @@
 
 <nav>
 	<div class="background">
-		<a href={localizeHref('/')} title={m.nav_home()}
+		<a href="{localizeHref('/')}#inicio" title={m.nav_home()}
 			>{m.nav_home()}<span class="underline" class:active={currentPath === '/'}></span></a
 		>
 
-		<a href={localizeHref('/galeria')} title={m.nav_gallery()}
+		<a href="{localizeHref('/galeria')}#galeria" title={m.nav_gallery()}
 			>{m.nav_gallery()}<span class="underline" class:active={currentPath === '/galeria'}></span
 			></a
 		>

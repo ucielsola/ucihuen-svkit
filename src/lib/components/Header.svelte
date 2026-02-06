@@ -116,6 +116,11 @@
 		place-content: end;
 		padding-inline: var(--padding-inline);
 		padding-block-end: 0.5rem;
+		pointer-events: none;
+	}
+
+	.row a {
+		pointer-events: auto;
 	}
 
 	.logo h1 {

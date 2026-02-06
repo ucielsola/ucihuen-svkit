@@ -53,7 +53,7 @@
 	<meta property="og:title" content={m.gallery_title()} />
 </svelte:head>
 
-<section>
+<section id="galeria">
 	{#each sections as sec, i}
 		<article id={sec.id}>
 			<h3>{sec.heading()}</h3>

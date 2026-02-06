@@ -22,7 +22,7 @@
 </svelte:head>
 
 <div class="desktop-grid limited-width">
-	<section class="description marginated">
+	<section id="inicio" class="description marginated">
 		<p>
 			{m.home_desc_1_before()}
 			<a
