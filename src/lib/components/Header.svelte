@@ -4,11 +4,42 @@
 
 	let videoReady = $state(false);
 
+	function onPlayerReady(player) {
+		player.setPlaybackRate(1.25);
+		videoReady = true;
+	}
+
 	$effect(() => {
-		const id = setTimeout(() => {
+		window.onYTPlayerReady = onPlayerReady;
+
+		if (!window.YT) {
+			window.onYouTubeIframeAPIReady = () => {
+				createPlayer();
+			};
+			const tag = document.createElement('script');
+			tag.src = 'https://www.youtube.com/iframe_api';
+			document.head.appendChild(tag);
+		} else {
+			createPlayer();
+		}
+
+		function createPlayer() {
+			new window.YT.Player('yt-bg', {
+				events: {
+					onReady: (e) => onPlayerReady(e.target)
+				}
+			});
+		}
+
+		const fallback = setTimeout(() => {
 			videoReady = true;
-		}, 1000);
-		return () => clearTimeout(id);
+		}, 4000);
+
+		return () => {
+			clearTimeout(fallback);
+			delete window.onYTPlayerReady;
+			delete window.onYouTubeIframeAPIReady;
+		};
 	});
 </script>
 
@@ -20,8 +51,9 @@
 		alt="Cabañas Ucihuen - Lago Puelo"
 	/>
 	<iframe
+		id="yt-bg"
 		class:visible={videoReady}
-		src="https://www.youtube-nocookie.com/embed/ZwqyXout2Xo?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=ZwqyXout2Xo&playsinline=1&disablekb=1&modestbranding=1"
+		src="https://www.youtube.com/embed/ZwqyXout2Xo?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=ZwqyXout2Xo&playsinline=1&disablekb=1&modestbranding=1&enablejsapi=1"
 		title="Video de fondo - Cabañas Ucihuen"
 		frameborder="0"
 		allow="autoplay; encrypted-media"
