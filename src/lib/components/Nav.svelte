@@ -1,15 +1,20 @@
 <script>
 	import { page } from '$app/state';
+	import * as m from '$lib/paraglide/messages.js';
+	import { localizeHref, deLocalizeUrl } from '$lib/paraglide/runtime.js';
+
+	let currentPath = $derived(deLocalizeUrl(page.url).pathname);
 </script>
 
 <nav>
 	<div class="background">
-		<a href="/" title="Inicio"
-			>Inicio<span class="underline" class:active={page.url.pathname === '/'}></span></a
+		<a href={localizeHref('/')} title={m.nav_home()}
+			>{m.nav_home()}<span class="underline" class:active={currentPath === '/'}></span></a
 		>
 
-		<a href="/galeria" title="Galería"
-			>Galería<span class="underline" class:active={page.url.pathname === '/galeria'}></span></a
+		<a href={localizeHref('/galeria')} title={m.nav_gallery()}
+			>{m.nav_gallery()}<span class="underline" class:active={currentPath === '/galeria'}></span
+			></a
 		>
 	</div>
 </nav>

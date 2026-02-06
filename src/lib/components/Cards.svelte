@@ -1,36 +1,41 @@
+<script>
+	import * as m from '$lib/paraglide/messages.js';
+	import { localizeHref } from '$lib/paraglide/runtime.js';
+</script>
+
 <div class="container">
-	<a class="card" href="/galeria#cab-1">
+	<a class="card" href={localizeHref('/galeria#cab-1')}>
 		<div class="title-container">
-			<img loading="lazy" src="images/cab-1.webp" alt="Cabaña para 7 pasajeros - Cabañas Ucihuen" />
+			<img loading="lazy" src="images/cab-1.webp" alt={m.cabin_7_alt()} />
 			<div class="gradient"></div>
-			<h3 class="mobile-title">Cabaña para <br />7 personas</h3>
+			<h3 class="mobile-title">{m.cabin_mobile_title_prefix()} <br />{m.cabin_7_mobile_guests()}</h3>
 		</div>
 		<div class="description">
 			<div class="title-wrapper">
-				<h3 class="desktop-title">Cabaña para 7 personas</h3>
-				<h4>Dos plantas</h4>
+				<h3 class="desktop-title">{m.cabin_7_title()}</h3>
+				<h4>{m.cabin_7_floors()}</h4>
 			</div>
-			<h5>2 Habitaciones</h5>
-			<h5>Living-Comedor</h5>
-			<h5>Cocina</h5>
-			<h5>Baño</h5>
+			<h5>{m.room_bedrooms_2()}</h5>
+			<h5>{m.room_living_dining()}</h5>
+			<h5>{m.room_kitchen()}</h5>
+			<h5>{m.room_bathroom()}</h5>
 		</div>
 	</a>
-	<a class="card" href="/galeria#cab-2">
+	<a class="card" href={localizeHref('/galeria#cab-2')}>
 		<div class="title-container">
-			<img loading="lazy" src="images/cab-2.webp" alt="Cabaña para 4 pasajeros - Cabañas Ucihuen" />
+			<img loading="lazy" src="images/cab-2.webp" alt={m.cabin_4_alt()} />
 			<div class="gradient"></div>
-			<h3 class="mobile-title">Cabaña para <br />4 personas</h3>
+			<h3 class="mobile-title">{m.cabin_mobile_title_prefix()} <br />{m.cabin_4_mobile_guests()}</h3>
 		</div>
 		<div class="description">
 			<div class="title-wrapper">
-				<h3 class="desktop-title">Cabaña para 4 personas</h3>
-				<h4>Una planta</h4>
+				<h3 class="desktop-title">{m.cabin_4_title()}</h3>
+				<h4>{m.cabin_4_floors()}</h4>
 			</div>
-			<h5>2 Habitaciones</h5>
-			<h5>Cocina-Comedor</h5>
-			<h5>Living con futones</h5>
-			<h5>Baño</h5>
+			<h5>{m.room_bedrooms_2()}</h5>
+			<h5>{m.room_kitchen_dining()}</h5>
+			<h5>{m.room_living_futons()}</h5>
+			<h5>{m.room_bathroom()}</h5>
 		</div>
 	</a>
 </div>

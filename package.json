@@ -9,6 +9,7 @@
 		"format": "prettier --ignore-path .gitignore --write ."
 	},
 	"devDependencies": {
+		"@inlang/paraglide-js": "^2.10.0",
 		"@sveltejs/adapter-vercel": "^5",
 		"@sveltejs/kit": "^2",
 		"@sveltejs/vite-plugin-svelte": "^5",

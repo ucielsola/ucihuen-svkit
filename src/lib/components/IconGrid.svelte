@@ -1,4 +1,5 @@
 <script>
+	import * as m from '$lib/paraglide/messages.js';
 	let open = $state(false);
 	const toggleGrid = (e) => {
 		open = !open;
@@ -8,81 +9,93 @@
 <div class="grid-wrapper">
 	<div class="grid {open ? 'open' : ''}">
 		<div class="item">
-			<img src="icons/mascota.webp" alt="Apto para mascotas" title="Apto para mascotas" />
-			<span>APTO PARA MASCOTAS</span>
+			<img src="icons/mascota.webp" alt={m.amenity_pets()} title={m.amenity_pets()} />
+			<span>{m.amenity_pets()}</span>
 		</div>
 		<div class="item">
-			<img src="icons/auto.webp" alt="Estacionamiento" title="Estacionamiento" />
-			<span>PARKING INTERNO</span>
+			<img src="icons/auto.webp" alt={m.amenity_parking()} title={m.amenity_parking()} />
+			<span>{m.amenity_parking()}</span>
+		</div>
+		<div class="item">
+			<img src="icons/calefaccion.webp" alt={m.amenity_heating()} title={m.amenity_heating()} />
+			<span>{m.amenity_heating()}</span>
+		</div>
+		<div class="item">
+			<img src="icons/wifi.webp" alt={m.amenity_wifi()} title={m.amenity_wifi()} />
+			<span>{m.amenity_wifi()}</span>
+		</div>
+		<div class="item">
+			<img src="icons/parrilla.webp" alt={m.amenity_grill()} title={m.amenity_grill()} />
+			<span>{m.amenity_grill()}</span>
+		</div>
+		<div class="item">
+			<img src="icons/agua.webp" alt={m.amenity_hot_water()} title={m.amenity_hot_water()} />
+			<span>{m.amenity_hot_water()}</span>
+		</div>
+		<div class="item">
+			<img src="icons/tele.webp" alt={m.amenity_tv()} title={m.amenity_tv()} />
+			<span>{m.amenity_tv()}</span>
 		</div>
 		<div class="item">
 			<img
-				src="icons/calefaccion.webp"
-				alt="Calefacción en la Cabaña"
-				title="Calefacción en la Cabaña"
+				src="icons/higiene.webp"
+				alt={m.amenity_bathroom_kit()}
+				title={m.amenity_bathroom_kit()}
 			/>
-			<span>Calefacción en la Cabaña</span>
+			<span>{m.amenity_bathroom_kit()}</span>
 		</div>
 		<div class="item">
-			<img src="icons/wifi.webp" alt="WiFi" title="WiFi" />
-			<span>WiFi</span>
+			<img src="icons/sabanas.webp" alt={m.amenity_bedding()} title={m.amenity_bedding()} />
+			<span>{m.amenity_bedding()}</span>
 		</div>
 		<div class="item">
-			<img src="icons/parrilla.webp" alt="Parrilla" title="Parrilla" />
-			<span>Parrilla</span>
+			<img src="icons/patio.webp" alt={m.amenity_patio()} title={m.amenity_patio()} />
+			<span>{m.amenity_patio()}</span>
 		</div>
 		<div class="item">
-			<img src="icons/agua.webp" alt="Agua Caliente" title="Agua Caliente" />
-			<span>Agua Caliente</span>
+			<img
+				src="icons/extintor.webp"
+				alt={m.amenity_fire_extinguisher()}
+				title={m.amenity_fire_extinguisher()}
+			/>
+			<span>{m.amenity_fire_extinguisher()}</span>
 		</div>
 		<div class="item">
-			<img src="icons/tele.webp" alt="Televisión" title="Televisión" />
-			<span>Televisión Satelital</span>
+			<img
+				src="icons/secador.webp"
+				alt={m.amenity_hair_dryer()}
+				title={m.amenity_hair_dryer()}
+			/>
+			<span>{m.amenity_hair_dryer()}</span>
 		</div>
 		<div class="item">
-			<img src="icons/higiene.webp" alt="Equipamiento de Baño" title="Equipamiento de Baño" />
-			<span>Equipamiento de Baño</span>
+			<img
+				src="icons/cocina.webp"
+				alt={m.amenity_kitchen_kit()}
+				title={m.amenity_kitchen_kit()}
+			/>
+			<span>{m.amenity_kitchen_kit()}</span>
 		</div>
 		<div class="item">
-			<img src="icons/sabanas.webp" alt="Ropa de Cama" title="Ropa de Cama" />
-			<span>Ropa de Cama</span>
-		</div>
-		<div class="item">
-			<img src="icons/patio.webp" alt="Patio en el Exterior" title="Patio en el Exterior" />
-			<span>Patio en el Exterior</span>
-		</div>
-		<div class="item">
-			<img src="icons/extintor.webp" alt="Extintor de Incendios" title="Extintor de Incendios" />
-			<span>Extintor de Incendios</span>
-		</div>
-		<div class="item">
-			<img src="icons/secador.webp" alt="Secador de Pelo" title="Secador de Pelo" />
-			<span>Secador de Pelo</span>
-		</div>
-		<div class="item">
-			<img src="icons/cocina.webp" alt="Equipamiento de Cocina" title="Equipamiento de Cocina" />
-			<span>Equipamiento de Cocina</span>
-		</div>
-		<div class="item">
-			<img src="icons/fumadores.webp" alt="Apto Fumadores" title="Apto Fumadores" />
-			<span>Apto Fumadores</span>
+			<img src="icons/fumadores.webp" alt={m.amenity_smoking()} title={m.amenity_smoking()} />
+			<span>{m.amenity_smoking()}</span>
 		</div>
 		<div class="item">
 			<img
 				src="icons/almohada.webp"
-				alt="Almohadas y Frazadas extra"
-				title="Almohadas y Frazadas extra"
+				alt={m.amenity_extra_pillows()}
+				title={m.amenity_extra_pillows()}
 			/>
-			<span>Almohadas y Frazadas extra</span>
+			<span>{m.amenity_extra_pillows()}</span>
 		</div>
 		<div class="pusher"></div>
 		<div class="item">
 			<img
 				src="icons/botiquin.webp"
-				alt="Botiquín de Primeros Auxilios"
-				title="Botiquín de Primeros Auxilios"
+				alt={m.amenity_first_aid()}
+				title={m.amenity_first_aid()}
 			/>
-			<span>Botiquín de Primeros Auxilios</span>
+			<span>{m.amenity_first_aid()}</span>
 		</div>
 	</div>
 	<div class="toggle-btn">
@@ -90,7 +103,7 @@
 			class={open ? 'turnedUp' : ''}
 			onclick={(e) => toggleGrid(e)}
 			aria-expanded={open}
-			aria-label={open ? 'Mostrar menos comodidades' : 'Mostrar más comodidades'}
+			aria-label={open ? m.aria_show_less() : m.aria_show_more()}
 		></button>
 	</div>
 </div>

@@ -1,4 +1,6 @@
 <script>
+	import * as m from '$lib/paraglide/messages.js';
+	import { localizeHref } from '$lib/paraglide/runtime.js';
 </script>
 
 <header>
@@ -7,11 +9,10 @@
 	</div>
 	<div class="row">
 		<div class="logo">
-			<a href="/" title="Inicio"><h1>Cabañas <span>Ucihuen</span></h1></a>
+			<a href={localizeHref('/')} title={m.header_home_title()}><h1>Cabañas <span>Ucihuen</span></h1></a>
 		</div>
 		<p class="copy">
-			Enmarcadas en un verde paisaje cordillerano, dentro de un valle rodeado de montañas boscosas,
-			rios, arroyos y cascadas.
+			{m.header_tagline()}
 		</p>
 	</div>
 </header>

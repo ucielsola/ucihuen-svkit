@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import * as m from '$lib/paraglide/messages.js';
 
 	/**
 	 * @typedef {Object} Props
@@ -26,7 +27,7 @@
 		src="/images/whatsapp.png"
 		alt="Whatsapp logo"
 		class="wa-logo"
-		title="contactanos por Whatsapp"
+		title={m.fab_whatsapp_title()}
 	/>
 </a>
 

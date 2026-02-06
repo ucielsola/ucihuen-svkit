@@ -8,6 +8,8 @@
 	import Nav from '$lib/components/Nav.svelte';
 
 	import FabWhatsapp from '$lib/components/FabWhatsapp.svelte';
+	import LangToggle from '$lib/components/LangToggle.svelte';
+	import * as m from '$lib/paraglide/messages.js';
 	let { data, children } = $props();
 	let key = $derived(data.key);
 
@@ -52,13 +54,14 @@
 			class="backdrop"
 			role="button"
 			tabindex="0"
-			aria-label="Cerrar"
+			aria-label={m.aria_close()}
 			onclick={() => modals.close()}
 			onkeydown={(e) => e.key === 'Escape' && modals.close()}
 		></div>
 	{/snippet}
 </Modals>
 
+<LangToggle />
 <Header />
 <div class="nav-container">
 	<Nav />

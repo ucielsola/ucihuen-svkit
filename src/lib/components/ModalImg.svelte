@@ -2,6 +2,7 @@
 	import { scale } from 'svelte/transition';
 	import { expoInOut } from 'svelte/easing';
 	import { modals } from 'svelte-modals';
+	import * as m from '$lib/paraglide/messages.js';
 
 	let { isOpen, src, alt = 'Cabañas Ucihuen' } = $props();
 
@@ -17,7 +18,7 @@
 {#if isOpen}
 	<div class="modal">
 		<div class="contents">
-			<button class="close-btn" onclick={() => modals.close()} aria-label="Cerrar imagen">
+			<button class="close-btn" onclick={() => modals.close()} aria-label={m.aria_close_image()}>
 				&times;
 			</button>
 			<img

@@ -4,17 +4,13 @@
 
 	import { modals } from 'svelte-modals';
 	import Modal from '$lib/components/ModalImg.svelte';
+	import * as m from '$lib/paraglide/messages.js';
 
 	let url = $state();
 	let imgAlt = $state('Cabañas Ucihuen');
 	function testImg() {
 		modals.open(Modal, { src: url, alt: imgAlt });
 	}
-
-	const cabLabels = {
-		cab_1: 'Cabaña 7 pasajeros',
-		cab_2: 'Cabaña 4 pasajeros'
-	};
 
 	const getPhotos = (type, cab) => {
 		let quant;
@@ -24,19 +20,19 @@
 			for (let i = 1; i <= quant; i++) {
 				arr.push({
 					src: `https://ik.imagekit.io/ucihuen/${type}/ucihuen_${type}_${i}.webp`,
-					alt: `Exterior de Cabañas Ucihuen - foto ${i}`,
+					alt: m.alt_exterior_photo({ n: i }),
 					id: i - 1
 				});
 			}
 			return arr;
 		}
 
-		const label = cabLabels[cab] || cab;
 		quant = cab === 'cab_2' ? 6 : 8;
 		for (let i = 1; i <= quant; i++) {
+			const altFn = cab === 'cab_1' ? m.alt_interior_cab1_photo : m.alt_interior_cab2_photo;
 			arr.push({
 				src: `https://ik.imagekit.io/ucihuen/${type}/${cab}/ucihuen_${cab}_${type}_${i}.webp`,
-				alt: `Interior ${label} - foto ${i}`,
+				alt: altFn({ n: i }),
 				id: i - 1
 			});
 		}
@@ -50,28 +46,28 @@
 </script>
 
 <svelte:head>
-	<title>Galería - Cabañas Ucihuen</title>
-	<meta property="og:title" content="Galería - Cabañas Ucihuen" />
+	<title>{m.gallery_title()}</title>
+	<meta property="og:title" content={m.gallery_title()} />
 </svelte:head>
 
 <section>
 	<article id="cab-1">
-		<h3>Cabaña 7 Pasajeros</h3>
-		<h4>2 HABITACIONES | LIVING-COMEDOR | COCINA | BAÑO</h4>
+		<h3>{m.gallery_cab1_heading()}</h3>
+		<h4>{m.gallery_cab1_subtitle()}</h4>
 		<div class="container" in:fade|global={{ duration: 300, delay: 100 }}>
 			<Slider items={cab_1} type="slide" delay={2300} sendClick={() => testImg()} bind:url bind:imgAlt />
 		</div>
 	</article>
 	<article id="cab-2">
-		<h3>Cabaña 4 Pasajeros</h3>
-		<h4>1 HABITACIÓN | COCINA-COMEDOR | LIVING CON FUTONES | BAÑO</h4>
+		<h3>{m.gallery_cab2_heading()}</h3>
+		<h4>{m.gallery_cab2_subtitle()}</h4>
 		<div class="container" in:fade|global={{ duration: 400, delay: 150 }}>
 			<Slider items={cab_2} type="slide" delay={2400} sendClick={() => testImg()} bind:url bind:imgAlt />
 		</div>
 	</article>
 	<article>
-		<h3>Exteriores</h3>
-		<h4>PATIO EN EL PREDIO | ESTACIONAMIENTO | PARRILLA</h4>
+		<h3>{m.gallery_ext_heading()}</h3>
+		<h4>{m.gallery_ext_subtitle()}</h4>
 		<div class="container last" in:fade|global={{ duration: 500, delay: 200 }}>
 			<Slider items={exterior} type="slide" delay={2500} sendClick={() => testImg()} bind:url bind:imgAlt />
 		</div>
@@ -100,6 +96,7 @@
 		font-size: 0.875rem;
 		letter-spacing: -0.8px;
 		color: var(--primary-color);
+		text-transform: uppercase;
 	}
 
 	@media screen and (min-width: 1024px) {

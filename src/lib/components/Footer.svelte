@@ -1,6 +1,10 @@
+<script>
+	import * as m from '$lib/paraglide/messages.js';
+</script>
+
 <footer>
 	<div class="divider"></div>
-	<h3 class="title">También podés encontrarnos en</h3>
+	<h3 class="title">{m.footer_find_us()}</h3>
 	<div class="content">
 		<div class="links">
 			<a
@@ -21,24 +25,12 @@
 			>
 		</div>
 		<div class="whatsapp">
-			<span>o escribirnos al</span>
+			<span>{m.footer_write_us()}</span>
 			<span>
 				<a href="https://wa.link/hfh2e3" target="_blank" rel="noopener nofollow"
 					><img src="icons/whatsapp.webp" alt="Whatsapp logo" class="wa-logo" />+54 9 11 3158-6242</a
 				>
 			</span>
-		</div>
-	</div>
-	<div class="credits-row">
-		<div class="credit-container">
-			<h3 class="credits">Desarrollo</h3>
-			<a href="https://ucielsola.com" target="_blank" rel="noopener nofollow">Uciel Sola</a>
-		</div>
-		<div class="credit-container">
-			<h3 class="credits">Diseño</h3>
-			<a href="https://www.behance.net/julietarodrigu14" target="_blank" rel="noopener nofollow"
-				>Julieta Rodriguez</a
-			>
 		</div>
 	</div>
 </footer>

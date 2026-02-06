@@ -4,36 +4,35 @@
 	import Cards from '$lib/components/Cards.svelte';
 	import Map from '$lib/components/Map.svelte';
 	import SliderReviews from '$lib/components/SliderReviews.svelte';
+	import * as m from '$lib/paraglide/messages.js';
 	let { data } = $props();
 </script>
 
 <svelte:head>
-	<title>Cabañas Ucihuen - Lago Puelo</title>
-	<meta property="og:title" content="Cabañas Ucihuen - Lago Puelo" />
+	<title>{m.home_title()}</title>
+	<meta property="og:title" content={m.home_title()} />
 </svelte:head>
 
 <div class="desktop-grid limited-width">
 	<section class="description marginated">
 		<p>
-			Ubicadas a sólo dos cuadras del centro de la <a
+			{m.home_desc_1_before()} <a
 				href="http://www.lagopuelo.gob.ar/turismo/"
 				target="_blank"
-				title="Sitio Oficial - Lago Puelo">Villa Turística Lago Puelo</a
-			>, tienen la ventaja de combinar tranquilidad, comodidad y facilidad de acceso a los negocios
-			y servicios que se ofrecen a nuestros visitantes.
+				title={m.home_link_lago_puelo()}>{m.home_desc_1_link()}</a
+			>{m.home_desc_1_after()}
 		</p>
 		<p>
-			A menos de 3 kilómetros, se encuentra el <a
+			{m.home_desc_2_before()} <a
 				href="https://www.instagram.com/parquenacionallagopuelo/?hl=es"
 				target="_blank"
-				title="Instagram - Parque Nacional Lago Puelo">Parque Nacional Lago Puelo</a
-			> con características únicas en su fauna y flora, y una amplia gama de atractivos turísticos, como
-			paseos en lancha y en kayak, senderos interpretativos, playas, bosques y cascadas.
+				title={m.home_link_parque_nacional()}>{m.home_desc_2_link()}</a
+			> {m.home_desc_2_after()}
 		</p>
 	</section>
 
 	<section class="icon-grid">
-		<h2 class="title">¿Qué comodidades tienen nuestras cabañas?</h2>
+		<h2 class="title">{m.home_amenities_title()}</h2>
 		<IconGrid />
 	</section>
 
@@ -43,19 +42,19 @@
 </div>
 
 <section class="limited-width description ">
-	<h2 class="title">¿Cómo son las cabañas?</h2>
+	<h2 class="title">{m.home_cabins_title()}</h2>
 	<Cards />
 </section>
 
 <section class="limited-width">
-	<h2 class="title">¿Dónde nos ubicamos?</h2>
-	<h3><img src="icons/pin.webp" alt="Location Icon" class="pin-icon" /> Lago Puelo, Chubut</h3>
+	<h2 class="title">{m.home_location_title()}</h2>
+	<h3><img src="icons/pin.webp" alt="Location Icon" class="pin-icon" /> {m.home_location_subtitle()}</h3>
 	<Map />
 </section>
 
 <section class="no-padding full-width">
 	<div class="limited-width reviews">
-		<h2 class="title">Reseñas</h2>
+		<h2 class="title">{m.home_reviews_title()}</h2>
 	</div>
 
 	{#if browser}
