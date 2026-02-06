@@ -2,14 +2,22 @@
 	import { Swiper, SwiperSlide } from 'swiper/svelte';
 	import { Autoplay } from 'swiper/core';
 	import 'swiper/css';
-	let style = {
-		styleStarWidth: 34,
-		styleEmptyStarColor: '#737373',
-		styleFullStarColor: '#ffd219'
-	};
+	let { reviews } = $props();
 
-	import json from '$lib/data/reviews.min.json';
-	let reviews = json.reviews;
+	const BATCH = 8;
+	let loaded = $state(BATCH);
+
+	$effect(() => {
+		if (loaded < reviews.length) {
+			const timer = setTimeout(() => {
+				loaded = Math.min(loaded + BATCH, reviews.length);
+			}, 800);
+			return () => clearTimeout(timer);
+		}
+	});
+
+	const placeholder =
+		'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="120" height="120"%3E%3Ccircle cx="60" cy="60" r="60" fill="%23e0e0e0"/%3E%3C/svg%3E';
 </script>
 
 <div id="swiper-container">
@@ -48,8 +56,7 @@
 				<a href={rev.review_link} class="review-container" target="_blank">
 					<div class="row">
 						<img
-							loading="lazy"
-							src={rev.autor_image}
+							src={i < loaded ? rev.autor_image : placeholder}
 							alt="Google Reviews Cabañas Ucihuen"
 							class="avatar"
 						/>

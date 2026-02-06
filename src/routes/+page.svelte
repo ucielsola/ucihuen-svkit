@@ -4,15 +4,7 @@
 	import Cards from '$lib/components/Cards.svelte';
 	import Map from '$lib/components/Map.svelte';
 	import SliderReviews from '$lib/components/SliderReviews.svelte';
-	import Loader from '$lib/components/Loader.svelte';
-	let loaded = $state(false);
-	$effect(() => {
-		if (browser) {
-			setTimeout(() => {
-				loaded = true;
-			}, 1500);
-		}
-	});
+	let { data } = $props();
 </script>
 
 <svelte:head>
@@ -66,10 +58,8 @@
 		<h2 class="title">Reviews</h2>
 	</div>
 
-	{#if !loaded}
-		<Loader />
-	{:else}
-		<SliderReviews />
+	{#if browser}
+		<SliderReviews reviews={data.reviews} />
 	{/if}
 </section>
 
