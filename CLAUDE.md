@@ -22,7 +22,7 @@ Marketing/landing website for "Cabañas Ucihuen", a cabin rental business in Lag
 - **Swiper 7** for carousels/sliders
 - **svelte-modals** for modal dialogs
 - Images hosted on **ImageKit** CDN (`ik.imagekit.io/ucihuen/`)
-- Google Maps embed (API key via `import.meta.env.PUBLIC_API_KEY`)
+- Google Maps embed (API key via `$env/static/public`)
 - Google Analytics (gtag)
 
 ## Architecture
