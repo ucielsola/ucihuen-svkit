@@ -7,6 +7,13 @@
 	import SliderReviews from '$lib/components/SliderReviews.svelte';
 	import * as m from '$lib/paraglide/messages.js';
 	let { data } = $props();
+
+	function igProfile(username) {
+		if (browser && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+			return `instagram://user?username=${username}`;
+		}
+		return `https://www.instagram.com/${username}/`;
+	}
 </script>
 
 <svelte:head>
@@ -19,7 +26,7 @@
 		<p>
 			{m.home_desc_1_before()}
 			<a
-				href="https://instagram.com/lagopueloturismo"
+				href={igProfile('lagopueloturismo')}
 				target="_blank"
 				title={m.home_link_lago_puelo()}>{m.home_desc_1_link()}</a
 			>{m.home_desc_1_after()}
@@ -27,7 +34,7 @@
 		<p>
 			{m.home_desc_2_before()}
 			<a
-				href="https://instagram.com/parquenacionallagopuelo"
+				href={igProfile('parquenacionallagopuelo')}
 				target="_blank"
 				title={m.home_link_parque_nacional()}>{m.home_desc_2_link()}</a
 			>
