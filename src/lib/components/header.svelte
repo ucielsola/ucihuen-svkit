@@ -1,14 +1,14 @@
 <script>
 	import { getWindowWidth } from '$lib/store.js';
 	import { onMount } from 'svelte';
-	let winWidth;
+	let winWidth = $state();
 
 	onMount(() => {
 		getWindowWidth.subscribe((value) => {
 			winWidth = value;
 		});
 	});
-	export let formPage;
+	let { formPage } = $props();
 
 	const navigateBack = () => {
 		// only on form page and on mobile
@@ -18,9 +18,9 @@
 	};
 </script>
 
-<header class={formPage && winWidth < 1024 ? 'blurred' : ''} on:click={navigateBack}>
+<header class={formPage && winWidth < 1024 ? 'blurred' : ''} onclick={navigateBack}>
 	<div class="background">
-		<div class="blur" />
+		<div class="blur"></div>
 	</div>
 	<div class="row">
 		<div class="logo">

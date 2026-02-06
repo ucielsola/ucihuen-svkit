@@ -8,7 +8,7 @@
 </svelte:head>
 
 <section>
-	<Form />
+	<!-- <Form /> -->
 </section>
 
 <style>

@@ -2,14 +2,25 @@
 	import { getWindowWidth } from '$lib/store.js';
 	import { onMount } from 'svelte';
 
-	export let scrolledPercentage = 0;
-	export let scrollingUp;
-	export let formPage;
-	export let path;
+	/**
+	 * @typedef {Object} Props
+	 * @property {number} [scrolledPercentage]
+	 * @property {any} scrollingUp
+	 * @property {any} formPage
+	 * @property {any} path
+	 */
+
+	/** @type {Props} */
+	let {
+		scrolledPercentage = 0,
+		scrollingUp,
+		formPage,
+		path
+	} = $props();
 
 	let limit = path === '/' ? 95 : 75;
 
-	let windowWidth;
+	let windowWidth = $state();
 
 	onMount(() => {
 		getWindowWidth.subscribe((value) => {
@@ -17,7 +28,7 @@
 		});
 	});
 
-	let active = false;
+	let active = $state(false);
 	const toggleActive = () => {
 		active = !active;
 	};
@@ -26,7 +37,7 @@
 {#if !formPage && windowWidth < 1024}
 	<a href="/contacto" class={scrolledPercentage > limit && !scrollingUp ? 'pushed-up' : ''}
 		><div class="wrapper {active ? 'active' : ''}">
-				<button on:touchstart={toggleActive} on:touchend={toggleActive}>ENVIAR CONSULTA</button>
+				<button ontouchstart={toggleActive} ontouchend={toggleActive}>ENVIAR CONSULTA</button>
 		</div>
 	</a>
 {/if}

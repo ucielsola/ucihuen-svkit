@@ -1,6 +1,6 @@
 <footer>
 	<div id="mobile">
-		<div class="divider" />
+		<div class="divider"></div>
 		<h3 class="title">También podés encontrarnos en</h3>
 		<div class="content">
 			<div class="col">
@@ -42,7 +42,7 @@
 		</div>
 	</div>
 	<div id="desktop">
-		<div class="divider" />
+		<div class="divider"></div>
 		<h3 class="title">También podés encontrarnos en</h3>
 		<div class="content">
 			<div class="row">

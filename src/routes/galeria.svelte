@@ -5,7 +5,7 @@
 	import { Modals, closeModal, openModal } from 'svelte-modals';
 	import Modal from '$lib/components/modalImg.svelte';
 
-	let url;
+	let url = $state();
 	function testImg() {
 		openModal(Modal, { src: url });
 	}
@@ -51,21 +51,21 @@
 	<article id="cab-1">
 		<h3>Cabaña 7 Pasajeros</h3>
 		<h4>2 HABITACIONES | LIVING-COMEDOR | COCINA | BAÑO</h4>
-		<div class="container" in:fade={{ duration: 300, delay: 100 }}>
+		<div class="container" in:fade|global={{ duration: 300, delay: 100 }}>
 			<Slider items={cab_1} type="slide" delay={2300} sendClick={() => testImg()} bind:url />
 		</div>
 	</article>
 	<article id="cab-2">
 		<h3>Cabaña 4 Pasajeros</h3>
 		<h4>1 HABITACIÓN | COCINA-COMEDOR | LIVING CON FUTONES | BAÑO</h4>
-		<div class="container" in:fade={{ duration: 400, delay: 150 }}>
+		<div class="container" in:fade|global={{ duration: 400, delay: 150 }}>
 			<Slider items={cab_2} type="slide" delay={2400} sendClick={() => testImg()} bind:url />
 		</div>
 	</article>
 	<article>
 		<h3>Exteriores</h3>
 		<h4>PATIO EN EL PREDIO | ESTACIONAMIENTO | PARRILLA</h4>
-		<div class="container last" in:fade={{ duration: 500, delay: 200 }}>
+		<div class="container last" in:fade|global={{ duration: 500, delay: 200 }}>
 			<Slider items={exterior} type="slide" delay={2500} sendClick={() => testImg()} bind:url />
 		</div>
 	</article>

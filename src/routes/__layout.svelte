@@ -1,4 +1,4 @@
-<script context="module">
+<script module>
 	export const load = async ({ url }) => ({
 		props: {
 			key: url
@@ -7,9 +7,10 @@
 </script>
 
 <script>
+	import { run } from 'svelte/legacy';
+
 	import PageTransition from '$lib/components/PageTransitions.svelte';
 	import { fade } from 'svelte/transition';
-	export let key;
 
 	import { goto } from '$app/navigation';
 
@@ -20,7 +21,7 @@
 
 	import { getWindowWidth } from '$lib/store.js';
 
-	let winWidth;
+	let winWidth = $state();
 
 	onMount(() => {
 		ready = true;
@@ -40,16 +41,17 @@
 	import { onMount } from 'svelte';
 	import { getWindowHeight, getFooterHeight } from '$lib/store.js';
 	import FabWhatsapp from '$lib/components/fabWhatsapp.svelte';
+	let { key, children } = $props();
 
 	let docHeight;
 	let winHeight;
-	let footerHeight;
-	let scrolled;
-	let scrolledPercentage;
-	let scrollingUp;
-	let ready = false;
+	let footerHeight = $state();
+	let scrolled = $state();
+	let scrolledPercentage = $state();
+	let scrollingUp = $state();
+	let ready = $state(false);
 
-	let formPage = false;
+	let formPage = $state(false);
 
 	const setFabOffset = (height) => {
 		docHeight = height;
@@ -75,20 +77,26 @@
 	};
 
 	// fires if url change and only on client side
-	$: if (key && ready) {
-		setTimeout(() => {
-			let height = document.querySelector('#svelte').clientHeight;
-			// alert(`'test doc height mobile', '${height}'`);
-			setFabOffset(height);
-		}, 300);
-	}
-	$: key.pathname === '/contacto' ? (formPage = true) : (formPage = false);
+	run(() => {
+		if (key && ready) {
+			setTimeout(() => {
+				let height = document.querySelector('#svelte').clientHeight;
+				// alert(`'test doc height mobile', '${height}'`);
+				setFabOffset(height);
+			}, 300);
+		}
+	});
+	run(() => {
+		key.pathname === '/contacto' ? (formPage = true) : (formPage = false);
+	});
 </script>
 
 <svelte:window bind:scrollY={scrolled} />
 
 <Modals>
-	<div slot="backdrop" class="backdrop" on:click={closeModal} />
+	{#snippet backdrop()}
+		<div  class="backdrop" onclick={closeModal}></div>
+	{/snippet}
 </Modals>
 
 <Header {formPage} />
@@ -104,7 +112,7 @@
 			{formPage}
 			path={key.pathname}
 		/> -->
-		<slot />
+		{@render children?.()}
 		<FabWhatsapp
 			--footer-height={footerHeight}
 			{scrolledPercentage}

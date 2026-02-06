@@ -3,27 +3,27 @@
 	import { onMount } from 'svelte';
 	import { getWindowWidth } from '$lib/store.js';
 
-	let winWidth;
+	let winWidth = $state();
 
 	onMount(() => {
 		getWindowWidth.subscribe((value) => {
 			winWidth = value;
 		});
 	});
-	export let formPage;
+	let { formPage } = $props();
 </script>
 
 <nav class={formPage && winWidth < 1024 ? 'hidden' : ''}>
 	<div class="background">
 		<a href="/" title="Inicio"
-			>Inicio<span class="underline" class:active={$page.url.pathname === '/'} /></a
+			>Inicio<span class="underline" class:active={$page.url.pathname === '/'}></span></a
 		>
 
 		<a href="/galeria" title="Galería"
-			>Galería<span class="underline" class:active={$page.url.pathname === '/galeria'} /></a
+			>Galería<span class="underline" class:active={$page.url.pathname === '/galeria'}></span></a
 		>
 		<a href="/contacto" title="Contacto"
-			>Contacto<span class="underline" class:active={$page.url.pathname === '/contacto'} /></a
+			>Contacto<span class="underline" class:active={$page.url.pathname === '/contacto'}></span></a
 		>
 	</div>
 </nav>

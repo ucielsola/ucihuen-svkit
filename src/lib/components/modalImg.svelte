@@ -2,14 +2,13 @@
     import { scale } from 'svelte/transition';
 	import { expoInOut } from "svelte/easing";
 
-    export let isOpen;
-    export let src;
+    let { isOpen, src } = $props();
 </script>
 
 {#if isOpen}
     <div class="modal">
         <div class="contents">
-            <img {src} alt="Cabañas Ucihuen" in:scale={{ delay: 250, duration: 300, easing: expoInOut }} out:scale={{ delay: 50, duration: 300, easing: expoInOut }}/>
+            <img {src} alt="Cabañas Ucihuen" in:scale|global={{ delay: 250, duration: 300, easing: expoInOut }} out:scale|global={{ delay: 50, duration: 300, easing: expoInOut }}/>
         </div>
     </div>
 {/if}

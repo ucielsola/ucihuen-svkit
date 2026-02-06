@@ -1,9 +1,15 @@
 <script>
 	import { onMount } from 'svelte';
 
-	export let scrolledPercentage = 0;
-	export let scrollingUp;
-	export let path;
+	/**
+	 * @typedef {Object} Props
+	 * @property {number} [scrolledPercentage]
+	 * @property {any} scrollingUp
+	 * @property {any} path
+	 */
+
+	/** @type {Props} */
+	let { scrolledPercentage = 0, scrollingUp, path } = $props();
 
 	let limit = path === '/' ? 95 : 75;
 

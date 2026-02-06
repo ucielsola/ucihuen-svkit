@@ -1,18 +1,20 @@
 <script>
+	import { run } from 'svelte/legacy';
+
 	import { browser } from '$app/env';
 	import IconGrid from '$lib/components/iconGrid.svelte';
 	import Cards from '$lib/components/cards.svelte';
 	import Map from '$lib/components/map.svelte';
 	import SliderReviews from '$lib/components/sliderReviews.svelte';
 	import Loader from '$lib/components/loader.svelte';
-	let loaded = false;
-	$: {
+	let loaded = $state(false);
+	run(() => {
 		if (browser) {
 			setTimeout(() => {
 				loaded = true;
 			}, 1500);
 		}
-	}
+	});
 </script>
 
 <svelte:head>

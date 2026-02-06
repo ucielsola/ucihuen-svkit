@@ -1,9 +1,9 @@
 <script>
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	export let refresh = ``;
+	let { refresh = ``, children } = $props();
 
-	let animations = false;
+	let animations = $state(false);
 
 	onMount(
 		() =>
@@ -15,10 +15,10 @@
 
 {#key refresh}
 	{#if !!animations}
-		<div in:fade={{ delay: 150, duration: 200 }} out:fade={{ duration: 100 }}>
-			<slot />
+		<div in:fade|global={{ delay: 150, duration: 200 }} out:fade|global={{ duration: 100 }}>
+			{@render children?.()}
 		</div>
 	{:else}
-		<slot />
+		{@render children?.()}
 	{/if}
 {/key}

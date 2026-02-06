@@ -1,11 +1,13 @@
-<script>
+<!-- <script>
+	import { preventDefault } from 'svelte/legacy';
+
 	import { getWindowWidth } from '$lib/store.js';
 	import { onMount } from 'svelte';
 
 	import { openModal } from 'svelte-modals';
 	import Modal from '$lib/components/modal.svelte';
 
-	let winWidth;
+	let winWidth = $state();
 
 	onMount(() => {
 		getWindowWidth.subscribe((value) => {
@@ -16,15 +18,15 @@
 	import Flatpickr from 'svelte-flatpickr';
 	import 'flatpickr/dist/flatpickr.css';
 
-	let email;
-	let name;
-	let phone;
-	let message;
-	let pax = 1;
+	let email = $state();
+	let name = $state();
+	let phone = $state();
+	let message = $state();
+	let pax = $state(1);
 	let estadia;
 
-	let upDisabled = pax === 9 && true;
-	let downDisabled = pax === 1 && true;
+	let upDisabled = $state(pax === 9 && true);
+	let downDisabled = $state(pax === 1 && true);
 
 	function updatePax(event, action) {
 		event.preventDefault();
@@ -80,7 +82,7 @@
 	}
 </script>
 
-<form class={winWidth < 1024 ? 'mobile' : ''} on:submit|preventDefault={formSubmit}>
+<form class={winWidth < 1024 ? 'mobile' : ''} onsubmit={preventDefault(formSubmit)}>
 	<input type="text" name="_honey" style="display:none" />
 	<input type="hidden" name="_captcha" value="false" />
 	<input type="hidden" name="_template" value="box" />
@@ -109,13 +111,13 @@
 				<div class="pax-wrapper">
 					<button
 						class="decrease"
-						on:click={(event) => updatePax(event, 'down')}
+						onclick={(event) => updatePax(event, 'down')}
 						disabled={downDisabled ? 'disabled' : ''}><span class="arrow">&lsaquo;</span></button
 					>
 					<span class="number">{pax}</span>
 					<button
 						class="increase"
-						on:click={(event) => updatePax(event, 'up')}
+						onclick={(event) => updatePax(event, 'up')}
 						disabled={upDisabled ? 'disabled' : ''}><span class="arrow">&rsaquo;</span></button
 					>
 				</div>
@@ -137,7 +139,7 @@
 			</div>
 			<div class="form-group">
 				<label for="message">Mensaje <span class="opcional">(opcional)</span></label>
-				<textarea type="text" name="message" bind:value={message} />
+				<textarea type="text" name="message" bind:value={message}></textarea>
 			</div>
 		</div>
 	</div>
@@ -416,4 +418,4 @@
 			transition: background-color 0.35s var(--easing);
 		}
 	}
-</style>
+</style> -->

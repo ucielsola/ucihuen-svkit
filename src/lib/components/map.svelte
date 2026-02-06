@@ -1,7 +1,7 @@
 <script>
 	import { getWindowWidth } from '$lib/store.js';
 	import { onMount } from 'svelte';
-	let winWidth;
+	let winWidth = $state();
 
 	onMount(() => {
 		getWindowWidth.subscribe((value) => {
@@ -19,7 +19,7 @@
 		width={winWidth - 32 - 6}
 		src="https://www.google.com/maps/embed/v1/place?key={import.meta.env.VITE_API_KEY}
     &q=Cabanas+Ucihuen"
-	/>
+	></iframe>
 </div>
 
 <style>

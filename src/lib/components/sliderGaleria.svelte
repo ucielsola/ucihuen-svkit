@@ -3,16 +3,18 @@
 	import { Autoplay } from 'swiper/core';
 	import 'swiper/css';
 
-	export let url;
-	export let sendClick = () => {};
-	export let handleClick = (event) => {
+
+	let {
+		url = $bindable(),
+		sendClick = () => {},
+		handleClick = (event) => {
 		url = event.target.src;
 		sendClick();
-	};
-
-	export let items;
-	export let type;
-	export let delay;
+	},
+		items,
+		type,
+		delay
+	} = $props();
 </script>
 
 <div id="swiper-container">
@@ -43,7 +45,7 @@
 						id={item.id}
 						src={item.src}
 						alt={item.alt}
-						on:click={handleClick}
+						onclick={handleClick}
 					/>
 				</div>
 			</SwiperSlide>

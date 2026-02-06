@@ -1,5 +1,5 @@
 <script>
-	let open = false;
+	let open = $state(false);
 	const toggleGrid = (e) => {
 		open = !open;
 	};
@@ -75,7 +75,7 @@
 			/>
 			<span>Almohadas y Frazadas extra</span>
 		</div>
-		<div class="pusher" />
+		<div class="pusher"></div>
 		<div class="item">
 			<img
 				src="icons/botiquin.webp"
@@ -86,7 +86,7 @@
 		</div>
 	</div>
 	<div class="toggle-btn">
-		<button class={open ? 'turnedUp' : ''} on:click={(e) => toggleGrid(e)} />
+		<button class={open ? 'turnedUp' : ''} onclick={(e) => toggleGrid(e)}></button>
 	</div>
 </div>
 

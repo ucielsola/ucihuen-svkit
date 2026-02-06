@@ -1,10 +1,16 @@
 <script>
 	import { closeModal } from 'svelte-modals';
 
-	// provided by <Modals />
-	export let isOpen;
+	
 
-	export let name
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} isOpen - provided by <Modals />
+	 * @property {any} name
+	 */
+
+	/** @type {Props} */
+	let { isOpen, name } = $props();
 </script>
 
 {#if isOpen}
@@ -14,7 +20,7 @@
 			<p>Gracias por ponerte en contacto, <span class="bold">{name}</span>!</p>
             <p>Nos comunicaremos a la brevedad.</p>
 			<div class="button-border">
-				<a class="button" href="/" title="Inicio" on:click="{closeModal}">VOLER AL INICIO</a>
+				<a class="button" href="/" title="Inicio" onclick={closeModal}>VOLER AL INICIO</a>
 			</div>
 		</div>
 	</div>
