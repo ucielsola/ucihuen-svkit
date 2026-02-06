@@ -79,12 +79,16 @@
 		cursor: zoom-in;
 	}
 	.img-wrapper {
+		aspect-ratio: 4 / 3;
 		background-size: cover;
 		background-position: center;
 		overflow: hidden;
 		border-radius: var(--radius);
 	}
 	.slide img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 		border-radius: var(--radius);
 		box-shadow: var(--shadow);
 	}
