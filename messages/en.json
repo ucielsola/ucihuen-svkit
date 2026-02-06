@@ -74,5 +74,20 @@
 
 	"aria_close": "Close",
 	"aria_close_image": "Close image",
-	"fab_whatsapp_title": "Contact us on WhatsApp"
+	"fab_whatsapp_title": "Contact us on WhatsApp",
+
+	"weather_title": "Weather in Lago Puelo",
+	"weather_feels_like": "Feels like:",
+	"weather_clear": "Clear sky",
+	"weather_mainly_clear": "Mainly clear",
+	"weather_partly_cloudy": "Partly cloudy",
+	"weather_overcast": "Overcast",
+	"weather_fog": "Fog",
+	"weather_drizzle": "Drizzle",
+	"weather_rain": "Rain",
+	"weather_snow": "Snow",
+	"weather_showers": "Showers",
+	"weather_thunderstorm": "Thunderstorm",
+	"weather_unknown": "Unknown",
+	"weather_aria_label": "Current weather in Lago Puelo"
 }

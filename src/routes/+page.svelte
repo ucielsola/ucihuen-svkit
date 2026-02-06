@@ -3,6 +3,7 @@
 	import IconGrid from '$lib/components/IconGrid.svelte';
 	import Cards from '$lib/components/Cards.svelte';
 	import Map from '$lib/components/Map.svelte';
+	import Weather from '$lib/components/Weather.svelte';
 	import SliderReviews from '$lib/components/SliderReviews.svelte';
 	import * as m from '$lib/paraglide/messages.js';
 	let { data } = $props();
@@ -50,6 +51,11 @@
 	<h2 class="title">{m.home_location_title()}</h2>
 	<h3><img src="icons/pin.webp" alt="Location Icon" class="pin-icon" /> {m.home_location_subtitle()}</h3>
 	<Map />
+</section>
+
+<section class="limited-width">
+	<h2 class="title">{m.weather_title()}</h2>
+	<Weather />
 </section>
 
 <section class="no-padding full-width">

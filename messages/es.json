@@ -74,5 +74,20 @@
 
 	"aria_close": "Cerrar",
 	"aria_close_image": "Cerrar imagen",
-	"fab_whatsapp_title": "Contactanos por WhatsApp"
+	"fab_whatsapp_title": "Contactanos por WhatsApp",
+
+	"weather_title": "Clima en Lago Puelo",
+	"weather_feels_like": "Sensación:",
+	"weather_clear": "Despejado",
+	"weather_mainly_clear": "Mayormente despejado",
+	"weather_partly_cloudy": "Parcialmente nublado",
+	"weather_overcast": "Nublado",
+	"weather_fog": "Niebla",
+	"weather_drizzle": "Llovizna",
+	"weather_rain": "Lluvia",
+	"weather_snow": "Nieve",
+	"weather_showers": "Chaparrones",
+	"weather_thunderstorm": "Tormenta eléctrica",
+	"weather_unknown": "Desconocido",
+	"weather_aria_label": "Clima actual en Lago Puelo"
 }
