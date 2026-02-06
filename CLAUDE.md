@@ -28,11 +28,23 @@ Marketing/landing website for "Cabañas Ucihuen", a cabin rental business in Lag
 
 ## Architecture
 
-Two routes: `/` (home) and `/galeria` (photo gallery). No server-side data loading — all content is static/client-side.
+Two routes: `/` (home) and `/galeria` (photo gallery).
+
+- **Home** (`+page.server.js`): fetches Google Places reviews, merges with local JSON (`src/lib/data/reviews.min.json`), filters to 4+ stars with text. Falls back to local-only on API failure.
+- **Gallery** (`+page.server.js`): fetches image paths from ImageKit API, falls back to hardcoded file lists.
+- **Sitemap** (`src/routes/sitemap.xml/+server.js`): generates XML sitemap with hreflang alternate links.
 
 Layout (`+layout.svelte`): LangToggle, Header, Nav, page content with transitions, floating WhatsApp FAB, Footer. URL passed as `key` from `+layout.js` to trigger page transitions.
 
-Components live in `src/lib/components/`. Data (reviews JSON) in `src/lib/data/`.
+Components in `src/lib/components/`. Utilities: `src/lib/imagekit.js` (CDN URL builders, srcset, LQIP), `src/lib/utils/weather.js` (OpenWeatherMap). Data: `src/lib/data/reviews.min.json`.
+
+### Environment Variables
+
+- `PRIVATE_GOOGLE_API_KEY` — Google Places API (reviews)
+- `PUBLIC_GOOGLE_PLACE_ID` — Google Place ID
+- `PUBLIC_GOOGLE_API_KEY` — Google Maps embed
+- `PRIVATE_IMAGEKIT_KEY` — ImageKit server-side asset listing
+- `PUBLIC_OPENWEATHERMAP_API_KEY` — Weather widget
 
 ## i18n
 
