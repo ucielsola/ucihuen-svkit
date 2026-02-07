@@ -32,7 +32,7 @@
 				<div class="pusher"></div>
 			{/if}
 			<div class="item">
-				<img src="icons/{item.icon}.webp" alt={item.label()} title={item.label()} />
+				<img src="/icons/{item.icon}.webp" alt={item.label()} title={item.label()} />
 				<span>{item.label()}</span>
 			</div>
 		{/each}

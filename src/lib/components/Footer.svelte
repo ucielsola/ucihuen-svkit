@@ -35,7 +35,7 @@
 				rel="noopener nofollow"
 				class="airbnb"
 				title="Cabañas Ucihuen en AirBnB.com"
-				><img src="icons/airbnb.webp" alt="Cabañas Ucihuen en AirBnB.com" /></a
+				><img src="/icons/airbnb.webp" alt="Cabañas Ucihuen en AirBnB.com" /></a
 			>
 			<a
 				href={BOOKING_URL}
@@ -43,7 +43,7 @@
 				rel="noopener nofollow"
 				class="booking"
 				title="Cabañas Ucihuen en Booking.com"
-				><img src="icons/booking.webp" alt="Cabañas Ucihuen en Booking.com" /></a
+				><img src="/icons/booking.webp" alt="Cabañas Ucihuen en Booking.com" /></a
 			>
 		</div>
 		<div class="phone">

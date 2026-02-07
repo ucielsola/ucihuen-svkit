@@ -61,7 +61,7 @@
 <section class="limited-width">
 	<h2 class="title">{m.home_location_title()}</h2>
 	<h3>
-		<img src="icons/pin.webp" alt="Location Icon" class="pin-icon" />
+		<img src="/icons/pin.webp" alt="Location Icon" class="pin-icon" />
 		{m.home_location_subtitle()}
 	</h3>
 	<Map />
