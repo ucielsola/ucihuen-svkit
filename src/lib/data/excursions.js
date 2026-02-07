@@ -97,7 +97,8 @@ export const excursions = [
 		description: m.excursion_10_desc,
 		tags: [m.excursion_tag_history, m.excursion_tag_trails, m.excursion_tag_nature],
 		image: '/paseos/pobladores.webp',
-		mapsUrl: 'https://www.google.com/maps/place/El+C%C3%B3ndor+13030,+Chubut/',
+		mapsUrl:
+			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/-42.082592,-71.5963947/@-42.0829035,-71.5967969,18.29z/data=!4m9!4m8!1m5!1m1!1s0x961bec990d4c5455:0xe7f57694b5338ff2!2m2!1d-71.6009084!2d-42.068482!1m0!3e0?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D',
 		websiteUrl: null
 	}
 ];
