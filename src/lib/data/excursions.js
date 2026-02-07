@@ -6,7 +6,7 @@ export const excursions = [
 		title: m.excursion_1_title,
 		description: m.excursion_1_desc,
 		tags: [m.excursion_tag_nature, m.excursion_tag_trails, m.excursion_tag_trekking],
-		image: '/paseos/puelo.png',
+		image: '/paseos/puelo.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Lago+Puelo+National+Park,+Unnamed+Road,,+Chubut/',
 		websiteUrl: 'https://www.instagram.com/parquenacionallagopuelo/'
@@ -16,7 +16,7 @@ export const excursions = [
 		title: m.excursion_2_title,
 		description: m.excursion_2_desc,
 		tags: [m.excursion_tag_beach, m.excursion_tag_trekking, m.excursion_tag_nature],
-		image: '/paseos/pasarela.png',
+		image: '/paseos/pasarela.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Pasarela+R%C3%ADo+Azul,+costa+r%C3%ADo+azul,+C.+Roca+del+Tiempo,+U9211+Lago+Puelo,+Chubut/',
 		websiteUrl: null
@@ -26,7 +26,7 @@ export const excursions = [
 		title: m.excursion_3_title,
 		description: m.excursion_3_desc,
 		tags: [m.excursion_tag_beach, m.excursion_tag_nature, m.excursion_tag_trails],
-		image: '/paseos/cayun.jpg',
+		image: '/paseos/cayun.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Balneario+Cayun,+Chubut/',
 		websiteUrl: null
@@ -36,7 +36,7 @@ export const excursions = [
 		title: m.excursion_4_title,
 		description: m.excursion_4_desc,
 		tags: [m.excursion_tag_market, m.excursion_tag_gastronomy, m.excursion_tag_family],
-		image: '/paseos/feriaartesana.webp',
+		image: '/paseos/feria-artesana.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Feria+Regional+El+Bols%C3%B3n,+Gral.+Roca,+R8430+El+Bols%C3%B3n,+R%C3%ADo+Negro/',
 		websiteUrl: null
@@ -56,7 +56,7 @@ export const excursions = [
 		title: m.excursion_6_title,
 		description: m.excursion_6_desc,
 		tags: [m.excursion_tag_ski, m.excursion_tag_adventure, m.excursion_tag_trekking],
-		image: '/paseos/skiOK.jpg',
+		image: '/paseos/ski.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Cerro+Perito+Moreno,+R%C3%ADo+Negro+Province/',
 		websiteUrl: 'https://www.laderas.com.ar/'
@@ -66,7 +66,7 @@ export const excursions = [
 		title: m.excursion_7_title,
 		description: m.excursion_7_desc,
 		tags: [m.excursion_tag_beach, m.excursion_tag_water_sports, m.excursion_tag_nature],
-		image: '/paseos/patriada.jpg',
+		image: '/paseos/patriada.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Puerto+Patriada,+RFM5%2B3W,+El+Hoyo,+Chubut/',
 		websiteUrl: null
@@ -76,7 +76,7 @@ export const excursions = [
 		title: m.excursion_8_title,
 		description: m.excursion_8_desc,
 		tags: [m.excursion_tag_nature, m.excursion_tag_trails, m.excursion_tag_family],
-		image: '/paseos/confluencia.png',
+		image: '/paseos/confluencia.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Pasarela+La+Confluencia,+Chubut/',
 		websiteUrl: null
@@ -86,7 +86,7 @@ export const excursions = [
 		title: m.excursion_9_title,
 		description: m.excursion_9_desc,
 		tags: [m.excursion_tag_trekking, m.excursion_tag_viewpoint, m.excursion_tag_nature],
-		image: '/paseos/mirador.png',
+		image: '/paseos/mirador.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Sendero+Mirador+del+Lago,+Chubut/',
 		websiteUrl: null
