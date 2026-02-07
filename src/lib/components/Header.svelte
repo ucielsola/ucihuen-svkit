@@ -61,7 +61,9 @@
 	></iframe>
 	<div class="row">
 		<div class="logo">
-			<a href={localizeHref('/')} title={m.header_home_title()}><h1>Cabañas <span>Ucihuen</span></h1></a>
+			<a href={localizeHref('/')} title={m.header_home_title()}
+				><h1>Cabañas <span>Ucihuen</span></h1></a
+			>
 		</div>
 		<p class="copy">
 			{m.header_tagline()}

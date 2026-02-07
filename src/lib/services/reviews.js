@@ -2,6 +2,9 @@ import { PRIVATE_GOOGLE_API_KEY } from '$env/static/private';
 import { PUBLIC_GOOGLE_PLACE_ID } from '$env/static/public';
 import json from '$lib/data/reviews.min.json';
 
+const CACHE_TTL_MS = 10 * 60 * 1000;
+let cache = { data: null, expires: 0 };
+
 function formatUnixDate(unix) {
 	const d = new Date(unix * 1000);
 	const dd = String(d.getDate()).padStart(2, '0');
@@ -40,6 +43,9 @@ async function fetchGoogleReviews() {
 }
 
 export async function getReviews() {
+	const now = Date.now();
+	if (cache.data && cache.expires > now) return cache.data;
+
 	const localReviews = json.reviews;
 
 	let apiReviews = [];
@@ -55,5 +61,7 @@ export async function getReviews() {
 	);
 
 	const merged = [...newReviews, ...localReviews];
-	return merged.filter((r) => r.review_text && Number(r.review_rating) >= 4);
+	const filtered = merged.filter((r) => r.review_text && Number(r.review_rating) >= 4);
+	cache = { data: filtered, expires: now + CACHE_TTL_MS };
+	return filtered;
 }

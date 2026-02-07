@@ -13,14 +13,11 @@
 		>
 
 		<a href="{localizeHref('/galeria')}#galeria" title={m.nav_gallery()}
-			>{m.nav_gallery()}<span class="underline" class:active={currentPath === '/galeria'}></span
-			></a
+			>{m.nav_gallery()}<span class="underline" class:active={currentPath === '/galeria'}></span></a
 		>
 
 		<a href="{localizeHref('/paseos')}#paseos" title={m.nav_excursions()}
-			>{m.nav_excursions()}<span
-				class="underline"
-				class:active={currentPath === '/paseos'}
+			>{m.nav_excursions()}<span class="underline" class:active={currentPath === '/paseos'}
 			></span></a
 		>
 	</div>

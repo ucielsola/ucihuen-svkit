@@ -20,7 +20,11 @@
 	}
 
 	function markSwitched() {
-		try { sessionStorage.setItem('lang-switched', '1'); } catch {}
+		try {
+			sessionStorage.setItem('lang-switched', '1');
+		} catch {
+			/* noop */
+		}
 	}
 
 	function handleTriggerClick() {
@@ -59,7 +63,11 @@
 	});
 
 	$effect(() => {
-		try { if (sessionStorage.getItem('lang-switched')) return; } catch {}
+		try {
+			if (sessionStorage.getItem('lang-switched')) return;
+		} catch {
+			/* noop */
+		}
 
 		const otherLocales = locales.filter((l) => l.code !== getLocale());
 		const browserLang = navigator.language?.slice(0, 2);
@@ -82,9 +90,17 @@
 
 		function scheduleCycle() {
 			queue.forEach((loc, i) => {
-				timeouts.push(setTimeout(() => { hintLocale = loc; }, i * SHOW_DURATION));
+				timeouts.push(
+					setTimeout(() => {
+						hintLocale = loc;
+					}, i * SHOW_DURATION)
+				);
 			});
-			timeouts.push(setTimeout(() => { hintLocale = null; }, queue.length * SHOW_DURATION));
+			timeouts.push(
+				setTimeout(() => {
+					hintLocale = null;
+				}, queue.length * SHOW_DURATION)
+			);
 		}
 
 		timeouts.push(
@@ -135,7 +151,10 @@
 					class="dropdown-item"
 					role="menuitem"
 					data-sveltekit-reload
-					onclick={() => { markSwitched(); open = false; }}
+					onclick={() => {
+						markSwitched();
+						open = false;
+					}}
 				>
 					<img src={loc.flag} alt={loc.label} />
 					<span>{loc.label}</span>

@@ -53,7 +53,12 @@
 	>
 		{#each reviews as rev, i}
 			<SwiperSlide>
-				<a href={rev.review_link} class="review-container" target="_blank">
+				<a
+					href={rev.review_link}
+					class="review-container"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					<div class="row">
 						<img
 							src={i < loaded ? rev.autor_image : placeholder}

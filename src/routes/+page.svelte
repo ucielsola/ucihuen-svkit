@@ -23,7 +23,12 @@
 	<section id="inicio" class="description marginated">
 		<p>
 			{m.home_desc_1_before()}
-			<a href={igProfile('lagopueloturismo')} target="_blank" title={m.home_link_lago_puelo()}
+			<a
+				href={igProfile('lagopueloturismo')}
+				target="_blank"
+				rel="noopener noreferrer"
+				title={m.home_link_lago_puelo()}
+			>
 				>{m.home_desc_1_link()}</a
 			>{m.home_desc_1_after()}
 		</p>
@@ -32,6 +37,7 @@
 			<a
 				href={igProfile('parquenacionallagopuelo')}
 				target="_blank"
+				rel="noopener noreferrer"
 				title={m.home_link_parque_nacional()}>{m.home_desc_2_link()}</a
 			>
 			{m.home_desc_2_after()}

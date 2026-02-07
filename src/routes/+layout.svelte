@@ -1,6 +1,5 @@
 <script>
-	import PageTransition from '$lib/components/PageTransitions.svelte';
-
+	import { page } from '$app/state';
 	import { Modals, modals } from 'svelte-modals';
 
 	import Header from '$lib/components/Header.svelte';
@@ -10,8 +9,8 @@
 	import FabWhatsapp from '$lib/components/FabWhatsapp.svelte';
 	import LangToggle from '$lib/components/LangToggle.svelte';
 	import * as m from '$lib/paraglide/messages.js';
-	let { data, children } = $props();
-	let key = $derived(data.key);
+	let { children } = $props();
+	let path = $derived(page.url.pathname);
 
 	let docHeight = $state(0);
 	let winHeight = $state(0);
@@ -22,8 +21,6 @@
 	let oldScroll = 0;
 
 	$effect(() => {
-		if (!key) return;
-
 		let timeoutId = setTimeout(() => {
 			docHeight = document.querySelector('#svelte').clientHeight;
 			footerHeight = document.querySelector('footer').clientHeight + 'px';
@@ -71,17 +68,10 @@
 <div class="nav-container">
 	<Nav />
 </div>
-<PageTransition refresh={key}>
-	<main>
-		{@render children?.()}
-		<FabWhatsapp
-			--footer-height={footerHeight}
-			{scrolledPercentage}
-			{scrollingUp}
-			path={key.pathname}
-		/>
-	</main>
-</PageTransition>
+<main>
+	{@render children?.()}
+	<FabWhatsapp --footer-height={footerHeight} {scrolledPercentage} {scrollingUp} {path} />
+</main>
 <Footer />
 
 <style>

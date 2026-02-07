@@ -1,6 +1,5 @@
 <script>
 	import { page } from '$app/state';
-	import * as m from '$lib/paraglide/messages.js';
 	import { getLocale, locales, localizeHref, deLocalizeHref } from '$lib/paraglide/runtime.js';
 	import { SITE_URL, AIRBNB_URL, BOOKING_URL, PHONE } from '$lib/config.js';
 
@@ -22,7 +21,7 @@
 			'@context': 'https://schema.org',
 			'@type': 'LodgingBusiness',
 			name: 'Cabañas Ucihuen',
-			description: m.home_meta_description(),
+			description,
 			url: SITE_URL,
 			telephone: PHONE,
 			address: {

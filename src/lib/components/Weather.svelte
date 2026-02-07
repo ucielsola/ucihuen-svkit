@@ -79,6 +79,7 @@
 	<a
 		href="https://www.clima.com/argentina/chubut/lago-puelo"
 		target="_blank"
+		rel="noopener noreferrer"
 		class="weather-card"
 		aria-label={m.weather_aria_label()}
 	>

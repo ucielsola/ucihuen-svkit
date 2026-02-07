@@ -139,7 +139,9 @@
 		padding: 0.4rem 0.75rem;
 		border: 1.5px solid var(--primary-color);
 		border-radius: var(--radius);
-		transition: background 0.2s, color 0.2s;
+		transition:
+			background 0.2s,
+			color 0.2s;
 	}
 
 	.links a:hover {

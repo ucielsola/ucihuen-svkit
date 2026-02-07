@@ -18,7 +18,7 @@
 <a
 	href={WHATSAPP_URL}
 	target="_blank"
-	rel="noopener nofollow"
+	rel="noopener noreferrer nofollow"
 	class="button-wrapper {scrolledPercentage > limit && !scrollingUp ? 'pushed-up' : ''}"
 >
 	<img
