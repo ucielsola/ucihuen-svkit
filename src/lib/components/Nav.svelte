@@ -16,6 +16,13 @@
 			>{m.nav_gallery()}<span class="underline" class:active={currentPath === '/galeria'}></span
 			></a
 		>
+
+		<a href="{localizeHref('/paseos')}#paseos" title={m.nav_excursions()}
+			>{m.nav_excursions()}<span
+				class="underline"
+				class:active={currentPath === '/paseos'}
+			></span></a
+		>
 	</div>
 </nav>
 

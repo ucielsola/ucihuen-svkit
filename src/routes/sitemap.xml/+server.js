@@ -2,7 +2,8 @@ import { SITE_URL as SITE } from '$lib/config.js';
 
 const pages = [
 	{ path: '/', es: '/', en: '/en/', pt: '/pt/' },
-	{ path: '/galeria', es: '/galeria', en: '/en/galeria', pt: '/pt/galeria' }
+	{ path: '/galeria', es: '/galeria', en: '/en/galeria', pt: '/pt/galeria' },
+	{ path: '/paseos', es: '/paseos', en: '/en/paseos', pt: '/pt/paseos' }
 ];
 
 /** @type {import('./$types').RequestHandler} */
