@@ -59,6 +59,7 @@
 		grid-template-columns: repeat(3, 1fr);
 		place-content: start;
 		width: 100%;
+		min-height: 20rem;
 		max-height: 20rem;
 		padding-block: 1rem;
 		background: linear-gradient(
@@ -69,7 +70,7 @@
 		);
 		border-radius: var(--radius-sm);
 		box-shadow: var(--shadow);
-		transition: height 0.3s var(--easing);
+		transition: max-height 0.3s var(--easing);
 	}
 	.grid.open {
 		max-height: calc(40rem + 2vh);
@@ -122,6 +123,8 @@
 
 		.grid {
 			height: min-content;
+			min-height: auto;
+			max-height: none;
 			grid-template-columns: repeat(4, 1fr);
 		}
 
