@@ -85,6 +85,12 @@
 	--gradient-end: var(--primary-color);
 	--gradient: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
 
+	/* Accent colors */
+	--accent-teal: #7fbcab; /* lighter variant of --highlight-color */
+	--accent-gold: #fbc05d; /* lighter variant of --secondary-color */
+	--accent-teal-light: rgba(127, 188, 171, 0.25);
+	--accent-gold-light: rgba(251, 192, 93, 0.25);
+
 	--padding-inline: 1rem;
 	--footer-height: 0; /* updates when scrolled to bottom */
 
@@ -103,6 +109,7 @@
 	--space-xl: 3rem;
 
 	--radius: 15px;
+	--radius-sm: 6px;
 
 	--z-slider: 10;
 	--z-card-badge: 20;

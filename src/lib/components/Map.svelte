@@ -13,7 +13,7 @@
 <style>
 	.wrapper {
 		border-radius: var(--radius);
-		background: linear-gradient(#7fbcab 0%, #fbc05d 100%);
+		background: linear-gradient(var(--accent-teal) 0%, var(--accent-gold) 100%);
 		padding: 2px;
 		box-shadow: var(--shadow);
 	}

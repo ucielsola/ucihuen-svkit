@@ -56,7 +56,7 @@
 		height: 0.5rem;
 		background: var(--gradient);
 		margin-inline-start: 15%;
-		border-radius: 5px;
+		border-radius: var(--radius-sm);
 		animation: disappear 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
 
@@ -90,14 +90,14 @@
 			width: 40rem;
 			margin-inline: auto;
 			padding: 2px;
-			border-radius: 10px;
-			background: linear-gradient(#7fbcab 0%, #fbc05d 100%);
+			border-radius: var(--radius-sm);
+			background: linear-gradient(var(--accent-teal) 0%, var(--accent-gold) 100%);
 		}
 		.background {
 			display: flex;
 			align-items: center;
 			background: var(--surface-color);
-			border-radius: 10px;
+			border-radius: var(--radius-sm);
 			padding-block: 0.5rem;
 		}
 	}

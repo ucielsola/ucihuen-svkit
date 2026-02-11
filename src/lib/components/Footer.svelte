@@ -71,7 +71,7 @@
 	}
 	.divider {
 		height: 5px;
-		border-radius: 5px;
+		border-radius: var(--radius-sm);
 		width: 99%;
 		margin-inline: auto;
 		margin-block-end: 1rem;
@@ -121,7 +121,7 @@
 		gap: 0.35rem;
 		background: none;
 		border: 1px solid transparent;
-		border-radius: 6px;
+		border-radius: var(--radius-sm);
 		padding: 0.25rem 0.5rem;
 		cursor: pointer;
 		font: inherit;
@@ -148,7 +148,7 @@
 		font-family: var(--text-font);
 		font-size: 0.75rem;
 		padding: 0.3rem 0.6rem;
-		border-radius: 6px;
+		border-radius: var(--radius-sm);
 		white-space: nowrap;
 		pointer-events: none;
 		animation: tooltip-in 0.3s ease;

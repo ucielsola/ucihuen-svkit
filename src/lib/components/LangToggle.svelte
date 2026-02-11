@@ -219,7 +219,7 @@
 		font-family: var(--text-font);
 		font-size: 0.75rem;
 		padding: 0.375rem 0.625rem;
-		border-radius: 6px;
+		border-radius: var(--radius-sm);
 		white-space: nowrap;
 		pointer-events: none;
 		animation: hint-in 0.3s ease;

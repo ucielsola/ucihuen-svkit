@@ -62,9 +62,9 @@
 		padding-block: 1rem;
 		background: linear-gradient(
 			168.18deg,
-			rgba(127, 188, 171, 0.25) 0.49%,
-			rgba(251, 192, 93, 0.25) 63.68%,
-			rgba(251, 192, 93, 0.25)
+			var(--accent-teal-light) 0.49%,
+			var(--accent-gold-light) 63.68%,
+			var(--accent-gold-light)
 		);
 		border-radius: var(--radius);
 		box-shadow: var(--shadow);

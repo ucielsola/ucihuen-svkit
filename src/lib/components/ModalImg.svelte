@@ -71,7 +71,7 @@
 	.close-btn:focus-visible {
 		outline: 3px solid var(--secondary-color);
 		outline-offset: 2px;
-		border-radius: 4px;
+		border-radius: var(--radius-sm);
 	}
 
 	img {

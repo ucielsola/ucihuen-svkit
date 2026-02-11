@@ -166,7 +166,7 @@
 		}
 
 		.vertical-banner img {
-			border-radius: 10px;
+			border-radius: var(--radius-sm);
 			box-shadow: var(--shadow);
 		}
 
@@ -178,7 +178,7 @@
 			grid-area: description;
 			box-shadow: var(--shadow-lg);
 			padding: 2rem;
-			border-radius: 10px;
+			border-radius: var(--radius-sm);
 			margin-block-start: 2rem;
 		}
 		.description.marginated {
