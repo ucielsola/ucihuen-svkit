@@ -124,6 +124,10 @@
 	--booking: url('/icons/booking.webp');
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 *,
 *::before,
 *::after {

@@ -1,24 +1,48 @@
 <script>
 	import { page } from '$app/state';
+	import { goto } from '$app/navigation';
 	import * as m from '$lib/paraglide/messages.js';
 	import { localizeHref, deLocalizeUrl } from '$lib/paraglide/runtime.js';
 
 	let currentPath = $derived(deLocalizeUrl(page.url).pathname);
+
+	/**
+	 * @param {string} path
+	 * @param {string} hash
+	 */
+	async function navigateTo(path, hash) {
+		const targetPath = deLocalizeUrl(new URL(path, window.location.href)).pathname;
+
+		if (targetPath === currentPath) {
+			const element = document.querySelector(hash);
+			if (element) {
+				element.scrollIntoView({ behavior: 'smooth' });
+			}
+		} else {
+			await goto(`${path}${hash}`, { noScroll: true });
+			setTimeout(() => {
+				const element = document.querySelector(hash);
+				if (element) {
+					element.scrollIntoView({ behavior: 'smooth' });
+				}
+			}, 100);
+		}
+	}
 </script>
 
 <nav>
 	<div class="background">
-		<a href="{localizeHref('/')}#inicio" title={m.nav_home()}
-			>{m.nav_home()}<span class="underline" class:active={currentPath === '/'}></span></a
+		<button onclick={() => navigateTo(localizeHref('/'), '#inicio')} title={m.nav_home()} class:active={currentPath === '/'}
+			>{m.nav_home()}<span class="underline" class:active={currentPath === '/'}></span></button
 		>
 
-		<a href="{localizeHref('/galeria')}#galeria" title={m.nav_gallery()}
-			>{m.nav_gallery()}<span class="underline" class:active={currentPath === '/galeria'}></span></a
+		<button onclick={() => navigateTo(localizeHref('/galeria'), '#galeria')} title={m.nav_gallery()} class:active={currentPath === '/galeria'}
+			>{m.nav_gallery()}<span class="underline" class:active={currentPath === '/galeria'}></span></button
 		>
 
-		<a href="{localizeHref('/paseos')}#paseos" title={m.nav_excursions()}
+		<button onclick={() => navigateTo(localizeHref('/paseos'), '#paseos')} title={m.nav_excursions()} class:active={currentPath === '/paseos'}
 			>{m.nav_excursions()}<span class="underline" class:active={currentPath === '/paseos'}
-			></span></a
+			></span></button
 		>
 	</div>
 </nav>
@@ -32,11 +56,15 @@
 		font-size: 1.7rem;
 	}
 
-	a {
+	button {
 		display: inline-block;
 		color: var(--text-color);
-		text-decoration: none;
 		font-family: var(--sections-font);
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		font-size: inherit;
 	}
 
 	.underline {
