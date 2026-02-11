@@ -47,7 +47,7 @@
 	<section class="vertical-banner">
 		<div class="banner-weather">
 			<h2 class="title">{m.weather_title()}</h2>
-			<Weather />
+			<Weather weather={data.weather} />
 			<InstagramEmbed />
 		</div>
 		<img src="/images/vertical_banner.webp" alt="Cabañas Ucihuen" />
@@ -70,7 +70,7 @@
 
 <section class="limited-width mobile-weather">
 	<h2 class="title">{m.weather_title()}</h2>
-	<Weather />
+	<Weather weather={data.weather} />
 	<InstagramEmbed />
 </section>
 

@@ -14,9 +14,10 @@
 		Wind,
 		Droplets
 	} from 'lucide-svelte';
-	import { getWeatherUrl, getWeatherInfo } from '$lib/utils/weather.js';
-	import { PUBLIC_OPENWEATHER_KEY } from '$env/static/public';
+	import { getWeatherInfo } from '$lib/utils/weather.js';
 	import * as m from '$lib/paraglide/messages.js';
+
+	let { weather } = $props();
 
 	const icons = {
 		Sun,
@@ -45,42 +46,12 @@
 		weather_unknown: () => m.weather_unknown()
 	};
 
-	let weather = $state(null);
-	let error = $state(false);
-	let loading = $state(true);
-
 	let info = $derived(weather ? getWeatherInfo(weather.id, weather.icon.endsWith('d')) : null);
 
 	let WeatherIcon = $derived(info ? icons[info.icon] : null);
-
-	$effect(() => {
-		const controller = new AbortController();
-
-		fetch(getWeatherUrl(PUBLIC_OPENWEATHER_KEY), { signal: controller.signal })
-			.then((res) => res.json())
-			.then((data) => {
-				weather = {
-					id: data.weather[0].id,
-					icon: data.weather[0].icon,
-					temp: data.main.temp,
-					feels_like: data.main.feels_like,
-					humidity: data.main.humidity,
-					wind: data.wind.speed * 3.6
-				};
-				loading = false;
-			})
-			.catch((err) => {
-				if (err.name !== 'AbortError') {
-					error = true;
-					loading = false;
-				}
-			});
-
-		return () => controller.abort();
-	});
 </script>
 
-{#if loading && !error}
+{#if !weather}
 	<div class="weather-card skeleton" aria-hidden="true">
 		<div class="weather-main">
 			<div class="skel-icon"></div>
@@ -106,13 +77,13 @@
 	</div>
 {/if}
 
-{#if weather && info && !error}
+{#if weather && info}
 	<a
 		href="https://www.clima.com/argentina/chubut/lago-puelo"
 		target="_blank"
 		rel="noopener noreferrer"
 		class="weather-card"
-		class:fade-in={!loading}
+		class:fade-in={weather}
 		aria-label={m.weather_aria_label()}
 	>
 		<div class="weather-main">
@@ -206,14 +177,14 @@
 		width: 32px;
 		height: 32px;
 		border-radius: 50%;
-		background: rgba(0, 0, 0, 0.08);
+		background: var(--bg-color);
 		animation: shimmer 1.5s ease-in-out infinite;
 	}
 
 	.skel-line {
 		height: 0.75rem;
 		border-radius: 4px;
-		background: rgba(0, 0, 0, 0.08);
+		background: var(--bg-color);
 		animation: shimmer 1.5s ease-in-out infinite;
 	}
 

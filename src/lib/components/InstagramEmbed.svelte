@@ -176,7 +176,7 @@
 		width: 464px;
 		height: 400px;
 		max-width: calc(100% - 2rem);
-		background: #fff;
+		background: var(--surface-color);
 		border-radius: 12px;
 		box-shadow: var(--shadow);
 		padding: 16px;
@@ -197,7 +197,7 @@
 		width: 40px;
 		height: 40px;
 		border-radius: 50%;
-		background: #efefef;
+		background: var(--bg-color);
 		animation: shimmer 1.5s ease-in-out infinite;
 	}
 
@@ -210,14 +210,14 @@
 	.loader-line {
 		height: 12px;
 		border-radius: 4px;
-		background: #efefef;
+		background: var(--bg-color);
 		animation: shimmer 1.5s ease-in-out infinite;
 	}
 
 	.loader-image {
 		flex: 1;
 		border-radius: var(--radius-sm);
-		background: #efefef;
+		background: var(--bg-color);
 		animation: shimmer 1.5s ease-in-out infinite;
 	}
 
