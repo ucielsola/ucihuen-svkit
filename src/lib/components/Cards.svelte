@@ -151,7 +151,7 @@
 			display: block;
 			z-index: var(--z-card-badge);
 			margin-block-start: -0.3rem;
-			background-color: #fdefd6;
+			background-color: var(--surface-color-warm);
 			padding-inline: 1rem;
 			left: 33%;
 			text-shadow: var(--text-shadow);

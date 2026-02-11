@@ -62,7 +62,7 @@
 		right: -0.5rem;
 		background: none;
 		border: none;
-		color: #fff;
+		color: var(--text-color-light);
 		font-size: 2rem;
 		cursor: pointer;
 		line-height: 1;

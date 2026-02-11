@@ -68,7 +68,7 @@
 <style>
 	footer {
 		padding-block: 1rem;
-		background-color: rgba(127, 188, 171, 0.5);
+		background-color: var(--overlay-highlight);
 	}
 	.divider {
 		height: 5px;
@@ -95,7 +95,7 @@
 
 	a {
 		text-decoration: none;
-		color: #000;
+		color: var(--text-color);
 		font-weight: 300;
 	}
 
@@ -144,8 +144,8 @@
 		bottom: calc(100% + 0.4rem);
 		left: 50%;
 		transform: translateX(-50%);
-		background: #000;
-		color: #fff;
+		background: var(--surface-color-dark);
+		color: var(--text-color-light);
 		font-family: var(--text-font);
 		font-size: 0.75rem;
 		padding: 0.3rem 0.6rem;

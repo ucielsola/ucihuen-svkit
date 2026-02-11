@@ -93,9 +93,9 @@
 		border: 1px solid #57575717;
 		border-radius: var(--radius);
 		box-shadow: var(--shadow);
-		background-color: rgba(255, 255, 255, 0.842);
+		background-color: var(--backdrop-light);
 		text-decoration: none;
-		color: #000;
+		color: var(--text-color);
 	}
 	.row {
 		display: flex;

@@ -176,7 +176,7 @@
 		.description {
 			display: block;
 			grid-area: description;
-			box-shadow: var(--full-shadow);
+			box-shadow: var(--shadow-lg);
 			padding: 2rem;
 			border-radius: 10px;
 			margin-block-start: 2rem;

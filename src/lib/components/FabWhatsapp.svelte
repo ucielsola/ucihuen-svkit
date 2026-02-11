@@ -36,7 +36,7 @@
 		bottom: 2rem;
 		right: 2rem;
 		width: 4rem;
-		filter: drop-shadow(var(--shadow));
+		filter: var(--drop-shadow);
 		transition: transform 0.2s var(--easing);
 	}
 

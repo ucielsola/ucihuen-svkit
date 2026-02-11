@@ -59,26 +59,40 @@
 	--text-font: 'Open Sans', sans-serif;
 	--sections-font: 'Ruluko', sans-serif;
 
+	/* Brand colors */
 	--primary-color: #e2504c;
 	--primary-color-dim: #923d3ace;
 	--secondary-color: #fbc05d;
 	--highlight-color: #7fbcab;
 	--highlight-color-dim: #738a83;
 
+	/* Neutral colors */
 	--base-color: #383932;
+	--bg-color: rgb(230, 230, 230);
+	--surface-color: #fff;
+	--surface-color-warm: #fdefd6;
+	--surface-color-dark: #000;
+	--text-color: #000;
+	--text-color-light: #fff;
+
+	/* Overlays & backdrops */
+	--backdrop: rgba(0, 0, 0, 0.5);
+	--backdrop-light: rgba(255, 255, 255, 0.85);
+	--overlay-highlight: rgba(127, 188, 171, 0.5);
+
+	/* Gradients */
 	--gradient: linear-gradient(90deg, rgba(251, 192, 93, 1) 0%, rgba(226, 80, 76, 1) 100%);
-	--backdrop: #494949d0;
 
 	--padding-inline: 1rem;
 	--footer-height: 0; /* updates when scrolled to bottom */
-	--shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	--full-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
-	--easing: cubic-bezier(0.22, 1.48, 0.71, 0.87);
-	--text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 
-	--bg-color: rgb(230, 230, 230);
-	--surface-color: #fff;
-	--text-color: #000;
+	/* Shadow system */
+	--shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+	--shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+	--text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+	--drop-shadow: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+
+	--easing: cubic-bezier(0.22, 1.48, 0.71, 0.87);
 
 	--space-xs: 0.25rem;
 	--space-sm: 0.5rem;
@@ -116,7 +130,7 @@ body {
 	max-width: 1920px;
 	margin-inline: auto;
 	background-color: var(--surface-color);
-	box-shadow: 0px 3rem 20px 6px rgb(0 0 0 / 40%);
+	box-shadow: var(--shadow-lg);
 }
 
 section {

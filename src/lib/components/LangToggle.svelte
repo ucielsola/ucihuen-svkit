@@ -179,7 +179,7 @@
 		border: none;
 		background: var(--surface-color);
 		border-radius: 50%;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		box-shadow: var(--shadow);
 		cursor: pointer;
 		transition:
 			transform 0.2s ease,
@@ -214,8 +214,8 @@
 		top: 50%;
 		right: calc(100% + 0.5rem);
 		transform: translateY(-50%);
-		background: #000;
-		color: #fff;
+		background: var(--surface-color-dark);
+		color: var(--text-color-light);
 		font-family: var(--text-font);
 		font-size: 0.75rem;
 		padding: 0.375rem 0.625rem;
@@ -242,7 +242,7 @@
 		right: 0;
 		background: var(--surface-color);
 		border-radius: var(--radius);
-		box-shadow: var(--full-shadow);
+		box-shadow: var(--shadow-lg);
 		overflow: hidden;
 		min-width: 10rem;
 	}

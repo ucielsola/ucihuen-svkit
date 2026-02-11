@@ -130,7 +130,7 @@
 		line-height: 0.5;
 		font-family: var(--logo-font);
 		color: var(--secondary-color);
-		filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.5));
+		filter: var(--drop-shadow);
 	}
 	.logo h1 span {
 		position: relative;
@@ -147,17 +147,17 @@
 	}
 
 	.copy {
-		color: #fff;
+		color: var(--text-color-light);
 		font-family: var(--text-font);
 		font-size: 0.9rem;
 		letter-spacing: -0.9px;
 		text-transform: uppercase;
-		text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.6);
+		text-shadow: var(--text-shadow);
 	}
 
 	@media screen and (min-width: 1024px) {
 		header {
-			box-shadow: 0px 1rem 30px 6px rgb(0 0 0 / 40%);
+			box-shadow: var(--shadow-lg);
 		}
 
 		.row {
@@ -186,7 +186,7 @@
 			font-weight: 600;
 			letter-spacing: -0.9px;
 			width: 50vw;
-			text-shadow: 0px 6px 6px rgba(0, 0, 0, 0.8);
+			text-shadow: var(--text-shadow);
 		}
 	}
 </style>
