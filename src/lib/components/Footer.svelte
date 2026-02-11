@@ -68,7 +68,6 @@
 <style>
 	footer {
 		padding-block: 1rem;
-		background-color: var(--overlay-highlight);
 	}
 	.divider {
 		height: 5px;

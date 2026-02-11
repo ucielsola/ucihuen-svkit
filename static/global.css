@@ -60,11 +60,11 @@
 	--sections-font: 'Ruluko', sans-serif;
 
 	/* Brand colors */
-	--primary-color: #e2504c;
-	--primary-color-dim: #923d3ace;
-	--secondary-color: #fbc05d;
-	--highlight-color: #7fbcab;
-	--highlight-color-dim: #738a83;
+	--primary-color: #aa060a;
+	--primary-color-dim: #7a0407ce;
+	--secondary-color: #fdb93c;
+	--highlight-color: #37574a;
+	--highlight-color-dim: #2a423a;
 
 	/* Neutral colors */
 	--base-color: #383932;
@@ -78,10 +78,12 @@
 	/* Overlays & backdrops */
 	--backdrop: rgba(0, 0, 0, 0.5);
 	--backdrop-light: rgba(255, 255, 255, 0.85);
-	--overlay-highlight: rgba(127, 188, 171, 0.5);
+	--overlay-highlight: rgba(55, 87, 74, 0.5);
 
 	/* Gradients */
-	--gradient: linear-gradient(90deg, rgba(251, 192, 93, 1) 0%, rgba(226, 80, 76, 1) 100%);
+	--gradient-start: var(--secondary-color);
+	--gradient-end: var(--primary-color);
+	--gradient: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
 
 	--padding-inline: 1rem;
 	--footer-height: 0; /* updates when scrolled to bottom */

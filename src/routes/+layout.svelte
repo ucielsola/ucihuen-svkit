@@ -71,8 +71,8 @@
 <main>
 	{@render children?.()}
 	<FabWhatsapp --footer-height={footerHeight} {scrolledPercentage} {scrollingUp} {path} />
+	<Footer />
 </main>
-<Footer />
 
 <style>
 	.backdrop {
@@ -86,12 +86,11 @@
 	}
 	main {
 		position: relative;
-		padding-block-end: 4rem;
 		background: linear-gradient(
 			180deg,
 			rgba(255, 255, 255, 0.5) 0%,
 			rgba(255, 255, 255, 0.5) 90%,
-			rgba(127, 188, 171, 0.5) 100%
+			var(--overlay-highlight) 100%
 		);
 	}
 
