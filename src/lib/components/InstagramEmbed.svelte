@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
 
-	let embedContainer = $state();
 	let loading = $state(true);
 
 	onMount(() => {
@@ -12,7 +11,7 @@
 
 		const timer = setTimeout(() => {
 			loading = false;
-		}, 2000);
+		}, 2600);
 
 		return () => clearTimeout(timer);
 	});
@@ -22,23 +21,21 @@
 	<script async src="//www.instagram.com/embed.js"></script>
 </svelte:head>
 
-<div class="instagram-embed-container" bind:this={embedContainer}>
-	{#if loading}
-		<div class="loader" class:fade-out={!loading}>
-			<div class="loader-header">
-				<div class="loader-avatar"></div>
-				<div class="loader-meta">
-					<div class="loader-line" style="width: 100px;"></div>
-					<div class="loader-line" style="width: 60px;"></div>
-				</div>
-			</div>
-			<div class="loader-image"></div>
-			<div class="loader-footer">
-				<div class="loader-line" style="width: 180px;"></div>
-				<div class="loader-line" style="width: 120px;"></div>
+<div class="instagram-embed-container">
+	<div class="loader" class:hidden={!loading}>
+		<div class="loader-header">
+			<div class="loader-avatar"></div>
+			<div class="loader-meta">
+				<div class="loader-line" style="width: 100px;"></div>
+				<div class="loader-line" style="width: 60px;"></div>
 			</div>
 		</div>
-	{/if}
+		<div class="loader-image"></div>
+		<div class="loader-footer">
+			<div class="loader-line" style="width: 180px;"></div>
+			<div class="loader-line" style="width: 120px;"></div>
+		</div>
+	</div>
 
 	<div class="embed-wrapper" class:visible={!loading}>
 		<blockquote
@@ -150,7 +147,6 @@
 	.instagram-embed-container {
 		display: flex;
 		justify-content: center;
-		align-items: center;
 		width: 100%;
 		padding-block: var(--space-lg);
 		position: relative;
@@ -163,19 +159,29 @@
 	}
 
 	.embed-wrapper {
+		position: absolute;
+		inset: var(--space-lg) 0 var(--space-lg) 0;
+		max-width: 540px;
+		margin: 0 auto;
 		opacity: 0;
-		transition: opacity 0.6s ease;
+		transition: opacity 0.5s ease;
 	}
 
 	.embed-wrapper.visible {
+		position: relative;
+		inset: auto;
 		opacity: 1;
 	}
 
+	.instagram-embed-container :global(blockquote.instagram-media) {
+		margin: 0 auto !important;
+	}
+
 	.loader {
-		position: absolute;
-		width: 464px;
-		height: 400px;
-		max-width: calc(100% - 2rem);
+		width: 100%;
+		max-width: 324px;
+		aspect-ratio: 324 / 420;
+		margin: 0 auto;
 		background: var(--surface-color);
 		border-radius: 12px;
 		box-shadow: var(--shadow);
@@ -183,8 +189,15 @@
 		display: flex;
 		flex-direction: column;
 		gap: 12px;
-		z-index: 1;
-		animation: fade-out 0.6s ease 2s forwards;
+		box-sizing: border-box;
+		transition: opacity 0.4s ease;
+	}
+
+	.loader.hidden {
+		position: absolute;
+		inset: var(--space-lg) 0 var(--space-lg) 0;
+		opacity: 0;
+		pointer-events: none;
 	}
 
 	.loader-header {
@@ -235,13 +248,6 @@
 		}
 		50% {
 			opacity: 1;
-		}
-	}
-
-	@keyframes fade-out {
-		to {
-			opacity: 0;
-			pointer-events: none;
 		}
 	}
 </style>
