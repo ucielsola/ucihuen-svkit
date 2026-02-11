@@ -241,7 +241,7 @@
 		top: calc(100% + 0.5rem);
 		right: 0;
 		background: var(--surface-color);
-		border-radius: var(--radius);
+		border-radius: var(--radius-sm);
 		box-shadow: var(--shadow-lg);
 		overflow: hidden;
 		min-width: 10rem;

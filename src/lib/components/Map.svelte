@@ -12,7 +12,7 @@
 
 <style>
 	.wrapper {
-		border-radius: var(--radius);
+		border-radius: var(--radius-sm);
 		background: linear-gradient(var(--accent-teal) 0%, var(--accent-gold) 100%);
 		padding: 2px;
 		box-shadow: var(--shadow);
@@ -20,7 +20,7 @@
 	iframe {
 		width: 100%;
 		aspect-ratio: 16 / 9;
-		border-radius: var(--radius);
+		border-radius: var(--radius-sm);
 		border: none;
 	}
 </style>

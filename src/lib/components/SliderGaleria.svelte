@@ -83,13 +83,13 @@
 		background-size: cover;
 		background-position: center;
 		overflow: hidden;
-		border-radius: var(--radius);
+		border-radius: var(--radius-sm);
 	}
 	.slide img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		border-radius: var(--radius);
+		border-radius: var(--radius-sm);
 		box-shadow: var(--shadow);
 	}
 </style>

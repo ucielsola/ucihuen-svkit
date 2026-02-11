@@ -49,6 +49,7 @@
 
 <style>
 	.grid-wrapper {
+		--toggle-offset: -2rem;
 		position: relative;
 	}
 	.grid {
@@ -58,7 +59,7 @@
 		grid-template-columns: repeat(3, 1fr);
 		place-content: start;
 		width: 100%;
-		height: 20rem;
+		max-height: 20rem;
 		padding-block: 1rem;
 		background: linear-gradient(
 			168.18deg,
@@ -66,17 +67,17 @@
 			var(--accent-gold-light) 63.68%,
 			var(--accent-gold-light)
 		);
-		border-radius: var(--radius);
+		border-radius: var(--radius-sm);
 		box-shadow: var(--shadow);
 		transition: height 0.3s var(--easing);
 	}
 	.grid.open {
-		height: calc(40rem + 2vh);
-		transition: height 0.3s var(--easing);
+		max-height: calc(40rem + 2vh);
+		transition: max-height 0.3s var(--easing);
 	}
 	.toggle-btn {
 		position: absolute;
-		bottom: -2rem;
+		bottom: var(--toggle-offset);
 		width: 100%;
 		display: grid;
 		place-content: center;

@@ -88,10 +88,10 @@
 	.review-container {
 		display: flex;
 		flex-flow: column nowrap;
-		height: 14rem;
+		min-height: 14rem;
 		padding: 1rem;
 		border: 1px solid #57575717;
-		border-radius: var(--radius);
+		border-radius: var(--radius-sm);
 		box-shadow: var(--shadow);
 		background-color: var(--backdrop-light);
 		text-decoration: none;
@@ -125,7 +125,7 @@
 
 	@media screen and (min-width: 1024px) {
 		.review-container {
-			height: 17.5rem !important;
+			min-height: 17.5rem;
 		}
 
 		.review-container {

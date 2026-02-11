@@ -49,13 +49,13 @@
 	.container {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		grid-gap: 1rem;
+		grid-gap: var(--space-md);
 		place-content: center;
 		width: 100%;
 	}
 	.card {
 		display: block;
-		border-radius: var(--radius);
+		border-radius: var(--radius-sm);
 		box-shadow: var(--shadow);
 		background: linear-gradient(
 			180deg,
@@ -70,7 +70,7 @@
 		top: 0;
 		height: 100%;
 		width: 100%;
-		border-radius: var(--radius);
+		border-radius: var(--radius-sm);
 		background: linear-gradient(0deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 70%);
 	}
 	.title-container {
@@ -78,7 +78,7 @@
 	}
 
 	img {
-		border-radius: var(--radius);
+		border-radius: var(--radius-sm);
 		box-shadow: var(--shadow);
 	}
 
@@ -116,7 +116,7 @@
 		}
 
 		img {
-			max-width: 15vw;
+			max-width: clamp(180px, 18vw, 320px);
 		}
 
 		.description {
@@ -142,6 +142,8 @@
 		}
 
 		.title-wrapper {
+			--floors-offset: -0.3rem;
+			--floors-inset: 33%;
 			position: relative;
 			margin-block-end: 2rem;
 		}
@@ -150,10 +152,10 @@
 			position: absolute;
 			display: block;
 			z-index: var(--z-card-badge);
-			margin-block-start: -0.3rem;
+			margin-block-start: var(--floors-offset);
 			background-color: var(--surface-color-warm);
 			padding-inline: 1rem;
-			left: 33%;
+			left: var(--floors-inset);
 			text-shadow: var(--text-shadow);
 			font-weight: 600;
 		}

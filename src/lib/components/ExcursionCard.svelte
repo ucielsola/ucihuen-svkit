@@ -59,7 +59,7 @@
 <style>
 	.card {
 		background: var(--surface-color);
-		border-radius: var(--radius);
+		border-radius: var(--radius-sm);
 		box-shadow: var(--shadow);
 		overflow: hidden;
 	}
@@ -138,7 +138,7 @@
 		text-decoration: none;
 		padding: 0.4rem 0.75rem;
 		border: 1.5px solid var(--primary-color);
-		border-radius: var(--radius);
+		border-radius: var(--radius-sm);
 		transition:
 			background 0.2s,
 			color 0.2s;

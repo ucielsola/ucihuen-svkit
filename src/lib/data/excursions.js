@@ -19,7 +19,8 @@ export const excursions = [
 		image: '/paseos/pasarela.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Pasarela+R%C3%ADo+Azul,+costa+r%C3%ADo+azul,+C.+Roca+del+Tiempo,+U9211+Lago+Puelo,+Chubut/',
-		websiteUrl: 'https://lagopuelo.gob.ar/turismo/la-pasarela-del-rio-azul-balneario-en-la-corillera/'
+		websiteUrl:
+			'https://lagopuelo.gob.ar/turismo/la-pasarela-del-rio-azul-balneario-en-la-corillera/'
 	},
 	{
 		id: 3,

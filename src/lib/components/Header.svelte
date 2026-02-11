@@ -92,7 +92,7 @@
 
 	.cover {
 		position: relative;
-		z-index: 1;
+		z-index: 1; /* local stacking: cover image above iframe */
 		transition: opacity 1s ease;
 	}
 	.cover.hidden {
@@ -113,7 +113,7 @@
 	.row {
 		position: absolute;
 		inset: 0;
-		z-index: 2;
+		z-index: 2; /* local stacking: content above cover */
 		display: grid;
 		place-content: end;
 		padding-inline: var(--padding-inline);

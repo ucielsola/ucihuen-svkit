@@ -147,7 +147,7 @@
 			display: grid;
 			grid-template-columns: 1.4fr 0.6fr;
 			grid-template-rows: 0.5fr 1.5fr;
-			gap: 0px 24px;
+			gap: 0 var(--space-lg-half);
 			grid-template-areas:
 				'description vertical-banner'
 				'icon-grid vertical-banner';

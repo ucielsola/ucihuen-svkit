@@ -110,7 +110,7 @@
 <style>
 	.weather-card {
 		background: linear-gradient(135deg, var(--accent-teal-light), var(--accent-gold-light));
-		border-radius: var(--radius);
+		border-radius: var(--radius-sm);
 		box-shadow: var(--shadow);
 		padding: 1.25rem;
 		display: flex;

@@ -49,6 +49,8 @@
 	}
 
 	.contents {
+		--close-offset-top: -2.5rem;
+		--close-offset-right: -0.5rem;
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -58,8 +60,8 @@
 
 	.close-btn {
 		position: absolute;
-		top: -2.5rem;
-		right: -0.5rem;
+		top: var(--close-offset-top);
+		right: var(--close-offset-right);
 		background: none;
 		border: none;
 		color: var(--text-color-light);
@@ -78,7 +80,7 @@
 		max-width: 75vw;
 		max-height: 75vh;
 		object-fit: contain;
-		border-radius: var(--radius);
+		border-radius: var(--radius-sm);
 		box-shadow: var(--shadow);
 	}
 
