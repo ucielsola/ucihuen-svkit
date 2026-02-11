@@ -4,6 +4,7 @@
 	import Cards from '$lib/components/Cards.svelte';
 	import Map from '$lib/components/Map.svelte';
 	import Weather from '$lib/components/Weather.svelte';
+	import InstagramEmbed from '$lib/components/InstagramEmbed.svelte';
 	import SliderReviews from '$lib/components/SliderReviews.svelte';
 	import SEO from '$lib/components/SEO.svelte';
 	import * as m from '$lib/paraglide/messages.js';
@@ -47,6 +48,7 @@
 		<div class="banner-weather">
 			<h2 class="title">{m.weather_title()}</h2>
 			<Weather />
+			<InstagramEmbed />
 		</div>
 		<img src="/images/vertical_banner.webp" alt="Cabañas Ucihuen" />
 	</section>
@@ -69,6 +71,7 @@
 <section class="limited-width mobile-weather">
 	<h2 class="title">{m.weather_title()}</h2>
 	<Weather />
+	<InstagramEmbed />
 </section>
 
 <section class="no-padding full-width">
