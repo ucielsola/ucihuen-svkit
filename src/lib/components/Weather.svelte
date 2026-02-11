@@ -47,6 +47,7 @@
 
 	let weather = $state(null);
 	let error = $state(false);
+	let loading = $state(true);
 
 	let info = $derived(weather ? getWeatherInfo(weather.id, weather.icon.endsWith('d')) : null);
 
@@ -66,14 +67,44 @@
 					humidity: data.main.humidity,
 					wind: data.wind.speed * 3.6
 				};
+				loading = false;
 			})
 			.catch((err) => {
-				if (err.name !== 'AbortError') error = true;
+				if (err.name !== 'AbortError') {
+					error = true;
+					loading = false;
+				}
 			});
 
 		return () => controller.abort();
 	});
 </script>
+
+{#if loading && !error}
+	<div class="weather-card skeleton" aria-hidden="true">
+		<div class="weather-main">
+			<div class="skel-icon"></div>
+			<div class="weather-temp">
+				<div class="skel-line" style="width: 60px; height: 1.4rem;"></div>
+				<div class="skel-line" style="width: 80px;"></div>
+			</div>
+		</div>
+		<div class="weather-details">
+			<div class="detail">
+				<div class="skel-line" style="width: 14px; height: 14px; border-radius: 3px;"></div>
+				<div class="skel-line" style="width: 55px;"></div>
+			</div>
+			<div class="detail">
+				<div class="skel-line" style="width: 14px; height: 14px; border-radius: 3px;"></div>
+				<div class="skel-line" style="width: 42px;"></div>
+			</div>
+			<div class="detail">
+				<div class="skel-line" style="width: 14px; height: 14px; border-radius: 3px;"></div>
+				<div class="skel-line" style="width: 28px;"></div>
+			</div>
+		</div>
+	</div>
+{/if}
 
 {#if weather && info && !error}
 	<a
@@ -81,6 +112,7 @@
 		target="_blank"
 		rel="noopener noreferrer"
 		class="weather-card"
+		class:fade-in={!loading}
 		aria-label={m.weather_aria_label()}
 	>
 		<div class="weather-main">
@@ -118,6 +150,10 @@
 		gap: 1rem;
 	}
 
+	.weather-card.fade-in {
+		animation: fade-in 0.5s ease;
+	}
+
 	.weather-main :global(svg) {
 		min-width: 2rem;
 	}
@@ -132,6 +168,7 @@
 	.weather-temp {
 		display: flex;
 		flex-direction: column;
+		gap: 4px;
 	}
 
 	.temp {
@@ -158,6 +195,45 @@
 		font-size: 0.85rem;
 		color: var(--base-color);
 		opacity: 0.85;
+	}
+
+	/* Skeleton */
+	.skeleton {
+		pointer-events: none;
+	}
+
+	.skel-icon {
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		background: rgba(0, 0, 0, 0.08);
+		animation: shimmer 1.5s ease-in-out infinite;
+	}
+
+	.skel-line {
+		height: 0.75rem;
+		border-radius: 4px;
+		background: rgba(0, 0, 0, 0.08);
+		animation: shimmer 1.5s ease-in-out infinite;
+	}
+
+	@keyframes shimmer {
+		0%,
+		100% {
+			opacity: 0.5;
+		}
+		50% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 
 	@media screen and (min-width: 1024px) {
