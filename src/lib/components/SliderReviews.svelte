@@ -120,7 +120,7 @@
 		width: 100%;
 	}
 	.name {
-		font-weight: 600;
+		font-weight: var(--font-semibold);
 	}
 
 	@media screen and (min-width: 1024px) {

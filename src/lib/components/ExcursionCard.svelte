@@ -81,8 +81,8 @@
 	}
 
 	h3 {
-		font-family: var(--sections-font);
-		font-size: 1.25rem;
+		font-family: var(--font-heading);
+		font-size: var(--text-xl);
 		margin: 0 0 var(--space-sm);
 	}
 
@@ -95,18 +95,18 @@
 
 	.tag {
 		display: inline-block;
-		font-size: 0.7rem;
+		font-size: var(--text-xs);
 		padding: 0.15rem 0.5rem;
 		border-radius: 999px;
 		background: var(--highlight-color);
 		color: var(--surface-color);
-		font-weight: 600;
-		letter-spacing: 0.02em;
+		font-weight: var(--font-semibold);
+		letter-spacing: var(--tracking-wide);
 	}
 
 	p {
-		font-size: 0.85rem;
-		line-height: 1.6;
+		font-size: var(--text-base);
+		line-height: var(--leading-relaxed);
 		margin: 0 0 var(--space-sm);
 		color: var(--base-color);
 	}
@@ -116,8 +116,8 @@
 		border: none;
 		color: var(--primary-color);
 		cursor: pointer;
-		font-size: 0.8rem;
-		font-weight: 600;
+		font-size: var(--text-base);
+		font-weight: var(--font-semibold);
 		padding: 0;
 		margin-block-end: var(--space-sm);
 	}
@@ -132,8 +132,8 @@
 		display: inline-flex;
 		align-items: center;
 		gap: var(--space-xs);
-		font-size: 0.8rem;
-		font-weight: 600;
+		font-size: var(--text-base);
+		font-weight: var(--font-semibold);
 		color: var(--primary-color);
 		text-decoration: none;
 		padding: 0.4rem 0.75rem;
@@ -151,11 +151,11 @@
 
 	@media screen and (min-width: 1024px) {
 		h3 {
-			font-size: 1.1rem;
+			font-size: var(--text-xl);
 		}
 
 		p {
-			font-size: 0.8rem;
+			font-size: var(--text-base);
 		}
 	}
 </style>

@@ -216,8 +216,8 @@
 		transform: translateY(-50%);
 		background: var(--surface-color-dark);
 		color: var(--text-color-light);
-		font-family: var(--text-font);
-		font-size: 0.75rem;
+		font-family: var(--font-body);
+		font-size: var(--text-xs);
 		padding: 0.375rem 0.625rem;
 		border-radius: var(--radius-sm);
 		white-space: nowrap;
@@ -253,8 +253,8 @@
 		gap: 0.625rem;
 		padding: 0.5rem 0.75rem;
 		color: var(--base-color);
-		font-family: var(--text-font);
-		font-size: 0.875rem;
+		font-family: var(--font-body);
+		font-size: var(--text-sm);
 		text-decoration: none;
 		transition: background 0.15s ease;
 	}
@@ -275,6 +275,6 @@
 	}
 
 	.dropdown-item span {
-		font-weight: 400;
+		font-weight: var(--font-normal);
 	}
 </style>

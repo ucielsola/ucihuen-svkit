@@ -53,13 +53,13 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-evenly;
-		font-size: 1.7rem;
+		font-size: var(--text-xl);
 	}
 
 	button {
 		display: inline-block;
 		color: var(--text-color);
-		font-family: var(--sections-font);
+		font-family: var(--font-heading);
 		background: none;
 		border: none;
 		cursor: pointer;

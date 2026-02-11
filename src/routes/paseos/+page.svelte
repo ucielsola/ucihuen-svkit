@@ -26,13 +26,15 @@
 	}
 
 	h2 {
-		font-family: var(--sections-font);
+		padding-block-end: 0.5rem;
+		text-align: center;
+		color: var(--base-color);
 		margin-block-end: var(--space-sm);
 	}
 
 	.intro {
-		font-size: 0.9rem;
-		line-height: 1.6;
+		font-size: var(--text-base);
+		line-height: var(--leading-relaxed);
 		color: var(--base-color);
 		margin-block-end: var(--space-lg);
 		max-width: 70ch;
@@ -50,8 +52,13 @@
 			padding-block: var(--space-xl);
 		}
 
+		h2 {
+			text-align: start;
+			padding-inline-start: 2rem;
+		}
+
 		.intro {
-			font-size: 0.85rem;
+			font-size: var(--text-base);
 		}
 
 		.grid {

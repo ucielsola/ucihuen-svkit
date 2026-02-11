@@ -86,14 +86,17 @@
 		margin-block-start: 2rem;
 	}
 
-	h2,
-	h3 {
+	h2 {
+		padding-block-end: 0.5rem;
+		text-align: center;
+		color: var(--base-color);
 		padding-inline: var(--padding-inline);
 	}
 
 	h3 {
-		font-size: 0.875rem;
-		letter-spacing: -0.8px;
+		padding-inline: var(--padding-inline);
+		font-size: var(--text-sm);
+		letter-spacing: var(--tracking-tight);
 		color: var(--primary-color);
 		text-transform: uppercase;
 	}
@@ -102,12 +105,15 @@
 		section {
 			margin-block-start: 3rem;
 		}
-		h2,
-		h3 {
+
+		h2 {
+			text-align: start;
 			padding-inline-start: 3rem;
 		}
+
 		h3 {
-			font-size: 1.3rem;
+			font-size: var(--text-lg);
+			padding-inline-start: 3rem;
 			padding-block-end: 1rem;
 		}
 	}

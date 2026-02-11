@@ -126,18 +126,19 @@
 	}
 
 	.logo h1 {
-		font-size: 2.5rem;
-		line-height: 0.5;
-		font-family: var(--logo-font);
+		font-size: var(--text-4xl);
+		line-height: var(--leading-none);
+		font-family: var(--font-logo);
 		color: var(--secondary-color);
 		filter: var(--drop-shadow);
 	}
+
 	.logo h1 span {
 		position: relative;
 		display: block;
 		width: min-content;
-		font-size: 4rem;
-		line-height: 1;
+		font-size: var(--text-5xl);
+		line-height: var(--leading-none);
 	}
 	.logo h1 span::after {
 		content: 'ᨊ';
@@ -148,9 +149,9 @@
 
 	.copy {
 		color: var(--text-color-light);
-		font-family: var(--text-font);
-		font-size: 0.9rem;
-		letter-spacing: -0.9px;
+		font-family: var(--font-body);
+		font-size: var(--text-sm);
+		letter-spacing: var(--tracking-tight);
 		text-transform: uppercase;
 		text-shadow: var(--text-shadow);
 	}
@@ -167,13 +168,14 @@
 		}
 
 		.logo h1 {
-			font-size: 4.2rem;
-			line-height: 0.5;
+			font-size: 3.5rem;
+			line-height: var(--leading-none);
 			padding-inline-end: 2rem;
 		}
+
 		.logo h1 span {
 			width: min-content;
-			font-size: 7rem;
+			font-size: var(--text-6xl);
 			line-height: 1.1;
 		}
 		.logo h1 span::after {
@@ -182,9 +184,9 @@
 		}
 
 		.copy {
-			font-size: 1.5rem;
-			font-weight: 600;
-			letter-spacing: -0.9px;
+			font-size: var(--text-2xl);
+			font-weight: var(--font-semibold);
+			letter-spacing: var(--tracking-tight);
 			width: 50vw;
 			text-shadow: var(--text-shadow);
 		}

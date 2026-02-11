@@ -79,7 +79,7 @@
 	}
 
 	.title {
-		font-size: 1.1rem;
+		font-size: var(--text-base);
 		padding-inline: var(--padding-inline);
 		padding-block: 0.5rem;
 	}
@@ -95,7 +95,7 @@
 	a {
 		text-decoration: none;
 		color: var(--text-color);
-		font-weight: 300;
+		font-weight: var(--font-light);
 	}
 
 	.links {
@@ -111,8 +111,8 @@
 		align-items: center;
 		justify-content: center;
 		gap: 0.25rem;
-		font-size: 1rem;
-		font-weight: 300;
+		font-size: var(--text-base);
+		font-weight: var(--font-light);
 	}
 
 	.copy-btn {
@@ -125,7 +125,7 @@
 		padding: 0.25rem 0.5rem;
 		cursor: pointer;
 		font: inherit;
-		font-weight: 300;
+		font-weight: var(--font-light);
 		color: inherit;
 		transition: border-color 0.2s;
 	}
@@ -145,8 +145,8 @@
 		transform: translateX(-50%);
 		background: var(--surface-color-dark);
 		color: var(--text-color-light);
-		font-family: var(--text-font);
-		font-size: 0.75rem;
+		font-family: var(--font-body);
+		font-size: var(--text-xs);
 		padding: 0.3rem 0.6rem;
 		border-radius: var(--radius-sm);
 		white-space: nowrap;

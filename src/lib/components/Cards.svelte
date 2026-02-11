@@ -57,12 +57,7 @@
 		display: block;
 		border-radius: var(--radius-sm);
 		box-shadow: var(--shadow);
-		background: linear-gradient(
-			180deg,
-			rgba(251, 192, 93, 0.25) 0%,
-			rgba(251, 192, 93, 0.25) 59.69%,
-			rgba(226, 80, 76, 0.25) 100%
-		);
+		background: var(--card-gradient-1);
 		text-decoration: none;
 	}
 	.gradient {
@@ -71,7 +66,7 @@
 		height: 100%;
 		width: 100%;
 		border-radius: var(--radius-sm);
-		background: linear-gradient(0deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 70%);
+		background: var(--card-gradient-2);
 	}
 	.title-container {
 		position: relative;
@@ -88,7 +83,7 @@
 		width: 100%;
 		color: aliceblue;
 		text-align: center;
-		font-size: 1.2rem;
+		font-size: var(--text-lg);
 		text-transform: uppercase;
 		text-shadow: var(--text-shadow);
 	}
@@ -102,8 +97,7 @@
 		color: var(--text-color);
 	}
 	h4 {
-		font-size: 1.1rem;
-		text-shadow: var(--text-shadow);
+		font-size: var(--text-base);
 	}
 	@media screen and (min-width: 1024px) {
 		.card {
@@ -157,13 +151,13 @@
 			padding-inline: 1rem;
 			left: var(--floors-inset);
 			text-shadow: var(--text-shadow);
-			font-weight: 600;
+			font-weight: var(--font-semibold);
 		}
 
 		h5 {
 			padding-block: 0.2rem;
-			font-weight: 400;
-			font-size: 1.2rem;
+			font-weight: var(--font-normal);
+			font-size: var(--text-lg);
 		}
 	}
 </style>

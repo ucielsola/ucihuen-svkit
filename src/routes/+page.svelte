@@ -96,10 +96,8 @@
 
 	h2 {
 		padding-block-end: 0.5rem;
-		font-size: 1.4rem;
 		text-align: center;
 		color: var(--base-color);
-		text-shadow: var(--text-shadow);
 	}
 	p {
 		margin-block: 0.5rem;
@@ -107,6 +105,8 @@
 	.amenities-desc {
 		padding-inline: var(--padding-inline);
 		color: var(--base-color);
+		font-size: var(--text-base);
+		line-height: var(--leading-relaxed);
 	}
 
 	a {
@@ -135,6 +135,7 @@
 		.limited-width.reviews {
 			padding-block-start: 3rem;
 		}
+
 		h2 {
 			text-align: start !important;
 			padding-inline-start: 2rem;
@@ -167,7 +168,7 @@
 
 		.vertical-banner img {
 			border-radius: var(--radius-sm);
-			box-shadow: var(--shadow);
+			box-shadow: var(--shadow-sm);
 		}
 
 		.icon-grid {
@@ -176,7 +177,7 @@
 		.description {
 			display: block;
 			grid-area: description;
-			box-shadow: var(--shadow-lg);
+			box-shadow: var(--shadow);
 			padding: 2rem;
 			border-radius: var(--radius-sm);
 			margin-block-start: 2rem;

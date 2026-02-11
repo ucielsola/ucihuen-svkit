@@ -112,7 +112,7 @@
 
 <style>
 	.weather-card {
-		background: linear-gradient(135deg, var(--accent-teal-light), var(--accent-gold-light));
+		background: var(--weather-gradient);
 		border-radius: var(--radius-sm);
 		box-shadow: var(--shadow);
 		padding: 1.25rem;
@@ -143,13 +143,13 @@
 	}
 
 	.temp {
-		font-size: 2rem;
-		font-weight: 600;
-		line-height: 1.1;
+		font-size: var(--text-3xl);
+		font-weight: var(--font-semibold);
+		line-height: var(--leading-tight);
 	}
 
 	.desc {
-		font-size: 0.9rem;
+		font-size: var(--text-sm);
 		opacity: 0.8;
 	}
 
@@ -163,7 +163,7 @@
 		display: flex;
 		align-items: center;
 		gap: 0.35rem;
-		font-size: 0.85rem;
+		font-size: var(--text-sm);
 		color: var(--base-color);
 		opacity: 0.85;
 	}

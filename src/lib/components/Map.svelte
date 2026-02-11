@@ -38,6 +38,7 @@
 		padding: 2px;
 		box-shadow: var(--shadow);
 		position: relative;
+		margin-top: 0.5rem;
 	}
 
 	iframe {

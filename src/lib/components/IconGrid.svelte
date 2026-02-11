@@ -62,12 +62,7 @@
 		min-height: 20rem;
 		max-height: 20rem;
 		padding-block: 1rem;
-		background: linear-gradient(
-			168.18deg,
-			var(--accent-teal-light) 0.49%,
-			var(--accent-gold-light) 63.68%,
-			var(--accent-gold-light)
-		);
+		background: var(--grid-gradient);
 		border-radius: var(--radius-sm);
 		box-shadow: var(--shadow);
 		transition: max-height 0.3s var(--easing);
@@ -109,7 +104,7 @@
 		height: 3rem;
 	}
 	span {
-		font-size: 0.8rem;
+		font-size: var(--text-sm);
 		width: 90%;
 		text-align: center;
 		text-transform: uppercase;
@@ -133,7 +128,7 @@
 			height: 4.5rem;
 		}
 		span {
-			font-size: 1rem;
+			font-size: var(--text-base);
 		}
 	}
 </style>
