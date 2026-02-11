@@ -116,7 +116,7 @@
 		}
 
 		img {
-			max-width: clamp(180px, 18vw, 320px);
+			max-width: clamp(150px, 22vw, 280px);
 		}
 
 		.description {
