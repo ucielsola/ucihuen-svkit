@@ -9,7 +9,7 @@ export const excursions = [
 		image: '/paseos/puelo.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Lago+Puelo+National+Park,+Unnamed+Road,,+Chubut/',
-		websiteUrl: 'https://www.instagram.com/parquenacionallagopuelo/'
+		websiteUrl: 'https://lagopuelo.gob.ar/turismo/a-donde-vamos/parque-nacional-lago-puelo/'
 	},
 	{
 		id: 2,
@@ -19,7 +19,7 @@ export const excursions = [
 		image: '/paseos/pasarela.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Pasarela+R%C3%ADo+Azul,+costa+r%C3%ADo+azul,+C.+Roca+del+Tiempo,+U9211+Lago+Puelo,+Chubut/',
-		websiteUrl: null
+		websiteUrl: 'https://lagopuelo.gob.ar/turismo/la-pasarela-del-rio-azul-balneario-en-la-corillera/'
 	},
 	{
 		id: 3,
@@ -39,7 +39,7 @@ export const excursions = [
 		image: '/paseos/feria-artesana.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Feria+Regional+El+Bols%C3%B3n,+Gral.+Roca,+R8430+El+Bols%C3%B3n,+R%C3%ADo+Negro/',
-		websiteUrl: null
+		websiteUrl: 'https://www.turismoelbolson.gob.ar/feria-regional-artesanos'
 	},
 	{
 		id: 5,
@@ -69,7 +69,7 @@ export const excursions = [
 		image: '/paseos/patriada.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Puerto+Patriada,+RFM5%2B3W,+El+Hoyo,+Chubut/',
-		websiteUrl: null
+		websiteUrl: 'https://turismoelhoyo.com.ar/puerto-patriada/'
 	},
 	{
 		id: 8,
@@ -89,7 +89,7 @@ export const excursions = [
 		image: '/paseos/mirador.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Sendero+Mirador+del+Lago,+Chubut/',
-		websiteUrl: null
+		websiteUrl: 'https://lagopuelo.gob.ar/turismo/a-donde-vamos/parque-nacional-lago-puelo/'
 	},
 	{
 		id: 10,
