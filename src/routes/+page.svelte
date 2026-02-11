@@ -8,13 +8,6 @@
 	import SEO from '$lib/components/SEO.svelte';
 	import * as m from '$lib/paraglide/messages.js';
 	let { data } = $props();
-
-	function igProfile(username) {
-		if (browser && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-			return `instagram://user?username=${username}`;
-		}
-		return `https://www.instagram.com/${username}/`;
-	}
 </script>
 
 <SEO title={m.home_title()} description={m.home_meta_description()} />
@@ -24,18 +17,18 @@
 		<p>
 			{m.home_desc_1_before()}
 			<a
-				href={igProfile('lagopueloturismo')}
+				href="https://lagopuelo.gob.ar/turismo/"
 				target="_blank"
 				rel="noopener noreferrer"
 				title={m.home_link_lago_puelo()}
 			>
-				>{m.home_desc_1_link()}</a
+				{m.home_desc_1_link()}</a
 			>{m.home_desc_1_after()}
 		</p>
 		<p>
 			{m.home_desc_2_before()}
 			<a
-				href={igProfile('parquenacionallagopuelo')}
+				href="https://lagopuelo.gob.ar/turismo/a-donde-vamos/parque-nacional-lago-puelo/"
 				target="_blank"
 				rel="noopener noreferrer"
 				title={m.home_link_parque_nacional()}>{m.home_desc_2_link()}</a
