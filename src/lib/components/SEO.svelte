@@ -27,8 +27,10 @@
 			priceRange: '$$',
 			address: {
 				'@type': 'PostalAddress',
+				streetAddress: 'Los Alerces 880',
 				addressLocality: 'Lago Puelo',
 				addressRegion: 'Chubut',
+				postalCode: '9211',
 				addressCountry: 'AR'
 			},
 			geo: {
