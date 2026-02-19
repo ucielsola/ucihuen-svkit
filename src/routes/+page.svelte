@@ -11,7 +11,7 @@
 	let { data } = $props();
 </script>
 
-<SEO title={m.home_title()} description={m.home_meta_description()} />
+<SEO title={m.home_title()} description={m.home_meta_description()} reviewStats={data.reviewStats} />
 
 <div class="desktop-grid limited-width">
 	<section id="inicio" class="description marginated">
@@ -50,7 +50,7 @@
 			<Weather weather={data.weather} />
 			<InstagramEmbed />
 		</div>
-		<img src="/images/vertical_banner.webp" alt="Cabañas Ucihuen" />
+		<img src="/images/vertical_banner.webp" alt={m.home_vertical_banner_alt()} />
 	</section>
 </div>
 
@@ -62,7 +62,7 @@
 <section class="limited-width">
 	<h2 class="title">{m.home_location_title()}</h2>
 	<h3>
-		<img src="/icons/pin.webp" alt="Location Icon" class="pin-icon" />
+		<img src="/icons/pin.webp" alt="" role="presentation" class="pin-icon" />
 		{m.home_location_subtitle()}
 	</h3>
 	<Map />

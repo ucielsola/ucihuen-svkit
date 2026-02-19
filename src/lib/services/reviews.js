@@ -28,18 +28,23 @@ async function fetchGoogleReviews() {
 	const url =
 		`https://maps.googleapis.com/maps/api/place/details/json` +
 		`?place_id=${PUBLIC_GOOGLE_PLACE_ID}` +
-		`&fields=reviews` +
+		`&fields=reviews,rating,user_ratings_total` +
 		`&reviews_sort=newest` +
 		`&language=es` +
 		`&key=${PRIVATE_GOOGLE_API_KEY}`;
 
 	const res = await fetch(url);
-	if (!res.ok) return [];
+	if (!res.ok) return { reviews: [], rating: null, reviewCount: 0 };
 
 	const data = await res.json();
-	if (data.status !== 'OK' || !data.result?.reviews) return [];
+	if (data.status !== 'OK' || !data.result?.reviews)
+		return { reviews: [], rating: null, reviewCount: 0 };
 
-	return data.result.reviews.map(mapApiReview);
+	return {
+		reviews: data.result.reviews.map(mapApiReview),
+		rating: data.result.rating ?? null,
+		reviewCount: data.result.user_ratings_total ?? 0
+	};
 }
 
 export async function getReviews() {
@@ -48,20 +53,29 @@ export async function getReviews() {
 
 	const localReviews = json.reviews;
 
-	let apiReviews = [];
+	let apiResult = { reviews: [], rating: null, reviewCount: 0 };
 	try {
-		apiReviews = await fetchGoogleReviews();
+		apiResult = await fetchGoogleReviews();
 	} catch {
 		// fallback to local-only
 	}
 
 	const existingAuthors = new Set(localReviews.map((r) => r.autor_name.trim().toLowerCase()));
-	const newReviews = apiReviews.filter(
+	const newReviews = apiResult.reviews.filter(
 		(r) => !existingAuthors.has(r.autor_name.trim().toLowerCase())
 	);
 
 	const merged = [...newReviews, ...localReviews];
 	const filtered = merged.filter((r) => r.review_text && Number(r.review_rating) >= 4);
-	cache = { data: filtered, expires: now + CACHE_TTL_MS };
-	return filtered;
+
+	let { rating, reviewCount } = apiResult;
+	if (!rating && filtered.length > 0) {
+		const sum = filtered.reduce((acc, r) => acc + Number(r.review_rating), 0);
+		rating = Math.round((sum / filtered.length) * 10) / 10;
+		reviewCount = filtered.length;
+	}
+
+	const result = { reviews: filtered, rating, reviewCount };
+	cache = { data: result, expires: now + CACHE_TTL_MS };
+	return result;
 }

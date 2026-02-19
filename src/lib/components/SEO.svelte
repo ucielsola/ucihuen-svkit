@@ -3,7 +3,7 @@
 	import { getLocale, locales, localizeHref, deLocalizeHref } from '$lib/paraglide/runtime.js';
 	import { SITE_URL, AIRBNB_URL, BOOKING_URL, PHONE } from '$lib/config.js';
 
-	let { title, description } = $props();
+	let { title, description, reviewStats = null } = $props();
 
 	const OG_IMAGE = `${SITE_URL}/images/ucihuen_open_graph.png`;
 	const LOCALE_MAP = { es: 'es_AR', en: 'en_US', pt: 'pt_BR' };
@@ -24,6 +24,7 @@
 			description,
 			url: SITE_URL,
 			telephone: PHONE,
+			priceRange: '$$',
 			address: {
 				'@type': 'PostalAddress',
 				addressLocality: 'Lago Puelo',
@@ -36,7 +37,18 @@
 				longitude: -71.6080007
 			},
 			image: OG_IMAGE,
-			sameAs: [AIRBNB_URL, BOOKING_URL]
+			sameAs: [AIRBNB_URL, BOOKING_URL],
+			...(reviewStats
+				? {
+						aggregateRating: {
+							'@type': 'AggregateRating',
+							ratingValue: reviewStats.ratingValue,
+							reviewCount: reviewStats.reviewCount,
+							bestRating: '5',
+							worstRating: '1'
+						}
+					}
+				: {})
 		})
 	);
 	let jsonLd = $derived('<script type="application/ld+json">' + jsonLdData + '</scr' + 'ipt>');
