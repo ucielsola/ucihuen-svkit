@@ -1,34 +1,42 @@
 # Cabañas Ucihuen
 
-> Cabin rental accommodations in Lago Puelo, Chubut, Argentina.
+> Alquiler de cabañas en Lago Puelo, Chubut, Patagonia Argentina. Cabañas equipadas en la Villa Turística Lago Puelo, Comarca Andina del Paralelo 42°, a solo dos cuadras del centro y a menos de 3 km del Parque Nacional Lago Puelo.
 
-Cabañas Ucihuen offers cozy cabin rentals in the heart of Villa Turística Lago Puelo, Patagonia Argentina. Located just two blocks from the town center and less than 3 km from Parque Nacional Lago Puelo.
+## Sobre Nosotros
 
-## Cabins
+Cabañas Ucihuen ofrece alquiler de cabañas totalmente equipadas en el corazón de la Villa Turística Lago Puelo, en la Comarca Andina del Paralelo 42°, Chubut, Patagonia Argentina. Enmarcadas en un verde paisaje cordillerano, dentro de un valle rodeado de montañas boscosas, ríos, arroyos y cascadas. Tienen la ventaja de combinar tranquilidad, comodidad y facilidad de acceso a los negocios y servicios. Cerca de El Bolsón, Epuyén y El Hoyo.
 
-- Cabin for 7 guests: Two floors, 2 bedrooms, living-dining room, kitchen, bathroom
-- Cabin for 4 guests: One floor, 1 bedroom, kitchen-dining room, living room with futons, bathroom
+## Cabañas
 
-## Amenities
+- Cabaña para 7 personas: Dos plantas, 2 habitaciones, living-comedor, cocina, baño
+- Cabaña para 4 personas: Una planta, cocina-comedor, living con futones, baño
 
-Pet-friendly, internal parking, heating, WiFi, grill, hot water, satellite TV, bathroom kit, bedding, outdoor patio, fire extinguisher, hair dryer, kitchen equipment, smoking area, extra pillows and blankets, first aid kit.
+## Comodidades
 
-## Location
+Apto para mascotas, estacionamiento con sombra, calefacción, WiFi fibra óptica de 200 Mb, parrilla individual, agua caliente 24 horas, TV por streaming, equipamiento de baño, ropa de cama y toallas, patio exterior con árboles frutales, extintor de incendios, secador de pelo, vajilla y equipamiento de cocina, espacio para fumadores, almohadas y frazadas extra, botiquín de primeros auxilios. Desayuno de bienvenida incluido (café, té, mate cocido, azúcar y dulce casero).
+
+## Ubicación
 
 Villa Turística Lago Puelo, Chubut, Argentina.
-Near Parque Nacional Lago Puelo — boating, kayaking, hiking trails, beaches, forests, and waterfalls.
+Comarca Andina del Paralelo 42° — cerca de El Bolsón, Epuyén y El Hoyo.
+A menos de 3 km del Parque Nacional Lago Puelo — paseos en lancha y kayak, senderos, playas, bosques y cascadas.
+Cerca del Río Azul, Lago Epuyén y la Cordillera de los Andes.
 
-## Links
+## Sitio Web
 
-- Website: https://ucihuen.com.ar
-- Website (English): https://ucihuen.com.ar/en/
-- Website (Português): https://ucihuen.com.ar/pt/
-- Gallery: https://ucihuen.com.ar/galeria
-- Galeria (Português): https://ucihuen.com.ar/pt/galeria
-- Airbnb: https://www.airbnb.com.ar/rooms/1320462855669343724
-- Booking: https://www.booking.com/hotel/ar/cabana-ucihuen.es-ar.html
-- WhatsApp: https://wa.link/hfh2e3
+- [Cabañas Ucihuen](https://ucihuen.com.ar)
+- [Cabañas Ucihuen (English)](https://ucihuen.com.ar/en/)
+- [Cabañas Ucihuen (Português)](https://ucihuen.com.ar/pt/)
+- [Galería de Fotos](https://ucihuen.com.ar/galeria)
+- [Paseos Recomendados](https://ucihuen.com.ar/paseos)
+- [Contenido Completo](https://ucihuen.com.ar/llms-full.txt)
 
-## Contact
+## Reservas
+
+- [Airbnb](https://www.airbnb.com.ar/rooms/1320462855669343724)
+- [Booking.com](https://www.booking.com/hotel/ar/cabana-ucihuen.es-ar.html)
+- [WhatsApp](https://wa.link/hfh2e3)
+
+## Contacto
 
 WhatsApp: +54 9 11 3158-6242

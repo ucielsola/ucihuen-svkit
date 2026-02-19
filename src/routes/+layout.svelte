@@ -46,6 +46,7 @@
 <svelte:head>
 	<link rel="preconnect" href="https://www.youtube-nocookie.com" />
 	<link rel="preconnect" href="https://i.ytimg.com" />
+	<link rel="alternate" type="text/markdown" title="LLM-friendly content" href="/llms.txt" />
 </svelte:head>
 
 <svelte:window bind:scrollY={scrolled} bind:innerHeight={winHeight} />
