@@ -9,6 +9,9 @@
 	import FabWhatsapp from '$lib/components/FabWhatsapp.svelte';
 	import LangToggle from '$lib/components/LangToggle.svelte';
 	import * as m from '$lib/paraglide/messages.js';
+
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+
 	let { children } = $props();
 	let path = $derived(page.url.pathname);
 
@@ -19,6 +22,8 @@
 	let scrolledPercentage = $state(0);
 	let scrollingUp = $state(false);
 	let oldScroll = 0;
+
+	$effect(injectAnalytics);
 
 	$effect(() => {
 		let timeoutId = setTimeout(() => {
