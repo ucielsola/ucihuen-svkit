@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import * as m from '$lib/paraglide/messages';
 	import { WHATSAPP_URL } from '$lib/config';
 

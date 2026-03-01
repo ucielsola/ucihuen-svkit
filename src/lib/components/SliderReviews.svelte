@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { Swiper, SwiperSlide } from 'swiper/svelte';
 	import { Autoplay } from 'swiper/core';
 	import 'swiper/css';

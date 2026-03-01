@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { formatDate } from '$lib/utils/date';
 	import ForecastWeatherIcon from './ForecastWeatherIcon.svelte';
 

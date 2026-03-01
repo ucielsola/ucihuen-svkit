@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { Sun, Moon } from 'lucide-svelte';
 
 	let { isNight = false, hovered = false, size = 48 } = $props();

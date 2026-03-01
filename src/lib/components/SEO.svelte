@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/state';
 	import { getLocale, locales, localizeHref, deLocalizeHref } from '$lib/paraglide/runtime';
 	import { SITE_URL, AIRBNB_URL, BOOKING_URL, PHONE } from '$lib/config';

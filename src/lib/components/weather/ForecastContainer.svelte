@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import ForecastCard from './ForecastCard.svelte';
 
 	let { forecast } = $props();

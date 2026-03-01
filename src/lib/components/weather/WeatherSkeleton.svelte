@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { getThemeByTime } from '$lib/utils/weatherTheme';
 
 	let theme = getThemeByTime();

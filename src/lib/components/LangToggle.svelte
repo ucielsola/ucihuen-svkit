@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/state';
 	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
 

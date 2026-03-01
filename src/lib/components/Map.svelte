@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { PUBLIC_API_KEY } from '$env/static/public';
 	import { onMount } from 'svelte';
 	import { MapPin } from 'lucide-svelte';

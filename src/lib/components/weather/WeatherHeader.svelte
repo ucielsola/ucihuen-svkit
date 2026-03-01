@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { useWeatherDescriptions } from '$lib/composables/weatherDescriptions';
 	import { MapPin } from 'lucide-svelte';
 

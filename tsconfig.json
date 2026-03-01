@@ -1,13 +1,20 @@
 {
-	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
 		"allowJs": true,
 		"checkJs": false,
 		"strict": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"types": ["node"]
+		"types": ["node"],
+		"resolveJsonModule": true
 	},
-	"include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
-	"exclude": ["src/lib/paraglide/**", ".svelte-kit/**", "build/**"]
+	"include": [
+		".svelte-kit/**/*.d.ts",
+		".svelte-kit/**/*.d.ts",
+		"src/**/*.d.ts",
+		"src/**/*.ts",
+		"src/**/*.js",
+		"src/**/*.svelte"
+	],
+	"exclude": ["src/lib/paraglide/**", "build/**"]
 }

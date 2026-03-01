@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import * as m from '$lib/paraglide/messages';
 	import { AIRBNB_URL, BOOKING_URL, PHONE } from '$lib/config';
 	import { Copy, Check } from 'lucide-svelte';

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { browser } from '$app/environment';
 	import IconGrid from '$lib/components/IconGrid.svelte';
 	import Cards from '$lib/components/Cards.svelte';

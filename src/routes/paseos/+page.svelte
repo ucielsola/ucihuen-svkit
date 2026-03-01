@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import SEO from '$lib/components/SEO.svelte';
 	import ExcursionCard from '$lib/components/ExcursionCard.svelte';
 	import * as m from '$lib/paraglide/messages';
