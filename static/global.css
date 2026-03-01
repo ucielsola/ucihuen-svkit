@@ -155,6 +155,7 @@
 	--drop-shadow: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 
 	--easing: cubic-bezier(0.22, 1.48, 0.71, 0.87);
+	--weather-duration: 0.3s;
 
 	--space-xs: 0.25rem;
 	--space-sm: 0.5rem;

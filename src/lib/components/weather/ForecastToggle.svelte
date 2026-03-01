@@ -44,7 +44,7 @@
 		font-size: 13px;
 		font-weight: 500;
 		cursor: pointer;
-		transition: all var(--easing);
+		transition: all var(--weather-duration) var(--easing);
 		max-width: 340px;
 		margin-inline: auto;
 	}

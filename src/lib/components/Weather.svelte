@@ -97,7 +97,9 @@
 		box-shadow:
 			0 4px 24px rgba(0, 0, 0, 0.3),
 			0 1px 2px rgba(0, 0, 0, 0.2);
-		transition: transform var(--easing), box-shadow var(--easing);
+		transition:
+			transform var(--weather-duration) var(--easing),
+			box-shadow var(--weather-duration) var(--easing);
 		display: flex;
 		flex-direction: column;
 		gap: var(--weather-spacing-lg);
@@ -119,7 +121,7 @@
 		height: 120px;
 		border-radius: 9999px;
 		background: radial-gradient(circle, rgba(165, 180, 252, 0.12) 0%, transparent 70%);
-		transition: opacity var(--easing);
+		transition: opacity var(--weather-duration) var(--easing);
 		opacity: 0.5;
 		pointer-events: none;
 	}
@@ -216,7 +218,7 @@
 		border: none;
 		color: var(--weather-text-secondary);
 		cursor: pointer;
-		transition: all var(--easing);
+		transition: all var(--weather-duration) var(--easing);
 	}
 
 	.modal-close:hover {

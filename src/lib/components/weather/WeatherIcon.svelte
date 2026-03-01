@@ -26,7 +26,7 @@
 		border-radius: var(--weather-radius-md);
 		background: linear-gradient(135deg, rgba(165, 180, 252, 0.08) 0%, rgba(99, 102, 241, 0.04) 100%);
 		border: 1px solid rgba(165, 180, 252, 0.1);
-		transition: background var(--easing);
+		transition: background var(--weather-duration) var(--easing);
 		flex-shrink: 0;
 	}
 
@@ -36,7 +36,7 @@
 
 	.weather-icon {
 		color: var(--weather-accent);
-		transition: transform var(--easing);
+		transition: transform var(--weather-duration) var(--easing);
 	}
 
 	.icon-hover .weather-icon {

@@ -49,7 +49,7 @@
 		background-color: var(--weather-card-bg);
 		border: 1px solid var(--weather-border);
 		border-radius: var(--weather-radius-md);
-		transition: all var(--easing);
+		transition: all var(--weather-duration) var(--easing);
 		min-width: 200px;
 		text-decoration: none;
 	}
