@@ -1,5 +1,5 @@
 <script>
-	import { formatDate } from '$lib/utils/date.js';
+	import { formatDate } from '$lib/utils/date';
 	import ForecastWeatherIcon from './ForecastWeatherIcon.svelte';
 
 	let { day } = $props();

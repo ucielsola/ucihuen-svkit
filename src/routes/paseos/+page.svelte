@@ -1,8 +1,8 @@
 <script>
 	import SEO from '$lib/components/SEO.svelte';
 	import ExcursionCard from '$lib/components/ExcursionCard.svelte';
-	import * as m from '$lib/paraglide/messages.js';
-	import { excursions } from '$lib/data/excursions.js';
+	import * as m from '$lib/paraglide/messages';
+	import { excursions } from '$lib/data/excursions';
 </script>
 
 <SEO title={m.excursions_title()} description={m.excursions_meta_description()} />

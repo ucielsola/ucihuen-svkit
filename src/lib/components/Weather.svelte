@@ -1,7 +1,7 @@
 <script>
-	import { getWeatherDescriptionKey } from '$lib/services/weather.js';
-	import { getThemeByTime } from '$lib/utils/weatherTheme.js';
-	import * as m from '$lib/paraglide/messages.js';
+	import { getWeatherDescriptionKey } from '$lib/services/weather';
+	import { getThemeByTime } from '$lib/utils/weatherTheme';
+	import * as m from '$lib/paraglide/messages';
 	import { X } from 'lucide-svelte';
 	import WeatherSkeleton from './weather/WeatherSkeleton.svelte';
 	import WeatherHeader from './weather/WeatherHeader.svelte';

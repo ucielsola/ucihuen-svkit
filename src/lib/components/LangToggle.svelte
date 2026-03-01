@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/state';
-	import { getLocale, localizeHref } from '$lib/paraglide/runtime.js';
+	import { getLocale, localizeHref } from '$lib/paraglide/runtime';
 
 	const locales = [
 		{ code: 'es', flag: '/icons/ar.svg', label: 'Español', cta: 'Leer en Español' },

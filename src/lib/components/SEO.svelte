@@ -1,7 +1,7 @@
 <script>
 	import { page } from '$app/state';
-	import { getLocale, locales, localizeHref, deLocalizeHref } from '$lib/paraglide/runtime.js';
-	import { SITE_URL, AIRBNB_URL, BOOKING_URL, PHONE } from '$lib/config.js';
+	import { getLocale, locales, localizeHref, deLocalizeHref } from '$lib/paraglide/runtime';
+	import { SITE_URL, AIRBNB_URL, BOOKING_URL, PHONE } from '$lib/config';
 
 	let { title, description, reviewStats = null } = $props();
 

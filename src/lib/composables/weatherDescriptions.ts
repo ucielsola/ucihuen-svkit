@@ -1,6 +1,20 @@
-import * as m from '$lib/paraglide/messages.js';
+import * as m from '$lib/paraglide/messages';
 
-export function useWeatherDescriptions() {
+interface WeatherDescriptions {
+	weather_clear: () => string;
+	weather_mainly_clear: () => string;
+	weather_partly_cloudy: () => string;
+	weather_overcast: () => string;
+	weather_fog: () => string;
+	weather_drizzle: () => string;
+	weather_rain: () => string;
+	weather_snow: () => string;
+	weather_showers: () => string;
+	weather_thunderstorm: () => string;
+	weather_unknown: () => string;
+}
+
+export function useWeatherDescriptions(): WeatherDescriptions {
 	return {
 		weather_clear: () => m.weather_clear(),
 		weather_mainly_clear: () => m.weather_mainly_clear(),

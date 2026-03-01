@@ -1,5 +1,5 @@
 <script>
-	import { useWeatherDescriptions } from '$lib/composables/weatherDescriptions.js';
+	import { useWeatherDescriptions } from '$lib/composables/weatherDescriptions';
 	import { MapPin } from 'lucide-svelte';
 
 	let { info } = $props();

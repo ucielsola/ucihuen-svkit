@@ -5,6 +5,7 @@ export interface OpenMeteoCurrent {
 	wind_gusts_10m: number;
 	is_day: number;
 	precipitation: number;
+	weather_code: number;
 }
 
 export interface OpenMeteoDaily {
@@ -17,6 +18,7 @@ export interface OpenMeteoDaily {
 	wind_gusts_10m_max: number[];
 	sunrise: string[];
 	sunset: string[];
+	weather_code: number[];
 }
 
 export interface OpenMeteoResponse {
@@ -32,6 +34,7 @@ export interface WeatherData {
 		wind_gusts: number;
 		is_day: boolean;
 		precipitation: number;
+		weather_code: number;
 	};
 	forecast: {
 		date: string;
@@ -44,6 +47,7 @@ export interface WeatherData {
 		sunrise: string;
 		sunset: string;
 		thermal_amplitude: number;
+		weather_code: number;
 	}[];
 }
 
@@ -112,16 +116,16 @@ export async function getWeather(): Promise<WeatherData | null> {
 
 		const forecast = data.daily.time.map((date, i) => ({
 			date,
-			temp_max: data.daily.temperature_2m_max[i],
-			temp_min: data.daily.temperature_2m_min[i],
-			uv_max: data.daily.uv_index_max[i],
-			precip_prob: data.daily.precipitation_probability_max[i],
-			rain_sum: data.daily.rain_sum[i],
-			wind_gusts_max: data.daily.wind_gusts_10m_max[i],
-			sunrise: data.daily.sunrise[i].split('T')[1],
-			sunset: data.daily.sunset[i].split('T')[1],
-			weather_code: data.daily.weather_code[i],
-			thermal_amplitude: data.daily.temperature_2m_max[i] - data.daily.temperature_2m_min[i]
+			temp_max: data.daily.temperature_2m_max[i]!,
+			temp_min: data.daily.temperature_2m_min[i]!,
+			uv_max: data.daily.uv_index_max[i]!,
+			precip_prob: data.daily.precipitation_probability_max[i]!,
+			rain_sum: data.daily.rain_sum[i]!,
+			wind_gusts_max: data.daily.wind_gusts_10m_max[i]!,
+			sunrise: data.daily.sunrise[i]!.split('T')[1],
+			sunset: data.daily.sunset[i]!.split('T')[1],
+			weather_code: data.daily.weather_code[i]!,
+			thermal_amplitude: data.daily.temperature_2m_max[i]! - data.daily.temperature_2m_min[i]!
 		}));
 
 		return { current, forecast };

@@ -1,6 +1,16 @@
-import * as m from '$lib/paraglide/messages.js';
+import * as m from '$lib/paraglide/messages';
 
-export const excursions = [
+interface Excursion {
+	id: number;
+	title: () => string;
+	description: () => string;
+	tags: (() => string)[];
+	image: string;
+	mapsUrl: string;
+	websiteUrl: string | null;
+}
+
+export const excursions: Excursion[] = [
 	{
 		id: 1,
 		title: m.excursion_1_title,

@@ -3,9 +3,30 @@ import { PUBLIC_GOOGLE_PLACE_ID } from '$env/static/public';
 import json from '$lib/data/reviews.min.json';
 
 const CACHE_TTL_MS = 10 * 60 * 1000;
-let cache = { data: null, expires: 0 };
 
-function formatUnixDate(unix) {
+interface Review {
+	autor_name: string;
+	autor_image: string;
+	review_text: string;
+	review_link: string;
+	review_rating: string;
+	review_date: string;
+}
+
+interface ReviewsResult {
+	reviews: Review[];
+	rating: number | null;
+	reviewCount: number;
+}
+
+interface Cache {
+	data: ReviewsResult | null;
+	expires: number;
+}
+
+let cache: Cache = { data: null, expires: 0 };
+
+function formatUnixDate(unix: number): string {
 	const d = new Date(unix * 1000);
 	const dd = String(d.getDate()).padStart(2, '0');
 	const mm = String(d.getMonth() + 1).padStart(2, '0');
@@ -13,7 +34,15 @@ function formatUnixDate(unix) {
 	return `${dd}/${mm}/${yyyy}`;
 }
 
-function mapApiReview(r) {
+interface GoogleReview {
+	author_name: string;
+	profile_photo_url: string;
+	text: string;
+	rating: number;
+	time: number;
+}
+
+function mapApiReview(r: GoogleReview): Review {
 	return {
 		autor_name: r.author_name,
 		autor_image: r.profile_photo_url,
@@ -24,7 +53,7 @@ function mapApiReview(r) {
 	};
 }
 
-async function fetchGoogleReviews() {
+async function fetchGoogleReviews(): Promise<ReviewsResult> {
 	const url =
 		`https://maps.googleapis.com/maps/api/place/details/json` +
 		`?place_id=${PUBLIC_GOOGLE_PLACE_ID}` +
@@ -47,13 +76,13 @@ async function fetchGoogleReviews() {
 	};
 }
 
-export async function getReviews() {
+export async function getReviews(): Promise<ReviewsResult> {
 	const now = Date.now();
 	if (cache.data && cache.expires > now) return cache.data;
 
-	const localReviews = json.reviews;
+	const localReviews = json.reviews as Review[];
 
-	let apiResult = { reviews: [], rating: null, reviewCount: 0 };
+	let apiResult: ReviewsResult = { reviews: [], rating: null, reviewCount: 0 };
 	try {
 		apiResult = await fetchGoogleReviews();
 	} catch {
@@ -68,14 +97,15 @@ export async function getReviews() {
 	const merged = [...newReviews, ...localReviews];
 	const filtered = merged.filter((r) => r.review_text && Number(r.review_rating) >= 4);
 
-	let { rating, reviewCount } = apiResult;
+	let rating = apiResult.rating;
+	let reviewCount = apiResult.reviewCount;
 	if (!rating && filtered.length > 0) {
 		const sum = filtered.reduce((acc, r) => acc + Number(r.review_rating), 0);
 		rating = Math.round((sum / filtered.length) * 10) / 10;
 		reviewCount = filtered.length;
 	}
 
-	const result = { reviews: filtered, rating, reviewCount };
+	const result: ReviewsResult = { reviews: filtered, rating, reviewCount };
 	cache = { data: result, expires: now + CACHE_TTL_MS };
 	return result;
 }

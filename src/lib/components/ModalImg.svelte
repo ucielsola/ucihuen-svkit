@@ -2,7 +2,7 @@
 	import { scale } from 'svelte/transition';
 	import { expoInOut } from 'svelte/easing';
 	import { getModal } from '$lib/stores/modal.svelte';
-	import * as m from '$lib/paraglide/messages.js';
+	import * as m from '$lib/paraglide/messages';
 
 	let { isOpen, src, alt = 'Cabañas Ucihuen' } = $props();
 

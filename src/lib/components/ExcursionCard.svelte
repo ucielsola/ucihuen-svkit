@@ -1,5 +1,5 @@
 <script>
-	import * as m from '$lib/paraglide/messages.js';
+	import * as m from '$lib/paraglide/messages';
 	import MapPinned from 'lucide-svelte/icons/map-pinned';
 	import Globe from 'lucide-svelte/icons/globe';
 

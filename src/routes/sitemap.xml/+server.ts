@@ -1,17 +1,24 @@
-import { SITE_URL as SITE } from '$lib/config.js';
+import { SITE_URL as SITE } from '$lib/config';
+import type { RequestHandler } from './$types';
 
-const pages = [
+interface Page {
+	path: string;
+	es: string;
+	en: string;
+	pt: string;
+}
+
+const pages: Page[] = [
 	{ path: '/', es: '/', en: '/en/', pt: '/pt/' },
 	{ path: '/galeria', es: '/galeria', en: '/en/galeria', pt: '/pt/galeria' },
 	{ path: '/paseos', es: '/paseos', en: '/en/paseos', pt: '/pt/paseos' }
 ];
 
-/** @type {import('./$types').RequestHandler} */
-export function GET() {
+export const GET: RequestHandler = () => {
 	const lastmod = new Date().toISOString().split('T')[0];
 	const urls = pages
 		.map(
-			(p) => `
+			(p: Page) => `
 	<url>
 		<loc>${SITE}${p.path}</loc>
 		<lastmod>${lastmod}</lastmod>
@@ -36,4 +43,4 @@ export function GET() {
 			'Cache-Control': 'max-age=0, s-maxage=3600'
 		}
 	});
-}
+};

@@ -1,23 +1,17 @@
 <script lang="ts">
 	import { getModal, ModalType } from '$lib/stores/modal.svelte';
 	import ModalImg from '$lib/components/ModalImg.svelte';
-	import * as m from '$lib/paraglide/messages.js';
+	import * as m from '$lib/paraglide/messages';
 
 	const modal = getModal();
-
-	const modalComponents = {
-		[ModalType.IMAGE]: ModalImg
-	};
-
-	let component = $derived(modal.isOpen && modal.type ? modalComponents[modal.type] : null);
 </script>
 
-{#snippet renderComponent(Component)}
-	<Component {...modal.props} isOpen={true} />
+{#snippet imageModal(props: { src: string; alt: string })}
+	<ModalImg isOpen={true} src={props.src} alt={props.alt} />
 {/snippet}
 
-{#if modal.isOpen && component}
-	{@render renderComponent(component)}
+{#if modal.isOpen && modal.type === ModalType.IMAGE}
+	{@render imageModal(modal.props as { src: string; alt: string })}
 	<div
 		class="backdrop"
 		role="button"

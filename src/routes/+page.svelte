@@ -7,7 +7,7 @@
 	import InstagramEmbed from '$lib/components/InstagramEmbed.svelte';
 	import SliderReviews from '$lib/components/SliderReviews.svelte';
 	import SEO from '$lib/components/SEO.svelte';
-	import * as m from '$lib/paraglide/messages.js';
+	import * as m from '$lib/paraglide/messages';
 	let { data } = $props();
 </script>
 

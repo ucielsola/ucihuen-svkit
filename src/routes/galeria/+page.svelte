@@ -4,8 +4,8 @@
 
 	import { getModal, ModalType } from '$lib/stores/modal.svelte';
 	import SEO from '$lib/components/SEO.svelte';
-	import * as m from '$lib/paraglide/messages.js';
-	import { sliderUrl, sliderSrcset, modalUrl, lqipUrl } from '$lib/imagekit.js';
+	import * as m from '$lib/paraglide/messages';
+	import { sliderUrl, sliderSrcset, modalUrl, lqipUrl } from '$lib/imagekit';
 
 	let { data } = $props();
 
@@ -18,8 +18,8 @@
 		modal.open(ModalType.IMAGE, { src: modalSrc, alt: imgAlt });
 	}
 
-	function buildSlides(paths, altFn) {
-		return paths.map((path, i) => ({
+	function buildSlides(paths: string[], altFn: (args: { n: number }) => string) {
+		return paths.map((path: string, i: number) => ({
 			src: sliderUrl(path, 400),
 			srcset: sliderSrcset(path),
 			modalSrc: modalUrl(path),
@@ -27,26 +27,26 @@
 			alt: altFn({ n: i + 1 }),
 			id: i
 		}));
-	}
+ 	}
 
 	let sections = $derived([
 		{
 			id: 'cab-1',
 			heading: m.gallery_cab1_heading,
 			subtitle: m.gallery_cab1_subtitle,
-			slides: buildSlides(data.images.cab_1, m.alt_interior_cab1_photo)
+			slides: buildSlides(data.images.cab_1 || [], m.alt_interior_cab1_photo)
 		},
 		{
 			id: 'cab-2',
 			heading: m.gallery_cab2_heading,
 			subtitle: m.gallery_cab2_subtitle,
-			slides: buildSlides(data.images.cab_2, m.alt_interior_cab2_photo)
+			slides: buildSlides(data.images.cab_2 || [], m.alt_interior_cab2_photo)
 		},
 		{
 			id: undefined,
 			heading: m.gallery_ext_heading,
 			subtitle: m.gallery_ext_subtitle,
-			slides: buildSlides(data.images.ext, m.alt_exterior_photo)
+			slides: buildSlides(data.images.ext || [], m.alt_exterior_photo)
 		}
 	]);
 </script>

@@ -1,5 +1,5 @@
 <script>
-	import { getThemeByTime } from '$lib/utils/weatherTheme.js';
+	import { getThemeByTime } from '$lib/utils/weatherTheme';
 
 	let theme = getThemeByTime();
 	let widgetElement = $state(null);

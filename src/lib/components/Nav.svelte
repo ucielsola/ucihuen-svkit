@@ -1,8 +1,8 @@
 <script>
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
-	import * as m from '$lib/paraglide/messages.js';
-	import { localizeHref, deLocalizeUrl } from '$lib/paraglide/runtime.js';
+	import * as m from '$lib/paraglide/messages';
+	import { localizeHref, deLocalizeUrl } from '$lib/paraglide/runtime';
 
 	let currentPath = $derived(deLocalizeUrl(page.url).pathname);
 

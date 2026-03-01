@@ -1,6 +1,6 @@
 <script>
-	import * as m from '$lib/paraglide/messages.js';
-	import { WHATSAPP_URL } from '$lib/config.js';
+	import * as m from '$lib/paraglide/messages';
+	import { WHATSAPP_URL } from '$lib/config';
 
 	/**
 	 * @typedef {Object} Props
