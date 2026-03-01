@@ -1,19 +1,21 @@
-<script>
+<script lang="ts">
 	import Slider from '$lib/components/SliderGaleria.svelte';
 	import { fade } from 'svelte/transition';
 
-	import { modals } from 'svelte-modals';
-	import Modal from '$lib/components/ModalImg.svelte';
+	import { getModal, ModalType } from '$lib/stores/modal.svelte';
 	import SEO from '$lib/components/SEO.svelte';
 	import * as m from '$lib/paraglide/messages.js';
 	import { sliderUrl, sliderSrcset, modalUrl, lqipUrl } from '$lib/imagekit.js';
 
 	let { data } = $props();
 
+	const modal = getModal();
+
 	let modalSrc = $state();
 	let imgAlt = $state('Cabañas Ucihuen');
+
 	function testImg() {
-		modals.open(Modal, { src: modalSrc, alt: imgAlt });
+		modal.open(ModalType.IMAGE, { src: modalSrc, alt: imgAlt });
 	}
 
 	function buildSlides(paths, altFn) {

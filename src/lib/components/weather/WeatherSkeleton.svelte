@@ -1,4 +1,17 @@
-<div class="weather-card skeleton widget" aria-hidden="true">
+<script>
+	import { getThemeByTime } from '$lib/utils/weatherTheme.js';
+
+	let theme = getThemeByTime();
+	let widgetElement = $state(null);
+
+	$effect(() => {
+		if (widgetElement) {
+			widgetElement.setAttribute('data-theme', theme);
+		}
+	});
+</script>
+
+<div bind:this={widgetElement} class="weather-card skeleton widget" aria-hidden="true">
 	<div class="glow"></div>
 	<div class="header">
 		<div class="location-row">
@@ -35,19 +48,19 @@
 		width: 100%;
 		max-width: 340px;
 		margin-inline: auto;
-		border-radius: 20px;
-		background-color: #0f1623;
-		border: 1px solid rgba(255, 255, 255, 0.06);
+		border-radius: var(--weather-radius-lg);
+		background-color: var(--weather-bg);
+		border: 1px solid var(--weather-border);
 		padding: 24px;
-		color: #e2e8f0;
+		color: var(--weather-text-light);
 		font-family: system-ui, -apple-system, sans-serif;
 		box-shadow:
 			0 4px 24px rgba(0, 0, 0, 0.3),
 			0 1px 2px rgba(0, 0, 0, 0.2);
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		transition: transform var(--easing), box-shadow var(--easing);
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
+		gap: var(--weather-spacing-lg);
 	}
 
 	.glow {

@@ -27,7 +27,6 @@
 		"@imagekit/nodejs": "^7.3.0",
 		"@vercel/analytics": "^1.6.1",
 		"lucide-svelte": "^0.563.0",
-		"svelte-modals": "^2.0.0",
 		"swiper": "^7.3.0"
 	},
 	"type": "module"

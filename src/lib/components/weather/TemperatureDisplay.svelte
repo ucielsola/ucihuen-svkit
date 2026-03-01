@@ -20,13 +20,13 @@
 	.temp-section {
 		display: flex;
 		flex-direction: column;
-		gap: 8px;
+		gap: var(--weather-spacing-sm);
 	}
 
 	.temp-row {
 		display: flex;
 		align-items: center;
-		gap: 16px;
+		gap: var(--weather-spacing-md);
 	}
 
 	.temp-value {
@@ -36,9 +36,9 @@
 	}
 
 	.temp-number {
-		font-size: 56px;
+		font-size: var(--weather-temp-lg);
 		font-weight: 200;
-		color: #f1f5f9;
+		color: var(--weather-text-primary);
 		letter-spacing: -0.03em;
 		line-height: 1;
 	}
@@ -46,20 +46,20 @@
 	.temp-unit {
 		font-size: 20px;
 		font-weight: 300;
-		color: #64748b;
+		color: var(--weather-text-muted);
 		margin-top: 6px;
 		margin-left: 2px;
 	}
 
 	.feels-like {
 		font-size: 13px;
-		color: #64748b;
+		color: var(--weather-text-muted);
 		margin: 0;
 		padding-left: 80px;
 	}
 
 	.feels-like strong {
-		color: #94a3b8;
+		color: var(--weather-text-secondary);
 		font-weight: 500;
 	}
 </style>

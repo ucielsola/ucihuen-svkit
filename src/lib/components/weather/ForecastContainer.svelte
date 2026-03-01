@@ -15,7 +15,7 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 		gap: 12px;
-		margin-top: 16px;
+		margin-top: var(--weather-spacing-md);
 		max-width: 340px;
 		margin-inline: auto;
 	}

@@ -27,18 +27,18 @@
 	.location-row {
 		display: flex;
 		align-items: center;
-		gap: 6px;
+		gap: var(--weather-spacing-xs);
 	}
 
 	.pin-icon {
-		color: #64748b;
+		color: var(--weather-text-muted);
 		flex-shrink: 0;
 	}
 
 	.location-text {
 		font-size: 14px;
 		font-weight: 500;
-		color: #94a3b8;
+		color: var(--weather-text-secondary);
 		letter-spacing: 0.02em;
 	}
 
@@ -47,10 +47,10 @@
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
-		color: #a5b4fc;
-		background-color: rgba(165, 180, 252, 0.1);
+		color: var(--weather-accent);
+		background-color: var(--weather-badge-bg);
 		padding: 4px 10px;
-		border-radius: 9999px;
-		border: 1px solid rgba(165, 180, 252, 0.15);
+		border-radius: var(--weather-radius-full);
+		border: 1px solid var(--weather-border-hover);
 	}
 </style>

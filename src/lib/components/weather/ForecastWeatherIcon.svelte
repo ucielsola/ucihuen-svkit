@@ -37,10 +37,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 8px;
+		padding: var(--weather-spacing-sm);
 		background: rgba(165, 180, 252, 0.05);
-		border-radius: 12px;
-		transition: transform 0.3s ease;
+		border-radius: var(--weather-radius-sm);
+		transition: transform var(--easing);
 	}
 
 	.icon-wrapper:hover {
@@ -49,8 +49,8 @@
 	}
 
 	:global(svg) {
-		color: #a5b4fc;
-		transition: transform 0.4s ease;
+		color: var(--weather-accent);
+		transition: transform var(--easing);
 	}
 
 	.icon-wrapper:hover :global(svg) {

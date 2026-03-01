@@ -21,12 +21,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 64px;
-		height: 64px;
-		border-radius: 16px;
+		width: var(--weather-icon-size-lg);
+		height: var(--weather-icon-size-lg);
+		border-radius: var(--weather-radius-md);
 		background: linear-gradient(135deg, rgba(165, 180, 252, 0.08) 0%, rgba(99, 102, 241, 0.04) 100%);
 		border: 1px solid rgba(165, 180, 252, 0.1);
-		transition: background 0.3s ease;
+		transition: background var(--easing);
 		flex-shrink: 0;
 	}
 
@@ -35,8 +35,8 @@
 	}
 
 	.weather-icon {
-		color: #a5b4fc;
-		transition: transform 0.4s ease;
+		color: var(--weather-accent);
+		transition: transform var(--easing);
 	}
 
 	.icon-hover .weather-icon {

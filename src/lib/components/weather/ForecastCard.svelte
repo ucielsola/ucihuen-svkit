@@ -5,7 +5,12 @@
 	let { day } = $props();
 </script>
 
-<div class="forecast-card">
+<a
+	href="https://www.clima.com/argentina/chubut/lago-puelo"
+	target="_blank"
+	rel="noopener noreferrer"
+	class="forecast-card"
+>
 	<div class="forecast-icon-wrapper">
 		<ForecastWeatherIcon weatherCode={day.weather_code} />
 	</div>
@@ -32,26 +37,27 @@
 			</div>
 		</div>
 	</div>
-</div>
+</a>
 
 <style>
 	.forecast-card {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		gap: 16px;
-		padding: 16px;
-		background-color: rgba(15, 22, 35, 0.6);
-		border: 1px solid rgba(255, 255, 255, 0.06);
-		border-radius: 16px;
-		transition: all 0.3s ease;
+		gap: var(--weather-spacing-md);
+		padding: var(--weather-spacing-md);
+		background-color: var(--weather-card-bg);
+		border: 1px solid var(--weather-border);
+		border-radius: var(--weather-radius-md);
+		transition: all var(--easing);
 		min-width: 200px;
+		text-decoration: none;
 	}
 
 	.forecast-card:hover {
-		background-color: rgba(15, 22, 35, 0.9);
-		border-color: rgba(165, 180, 252, 0.15);
-		transform: translateY(-2px);
+		background-color: var(--weather-card-bg-hover);
+		border-color: var(--weather-border-hover);
+		transform: var(--weather-transform);
 	}
 
 	.forecast-icon-wrapper {
@@ -77,7 +83,7 @@
 	.forecast-date {
 		font-size: 14px;
 		font-weight: 500;
-		color: #94a3b8;
+		color: var(--weather-text-secondary);
 	}
 
 	.forecast-temp {
@@ -87,15 +93,15 @@
 	}
 
 	.temp-high {
-		font-size: 22px;
+		font-size: var(--weather-temp-md);
 		font-weight: 500;
-		color: #f1f5f9;
+		color: var(--weather-text-primary);
 	}
 
 	.temp-low {
-		font-size: 18px;
+		font-size: var(--weather-temp-sm);
 		font-weight: 400;
-		color: #64748b;
+		color: var(--weather-text-muted);
 	}
 
 	.forecast-details {
@@ -107,16 +113,16 @@
 	.detail-item {
 		display: flex;
 		align-items: center;
-		gap: 6px;
+		gap: var(--weather-spacing-xs);
 		font-size: 12px;
 	}
 
 	.detail-label {
-		color: #475569;
+		color: var(--weather-text-label);
 	}
 
 	.detail-value {
-		color: #94a3b8;
+		color: var(--weather-text-secondary);
 		font-weight: 500;
 	}
 </style>

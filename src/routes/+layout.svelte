@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/state';
-	import { Modals, modals } from 'svelte-modals';
+	import { createModal } from '$lib/stores/modal.svelte';
 
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
@@ -8,9 +8,11 @@
 
 	import FabWhatsapp from '$lib/components/FabWhatsapp.svelte';
 	import LangToggle from '$lib/components/LangToggle.svelte';
-	import * as m from '$lib/paraglide/messages.js';
+	import Modal from '$lib/components/Modal.svelte';
 
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+
+	createModal();
 
 	let { children } = $props();
 	let path = $derived(page.url.pathname);
@@ -56,18 +58,7 @@
 
 <svelte:window bind:scrollY={scrolled} bind:innerHeight={winHeight} />
 
-<Modals>
-	{#snippet backdrop()}
-		<div
-			class="backdrop"
-			role="button"
-			tabindex="0"
-			aria-label={m.aria_close()}
-			onclick={() => modals.close()}
-			onkeydown={(e) => e.key === 'Escape' && modals.close()}
-		></div>
-	{/snippet}
-</Modals>
+<Modal />
 
 <LangToggle />
 <Header />
@@ -81,15 +72,6 @@
 </main>
 
 <style>
-	.backdrop {
-		z-index: var(--z-modal);
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		right: 0;
-		left: 0;
-		background: var(--backdrop);
-	}
 	main {
 		position: relative;
 		background: linear-gradient(

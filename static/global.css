@@ -176,6 +176,113 @@
 	--toggle-chevron: url('/icons/toggle.webp');
 	--airbnb: url('/icons/airbnb.webp');
 	--booking: url('/icons/booking.webp');
+
+	/* Weather Widget Theme */
+	--weather-bg: #0f1623;
+	--weather-card-bg: rgba(15, 22, 35, 0.6);
+	--weather-card-bg-hover: rgba(15, 22, 35, 0.9);
+	--weather-icon-bg: rgba(165, 180, 252, 0.08);
+	--weather-icon-bg-hover: rgba(165, 180, 252, 0.14);
+	--weather-toggle-bg: rgba(255, 255, 255, 0.04);
+	--weather-toggle-bg-hover: rgba(255, 255, 255, 0.08);
+	--weather-badge-bg: rgba(165, 180, 252, 0.1);
+	--weather-border: rgba(255, 255, 255, 0.06);
+	--weather-border-hover: rgba(165, 180, 252, 0.15);
+	--weather-divider: rgba(255, 255, 255, 0.06);
+	--weather-text-primary: #f1f5f9;
+	--weather-text-secondary: #94a3b8;
+	--weather-text-muted: #64748b;
+	--weather-text-label: #475569;
+	--weather-text-light: #e2e8f0;
+	--weather-accent: #a5b4fc;
+	--weather-accent-hover: #cbd5e1;
+	--weather-temp-lg: 56px;
+	--weather-temp-md: 22px;
+	--weather-temp-sm: 18px;
+	--weather-spacing-xs: 6px;
+	--weather-spacing-sm: 8px;
+	--weather-spacing-md: 16px;
+	--weather-spacing-lg: 20px;
+	--weather-radius-lg: 20px;
+	--weather-radius-md: 16px;
+	--weather-radius-sm: 12px;
+	--weather-radius-full: 9999px;
+	--weather-icon-size-sm: 32px;
+	--weather-icon-size-md: 48px;
+	--weather-icon-size-lg: 64px;
+	--weather-transform: translateY(-2px);
+
+	/* Weather Widget Theme - Dark */
+	[data-theme='dark'] {
+		--weather-bg: #0f1623;
+		--weather-card-bg: rgba(15, 22, 35, 0.6);
+		--weather-card-bg-hover: rgba(15, 22, 35, 0.9);
+		--weather-icon-bg: rgba(165, 180, 252, 0.08);
+		--weather-icon-bg-hover: rgba(165, 180, 252, 0.14);
+		--weather-toggle-bg: var(--weather-bg);
+		--weather-toggle-bg-hover: rgba(15, 22, 35, 0.8);
+		--weather-badge-bg: rgba(165, 180, 252, 0.1);
+		--weather-border: var(--weather-accent);
+		--weather-border-hover: rgba(165, 180, 252, 0.3);
+		--weather-divider: rgba(255, 255, 255, 0.06);
+		--weather-text-primary: #f1f5f9;
+		--weather-text-secondary: #94a3b8;
+		--weather-text-muted: #64748b;
+		--weather-text-label: #475569;
+		--weather-text-light: #e2e8f0;
+		--weather-accent: #a5b4fc;
+		--weather-accent-hover: #cbd5e1;
+		--weather-temp-lg: 56px;
+		--weather-temp-md: 22px;
+		--weather-temp-sm: 18px;
+		--weather-spacing-xs: 6px;
+		--weather-spacing-sm: 8px;
+		--weather-spacing-md: 16px;
+		--weather-spacing-lg: 20px;
+		--weather-radius-lg: 20px;
+		--weather-radius-md: 16px;
+		--weather-radius-sm: 12px;
+		--weather-radius-full: 9999px;
+		--weather-icon-size-sm: 32px;
+		--weather-icon-size-md: 48px;
+		--weather-icon-size-lg: 64px;
+	}
+
+	/* Weather Widget Theme - Light */
+	[data-theme='light'] {
+		--weather-bg: #f8fafc;
+		--weather-card-bg: rgba(255, 255, 255, 0.7);
+		--weather-card-bg-hover: rgba(255, 255, 255, 0.95);
+		--weather-icon-bg: rgba(14, 165, 233, 0.1);
+		--weather-icon-bg-hover: rgba(14, 165, 233, 0.2);
+		--weather-toggle-bg: rgba(15, 23, 42, 0.12);
+		--weather-toggle-bg-hover: rgba(15, 23, 42, 0.18);
+		--weather-badge-bg: rgba(14, 165, 233, 0.15);
+		--weather-border: rgba(15, 23, 42, 0.15);
+		--weather-border-hover: rgba(14, 165, 233, 0.3);
+		--weather-divider: rgba(15, 23, 42, 0.06);
+		--weather-text-primary: #0f172a;
+		--weather-text-secondary: #475569;
+		--weather-text-muted: #64748b;
+		--weather-text-label: #94a3b8;
+		--weather-text-light: var(--surface-color-dark);
+		--weather-accent: #0ea5e9;
+		--weather-accent-hover: #0284c7;
+		--weather-temp-lg: 56px;
+		--weather-temp-md: 22px;
+		--weather-temp-sm: 18px;
+		--weather-spacing-xs: 6px;
+		--weather-spacing-sm: 8px;
+		--weather-spacing-md: 16px;
+		--weather-spacing-lg: 20px;
+		--weather-radius-lg: 20px;
+		--weather-radius-md: 16px;
+		--weather-radius-sm: 12px;
+		--weather-radius-full: 9999px;
+		--weather-icon-size-sm: 32px;
+		--weather-icon-size-md: 48px;
+		--weather-icon-size-lg: 64px;
+	}
 }
 
 html {

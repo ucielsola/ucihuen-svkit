@@ -1,24 +1,18 @@
-<script>
+<script lang="ts">
 	import { scale } from 'svelte/transition';
 	import { expoInOut } from 'svelte/easing';
-	import { modals } from 'svelte-modals';
+	import { getModal } from '$lib/stores/modal.svelte';
 	import * as m from '$lib/paraglide/messages.js';
 
 	let { isOpen, src, alt = 'Cabañas Ucihuen' } = $props();
 
-	function handleKeydown(e) {
-		if (e.key === 'Escape') {
-			modals.close();
-		}
-	}
+	const modal = getModal();
 </script>
-
-<svelte:window onkeydown={handleKeydown} />
 
 {#if isOpen}
 	<div class="modal">
 		<div class="contents">
-			<button class="close-btn" onclick={() => modals.close()} aria-label={m.aria_close_image()}>
+			<button class="close-btn" onclick={() => modal.close()} aria-label={m.aria_close_image()}>
 				&times;
 			</button>
 			<img

@@ -43,7 +43,7 @@
 	}
 
 	.stat-icon {
-		color: #475569;
+		color: var(--weather-text-label);
 		flex-shrink: 0;
 	}
 
@@ -56,13 +56,13 @@
 	.stat-value {
 		font-size: 14px;
 		font-weight: 500;
-		color: #cbd5e1;
+		color: var(--weather-accent-hover);
 		letter-spacing: -0.01em;
 	}
 
 	.stat-label {
 		font-size: 11px;
-		color: #475569;
+		color: var(--weather-text-label);
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
 	}
@@ -70,6 +70,6 @@
 	.stat-divider {
 		width: 1px;
 		height: 32px;
-		background-color: rgba(255, 255, 255, 0.06);
+		background-color: var(--weather-divider);
 	}
 </style>
