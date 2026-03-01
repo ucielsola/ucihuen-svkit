@@ -22,8 +22,8 @@
 
 	@media screen and (min-width: 1024px) {
 		.forecast-container {
-			max-width: 400px;
-			grid-template-columns: repeat(2, 1fr);
+			max-width: 800px;
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 </style>

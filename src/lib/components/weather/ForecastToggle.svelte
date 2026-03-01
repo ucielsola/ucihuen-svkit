@@ -32,7 +32,7 @@
 		background-color: rgba(255, 255, 255, 0.04);
 		border: 1px solid rgba(255, 255, 255, 0.08);
 		border-radius: 12px;
-		color: #94a3b8;
+		color: #e2e8f0;
 		font-size: 13px;
 		font-weight: 500;
 		cursor: pointer;
@@ -43,7 +43,7 @@
 
 	.forecast-toggle:hover {
 		background-color: rgba(255, 255, 255, 0.08);
-		color: #cbd5e1;
+		color: #f1f5f9;
 	}
 
 	.chevron {

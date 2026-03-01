@@ -153,6 +153,7 @@
 		backdrop-filter: blur(4px);
 		z-index: 9998;
 		animation: fadeIn 0.2s ease;
+		cursor: pointer;
 	}
 
 	.modal {
