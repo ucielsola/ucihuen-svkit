@@ -82,6 +82,9 @@
 
 	"weather_title": "Clima em Lago Puelo",
 	"weather_feels_like": "Sensação:",
+	"weather_feels_like_text": "Sensação térmica de",
+	"weather_wind": "Vento",
+	"weather_humidity": "Umidade",
 	"weather_clear": "Céu limpo",
 	"weather_mainly_clear": "Predominantemente limpo",
 	"weather_partly_cloudy": "Parcialmente nublado",
@@ -140,5 +143,7 @@
 	"excursion_tag_gastronomy": "Gastronomia",
 	"excursion_tag_family": "Família",
 
-	"home_vertical_banner_alt": "Vista do parque das Cabañas Ucihuen com árvores frutíferas e montanhas ao fundo"
+	"home_vertical_banner_alt": "Vista do parque das Cabañas Ucihuen com árvores frutíferas e montanhas ao fundo",
+
+	"review_posted_on_google": "Publicado no Google"
 }

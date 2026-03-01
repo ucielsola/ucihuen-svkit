@@ -2,6 +2,8 @@
 	import { Swiper, SwiperSlide } from 'swiper/svelte';
 	import { Autoplay } from 'swiper/core';
 	import 'swiper/css';
+	import ReviewCard from './ReviewCard.svelte';
+
 	let { reviews } = $props();
 
 	const BATCH = 8;
@@ -15,9 +17,6 @@
 			return () => clearTimeout(timer);
 		}
 	});
-
-	const placeholder =
-		'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="120" height="120"%3E%3Ccircle cx="60" cy="60" r="60" fill="%23e0e0e0"/%3E%3C/svg%3E';
 </script>
 
 <div id="swiper-container">
@@ -53,88 +52,16 @@
 	>
 		{#each reviews as rev, i}
 			<SwiperSlide>
-				<a
-					href={rev.review_link}
-					class="review-container"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<div class="row">
-						<img
-							src={i < loaded ? rev.autor_image : placeholder}
-							alt="Google Reviews Cabañas Ucihuen"
-							class="avatar"
-						/>
-						<div class="col-wrapper">
-							<span class="name">{rev.autor_name}</span>
-							<span class="date">{rev.review_date}</span>
-						</div>
-					</div>
-
-					<div class="row description">
-						<p>
-							{rev.review_text.length > 120
-								? rev.review_text.substring(0, 120) + '...'
-								: rev.review_text}
-						</p>
-					</div>
-				</a>
+				<ReviewCard
+					name={rev.autor_name}
+					avatarUrl={rev.autor_image}
+					rating={rev.review_rating}
+					date={rev.review_date}
+					text={rev.review_text}
+					link={rev.review_link}
+					imageLoaded={i < loaded}
+				/>
 			</SwiperSlide>
 		{/each}
 	</Swiper>
 </div>
-
-<style>
-	.review-container {
-		display: flex;
-		flex-flow: column nowrap;
-		min-height: 14rem;
-		padding: 1rem;
-		border: 1px solid #57575717;
-		border-radius: var(--radius-sm);
-		box-shadow: var(--shadow);
-		background-color: var(--backdrop-light);
-		text-decoration: none;
-		color: var(--text-color);
-	}
-	.row {
-		display: flex;
-		align-items: center;
-		width: 100%;
-	}
-
-	.row.description {
-		height: 100%;
-		align-items: start;
-		padding-block-start: 1rem;
-	}
-	.avatar {
-		width: 3.5rem;
-		height: 3.5rem;
-		margin-inline-end: 1.5rem;
-	}
-
-	.col-wrapper {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-	}
-	.name {
-		font-weight: var(--font-semibold);
-	}
-
-	@media screen and (min-width: 1024px) {
-		.review-container {
-			min-height: 17.5rem;
-		}
-
-		.review-container {
-			display: flex;
-			transition: transform 0.2s var(--easing);
-		}
-
-		.review-container:hover {
-			transform: scale(1.01);
-		}
-	}
-</style>
