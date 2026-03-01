@@ -1,10 +1,11 @@
 <script>
+	import * as m from '$lib/paraglide/messages.js';
+
 	let { expanded = false, onToggle } = $props();
 </script>
 
 <button
 	class="forecast-toggle"
-	class:expanded={expanded}
 	onclick={onToggle}
 	onkeydown={(e) => {
 		if (e.key === 'Enter' || e.key === ' ') {
@@ -13,7 +14,7 @@
 	}}
 	aria-expanded={expanded}
 >
-	<span class="toggle-text">{expanded ? 'Ocultar pronóstico' : 'Ver pronóstico 7 días'}</span>
+	<span class="toggle-text">{m.weather_view_forecast()}</span>
 	<svg
 		width="20"
 		height="20"
@@ -25,11 +26,7 @@
 		stroke-linejoin="round"
 		class="chevron"
 	>
-		{#if expanded}
-			<path d="m18 15-6-6-6 6" />
-		{:else}
-			<path d="m6 9 6 6 6-6" />
-		{/if}
+		<path d="m6 9 6 6 6-6" />
 	</svg>
 </button>
 
@@ -58,14 +55,7 @@
 		color: #cbd5e1;
 	}
 
-	.forecast-toggle.expanded {
-		background-color: rgba(165, 180, 252, 0.1);
-		border-color: rgba(165, 180, 252, 0.2);
-		color: #a5b4fc;
-	}
-
 	.chevron {
-		transition: transform 0.3s ease;
 		flex-shrink: 0;
 	}
 </style>

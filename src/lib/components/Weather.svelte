@@ -50,7 +50,26 @@
 	<ForecastToggle {expanded} onToggle={() => (expanded = !expanded)} />
 
 	{#if expanded}
-		<ForecastContainer forecast={weather.forecast} />
+		<button
+			class="backdrop"
+			onclick={() => (expanded = false)}
+			onkeydown={(e) => e.key === 'Escape' && (expanded = false)}
+			aria-label={m.weather_close()}
+		></button>
+		<div class="modal">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 class="modal-title">{m.weather_forecast_title()}</h2>
+					<button class="modal-close" onclick={() => (expanded = false)} aria-label={m.weather_close()}>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M18 6 6 18" />
+							<path d="m6 6 12 12" />
+						</svg>
+					</button>
+				</div>
+				<ForecastContainer forecast={weather.forecast} />
+			</div>
+		</div>
 	{/if}
 {/if}
 
@@ -126,6 +145,89 @@
 	@media screen and (min-width: 1024px) {
 		.widget {
 			max-width: 400px;
+		}
+	}
+
+	.backdrop {
+		position: fixed;
+		inset: 0;
+		background-color: rgba(0, 0, 0, 0.6);
+		backdrop-filter: blur(4px);
+		z-index: 9998;
+		animation: fadeIn 0.2s ease;
+	}
+
+	.modal {
+		position: fixed;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 9999;
+		padding: 20px;
+		animation: slideUp 0.3s ease;
+	}
+
+	.modal-content {
+		background-color: #0f1623;
+		border-radius: 20px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 24px;
+		max-width: 800px;
+		max-height: 90vh;
+		overflow-y: auto;
+	}
+
+	.modal-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 20px;
+	}
+
+	.modal-title {
+		font-size: 18px;
+		font-weight: 600;
+		color: #f1f5f9;
+		margin: 0;
+	}
+
+	.modal-close {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		border-radius: 10px;
+		background-color: rgba(255, 255, 255, 0.05);
+		border: none;
+		color: #94a3b8;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.modal-close:hover {
+		background-color: rgba(255, 255, 255, 0.1);
+		color: #f1f5f9;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes slideUp {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
 		}
 	}
 </style>

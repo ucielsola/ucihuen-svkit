@@ -97,6 +97,9 @@
 	"weather_thunderstorm": "Tormenta eléctrica",
 	"weather_unknown": "Desconocido",
 	"weather_aria_label": "Clima actual en Lago Puelo",
+	"weather_view_forecast": "Ver pronóstico 7 días",
+	"weather_forecast_title": "Pronóstico 7 días",
+	"weather_close": "Cerrar",
 
 	"nav_excursions": "Paseos",
 	"excursions_title": "Paseos Recomendados - Cabañas Ucihuen",

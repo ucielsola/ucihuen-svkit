@@ -97,6 +97,9 @@
 	"weather_thunderstorm": "Thunderstorm",
 	"weather_unknown": "Unknown",
 	"weather_aria_label": "Current weather in Lago Puelo",
+	"weather_view_forecast": "View 7-day forecast",
+	"weather_forecast_title": "7-Day Forecast",
+	"weather_close": "Close",
 
 	"nav_excursions": "Walks",
 	"excursions_title": "Recommended Walks - Cabañas Ucihuen",
