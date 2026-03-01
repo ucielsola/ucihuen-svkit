@@ -1,6 +1,7 @@
 <script>
 	import { getWeatherDescriptionKey } from '$lib/services/weather.js';
 	import * as m from '$lib/paraglide/messages.js';
+	import { X } from 'lucide-svelte';
 	import WeatherSkeleton from './weather/WeatherSkeleton.svelte';
 	import WeatherHeader from './weather/WeatherHeader.svelte';
 	import WeatherIcon from './weather/WeatherIcon.svelte';
@@ -61,10 +62,7 @@
 				<div class="modal-header">
 					<h2 class="modal-title">{m.weather_forecast_title()}</h2>
 					<button class="modal-close" onclick={() => (expanded = false)} aria-label={m.weather_close()}>
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<path d="M18 6 6 18" />
-							<path d="m6 6 12 12" />
-						</svg>
+						<X size={20} />
 					</button>
 				</div>
 				<ForecastContainer forecast={weather.forecast} />
