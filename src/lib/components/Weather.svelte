@@ -18,7 +18,7 @@
 	let expanded = $state(false);
 	let hovered = $state(false);
 	let theme = $state(getThemeByTime());
-	let widgetElement = $state(null);
+	let widgetElement: HTMLElement | undefined = $state();
 
 	$effect(() => {
 		if (widgetElement) {
@@ -32,14 +32,12 @@
 {/if}
 
 {#if weather && info}
-	<a
-		href="https://www.clima.com/argentina/chubut/lago-puelo"
-		target="_blank"
-		rel="noopener noreferrer"
+	<button
 		class="widget"
 		aria-label={m.weather_aria_label()}
 		onmouseenter={() => (hovered = true)}
 		onmouseleave={() => (hovered = false)}
+		onclick={() => (expanded = true)}
 		bind:this={widgetElement}
 	>
 		<div class="glow" class:glow-active={hovered}></div>
@@ -56,7 +54,7 @@
 		<div class="divider"></div>
 
 		<WeatherStats windSpeed={weather.current.wind_speed} precipitation={weather.current.precipitation} />
-	</a>
+	</button>
 
 	<ForecastToggle {expanded} {theme} onToggle={() => (expanded = !expanded)} />
 
@@ -103,7 +101,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--weather-spacing-lg);
-		text-decoration: none;
+		cursor: pointer;
 	}
 
 	.widget:hover {
