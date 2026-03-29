@@ -11,7 +11,7 @@
 	let { data } = $props();
 </script>
 
-<SEO title={m.home_title()} description={m.home_meta_description()} reviewStats={data.reviewStats} />
+<SEO title={m.home_title()} description={m.home_meta_description()} />
 
 <div class="desktop-grid limited-width">
 	<section id="inicio" class="description marginated">

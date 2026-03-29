@@ -30,7 +30,7 @@ Marketing/landing website for "Cabañas Ucihuen", a cabin rental business in Lag
 
 Two routes: `/` (home) and `/galeria` (photo gallery).
 
-- **Home** (`+page.server.js`): fetches Google Places reviews, merges with local JSON (`src/lib/data/reviews.min.json`), filters to 4+ stars with text. Falls back to local-only on API failure.
+- **Home** (`+page.server.ts`): fetches reviews from custom API (`http://api.uciel.xyz/api/google-reviews/reviews`), filters to 4+ stars with text. Falls back to local JSON (`src/lib/data/reviews.min.json`) on API failure.
 - **Gallery** (`+page.server.js`): fetches image paths from ImageKit API, falls back to hardcoded file lists.
 - **Sitemap** (`src/routes/sitemap.xml/+server.js`): generates XML sitemap with hreflang alternate links.
 
@@ -40,8 +40,7 @@ Components in `src/lib/components/`. Utilities: `src/lib/imagekit.js` (CDN URL b
 
 ### Environment Variables
 
-- `PRIVATE_GOOGLE_API_KEY` — Google Places API (reviews)
-- `PUBLIC_GOOGLE_PLACE_ID` — Google Place ID
+- `UCIEL_API_KEY` — Reviews API (server-side, Bearer token auth)
 - `PUBLIC_GOOGLE_API_KEY` — Google Maps embed
 - `PRIVATE_IMAGEKIT_KEY` — ImageKit server-side asset listing
 - `PUBLIC_OPENWEATHERMAP_API_KEY` — Weather widget
