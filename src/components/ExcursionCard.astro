@@ -1,0 +1,228 @@
+---
+import { getMessages } from '$lib/messages';
+
+interface Props {
+	excursion: {
+		titleKey: string;
+		descKey: string;
+		tagKeys: string[];
+		image: string;
+		mapsUrl: string;
+		websiteUrl?: string;
+	};
+	locale: string;
+	messages: Record<string, string>;
+}
+
+const { excursion, locale, messages } = Astro.props;
+const m = messages;
+
+const title = m[excursion.titleKey] || excursion.titleKey;
+const desc = m[excursion.descKey] || excursion.descKey;
+const tags = excursion.tagKeys.map((k) => m[k] || k);
+const TRUNCATE_LENGTH = 120;
+const needsTruncation = desc.length > TRUNCATE_LENGTH;
+const displayDesc = needsTruncation ? desc.slice(0, TRUNCATE_LENGTH) + '…' : desc;
+---
+
+<article
+	class="card"
+	data-desc-full={desc}
+	data-desc-truncated={displayDesc}
+	data-read-more={m.excursion_read_more}
+	data-read-less={m.excursion_read_less}
+>
+	<div class="card-image">
+		{excursion.image && (
+			<img src={excursion.image} alt={title} loading="lazy" />
+		)}
+	</div>
+
+	<div class="card-content">
+		<h3>{title}</h3>
+
+		{tags.length > 0 && (
+			<div class="tags">
+				{tags.map((tag) => (
+					<span class="tag">{tag}</span>
+				))}
+			</div>
+		)}
+
+		<p class="desc-text">{needsTruncation ? displayDesc : desc}</p>
+
+		{needsTruncation && (
+			<button class="toggle-btn">
+				{m.excursion_read_more}
+			</button>
+		)}
+
+		<div class="links">
+			<a href={excursion.mapsUrl} target="_blank" rel="noopener noreferrer">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="16"
+					height="16"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+					<path d="M9.11 3a2 2 0 0 0 .414.191C11.817 4.245 14 7.532 14 11.05v.95a2 2 0 0 1-2 2h-.452c-.365 0-.712-.128-.997-.362l-2.098-1.771a2 2 0 0 0-2.906.207l-.247.282a2 2 0 0 1-2.895.249" />
+				</svg>
+				{m.excursion_directions}
+			</a>
+			{excursion.websiteUrl && (
+				<a href={excursion.websiteUrl} target="_blank" rel="noopener noreferrer">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="16"
+						height="16"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<circle cx="12" cy="12" r="10" />
+						<path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+						<path d="M2 12h20" />
+					</svg>
+					{m.excursion_website}
+				</a>
+			)}
+		</div>
+	</div>
+</article>
+
+<script>
+	function initExcursionCards() {
+		document.querySelectorAll<HTMLElement>('article.card[data-desc-full]').forEach((card) => {
+			const btn = card.querySelector<HTMLButtonElement>('.toggle-btn');
+			const descEl = card.querySelector<HTMLElement>('.desc-text');
+			if (!btn || !descEl) return;
+
+			const fullDesc = card.dataset.descFull || '';
+			const truncatedDesc = card.dataset.descTruncated || '';
+			const readMore = card.dataset.readMore || 'Read more';
+			const readLess = card.dataset.readLess || 'Read less';
+			let expanded = false;
+
+			btn.addEventListener('click', () => {
+				expanded = !expanded;
+				descEl.textContent = expanded ? fullDesc : truncatedDesc;
+				btn.textContent = expanded ? readLess : readMore;
+			});
+		});
+	}
+
+	initExcursionCards();
+</script>
+
+<style>
+	.card {
+		background: var(--surface-color);
+		border-radius: var(--radius-sm);
+		box-shadow: var(--shadow);
+		overflow: hidden;
+	}
+
+	.card-image {
+		aspect-ratio: 16 / 9;
+		background: var(--gradient);
+		overflow: hidden;
+	}
+
+	.card-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.card-content {
+		padding: var(--space-md);
+	}
+
+	h3 {
+		font-family: var(--font-heading);
+		font-size: var(--text-xl);
+		margin: 0 0 var(--space-sm);
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-xs);
+		margin-block-end: var(--space-sm);
+	}
+
+	.tag {
+		display: inline-block;
+		font-size: var(--text-xs);
+		padding: 0.15rem 0.5rem;
+		border-radius: 999px;
+		background: var(--highlight-color);
+		color: var(--surface-color);
+		font-weight: var(--font-semibold);
+		letter-spacing: var(--tracking-wide);
+	}
+
+	p {
+		font-size: var(--text-base);
+		line-height: var(--leading-relaxed);
+		margin: 0 0 var(--space-sm);
+		color: var(--base-color);
+	}
+
+	.toggle-btn {
+		background: none;
+		border: none;
+		color: var(--primary-color);
+		cursor: pointer;
+		font-size: var(--text-base);
+		font-weight: var(--font-semibold);
+		padding: 0;
+		margin-block-end: var(--space-sm);
+	}
+
+	.links {
+		display: flex;
+		gap: var(--space-md);
+		flex-wrap: wrap;
+	}
+
+	.links a {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--space-xs);
+		font-size: var(--text-base);
+		font-weight: var(--font-semibold);
+		color: var(--primary-color);
+		text-decoration: none;
+		padding: 0.4rem 0.75rem;
+		border: 1.5px solid var(--primary-color);
+		border-radius: var(--radius-sm);
+		transition:
+			background 0.2s,
+			color 0.2s;
+	}
+
+	.links a:hover {
+		background: var(--primary-color);
+		color: var(--surface-color);
+	}
+
+	@media screen and (min-width: 1024px) {
+		h3 {
+			font-size: var(--text-xl);
+		}
+
+		p {
+			font-size: var(--text-base);
+		}
+	}
+</style>

@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SEO from '../components/SEO.astro';
+import PaseosPage from '../components/PaseosPage.astro';
+import { getMessages } from '../lib/messages';
+
+const locale = Astro.currentLocale || 'es';
+const m = getMessages(locale);
+---
+
+<Layout locale={locale}>
+	<SEO title={m.excursions_title} description={m.excursions_meta_description} locale={locale} />
+	<PaseosPage locale={locale} m={m} />
+</Layout>

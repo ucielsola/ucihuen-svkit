@@ -1,0 +1,27 @@
+---
+import GaleriaSection from './GaleriaSection.svelte';
+
+interface Props {
+	locale: string;
+	slidesData: any[];
+}
+
+const { locale, slidesData } = Astro.props;
+---
+
+<section id="galeria">
+	<GaleriaSection client:visible sections={slidesData} locale={locale} />
+</section>
+
+<style>
+	section {
+		padding: 0;
+		margin-block-start: 2rem;
+	}
+
+	@media screen and (min-width: 1024px) {
+		section {
+			margin-block-start: 3rem;
+		}
+	}
+</style>

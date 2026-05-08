@@ -1,10 +1,8 @@
-import * as m from '$lib/paraglide/messages';
-
 interface Excursion {
 	id: number;
-	title: () => string;
-	description: () => string;
-	tags: (() => string)[];
+	titleKey: string;
+	descKey: string;
+	tagKeys: string[];
 	image: string;
 	mapsUrl: string;
 	websiteUrl: string | null;
@@ -13,9 +11,9 @@ interface Excursion {
 export const excursions: Excursion[] = [
 	{
 		id: 1,
-		title: m.excursion_1_title,
-		description: m.excursion_1_desc,
-		tags: [m.excursion_tag_nature, m.excursion_tag_trails, m.excursion_tag_trekking],
+		titleKey: 'excursion_1_title',
+		descKey: 'excursion_1_desc',
+		tagKeys: ['excursion_tag_nature', 'excursion_tag_trails', 'excursion_tag_trekking'],
 		image: '/paseos/puelo.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Lago+Puelo+National+Park,+Unnamed+Road,,+Chubut/',
@@ -23,9 +21,9 @@ export const excursions: Excursion[] = [
 	},
 	{
 		id: 2,
-		title: m.excursion_2_title,
-		description: m.excursion_2_desc,
-		tags: [m.excursion_tag_beach, m.excursion_tag_trekking, m.excursion_tag_nature],
+		titleKey: 'excursion_2_title',
+		descKey: 'excursion_2_desc',
+		tagKeys: ['excursion_tag_beach', 'excursion_tag_trekking', 'excursion_tag_nature'],
 		image: '/paseos/pasarela.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Pasarela+R%C3%ADo+Azul,+costa+r%C3%ADo+azul,+C.+Roca+del+Tiempo,+U9211+Lago+Puelo,+Chubut/',
@@ -34,9 +32,9 @@ export const excursions: Excursion[] = [
 	},
 	{
 		id: 3,
-		title: m.excursion_3_title,
-		description: m.excursion_3_desc,
-		tags: [m.excursion_tag_beach, m.excursion_tag_nature, m.excursion_tag_trails],
+		titleKey: 'excursion_3_title',
+		descKey: 'excursion_3_desc',
+		tagKeys: ['excursion_tag_beach', 'excursion_tag_nature', 'excursion_tag_trails'],
 		image: '/paseos/cayun.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Balneario+Cayun,+Chubut/',
@@ -44,9 +42,9 @@ export const excursions: Excursion[] = [
 	},
 	{
 		id: 4,
-		title: m.excursion_4_title,
-		description: m.excursion_4_desc,
-		tags: [m.excursion_tag_market, m.excursion_tag_gastronomy, m.excursion_tag_family],
+		titleKey: 'excursion_4_title',
+		descKey: 'excursion_4_desc',
+		tagKeys: ['excursion_tag_market', 'excursion_tag_gastronomy', 'excursion_tag_family'],
 		image: '/paseos/feria-artesana.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Feria+Regional+El+Bols%C3%B3n,+Gral.+Roca,+R8430+El+Bols%C3%B3n,+R%C3%ADo+Negro/',
@@ -54,9 +52,9 @@ export const excursions: Excursion[] = [
 	},
 	{
 		id: 5,
-		title: m.excursion_5_title,
-		description: m.excursion_5_desc,
-		tags: [m.excursion_tag_adventure, m.excursion_tag_nature, m.excursion_tag_family],
+		titleKey: 'excursion_5_title',
+		descKey: 'excursion_5_desc',
+		tagKeys: ['excursion_tag_adventure', 'excursion_tag_nature', 'excursion_tag_family'],
 		image: '/paseos/laberinto.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Laberinto+Patagonia,+km+3,7+Camino+a,+El+Desemboque,+U9211+El+Hoyo,+Chubut/',
@@ -64,9 +62,9 @@ export const excursions: Excursion[] = [
 	},
 	{
 		id: 6,
-		title: m.excursion_6_title,
-		description: m.excursion_6_desc,
-		tags: [m.excursion_tag_ski, m.excursion_tag_adventure, m.excursion_tag_trekking],
+		titleKey: 'excursion_6_title',
+		descKey: 'excursion_6_desc',
+		tagKeys: ['excursion_tag_ski', 'excursion_tag_adventure', 'excursion_tag_trekking'],
 		image: '/paseos/ski.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Cerro+Perito+Moreno,+R%C3%ADo+Negro+Province/',
@@ -74,9 +72,9 @@ export const excursions: Excursion[] = [
 	},
 	{
 		id: 7,
-		title: m.excursion_7_title,
-		description: m.excursion_7_desc,
-		tags: [m.excursion_tag_beach, m.excursion_tag_water_sports, m.excursion_tag_nature],
+		titleKey: 'excursion_7_title',
+		descKey: 'excursion_7_desc',
+		tagKeys: ['excursion_tag_beach', 'excursion_tag_water_sports', 'excursion_tag_nature'],
 		image: '/paseos/patriada.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Puerto+Patriada,+RFM5%2B3W,+El+Hoyo,+Chubut/',
@@ -84,9 +82,9 @@ export const excursions: Excursion[] = [
 	},
 	{
 		id: 8,
-		title: m.excursion_8_title,
-		description: m.excursion_8_desc,
-		tags: [m.excursion_tag_nature, m.excursion_tag_trails, m.excursion_tag_family],
+		titleKey: 'excursion_8_title',
+		descKey: 'excursion_8_desc',
+		tagKeys: ['excursion_tag_nature', 'excursion_tag_trails', 'excursion_tag_family'],
 		image: '/paseos/confluencia.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Pasarela+La+Confluencia,+Chubut/',
@@ -94,9 +92,9 @@ export const excursions: Excursion[] = [
 	},
 	{
 		id: 9,
-		title: m.excursion_9_title,
-		description: m.excursion_9_desc,
-		tags: [m.excursion_tag_trekking, m.excursion_tag_viewpoint, m.excursion_tag_nature],
+		titleKey: 'excursion_9_title',
+		descKey: 'excursion_9_desc',
+		tagKeys: ['excursion_tag_trekking', 'excursion_tag_viewpoint', 'excursion_tag_nature'],
 		image: '/paseos/mirador.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/Sendero+Mirador+del+Lago,+Chubut/',
@@ -104,9 +102,9 @@ export const excursions: Excursion[] = [
 	},
 	{
 		id: 10,
-		title: m.excursion_10_title,
-		description: m.excursion_10_desc,
-		tags: [m.excursion_tag_history, m.excursion_tag_trails, m.excursion_tag_nature],
+		titleKey: 'excursion_10_title',
+		descKey: 'excursion_10_desc',
+		tagKeys: ['excursion_tag_history', 'excursion_tag_trails', 'excursion_tag_nature'],
 		image: '/paseos/pobladores.webp',
 		mapsUrl:
 			'https://www.google.com/maps/dir/Caba%C3%B1as+Ucihuen,+Los+Coihues+entre+Los+Alerces,+Las+Lauras+y,+U8431+Lago+Puelo,+Chubut/-42.082592,-71.5963947/@-42.0829035,-71.5967969,18.29z/data=!4m9!4m8!1m5!1m1!1s0x961bec990d4c5455:0xe7f57694b5338ff2!2m2!1d-71.6009084!2d-42.068482!1m0!3e0?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D',
