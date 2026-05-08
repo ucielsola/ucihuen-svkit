@@ -1,44 +1,28 @@
 {
 	"name": "ucihuen",
-	"version": "0.0.1",
+	"version": "1.0.0",
+	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --ignore-path .gitignore --check . && eslint --ignore-path .gitignore .",
-		"format": "prettier --ignore-path .gitignore --write ."
-	},
-	"devDependencies": {
-		"@inlang/paraglide-js": "^2.10.0",
-		"@sveltejs/adapter-vercel": "^5",
-		"@sveltejs/kit": "^2",
-		"@sveltejs/vite-plugin-svelte": "^5",
-		"@tsconfig/strictest": "^2.0.8",
-		"@tsconfig/svelte": "^5.0.8",
-		"@types/node": "^25.3.3",
-		"@typescript-eslint/eslint-plugin": "^8.56.1",
-		"@typescript-eslint/parser": "^8.56.1",
-		"eslint": "^8.0.0",
-		"eslint-config-prettier": "^9.0.0",
-		"eslint-plugin-svelte": "^2.46.1",
-		"prettier": "^3.1.0",
-		"prettier-plugin-svelte": "^3.2.6",
-		"svelte": "^5.0.0",
-		"svelte-check": "^4.4.4",
-		"svelte-preprocess": "^6.0.3",
-		"typescript": "^5.9.3",
-		"typescript-eslint": "^8.56.1",
-		"vite": "^6",
-		"vite-plugin-devtools-json": "^1.0.0"
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"lint": "prettier --ignore-path .gitignore --check ."
 	},
 	"dependencies": {
 		"@imagekit/javascript": "^5.2.1",
-		"@imagekit/nodejs": "^7.3.0",
 		"@vercel/analytics": "^1.6.1",
+		"astro": "^5.7.10",
 		"lucide-svelte": "^0.563.0",
+		"svelte": "^5.0.0",
 		"swiper": "^7.3.0"
 	},
-	"type": "module"
+	"devDependencies": {
+		"@astrojs/svelte": "^7.0.0",
+		"@astrojs/vercel": "^8.0.0",
+		"@imagekit/nodejs": "^7.3.0",
+		"prettier": "^3.1.0",
+		"prettier-plugin-astro": "^0.14.0",
+		"prettier-plugin-svelte": "^3.2.6",
+		"typescript": "^5.9.3"
+	}
 }

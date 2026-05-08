@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SEO from '../../components/SEO.astro';
+import HomePage from '../../components/HomePage.astro';
+import { getMessages } from '../../lib/messages';
+import { getReviews } from '../../lib/services/reviews';
+
+export function getStaticPaths() {
+	return [
+		{ params: { locale: 'en' } },
+		{ params: { locale: 'pt' } }
+	];
+}
+
+const locale = Astro.params.locale || 'es';
+const m = getMessages(locale);
+const { reviews } = await getReviews();
+const visibleReviews = reviews.slice(0, 12);
+---
+
+<Layout locale={locale}>
+	<SEO
+		title={m.home_title}
+		description={m.home_meta_description}
+		locale={locale}
+	/>
+	<HomePage locale={locale} m={m} visibleReviews={visibleReviews} reviews={reviews} />
+</Layout>

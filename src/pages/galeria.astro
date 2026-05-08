@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SEO from '../components/SEO.astro';
+import GaleriaPage from '../components/GaleriaPage.astro';
+import { getMessages } from '../lib/messages';
+import { sliderUrl, sliderSrcset, modalUrl, lqipUrl } from '../lib/imagekit';
+import ImageKit from '@imagekit/nodejs';
+
+const PRIVATE_IMAGEKIT_KEY = import.meta.env.PRIVATE_IMAGEKIT_KEY;
+const locale = Astro.currentLocale || 'es';
+const m = getMessages(locale);
+
+const sections = [
+	{ key: 'cab_1', path: '/int/cab_1/', headingKey: 'gallery_cab1_heading', subtitleKey: 'gallery_cab1_subtitle', altKey: 'alt_interior_cab1_photo', id: 'cab-1' },
+	{ key: 'cab_2', path: '/int/cab_2/', headingKey: 'gallery_cab2_heading', subtitleKey: 'gallery_cab2_subtitle', altKey: 'alt_interior_cab2_photo', id: 'cab-2' },
+	{ key: 'ext', path: '/ext/', headingKey: 'gallery_ext_heading', subtitleKey: 'gallery_ext_subtitle', altKey: 'alt_exterior_photo', id: undefined }
+];
+
+const fallback = {
+	ext: Array.from({ length: 13 }, (_, i) => `ext/${i + 1}.webp`),
+	cab_1: Array.from({ length: 11 }, (_, i) => `int/cab_1/${i + 1}.webp`),
+	cab_2: Array.from({ length: 11 }, (_, i) => `int/cab_2/${i + 1}.webp`)
+};
+
+let imagePaths: Record<string, string[]> = fallback;
+try {
+	const ik = new ImageKit({ privateKey: PRIVATE_IMAGEKIT_KEY });
+	const results = await Promise.all(
+		sections.map(({ path }) =>
+			ik.assets.list({ path, sort: 'ASC_NAME', limit: 100, fileType: 'image', type: 'file' })
+		)
+	);
+	const fetched: Record<string, string[]> = {};
+	for (let i = 0; i < sections.length; i++) {
+		fetched[sections[i].key] = (results[i] || [])
+			.filter((item: any) => item.type === 'file' && item.filePath)
+			.map((item: any) => item.filePath.replace(/^\//, ''));
+	}
+	imagePaths = fetched;
+} catch {}
+
+const slidesData = sections.map((sec, si) => ({
+	id: sec.id,
+	heading: m[sec.headingKey],
+	subtitle: m[sec.subtitleKey],
+	delay: 2300 + si * 100,
+	slides: (imagePaths[sec.key] || []).map((path, i) => ({
+		src: sliderUrl(path, 400),
+		srcset: sliderSrcset(path),
+		modalSrc: modalUrl(path),
+		lqip: lqipUrl(path),
+		alt: m[sec.altKey].replace('{n}', String(i + 1)),
+		id: i
+	}))
+}));
+---
+
+<Layout locale={locale}>
+	<SEO title={m.gallery_title} description={m.gallery_meta_description} locale={locale} />
+	<GaleriaPage locale={locale} slidesData={slidesData} />
+</Layout>

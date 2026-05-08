@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SEO from '../../components/SEO.astro';
+import PaseosPage from '../../components/PaseosPage.astro';
+import { getMessages } from '../../lib/messages';
+
+export function getStaticPaths() {
+	return [
+		{ params: { locale: 'en' } },
+		{ params: { locale: 'pt' } }
+	];
+}
+
+const locale = Astro.params.locale || 'es';
+const m = getMessages(locale);
+---
+
+<Layout locale={locale}>
+	<SEO title={m.excursions_title} description={m.excursions_meta_description} locale={locale} />
+	<PaseosPage locale={locale} m={m} />
+</Layout>

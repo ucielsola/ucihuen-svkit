@@ -1,0 +1,220 @@
+---
+import IconGrid from './IconGrid.astro';
+import Cards from './Cards.astro';
+import Map from './Map.astro';
+import InstagramEmbed from './InstagramEmbed.astro';
+import ReviewCard from './ReviewCard.astro';
+import Weather from './WeatherIsland.svelte';
+import SliderReviews from './SliderReviews.svelte';
+
+interface Props {
+	locale: string;
+	m: Record<string, string>;
+	visibleReviews: any[];
+	reviews: any[];
+}
+
+const { locale, m, visibleReviews, reviews } = Astro.props;
+---
+
+<div class="desktop-grid limited-width">
+	<section id="inicio" class="description marginated">
+		<p>
+			{m.home_desc_1_before}
+			<a
+				href="https://lagopuelo.gob.ar/turismo/"
+				target="_blank"
+				rel="noopener noreferrer"
+				title={m.home_link_lago_puelo}
+			>
+				{m.home_desc_1_link}
+			</a>
+			{m.home_desc_1_after}
+		</p>
+		<p>
+			{m.home_desc_2_before}
+			<a
+				href="https://lagopuelo.gob.ar/turismo/a-donde-vamos/parque-nacional-lago-puelo/"
+				target="_blank"
+				rel="noopener noreferrer"
+				title={m.home_link_parque_nacional}
+			>
+				{m.home_desc_2_link}
+			</a>
+			{m.home_desc_2_after}
+		</p>
+	</section>
+
+	<section class="icon-grid">
+		<h2 class="title">{m.home_amenities_title}</h2>
+		<p class="amenities-desc">{m.home_amenities_desc}</p>
+		<IconGrid locale={locale} />
+	</section>
+
+	<section class="vertical-banner">
+		<div class="banner-weather">
+			<h2 class="title">{m.weather_title}</h2>
+			<Weather client:visible locale={locale} />
+			<InstagramEmbed />
+		</div>
+		<img src="/images/vertical_banner.webp" alt={m.home_vertical_banner_alt} />
+	</section>
+</div>
+
+<section class="limited-width description">
+	<h2 class="title">{m.home_cabins_title}</h2>
+	<Cards locale={locale} />
+</section>
+
+<section class="limited-width">
+	<h2 class="title">{m.home_location_title}</h2>
+	<h3>
+		<img src="/icons/pin.webp" alt="" role="presentation" class="pin-icon" />
+		{m.home_location_subtitle}
+	</h3>
+	<Map />
+</section>
+
+<section class="limited-width mobile-weather">
+	<h2 class="title">{m.weather_title}</h2>
+	<Weather client:visible locale={locale} />
+	<InstagramEmbed />
+</section>
+
+<section class="no-padding full-width">
+	<div class="limited-width reviews">
+		<h2 class="title">{m.home_reviews_title}</h2>
+	</div>
+
+	<div class="static-reviews limited-width">
+		{visibleReviews.map((rev) => (
+			<ReviewCard
+				name={rev.autor_name}
+				avatarUrl={rev.autor_image}
+				rating={rev.review_rating}
+				date={rev.review_date}
+				text={rev.review_text}
+				link={rev.review_link}
+				imageLoaded={true}
+				locale={locale}
+			/>
+		))}
+	</div>
+
+	<SliderReviews client:visible reviews={reviews} locale={locale} />
+</section>
+
+<style>
+	section {
+		padding-inline: var(--padding-inline);
+		padding-block: 1.5rem;
+	}
+
+	section.no-padding {
+		padding: 0;
+	}
+
+	h2 {
+		padding-block-end: 0.5rem;
+		text-align: center;
+		color: var(--base-color);
+	}
+
+	p {
+		margin-block: 0.5rem;
+	}
+
+	.amenities-desc {
+		padding-inline: var(--padding-inline);
+		color: var(--base-color);
+		font-size: var(--text-base);
+		line-height: var(--leading-relaxed);
+	}
+
+	a {
+		color: var(--primary-color);
+		text-decoration: none;
+	}
+
+	h3 {
+		display: flex;
+	}
+
+	.pin-icon {
+		display: inline-block;
+		width: 1.5rem;
+		height: 1.5rem;
+		margin-inline-end: 0.5rem;
+	}
+
+	.vertical-banner {
+		display: none;
+	}
+
+	.static-reviews {
+		display: none;
+	}
+
+	@media screen and (min-width: 1024px) {
+		.mobile-weather {
+			display: none;
+		}
+
+		.limited-width.reviews {
+			padding-block-start: 3rem;
+		}
+
+		h2 {
+			text-align: start !important;
+			padding-inline-start: 2rem;
+		}
+
+		h3 {
+			padding-inline-start: 1.2rem;
+		}
+
+		.desktop-grid {
+			display: grid;
+			grid-template-columns: 1.4fr 0.6fr;
+			grid-template-rows: 0.5fr 1.5fr;
+			gap: 0 var(--space-lg-half);
+			grid-template-areas:
+				'description vertical-banner'
+				'icon-grid vertical-banner';
+		}
+
+		.vertical-banner {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			grid-area: vertical-banner;
+			width: 100%;
+		}
+
+		.banner-weather {
+			padding-inline: 0.5rem;
+		}
+
+		.vertical-banner img {
+			border-radius: var(--radius-sm);
+			box-shadow: var(--shadow-sm);
+		}
+
+		.icon-grid {
+			grid-area: icon-grid;
+		}
+
+		.description {
+			display: block;
+			grid-area: description;
+			box-shadow: var(--shadow);
+			padding: 2rem;
+			border-radius: var(--radius-sm);
+			margin-block-start: 2rem;
+		}
+
+		.description.marginated {
+			margin-inline: var(--padding-inline);
+		}
+	}
+</style>

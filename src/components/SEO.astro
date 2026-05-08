@@ -1,0 +1,84 @@
+---
+import { SITE_URL, AIRBNB_URL, BOOKING_URL, PHONE } from '$lib/config';
+import { localizeHref, delocalizePath } from '$lib/i18n';
+
+interface Props {
+	title: string;
+	description: string;
+	locale: string;
+}
+
+const { title, description, locale } = Astro.props;
+
+const OG_IMAGE = `${SITE_URL}/images/ucihuen_open_graph.png`;
+const LOCALE_MAP: Record<string, string> = { es: 'es_AR', en: 'en_US', pt: 'pt_BR' };
+const allLocales = ['es', 'en', 'pt'];
+
+const ogLocale = LOCALE_MAP[locale] || 'es_AR';
+const altLocales = Object.entries(LOCALE_MAP)
+	.filter(([k]) => k !== locale)
+	.map(([, v]) => v);
+
+const currentPath = delocalizePath(Astro.url.pathname);
+const canonicalUrl = `${SITE_URL}${Astro.url.pathname}`;
+
+const jsonLdData = JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'LodgingBusiness',
+	name: 'Cabañas Ucihuen',
+	description,
+	url: SITE_URL,
+	telephone: PHONE,
+	priceRange: '$$',
+	address: {
+		'@type': 'PostalAddress',
+		streetAddress: 'Los Alerces 880',
+		addressLocality: 'Lago Puelo',
+		addressRegion: 'Chubut',
+		postalCode: '9211',
+		addressCountry: 'AR'
+	},
+	geo: {
+		'@type': 'GeoCoordinates',
+		latitude: -42.0727885,
+		longitude: -71.6080007
+	},
+	image: OG_IMAGE,
+	sameAs: [AIRBNB_URL, BOOKING_URL],
+	aggregateRating: {
+		'@type': 'AggregateRating',
+		ratingValue: '4.9',
+		reviewCount: '78',
+		bestRating: '5',
+		worstRating: '3'
+	}
+});
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+{allLocales.map((loc) => (
+	<link
+		rel="alternate"
+		hreflang={loc}
+		href={`${SITE_URL}${localizeHref(currentPath, loc)}`}
+	/>
+))}
+<link rel="alternate" hreflang="x-default" href={`${SITE_URL}${currentPath}`} />
+<meta property="og:site_name" content="Cabañas Ucihuen" />
+<meta property="og:type" content="business.business" />
+<meta property="og:image" content={OG_IMAGE} />
+<meta property="og:locale" content={ogLocale} />
+{altLocales.map((alt) => (
+	<meta property="og:locale:alternate" content={alt} />
+))}
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content={OG_IMAGE} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:url" content={canonicalUrl} />
+<script type="application/ld+json" set:html={jsonLdData} />

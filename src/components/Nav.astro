@@ -1,0 +1,164 @@
+---
+import { getMessages } from '$lib/messages';
+import { localizeHref } from '$lib/i18n';
+
+interface Props {
+	locale: string;
+	currentPath: string;
+}
+
+const { locale, currentPath } = Astro.props;
+const m = getMessages(locale);
+
+const items = [
+	{ href: localizeHref('/', locale), hash: '#inicio', label: m.nav_home, active: currentPath === '/' },
+	{
+		href: localizeHref('/galeria', locale),
+		hash: '#galeria',
+		label: m.nav_gallery,
+		active: currentPath === '/galeria'
+	},
+	{
+		href: localizeHref('/paseos', locale),
+		hash: '#paseos',
+		label: m.nav_excursions,
+		active: currentPath === '/paseos'
+	}
+];
+---
+
+<nav>
+	<div class="background">
+		{items.map((item) => (
+			<button
+				class:list={[item.active ? 'active' : '']}
+				data-href={item.href}
+				data-hash={item.hash}
+				title={item.label}
+			>
+				{item.label}
+				<span class:list={['underline', item.active ? 'active' : '']} />
+			</button>
+		))}
+	</div>
+</nav>
+
+<script>
+	function initNav() {
+		const buttons = document.querySelectorAll<HTMLButtonElement>('nav button[data-href]');
+
+		buttons.forEach((btn) => {
+			btn.addEventListener('click', () => {
+				const href = btn.dataset.href!;
+				const hash = btn.dataset.hash!;
+
+				const currentLocalePrefix =
+					document.documentElement.lang === 'es' ? '' : `/${document.documentElement.lang}`;
+				const targetUrl = new URL(href, window.location.origin);
+				const currentPath = window.location.pathname.replace(
+					new RegExp(`^(/en|/pt)?`),
+					''
+				) || '/';
+				const targetPath = targetUrl.pathname.replace(
+					new RegExp(`^(/en|/pt)?`),
+					''
+				) || '/';
+
+				if (targetPath === currentPath) {
+					const element = document.querySelector(hash);
+					if (element) {
+						element.scrollIntoView({ behavior: 'smooth' });
+					}
+				} else {
+					window.location.href = `${href}${hash}`;
+				}
+			});
+		});
+	}
+
+	initNav();
+</script>
+
+<style>
+	.background {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-evenly;
+		font-size: var(--text-xl);
+	}
+
+	button {
+		display: inline-block;
+		color: var(--text-color);
+		font-family: var(--font-heading);
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		font-size: inherit;
+	}
+
+	.underline {
+		position: relative;
+		display: flex;
+		align-items: center;
+		background-color: var(--text-color);
+		width: 150%;
+		height: 2px;
+		margin-inline-start: -25%;
+	}
+	.underline::after {
+		position: absolute;
+		display: block;
+		content: '';
+		width: 70%;
+		height: 0.5rem;
+		background: var(--gradient);
+		margin-inline-start: 15%;
+		border-radius: var(--radius-sm);
+		animation: disappear 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	}
+
+	.underline.active::after {
+		animation: appear 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	}
+
+	@keyframes appear {
+		0% {
+			transform: translateZ(-1400px);
+			opacity: 0;
+		}
+		100% {
+			transform: translateZ(0);
+			opacity: 1;
+		}
+	}
+	@keyframes disappear {
+		0% {
+			transform: translateZ(0);
+			opacity: 1;
+		}
+		100% {
+			transform: translateZ(-1400px);
+			opacity: 0;
+		}
+	}
+
+	@media screen and (min-width: 1024px) {
+		nav {
+			width: 40rem;
+			margin-inline: auto;
+			padding: 2px;
+			border-radius: var(--radius-sm);
+			background: linear-gradient(var(--accent-teal) 0%, var(--accent-gold) 100%);
+		}
+		.background {
+			display: flex;
+			align-items: center;
+			background: var(--surface-color);
+			border-radius: var(--radius-sm);
+			padding-block: 0.5rem;
+		}
+	}
+</style>

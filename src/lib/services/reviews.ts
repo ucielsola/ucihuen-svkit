@@ -1,6 +1,4 @@
-import { UCIEL_API_KEY } from '$env/static/private';
-import json from '$lib/data/reviews.min.json';
-
+const UCIEL_API_KEY = import.meta.env.UCIEL_API_KEY;
 const CACHE_TTL_MS = 10 * 60 * 1000;
 const API_URL = 'http://api.uciel.xyz/api/google-reviews/reviews';
 
@@ -73,19 +71,18 @@ export async function getReviews(): Promise<ReviewsResult> {
 	const now = Date.now();
 	if (cache.data && cache.expires > now) return cache.data;
 
-	const localReviews = json.reviews as Review[];
-
-	let apiReviews: Review[] = [];
+	let reviews: Review[] = [];
 	try {
-		apiReviews = await fetchApiReviews();
+		reviews = await fetchApiReviews();
 	} catch {
-		// fallback to local-only
+		// fallback to empty
 	}
 
-	const reviews = apiReviews.length > 0 ? apiReviews : localReviews;
 	const filtered = reviews.filter((r) => r.review_text && Number(r.review_rating) >= 4);
 
 	const result: ReviewsResult = { reviews: filtered };
 	cache = { data: result, expires: now + CACHE_TTL_MS };
 	return result;
 }
+
+export type { Review, ReviewsResult };

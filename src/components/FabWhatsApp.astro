@@ -1,0 +1,133 @@
+---
+import { getMessages } from '$lib/messages';
+import { WHATSAPP_URL } from '$lib/config';
+
+interface Props {
+	locale: string;
+}
+
+const { locale } = Astro.props;
+const m = getMessages(locale);
+---
+
+<a
+	href={WHATSAPP_URL}
+	target="_blank"
+	rel="noopener noreferrer nofollow"
+	class="button-wrapper"
+>
+	<img
+		src="/images/whatsapp.png"
+		alt="Whatsapp logo"
+		class="wa-logo"
+		title={m.fab_whatsapp_title}
+	/>
+</a>
+
+<script>
+	function initFab() {
+		const fab = document.querySelector<HTMLElement>('.button-wrapper');
+		if (!fab) return;
+
+		const footer = document.querySelector('footer');
+		if (footer) {
+			const setFooterHeight = () => {
+				document.documentElement.style.setProperty(
+					'--footer-height',
+					`${footer.offsetHeight}px`
+				);
+			};
+			setFooterHeight();
+			window.addEventListener('resize', setFooterHeight);
+		}
+
+		const limit = window.location.pathname === '/' ||
+			window.location.pathname === '/en/' ||
+			window.location.pathname === '/pt/'
+			? 95
+			: 75;
+
+		let lastScroll = window.scrollY;
+		let scrollingUp = false;
+
+		const onScroll = () => {
+			const currentScroll = window.scrollY;
+			const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+			const scrolledPercentage = docHeight > 0 ? (currentScroll / docHeight) * 100 : 0;
+			scrollingUp = currentScroll < lastScroll;
+			lastScroll = currentScroll;
+
+			if (scrolledPercentage > limit && !scrollingUp) {
+				fab.classList.add('pushed-up');
+			} else {
+				fab.classList.remove('pushed-up');
+			}
+		};
+
+		window.addEventListener('scroll', onScroll, { passive: true });
+	}
+
+	initFab();
+</script>
+
+<style>
+	.button-wrapper {
+		z-index: var(--z-fab);
+		position: fixed;
+		bottom: 2rem;
+		right: 2rem;
+		width: 4rem;
+		filter: var(--drop-shadow);
+		transition: transform 0.2s var(--easing);
+	}
+
+	.button-wrapper:active {
+		transform: scale(1.1);
+	}
+
+	.button-wrapper:focus-visible {
+		outline: 3px solid var(--secondary-color);
+		outline-offset: 4px;
+		border-radius: 50%;
+	}
+
+	a.pushed-up {
+		bottom: var(--footer-height);
+		transition: bottom 0.5s var(--easing);
+	}
+
+	.wa-logo {
+		animation: shake-horizontal 0.8s cubic-bezier(0.445, 0.05, 0.55, 0.95) 2s both;
+	}
+
+	@keyframes shake-horizontal {
+		0%,
+		100% {
+			transform: translateX(0);
+		}
+		10%,
+		30%,
+		50%,
+		70% {
+			transform: translateX(-10px);
+		}
+		20%,
+		40%,
+		60% {
+			transform: translateX(10px);
+		}
+		80% {
+			transform: translateX(8px);
+		}
+		90% {
+			transform: translateX(-8px);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.button-wrapper:hover {
+			transform: scale(1.1);
+			transition: transform 0.2s var(--easing);
+		}
+	}
+</style>

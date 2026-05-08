@@ -1,0 +1,95 @@
+---
+import Header from '../components/Header.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import FabWhatsApp from '../components/FabWhatsApp.astro';
+import LangToggle from '../components/LangToggle.svelte';
+import { localizeHref, delocalizePath } from '../lib/i18n';
+import { getMessages } from '../lib/messages';
+
+interface Props {
+	locale?: string;
+}
+
+const { locale = 'es' } = Astro.props;
+const currentPath = delocalizePath(Astro.url.pathname);
+const m = getMessages(locale);
+---
+
+<!doctype html>
+<html lang={locale}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="/favicon.png" />
+		<meta
+			name="google-site-verification"
+			content="HtkNKZnoCCzIf01im9a6t7ywPOF-Ya1JJKtMQGI7EAM"
+		/>
+		<link rel="preconnect" href="https://www.youtube-nocookie.com" />
+		<link rel="preconnect" href="https://i.ytimg.com" />
+		<link
+			rel="alternate"
+			type="text/markdown"
+			title="LLM-friendly content"
+			href="/llms.txt"
+		/>
+		<script
+			is:inline
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-RRDPW3W5X2"
+		></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+			gtag('config', 'G-RRDPW3W5X2');
+		</script>
+		<link rel="stylesheet" href="/reset.css" />
+		<link rel="stylesheet" href="/global.css" />
+		<slot name="head" />
+	</head>
+	<body>
+		<div id="svelte">
+			<LangToggle client:load locale={locale} />
+			<Header locale={locale} />
+			<div class="nav-container">
+				<Nav locale={locale} currentPath={currentPath} />
+			</div>
+			<main>
+				<slot />
+				<FabWhatsApp locale={locale} />
+				<Footer locale={locale} />
+			</main>
+		</div>
+	</body>
+</html>
+
+<style>
+	main {
+		position: relative;
+		background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0.5) 0%,
+			rgba(255, 255, 255, 0.5) 90%,
+			var(--overlay-highlight) 100%
+		);
+	}
+
+	.nav-container {
+		width: 100%;
+		margin-block-start: 1rem;
+	}
+
+	@media screen and (min-width: 1024px) {
+		main {
+			padding-block-start: 2rem;
+		}
+		.nav-container {
+			position: absolute;
+			margin-block-start: -15vh;
+		}
+	}
+</style>
