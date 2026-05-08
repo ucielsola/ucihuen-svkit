@@ -17,7 +17,7 @@
 	let cancelHints = () => {};
 
 	function hrefFor(code) {
-		return localizeHref(window.location.pathname + window.location.search + window.location.hash, code);
+		return localizeHref(window.location.pathname + window.location.search, code) + window.location.hash;
 	}
 
 	function markSwitched() {
