@@ -54,7 +54,7 @@ const m = getMessages(locale);
 	<body>
 		<div id="svelte">
 			<LangToggle client:load locale={locale} />
-			<Header locale={locale} />
+			<Header locale={locale} heading={currentPath === '/' ? m.home_title : undefined} />
 			<div class="nav-container">
 				<Nav locale={locale} currentPath={currentPath} />
 			</div>

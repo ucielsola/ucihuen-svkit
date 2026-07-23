@@ -4,12 +4,14 @@ import GaleriaSection from './GaleriaSection.svelte';
 interface Props {
 	locale: string;
 	slidesData: any[];
+	title: string;
 }
 
-const { locale, slidesData } = Astro.props;
+const { locale, slidesData, title } = Astro.props;
 ---
 
 <section id="galeria">
+	<h1>{title}</h1>
 	<GaleriaSection client:visible sections={slidesData} locale={locale} />
 </section>
 
@@ -19,9 +21,20 @@ const { locale, slidesData } = Astro.props;
 		margin-block-start: 2rem;
 	}
 
+	h1 {
+		padding: 0 var(--padding-inline) 0.5rem;
+		text-align: center;
+		color: var(--base-color);
+	}
+
 	@media screen and (min-width: 1024px) {
 		section {
 			margin-block-start: 3rem;
+		}
+
+		h1 {
+			text-align: start;
+			padding-inline-start: calc(var(--padding-inline) + 2rem);
 		}
 	}
 </style>

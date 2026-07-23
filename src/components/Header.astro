@@ -4,9 +4,10 @@ import { localizeHref } from '$lib/i18n';
 
 interface Props {
 	locale: string;
+	heading?: string;
 }
 
-const { locale } = Astro.props;
+const { locale, heading } = Astro.props;
 const m = getMessages(locale);
 ---
 
@@ -27,7 +28,7 @@ const m = getMessages(locale);
 	<div class="row">
 		<div class="logo">
 			<a href={localizeHref('/', locale)} title={m.header_home_title}>
-				<h1>Cabañas <span>Ucihuen</span></h1>
+				{heading ? <h1>{heading}</h1> : <div class="brand">Cabañas <span>Ucihuen</span></div>}
 			</a>
 		</div>
 		<p class="copy">
@@ -132,7 +133,7 @@ const m = getMessages(locale);
 		pointer-events: auto;
 	}
 
-	.logo h1 {
+	.logo :is(h1, .brand) {
 		font-size: var(--text-4xl);
 		line-height: var(--leading-none);
 		font-family: var(--font-logo);
@@ -140,14 +141,14 @@ const m = getMessages(locale);
 		filter: var(--drop-shadow);
 	}
 
-	.logo h1 span {
+	.logo :is(h1, .brand) span {
 		position: relative;
 		display: block;
 		width: min-content;
 		font-size: var(--text-5xl);
 		line-height: var(--leading-none);
 	}
-	.logo h1 span::after {
+	.logo :is(h1, .brand) span::after {
 		content: 'ᨊ';
 		position: absolute;
 		top: -3rem;
@@ -174,18 +175,18 @@ const m = getMessages(locale);
 			justify-content: center;
 		}
 
-		.logo h1 {
+		.logo :is(h1, .brand) {
 			font-size: 3.5rem;
 			line-height: var(--leading-none);
 			padding-inline-end: 2rem;
 		}
 
-		.logo h1 span {
+		.logo :is(h1, .brand) span {
 			width: min-content;
 			font-size: var(--text-6xl);
 			line-height: 1.1;
 		}
-		.logo h1 span::after {
+		.logo :is(h1, .brand) span::after {
 			top: -4.5rem;
 			right: 1rem;
 		}
