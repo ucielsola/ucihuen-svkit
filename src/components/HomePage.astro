@@ -3,18 +3,15 @@ import IconGrid from './IconGrid.astro';
 import Cards from './Cards.astro';
 import Map from './Map.astro';
 import InstagramEmbed from './InstagramEmbed.astro';
-import ReviewCard from './ReviewCard.astro';
 import Weather from './WeatherIsland.svelte';
 import SliderReviews from './SliderReviews.svelte';
 
 interface Props {
 	locale: string;
 	m: Record<string, string>;
-	visibleReviews: any[];
-	reviews: any[];
 }
 
-const { locale, m, visibleReviews, reviews } = Astro.props;
+const { locale, m } = Astro.props;
 ---
 
 <div class="desktop-grid limited-width">
@@ -86,22 +83,7 @@ const { locale, m, visibleReviews, reviews } = Astro.props;
 		<h2 class="title">{m.home_reviews_title}</h2>
 	</div>
 
-	<div class="static-reviews limited-width">
-		{visibleReviews.map((rev) => (
-			<ReviewCard
-				name={rev.autor_name}
-				avatarUrl={rev.autor_image}
-				rating={rev.review_rating}
-				date={rev.review_date}
-				text={rev.review_text}
-				link={rev.review_link}
-				imageLoaded={true}
-				locale={locale}
-			/>
-		))}
-	</div>
-
-	<SliderReviews client:visible reviews={reviews} locale={locale} />
+	<SliderReviews client:visible locale={locale} />
 </section>
 
 <style>
@@ -148,10 +130,6 @@ const { locale, m, visibleReviews, reviews } = Astro.props;
 	}
 
 	.vertical-banner {
-		display: none;
-	}
-
-	.static-reviews {
 		display: none;
 	}
 

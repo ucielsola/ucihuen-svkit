@@ -4,10 +4,45 @@
 	import 'swiper/css';
 	import ReviewCard from './ReviewCardIsland.svelte';
 
-	let { reviews, locale = 'es' } = $props();
+	interface Review {
+		autor_name: string;
+		autor_image: string | null;
+		review_text: string;
+		review_link: string;
+		review_rating: string;
+		review_date: string;
+	}
+
+	let { locale = 'es' }: { locale?: string } = $props();
 
 	const BATCH = 8;
+	let reviews = $state<Review[]>([]);
 	let loaded = $state(BATCH);
+	let loading = $state(true);
+	let failed = $state(false);
+
+	$effect(() => {
+		let cancelled = false;
+
+		fetch('/api/reviews')
+			.then(async (response) => {
+				if (!response.ok) throw new Error('Unable to load reviews');
+				return (await response.json()) as { reviews: Review[] };
+			})
+			.then((data) => {
+				if (!cancelled) reviews = data.reviews;
+			})
+			.catch(() => {
+				if (!cancelled) failed = true;
+			})
+			.finally(() => {
+				if (!cancelled) loading = false;
+			});
+
+		return () => {
+			cancelled = true;
+		};
+	});
 
 	$effect(() => {
 		if (loaded < reviews.length) {
@@ -19,8 +54,9 @@
 	});
 </script>
 
-<div id="swiper-container">
-	<Swiper
+{#if reviews.length}
+	<div id="swiper-container">
+		<Swiper
 		modules={[Autoplay]}
 		autoplay={{
 			disableOnInteraction: false,
@@ -49,20 +85,34 @@
 				slidesPerView: 4.95
 			}
 		}}
-	>
-		{#each reviews as rev, i}
-			<SwiperSlide>
-				<ReviewCard
-					name={rev.autor_name}
-					avatarUrl={rev.autor_image}
-					rating={rev.review_rating}
-					date={rev.review_date}
-					text={rev.review_text}
-					link={rev.review_link}
-					imageLoaded={i < loaded}
-					{locale}
-				/>
-			</SwiperSlide>
-		{/each}
-	</Swiper>
-</div>
+		>
+			{#each reviews as rev, i}
+				<SwiperSlide>
+					<ReviewCard
+						name={rev.autor_name}
+						avatarUrl={rev.autor_image}
+						rating={rev.review_rating}
+						date={rev.review_date}
+						text={rev.review_text}
+						link={rev.review_link}
+						imageLoaded={i < loaded}
+						{locale}
+					/>
+				</SwiperSlide>
+			{/each}
+		</Swiper>
+	</div>
+{:else if loading}
+	<p class="reviews-status" aria-live="polite">Loading reviews…</p>
+{:else if failed}
+	<p class="reviews-status" role="status">Reviews are temporarily unavailable.</p>
+{/if}
+
+<style>
+	.reviews-status {
+		margin: 0;
+		padding: 1rem var(--padding-inline);
+		text-align: center;
+		color: var(--base-color);
+	}
+</style>

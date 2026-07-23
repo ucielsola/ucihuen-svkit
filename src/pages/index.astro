@@ -3,12 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import SEO from '../components/SEO.astro';
 import HomePage from '../components/HomePage.astro';
 import { getMessages } from '../lib/messages';
-import { getReviews } from '../lib/services/reviews';
 
 const locale = Astro.currentLocale || 'es';
 const m = getMessages(locale);
-const { reviews } = await getReviews();
-const visibleReviews = reviews.slice(0, 12);
 ---
 
 <Layout locale={locale}>
@@ -17,5 +14,5 @@ const visibleReviews = reviews.slice(0, 12);
 		description={m.home_meta_description}
 		locale={locale}
 	/>
-	<HomePage locale={locale} m={m} visibleReviews={visibleReviews} reviews={reviews} />
+	<HomePage locale={locale} m={m} />
 </Layout>
