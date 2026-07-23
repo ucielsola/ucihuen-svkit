@@ -46,6 +46,12 @@ const jsonLdData = JSON.stringify({
 	},
 	image: OG_IMAGE,
 	hasMap: 'https://www.google.com/maps/search/?api=1&query=Caba%C3%B1as%20Ucihuen%2C%20Lago%20Puelo',
+	petsAllowed: true,
+	amenityFeature: [
+		{ '@type': 'LocationFeatureSpecification', name: 'WiFi', value: true },
+		{ '@type': 'LocationFeatureSpecification', name: 'Parking', value: true },
+		{ '@type': 'LocationFeatureSpecification', name: 'Barbecue grill', value: true }
+	],
 	sameAs: [AIRBNB_URL, BOOKING_URL, 'https://www.instagram.com/ucihuen/']
 });
 
