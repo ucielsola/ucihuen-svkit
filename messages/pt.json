@@ -148,5 +148,20 @@
 
 	"home_vertical_banner_alt": "Vista do parque das Cabañas Ucihuen com árvores frutíferas e montanhas ao fundo",
 
-	"review_posted_on_google": "Publicado no Google"
+	"review_posted_on_google": "Publicado no Google",
+	"faq_title": "Perguntas frequentes",
+	"faq_location_question": "Onde ficam as Cabañas Ucihuen?",
+	"faq_location_answer": "Estamos na Los Alerces 880, Villa Turística Lago Puelo, Chubut, Argentina, a duas quadras do centro e perto do Parque Nacional Lago Puelo.",
+	"faq_capacity_question": "Quantas pessoas podem se hospedar?",
+	"faq_capacity_answer": "Temos uma cabana de dois andares, com dois quartos, para até 7 pessoas, e outra cabana para até 4 pessoas.",
+	"faq_pets_question": "Aceitam animais de estimação?",
+	"faq_pets_answer": "Sim, as cabanas aceitam animais de estimação.",
+	"faq_wifi_question": "Há WiFi?",
+	"faq_wifi_answer": "Sim, oferecemos internet de fibra óptica de 200 Mb.",
+	"faq_booking_question": "Como posso reservar?",
+	"faq_booking_answer": "Você pode consultar a disponibilidade e reservar pelo Airbnb, Booking.com ou WhatsApp.",
+	"faq_breakfast_question": "O café da manhã está incluído?",
+	"faq_breakfast_answer": "Recebemos os hóspedes com um café da manhã de boas-vindas com café, chá, mate cocido, açúcar e doce caseiro.",
+	"faq_parking_question": "Há estacionamento?",
+	"faq_parking_answer": "Sim, as cabanas têm estacionamento coberto dentro da propriedade."
 }

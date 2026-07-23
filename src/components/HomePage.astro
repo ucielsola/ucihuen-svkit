@@ -3,6 +3,7 @@ import IconGrid from './IconGrid.astro';
 import Cards from './Cards.astro';
 import Map from './Map.astro';
 import InstagramEmbed from './InstagramEmbed.astro';
+import Faq from './Faq.astro';
 import Weather from './WeatherIsland.svelte';
 import SliderReviews from './SliderReviews.svelte';
 
@@ -62,6 +63,8 @@ const { locale, m } = Astro.props;
 	<h2 class="title">{m.home_cabins_title}</h2>
 	<Cards locale={locale} />
 </section>
+
+<Faq {m} />
 
 <section class="limited-width">
 	<h2 class="title">{m.home_location_title}</h2>

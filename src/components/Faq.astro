@@ -1,0 +1,51 @@
+---
+interface Props {
+	m: Record<string, string>;
+}
+
+const { m } = Astro.props;
+
+const questions = [
+	['faq_location_question', 'faq_location_answer'],
+	['faq_capacity_question', 'faq_capacity_answer'],
+	['faq_pets_question', 'faq_pets_answer'],
+	['faq_wifi_question', 'faq_wifi_answer'],
+	['faq_booking_question', 'faq_booking_answer'],
+	['faq_breakfast_question', 'faq_breakfast_answer'],
+	['faq_parking_question', 'faq_parking_answer']
+];
+---
+
+<section class="limited-width faq" aria-labelledby="faq-heading">
+	<h2 id="faq-heading" class="title">{m.faq_title}</h2>
+	{questions.map(([question, answer]) => (
+		<details>
+			<summary>{m[question]}</summary>
+			<p>{m[answer]}</p>
+		</details>
+	))}
+</section>
+
+<style>
+	.faq {
+		max-width: 70rem;
+	}
+
+	details {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+		padding: 0.875rem 0;
+	}
+
+	summary {
+		cursor: pointer;
+		font-size: var(--text-base);
+		font-weight: var(--font-semibold);
+		color: var(--base-color);
+	}
+
+	p {
+		max-width: 70ch;
+		line-height: var(--leading-relaxed);
+		color: var(--base-color);
+	}
+</style>
