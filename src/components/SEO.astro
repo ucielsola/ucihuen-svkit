@@ -21,6 +21,7 @@ const altLocales = Object.entries(LOCALE_MAP)
 
 const currentPath = delocalizePath(Astro.url.pathname);
 const canonicalUrl = `${SITE_URL}${Astro.url.pathname}`;
+const isHomePage = currentPath === '/';
 
 const jsonLdData = JSON.stringify({
 	'@context': 'https://schema.org',
@@ -44,14 +45,16 @@ const jsonLdData = JSON.stringify({
 		longitude: -71.6080007
 	},
 	image: OG_IMAGE,
-	sameAs: [AIRBNB_URL, BOOKING_URL],
-	aggregateRating: {
-		'@type': 'AggregateRating',
-		ratingValue: '4.9',
-		reviewCount: '78',
-		bestRating: '5',
-		worstRating: '3'
-	}
+	hasMap: 'https://www.google.com/maps/search/?api=1&query=Caba%C3%B1as%20Ucihuen%2C%20Lago%20Puelo',
+	sameAs: [AIRBNB_URL, BOOKING_URL, 'https://www.instagram.com/ucihuen/']
+});
+
+const webSiteJsonLdData = JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	name: 'Cabañas Ucihuen',
+	url: SITE_URL,
+	inLanguage: locale
 });
 ---
 
@@ -82,3 +85,4 @@ const jsonLdData = JSON.stringify({
 <meta name="twitter:description" content={description} />
 <meta name="twitter:url" content={canonicalUrl} />
 <script type="application/ld+json" set:html={jsonLdData} />
+{isHomePage && <script type="application/ld+json" set:html={webSiteJsonLdData} />}
