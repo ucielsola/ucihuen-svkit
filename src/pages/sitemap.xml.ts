@@ -10,11 +10,9 @@ const pages: Page[] = [
 ];
 
 export const GET: APIRoute = () => {
-	const lastmod = new Date().toISOString().split('T')[0];
 	const urls = pages.map((p) => `
   <url>
     <loc>${SITE_URL}${p.path}</loc>
-    <lastmod>${lastmod}</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="${SITE_URL}${p.es}" />
     <xhtml:link rel="alternate" hreflang="en" href="${SITE_URL}${p.en}" />
     <xhtml:link rel="alternate" hreflang="pt" href="${SITE_URL}${p.pt}" />
