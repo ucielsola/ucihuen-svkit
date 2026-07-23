@@ -9,6 +9,6 @@ const m = getMessages(locale);
 ---
 
 <Layout locale={locale}>
-	<SEO title={m.excursions_title} description={m.excursions_meta_description} locale={locale} />
+	<SEO slot="head" title={m.excursions_title} description={m.excursions_meta_description} locale={locale} />
 	<PaseosPage locale={locale} m={m} />
 </Layout>
