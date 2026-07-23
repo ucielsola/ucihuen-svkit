@@ -19,11 +19,11 @@ const m = getMessages(locale);
 	/>
 	<iframe
 		id="yt-bg"
-		src="https://www.youtube.com/embed/ZwqyXout2Xo?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=ZwqyXout2Xo&playsinline=1&disablekb=1&modestbranding=1&enablejsapi=1"
+		data-src="https://www.youtube.com/embed/ZwqyXout2Xo?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=ZwqyXout2Xo&playsinline=1&disablekb=1&modestbranding=1&enablejsapi=1"
 		title="Video de fondo - Cabañas Ucihuen"
 		frameborder="0"
 		allow="autoplay; encrypted-media"
-		loading="eager"
+		loading="lazy"
 	></iframe>
 	<div class="row">
 		<div class="logo">
@@ -42,6 +42,7 @@ const m = getMessages(locale);
 		const iframe = document.getElementById('yt-bg') as HTMLIFrameElement | null;
 		const cover = document.querySelector('.cover') as HTMLImageElement | null;
 		if (!iframe || !cover) return;
+		iframe.src = iframe.dataset.src || '';
 
 		function onPlayerReady(player: any) {
 			player.setPlaybackRate(1.25);
@@ -76,7 +77,11 @@ const m = getMessages(locale);
 		}, 4000);
 	}
 
-	initHeader();
+	if ('requestIdleCallback' in window) {
+		window.requestIdleCallback(initHeader, { timeout: 3000 });
+	} else {
+		window.setTimeout(initHeader, 1500);
+	}
 </script>
 
 <style>
