@@ -22,7 +22,7 @@ Cabañas Ucihuen ofrece alquiler de cabañas totalmente equipadas en el corazón
 
 ### ¿Qué comodidades tienen nuestras cabañas?
 
-Nuestras cabañas están equipadas con todo lo necesario para que disfrutes tu estadía sin preocupaciones: ropa de cama y toallas, vajilla completa, Internet por fibra óptica de 200 Mb, TV por streaming y estacionamiento con sombra. Además, te recibimos con un desayuno de bienvenida que incluye café, té, mate cocido, azúcar y dulce casero. Para los días fríos contamos con estufas, ropa de cama de abrigo y agua caliente las 24 horas. En el exterior, podrás aprovechar tu parrilla individual o relajarte en nuestro parque lleno de árboles frutales, rodeado de un entorno silencioso con vistas a la montaña y muy cerca del lago y el río.
+Nuestras cabañas están equipadas con todo lo necesario para que disfrutes tu estadía sin preocupaciones: ropa de cama y toallas, vajilla completa, Internet por fibra óptica de 1000 Mb, TV por streaming y estacionamiento con sombra. Además, te recibimos con un desayuno de bienvenida que incluye café, té, mate cocido, azúcar y dulce casero. Para los días fríos contamos con estufas, ropa de cama de abrigo y agua caliente las 24 horas. En el exterior, podrás aprovechar tu parrilla individual o relajarte en nuestro parque lleno de árboles frutales, rodeado de un entorno silencioso con vistas a la montaña y muy cerca del lago y el río.
 
 ---
 
@@ -31,7 +31,7 @@ Nuestras cabañas están equipadas con todo lo necesario para que disfrutes tu e
 - Apto para mascotas
 - Estacionamiento con sombra
 - Calefacción en la cabaña
-- WiFi fibra óptica de 200 Mb
+- WiFi fibra óptica de 1000 Mb
 - Parrilla individual
 - Agua caliente las 24 horas
 - TV por streaming
@@ -183,7 +183,7 @@ Sí, las cabañas son pet friendly. Podés traer a tu mascota para disfrutar jun
 Tenemos dos tipos de cabaña: una para hasta 7 personas (dos plantas, 2 habitaciones) y otra para hasta 4 personas (una planta, living con futones).
 
 **¿Tienen WiFi?**
-Sí, contamos con Internet por fibra óptica de 200 Mb en todas las cabañas.
+Sí, contamos con Internet por fibra óptica de 1000 Mb en todas las cabañas.
 
 **¿Cómo puedo reservar?**
 Podés reservar a través de Airbnb, Booking.com o contactándonos directamente por WhatsApp al +54 9 11 3158-6242.
