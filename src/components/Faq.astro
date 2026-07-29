@@ -18,34 +18,146 @@ const questions = [
 
 <section class="limited-width faq" aria-labelledby="faq-heading">
 	<h2 id="faq-heading" class="title">{m.faq_title}</h2>
-	{questions.map(([question, answer]) => (
-		<details>
-			<summary>{m[question]}</summary>
-			<p>{m[answer]}</p>
-		</details>
-	))}
+	<div class="faq__list">
+		{
+			questions.map(([question, answer]) => (
+				<details class="faq__item">
+					<summary class="faq__question">
+						<span>{m[question]}</span>
+						<span class="faq__indicator" aria-hidden="true" />
+					</summary>
+					<div class="faq__answer">
+						<p>{m[answer]}</p>
+					</div>
+				</details>
+			))
+		}
+	</div>
 </section>
 
 <style>
 	.faq {
-		max-width: 70rem;
+		max-width: 68rem;
+		padding-block: var(--space-lg);
 	}
 
-	details {
-		border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-		padding: 0.875rem 0;
+	.title {
+		margin-block-end: var(--space-md);
+		color: var(--base-color);
+		text-align: center;
 	}
 
-	summary {
+	.faq__list {
+		display: grid;
+		gap: var(--space-sm);
+	}
+
+	.faq__item {
+		overflow: hidden;
+		border: 1px solid rgba(55, 87, 74, 0.15);
+		border-left: 4px solid var(--highlight-color);
+		border-radius: var(--radius-sm);
+		background: linear-gradient(100deg, var(--surface-color-warm), var(--surface-color));
+		box-shadow: var(--shadow);
+		transition:
+			box-shadow 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	.faq__item:hover {
+		transform: translateY(-1px);
+		box-shadow: var(--shadow-lg);
+	}
+
+	.faq__question {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: center;
+		gap: var(--space-md);
+		padding: 1rem 1.125rem;
 		cursor: pointer;
 		font-size: var(--text-base);
 		font-weight: var(--font-semibold);
 		color: var(--base-color);
+		list-style: none;
 	}
 
-	p {
-		max-width: 70ch;
+	.faq__question::-webkit-details-marker {
+		display: none;
+	}
+
+	.faq__question:focus-visible {
+		outline: 3px solid var(--secondary-color);
+		outline-offset: -3px;
+	}
+
+	.faq__indicator {
+		position: relative;
+		width: 1.75rem;
+		height: 1.75rem;
+		border-radius: 50%;
+		background: var(--highlight-color);
+		transition:
+			background-color 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	.faq__indicator::before,
+	.faq__indicator::after {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 0.7rem;
+		height: 2px;
+		border-radius: 2px;
+		background: var(--text-color-light);
+		content: '';
+		transform: translate(-50%, -50%);
+	}
+
+	.faq__indicator::after {
+		transform: translate(-50%, -50%) rotate(90deg);
+	}
+
+	.faq__item[open] {
+		border-color: rgba(170, 6, 10, 0.25);
+	}
+
+	.faq__item[open] .faq__indicator {
+		background: var(--primary-color);
+		transform: rotate(180deg);
+	}
+
+	.faq__item[open] .faq__indicator::after {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+
+	.faq__answer {
+		border-top: 1px solid rgba(55, 87, 74, 0.15);
+		padding: 0 1.125rem 1rem;
+	}
+
+	.faq__answer p {
+		max-width: 65ch;
+		padding-block-start: 0.875rem;
 		line-height: var(--leading-relaxed);
 		color: var(--base-color);
+	}
+
+	@media screen and (min-width: 1024px) {
+		.title {
+			padding-inline-start: 2rem;
+			text-align: start;
+		}
+
+		.faq__question {
+			padding: 1.125rem 1.5rem;
+			font-size: var(--text-lg);
+		}
+
+		.faq__answer {
+			padding-inline: 1.5rem;
+			padding-block-end: 1.125rem;
+		}
 	}
 </style>

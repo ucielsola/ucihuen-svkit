@@ -64,8 +64,6 @@ const { locale, m } = Astro.props;
 	<Cards locale={locale} />
 </section>
 
-<Faq {m} />
-
 <section class="limited-width">
 	<h2 class="title">{m.home_location_title}</h2>
 	<h3>
@@ -88,6 +86,8 @@ const { locale, m } = Astro.props;
 
 	<SliderReviews client:visible locale={locale} />
 </section>
+
+<Faq {m} />
 
 <style>
 	section {
